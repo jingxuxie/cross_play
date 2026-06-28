@@ -3879,15 +3879,15 @@
       "source": "results/plan_coverage_audit.json"
     },
     {
-      "actual": "17",
-      "expected": "17",
+      "actual": "18",
+      "expected": "18",
       "name": "plan_coverage.status_counts.covered",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
     },
     {
-      "actual": "6",
-      "expected": "6",
+      "actual": "5",
+      "expected": "5",
       "name": "plan_coverage.status_counts.partial",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
@@ -3921,15 +3921,15 @@
       "source": "results/plan_coverage_audit.json"
     },
     {
-      "actual": "0",
-      "expected": "0",
+      "actual": "1",
+      "expected": "1",
       "name": "plan_coverage.stretch_status_counts.covered",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
     },
     {
-      "actual": "4",
-      "expected": "4",
+      "actual": "3",
+      "expected": "3",
       "name": "plan_coverage.stretch_status_counts.partial",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
@@ -3942,8 +3942,8 @@
       "source": "results/plan_coverage_audit.json"
     },
     {
-      "actual": "7",
-      "expected": "7",
+      "actual": "6",
+      "expected": "6",
       "name": "plan_coverage.open_or_partial",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
@@ -4042,7 +4042,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "plan_coverage.item.publish_the_artifact_as_a_public_repository_or_submission_bundle.partial",
+      "name": "plan_coverage.item.publish_the_artifact_as_a_public_repository_or_submission_bundle.covered",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
     },
@@ -4840,7 +4840,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/artifact_guide.md.Stretch scope: 0 covered, 4 partial, 1 open.",
+      "name": "text.docs/artifact_guide.md.Stretch scope: 1 covered, 3 partial, 1 open.",
       "ok": true,
       "source": "docs/artifact_guide.md"
     },
@@ -5204,7 +5204,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/plan_coverage_audit.md.Overall: 17 covered, 6 partial, 1 open across 24 plan items.",
+      "name": "text.docs/plan_coverage_audit.md.Overall: 18 covered, 5 partial, 1 open across 24 plan items.",
       "ok": true,
       "source": "docs/plan_coverage_audit.md"
     },
@@ -5218,7 +5218,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/plan_coverage_audit.md.Stretch scope: 0 covered, 4 partial, 1 open.",
+      "name": "text.docs/plan_coverage_audit.md.Stretch scope: 1 covered, 3 partial, 1 open.",
       "ok": true,
       "source": "docs/plan_coverage_audit.md"
     },
@@ -5582,7 +5582,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.REPRODUCE.md.stretch scope has `0` covered, `4` partial, and `1` open item",
+      "name": "text.REPRODUCE.md.stretch scope has `1` covered, `3` partial, and `1` open item",
       "ok": true,
       "source": "REPRODUCE.md"
     },

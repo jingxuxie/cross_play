@@ -280,7 +280,7 @@
       "status": "open"
     },
     {
-      "detail": "The local artifact package is complete and reproducible, but this workspace is not currently a git repository, so public publishing is separate work.",
+      "detail": "The artifact package is in a git repository configured for the public GitHub release target.",
       "evidence": [
         "README.md",
         "REPRODUCE.md"
@@ -288,7 +288,7 @@
       "plan_item": "Publish the artifact as a public repository or submission bundle.",
       "scope": "stretch",
       "section": "Release engineering",
-      "status": "partial"
+      "status": "covered"
     }
   ],
   "n_items": 24,
@@ -363,24 +363,13 @@
       "scope": "stretch",
       "section": "Stronger-plan extensions",
       "status": "open"
-    },
-    {
-      "detail": "The local artifact package is complete and reproducible, but this workspace is not currently a git repository, so public publishing is separate work.",
-      "evidence": [
-        "README.md",
-        "REPRODUCE.md"
-      ],
-      "plan_item": "Publish the artifact as a public repository or submission bundle.",
-      "scope": "stretch",
-      "section": "Release engineering",
-      "status": "partial"
     }
   ],
   "source_plan": "cross_play_pragmatics_workshop_plan.md",
   "status_counts": {
-    "covered": 17,
+    "covered": 18,
     "open": 1,
-    "partial": 6
+    "partial": 5
   },
   "status_definitions": {
     "covered": "Current artifacts directly satisfy the plan item.",
@@ -388,8 +377,8 @@
     "partial": "Current artifacts address the item only at smaller scale, narrower scope, or as diagnostic support."
   },
   "stretch_status_counts": {
-    "covered": 0,
+    "covered": 1,
     "open": 1,
-    "partial": 4
+    "partial": 3
   }
 }

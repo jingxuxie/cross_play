@@ -558,16 +558,16 @@ Checks passed: 828/828.
 | PASS | `reviewer_checklist.appendix_includes_prompts_and_schemas.section` | present | present | `results/reviewer_checklist.json` |
 | PASS | `reviewer_checklist.appendix_includes_prompts_and_schemas.pass` | present | present | `results/reviewer_checklist.json` |
 | PASS | `plan_coverage.n_items` | 24 | 24 | `results/plan_coverage_audit.json` |
-| PASS | `plan_coverage.status_counts.covered` | 17 | 17 | `results/plan_coverage_audit.json` |
-| PASS | `plan_coverage.status_counts.partial` | 6 | 6 | `results/plan_coverage_audit.json` |
+| PASS | `plan_coverage.status_counts.covered` | 18 | 18 | `results/plan_coverage_audit.json` |
+| PASS | `plan_coverage.status_counts.partial` | 5 | 5 | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.status_counts.open` | 1 | 1 | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.core_status_counts.covered` | 17 | 17 | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.core_status_counts.partial` | 2 | 2 | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.core_status_counts.open` | 0 | 0 | `results/plan_coverage_audit.json` |
-| PASS | `plan_coverage.stretch_status_counts.covered` | 0 | 0 | `results/plan_coverage_audit.json` |
-| PASS | `plan_coverage.stretch_status_counts.partial` | 4 | 4 | `results/plan_coverage_audit.json` |
+| PASS | `plan_coverage.stretch_status_counts.covered` | 1 | 1 | `results/plan_coverage_audit.json` |
+| PASS | `plan_coverage.stretch_status_counts.partial` | 3 | 3 | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.stretch_status_counts.open` | 1 | 1 | `results/plan_coverage_audit.json` |
-| PASS | `plan_coverage.open_or_partial` | 7 | 7 | `results/plan_coverage_audit.json` |
+| PASS | `plan_coverage.open_or_partial` | 6 | 6 | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.use_development_episodes_for_debugging_prompts_and_tuning_the_generator.present` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.use_development_episodes_for_debugging_prompts_and_tuning_the_generator.partial` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.hand_label_roughly_100_failures_into_interpretable_categories.present` | present | present | `results/plan_coverage_audit.json` |
@@ -581,7 +581,7 @@ Checks passed: 828/828.
 | PASS | `plan_coverage.item.validate_failures_with_human_or_independent_non_llm_judgments.present` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.validate_failures_with_human_or_independent_non_llm_judgments.open` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.publish_the_artifact_as_a_public_repository_or_submission_bundle.present` | present | present | `results/plan_coverage_audit.json` |
-| PASS | `plan_coverage.item.publish_the_artifact_as_a_public_repository_or_submission_bundle.partial` | present | present | `results/plan_coverage_audit.json` |
+| PASS | `plan_coverage.item.publish_the_artifact_as_a_public_repository_or_submission_bundle.covered` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `integrity_audit.n_failed` | 0 | 0 | `results/benchmark_integrity_audit.json` |
 | PASS | `integrity_audit.n_checks` | 194 | 194 | `results/benchmark_integrity_audit.json` |
 | PASS | `integrity_audit.local_benchmark600.scenes` | 600 | 600 | `results/benchmark_integrity_audit.json` |
@@ -695,7 +695,7 @@ Checks passed: 828/828.
 | PASS | `text.docs/artifact_guide.md.Section 32 reviewer checklist passes all 19 core-validity, results, and paper items` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Items passed: 19/19` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Core scope: 17 covered, 2 partial, 0 open.` | present | present | `docs/artifact_guide.md` |
-| PASS | `text.docs/artifact_guide.md.Stretch scope: 0 covered, 4 partial, 1 open.` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.Stretch scope: 1 covered, 3 partial, 1 open.` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.The artifact package explicitly distinguishes completed core requirements from stretch gaps` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Local Benchmark-Scale Sanity Check` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.600 local scenes balanced across four initial scenario families` | present | present | `docs/artifact_guide.md` |
@@ -747,9 +747,9 @@ Checks passed: 828/828.
 | PASS | `text.docs/reviewer_checklist.md.Held-out listeners are not used for method selection.` | present | present | `docs/reviewer_checklist.md` |
 | PASS | `text.docs/reviewer_checklist.md.Claims match actual results.` | present | present | `docs/reviewer_checklist.md` |
 | PASS | `text.docs/plan_coverage_audit.md.Plan Coverage Audit` | present | present | `docs/plan_coverage_audit.md` |
-| PASS | `text.docs/plan_coverage_audit.md.Overall: 17 covered, 6 partial, 1 open across 24 plan items.` | present | present | `docs/plan_coverage_audit.md` |
+| PASS | `text.docs/plan_coverage_audit.md.Overall: 18 covered, 5 partial, 1 open across 24 plan items.` | present | present | `docs/plan_coverage_audit.md` |
 | PASS | `text.docs/plan_coverage_audit.md.Core scope: 17 covered, 2 partial, 0 open.` | present | present | `docs/plan_coverage_audit.md` |
-| PASS | `text.docs/plan_coverage_audit.md.Stretch scope: 0 covered, 4 partial, 1 open.` | present | present | `docs/plan_coverage_audit.md` |
+| PASS | `text.docs/plan_coverage_audit.md.Stretch scope: 1 covered, 3 partial, 1 open.` | present | present | `docs/plan_coverage_audit.md` |
 | PASS | `text.docs/partial_observability_local_check.md.mirror self-play | 0.653 | 1.000 | 0.347` | present | present | `docs/partial_observability_local_check.md` |
 | PASS | `text.docs/partial_observability_api50_check.md.Candidate messages referencing private landmarks: 0` | present | present | `docs/partial_observability_api50_check.md` |
 | PASS | `text.docs/partial_observability_api50_check.md.no_coord_consensus_info | 0.987` | present | present | `docs/partial_observability_api50_check.md` |
@@ -801,7 +801,7 @@ Checks passed: 828/828.
 | PASS | `text.REPRODUCE.md.scripts/audit_plan_coverage.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.docs/plan_coverage_audit.md` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.core scope has `17` covered, `2` partial, and `0` open items` | present | present | `REPRODUCE.md` |
-| PASS | `text.REPRODUCE.md.stretch scope has `0` covered, `4` partial, and `1` open item` | present | present | `REPRODUCE.md` |
+| PASS | `text.REPRODUCE.md.stretch scope has `1` covered, `3` partial, and `1` open item` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.partial_observability_api50_mirror_failures_coded.csv` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/make_artifact_guide.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/analyze_api_listener_leave_one_out.py` | present | present | `REPRODUCE.md` |

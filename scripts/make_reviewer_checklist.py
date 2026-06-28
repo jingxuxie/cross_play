@@ -52,11 +52,34 @@ class Context:
             self._text[path] = p.read_text(encoding="utf-8") if p.exists() else ""
         return self._text[path]
 
+    def paper_text(self) -> str:
+        key = "__assembled_paper__"
+        if key not in self._text:
+            main_path = Path("paper/main.tex")
+            paper = main_path.read_text(encoding="utf-8") if main_path.exists() else ""
+            base = main_path.parent
+
+            def expand_input(match: re.Match[str]) -> str:
+                rel = match.group(1).strip()
+                input_path = base / (rel if rel.endswith(".tex") else f"{rel}.tex")
+                if not input_path.exists():
+                    return match.group(0)
+                return "\n" + input_path.read_text(encoding="utf-8") + "\n"
+
+            self._text[key] = re.sub(r"\\input\{([^}]+)\}", expand_input, paper)
+        return self._text[key]
+
     def exists(self, path: str) -> bool:
         return Path(path).exists()
 
     def contains(self, path: str, snippet: str) -> bool:
         text = self.text(path)
+        if snippet in text:
+            return True
+        return re.sub(r"\s+", " ", snippet) in re.sub(r"\s+", " ", text)
+
+    def contains_paper(self, snippet: str) -> bool:
+        text = self.paper_text()
         if snippet in text:
             return True
         return re.sub(r"\s+", " ", snippet) in re.sub(r"\s+", " ", text)
@@ -142,7 +165,7 @@ def checklist_items(ctx: Context) -> list[dict[str, Any]]:
         item(
             "Core validity",
             "Held-out listeners are not used for method selection.",
-            ctx.contains("paper/main.tex", "Neither selector uses held-out listener labels")
+            ctx.contains_paper("Neither selector uses held-out listener labels")
             and ctx.exists("prag_crossplay/methods.py")
             and ctx.exists("prag_crossplay/local_agents.py"),
             [
@@ -169,7 +192,7 @@ def checklist_items(ctx: Context) -> list[dict[str, Any]]:
             "Exact model versions are reported.",
             has_model_version(ctx, "gpt-5.4-nano", "gpt-5.4-nano-2026-03-17")
             and has_model_version(ctx, "gpt-4.1-nano", "gpt-4.1-nano-2025-04-14")
-            and ctx.contains("paper/main.tex", "gpt-5.4-nano-2026-03-17"),
+            and ctx.contains_paper("gpt-5.4-nano-2026-03-17"),
             [
                 "results/benchmark_integrity_audit.json",
                 "docs/protocol_and_prompts.md",
@@ -181,7 +204,7 @@ def checklist_items(ctx: Context) -> list[dict[str, Any]]:
             "Results",
             "Main table has confidence intervals.",
             ctx.contains("paper/tables/mixed50.tex", "95\\% CI")
-            and ctx.contains("paper/main.tex", "95\\% bootstrap interval")
+            and ctx.contains_paper("95\\% bootstrap interval")
             and ctx.claims_pass(),
             [
                 "paper/tables/mixed50.tex",
@@ -194,7 +217,7 @@ def checklist_items(ctx: Context) -> list[dict[str, Any]]:
             "Results",
             "Scenario table explains where gains/losses occur.",
             ctx.exists("paper/tables/mixed50_by_scenario.tex")
-            and ctx.contains("paper/main.tex", "Perspective-shift scenes are the hard case")
+            and ctx.contains_paper("perspective-shift scenes are the hard case")
             and ctx.contains("docs/artifact_guide.md", "## Headline Full-Candidate Results"),
             [
                 "paper/tables/mixed50_by_scenario.tex",
@@ -206,7 +229,7 @@ def checklist_items(ctx: Context) -> list[dict[str, Any]]:
         item(
             "Results",
             "Cross-play gap is reported.",
-            ctx.contains("paper/main.tex", "cross-play gap")
+            ctx.contains_paper("cross-play gap")
             and ctx.contains("paper/tables/mixed50.tex", "Gap")
             and ctx.claims_pass(),
             [
@@ -219,7 +242,7 @@ def checklist_items(ctx: Context) -> list[dict[str, Any]]:
         item(
             "Results",
             "Oracle upper bound is reported.",
-            ctx.contains("paper/main.tex", "oracle candidate upper bound")
+            ctx.contains_paper("oracle candidate upper bound")
             and ctx.contains("paper/tables/mixed50.tex", "Oracle candidate")
             and ctx.contains("docs/selection_regret_audit.md", "Oracle"),
             [
@@ -233,8 +256,8 @@ def checklist_items(ctx: Context) -> list[dict[str, Any]]:
             "Results",
             "Manual failure examples support the quantitative result.",
             ctx.contains("docs/qualitative_failure_examples.md", "Qualitative Failure Examples")
-            and ctx.contains("paper/main.tex", "In scene \\texttt{ps\\_000005}")
-            and ctx.contains("paper/main.tex", "In scene \\texttt{ps\\_000011}")
+            and ctx.contains_paper("In scene \\texttt{ps\\_000005}")
+            and ctx.contains_paper("In scene \\texttt{ps\\_000011}")
             and ctx.claims_pass(),
             [
                 "docs/qualitative_failure_examples.md",
@@ -246,8 +269,8 @@ def checklist_items(ctx: Context) -> list[dict[str, Any]]:
         item(
             "Paper",
             "Intro states the evaluation blind spot clearly.",
-            ctx.contains("paper/main.tex", "same-play success can overstate held-out communicative success")
-            and ctx.contains("paper/main.tex", "does it learn robust pragmatics or just exploit that listener"),
+            ctx.contains_paper("high interaction reward may reflect adaptation to those quirks rather than robust pragmatic skill")
+            and ctx.contains_paper("does success transfer to new listeners"),
             ["paper/main.tex"],
             "The introduction frames self-play success as a possible blind spot and asks whether selected messages transfer to held-out listeners.",
         ),
@@ -255,7 +278,7 @@ def checklist_items(ctx: Context) -> list[dict[str, Any]]:
             "Paper",
             "Related work is concise.",
             ctx.readiness_pass()
-            and ctx.contains("paper/main.tex", "\\section{Related Work}")
+            and ctx.contains_paper("\\section{Related Work}")
             and len(re.findall(r"^@", ctx.text("paper/references.bib"), flags=re.M)) >= 6,
             [
                 "paper/main.tex",
@@ -281,8 +304,8 @@ def checklist_items(ctx: Context) -> list[dict[str, Any]]:
         item(
             "Paper",
             "Limitations are honest.",
-            ctx.contains("paper/main.tex", "The current experiments are intentionally small and diagnostic")
-            and ctx.contains("paper/main.tex", "The held-out listeners are API language models, not humans")
+            ctx.contains_paper("The current experiments are intentionally small and diagnostic")
+            and ctx.contains_paper("The held-out listeners are API language models, not humans")
             and ctx.readiness_pass(),
             [
                 "paper/main.tex",

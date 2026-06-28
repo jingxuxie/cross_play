@@ -414,9 +414,9 @@ Items passed: 19/19.
 ## Plan Coverage Audit
 
 This generated audit maps the original workshop plan to the current artifacts and separates claimed core coverage from partial or open stretch items.
-Overall: 17 covered, 6 partial, 1 open across 24 plan items.
+Overall: 18 covered, 5 partial, 1 open across 24 plan items.
 Core scope: 17 covered, 2 partial, 0 open.
-Stretch scope: 0 covered, 4 partial, 1 open.
+Stretch scope: 1 covered, 3 partial, 1 open.
 
 | Status | Scope | Plan item | Detail | Source |
 |---|---|---|---|---|
@@ -426,7 +426,6 @@ Stretch scope: 0 covered, 4 partial, 1 open.
 | partial | stretch | Evaluate K=8 candidate generation in addition to K=4. | The local stronger-plan diagnostic evaluates K=8 candidate slots and shows added non-coordinate diversity; cached API speaker artifacts remain K=4. | `docs/plan_coverage_audit.md` |
 | partial | stretch | Run an actual interaction-memory prompt rerun after distilling rules from failures. | A replay-only interaction-memory rule audit is present, but no new memory-prompt generation/evaluation run is claimed. | `docs/plan_coverage_audit.md` |
 | open | stretch | Validate failures with human or independent non-LLM judgments. | The paper explicitly notes that held-out listeners are API LLMs and broader human validation remains future work. | `docs/plan_coverage_audit.md` |
-| partial | stretch | Publish the artifact as a public repository or submission bundle. | The local artifact package is complete and reproducible, but this workspace is not currently a git repository, so public publishing is separate work. | `docs/plan_coverage_audit.md` |
 
 ## Claim-To-Evidence Map
 
@@ -449,7 +448,7 @@ Stretch scope: 0 covered, 4 partial, 1 open.
 | Representative failures reflect real target-distractor ambiguity or frame sensitivity. | `docs/failure_taxonomy_audit.md; docs/qualitative_failure_examples.md; results/qualitative_failure_examples.json` | 147 of 152 coded listener-level mirror failures are underspecified-distractor cases and 5 are perspective-frame errors |
 | The coded failures induce a small interaction-memory rule set. | `docs/interaction_memory_rules.md; results/interaction_memory_rules.json` | 152 coded failure rows collapse into disambiguate-shared-attributes and avoid-frame-sensitive-only rules; cached repairs satisfy the derived cue in 1.000 of failure scenes |
 | The original pre-submission checklist is backed by concrete artifacts. | `docs/reviewer_checklist.md; results/reviewer_checklist.json` | Section 32 reviewer checklist passes all 19 core-validity, results, and paper items |
-| The artifact package explicitly distinguishes completed core requirements from stretch gaps. | `docs/plan_coverage_audit.md; results/plan_coverage_audit.json` | core scope has 17 covered, 2 partial, 0 open items; stretch scope has 4 partial items and keeps human validation open |
+| The artifact package explicitly distinguishes completed core requirements from stretch gaps. | `docs/plan_coverage_audit.md; results/plan_coverage_audit.json` | core scope has 17 covered, 2 partial, 0 open items; stretch scope has 1 covered, 3 partial, 1 open and keeps human validation open |
 | The released generator supports a benchmark-scale local sanity sweep. | `docs/local_benchmark600_check.md; results/local_benchmark600_check.json` | 600 local scenes balanced across four initial scenario families; mirror same-play is 1.000 but cross-play is 0.631 |
 | The local artifact supports the stronger-plan 1,000+200 scale and K=8 diagnostic. | `docs/local_stronger_plan_k8.md; results/local_stronger_plan_k8.json` | no-coordinate oracle over 1,200 local scenes rises from 0.808 at K=4 to 0.995 at K=8 |
 | The cached benchmark artifacts are internally consistent. | `results/benchmark_integrity_audit.md` | 194/194 integrity checks pass |
@@ -462,7 +461,7 @@ Stretch scope: 0 covered, 4 partial, 1 open.
 | benchmark integrity | 194 | 0 | 0 | 0 | `results/benchmark_integrity_audit.json` |
 | paper claims | 828 | 0 | 0 | 0 | `results/paper_claims_verification.json` |
 | reviewer checklist | 19 | 0 | 0 | 0 | `results/reviewer_checklist.json` |
-| submission readiness | 161 | 0 | 2 | 0 | `results/submission_readiness_audit.json` |
+| submission readiness | 161 | 1 | 0 | 0 | `results/submission_readiness_audit.json` |
 
 ## Refresh Commands
 

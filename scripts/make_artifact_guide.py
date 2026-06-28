@@ -709,7 +709,7 @@ def claim_map() -> list[dict[str, str]]:
         {
             "claim": "The artifact package explicitly distinguishes completed core requirements from stretch gaps.",
             "evidence": "docs/plan_coverage_audit.md; results/plan_coverage_audit.json",
-            "anchor": "core scope has 17 covered, 2 partial, 0 open items; stretch scope has 4 partial items and keeps human validation open",
+            "anchor": "core scope has 17 covered, 2 partial, 0 open items; stretch scope has 1 covered, 3 partial, 1 open and keeps human validation open",
         },
         {
             "claim": "The released generator supports a benchmark-scale local sanity sweep.",

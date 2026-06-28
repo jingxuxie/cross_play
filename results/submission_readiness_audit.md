@@ -1,7 +1,7 @@
 # Submission Readiness Audit
 
 Checks: 161/161 non-failing.
-Warnings: 2.
+Warnings: 0.
 Open actions: 0.
 
 ## Checks
@@ -87,8 +87,8 @@ Open actions: 0.
 | PASS | `artifact.scripts/make_qualitative_examples.py` | present |
 | PASS | `artifact.scripts/make_reviewer_checklist.py` | present |
 | PASS | `artifact.scripts/audit_plan_coverage.py` | present |
-| PASS | `pdf.pages_positive` | 10 |
-| WARN | `pdf.pages_within_workshop_range` | 10 pages; target plan is 4-8 pages |
+| PASS | `pdf.pages_positive` | 8 |
+| PASS | `pdf.pages_within_workshop_range` | 8 pages; target plan is 4-8 pages |
 | PASS | `pdf.not_encrypted` | no |
 | PASS | `paper.has_abstract` | abstract environment |
 | PASS | `paper.section.Introduction` | present |
@@ -100,7 +100,7 @@ Open actions: 0.
 | PASS | `paper.section.Qualitative Analysis` | present |
 | PASS | `paper.section.Limitations` | present |
 | PASS | `paper.section.Conclusion` | present |
-| PASS | `paper.tables` | 5 table environments |
+| PASS | `paper.tables` | 2 main-text table environments; detailed tables are artifact-linked |
 | PASS | `paper.figures` | 1 figure environments |
 | PASS | `paper.references` | 19 bibliography entries |
 | PASS | `artifact_guide.prag_crossplay_artifact_guide` | present |
@@ -147,8 +147,8 @@ Open actions: 0.
 | PASS | `artifact_guide.section_32_reviewer_checklist_passes_all_19_core_validity_re` | present |
 | PASS | `artifact_guide.items_passed_19_19` | present |
 | PASS | `artifact_guide.core_scope_17_covered_2_partial_0_open` | present |
-| PASS | `artifact_guide.stretch_scope_0_covered_4_partial_1_open` | present |
-| PASS | `artifact_guide.the_artifact_package_explicitly_distinguishes_completed_core` | present |
+| PASS | `artifact_guide.stretch_scope_1_covered_3_partial_1_open` | present |
+| PASS | `artifact_guide.stretch_scope_has_1_covered_3_partial_1_open_and_keeps_human` | present |
 | PASS | `artifact_guide.partial_observability_api50` | present |
 | PASS | `artifact_guide.cache_only_api_listener_leave_one_out_improves_population_ov` | present |
 | PASS | `artifact_guide.0_candidate_messages_reference_private_landmarks` | present |
@@ -162,8 +162,8 @@ Open actions: 0.
 | PASS | `colm_source.uses_submission_template` | COLM submission package |
 | PASS | `colm_source.has_line_numbers` | line numbers enabled for submission mode |
 | PASS | `colm_source.uses_colm_bibliography_style` | COLM bibliography style |
-| PASS | `colm_pdf.pages_positive` | 12 |
-| WARN | `colm_pdf.pages_within_submission_range` | 12 pages; target submission range is 4-9 pages |
+| PASS | `colm_pdf.pages_positive` | 9 |
+| PASS | `colm_pdf.pages_within_submission_range` | 9 pages; target submission range is 4-9 pages |
 | PASS | `colm_pdf.not_encrypted` | no |
 | PASS | `claims.limitation.the_current_experiments_are_intentionally_small_and_diagnost` | present |
 | PASS | `claims.limitation.the_held_out_listeners_are_api_language_models_not_humans` | present |

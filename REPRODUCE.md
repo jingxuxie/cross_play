@@ -758,7 +758,7 @@ Expected output:
 - `docs/plan_coverage_audit.md`;
 - `results/plan_coverage_audit.json`;
 - core scope has `17` covered, `2` partial, and `0` open items;
-- stretch scope has `0` covered, `4` partial, and `1` open item.
+- stretch scope has `1` covered, `3` partial, and `1` open item.
 
 ## Protocol appendix
 

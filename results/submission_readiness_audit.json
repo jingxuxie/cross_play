@@ -397,14 +397,14 @@
       "status": "PASS"
     },
     {
-      "detail": "10",
+      "detail": "8",
       "name": "pdf.pages_positive",
       "status": "PASS"
     },
     {
-      "detail": "10 pages; target plan is 4-8 pages",
+      "detail": "8 pages; target plan is 4-8 pages",
       "name": "pdf.pages_within_workshop_range",
-      "status": "WARN"
+      "status": "PASS"
     },
     {
       "detail": "no",
@@ -462,7 +462,7 @@
       "status": "PASS"
     },
     {
-      "detail": "5 table environments",
+      "detail": "2 main-text table environments; detailed tables are artifact-linked",
       "name": "paper.tables",
       "status": "PASS"
     },
@@ -698,12 +698,12 @@
     },
     {
       "detail": "present",
-      "name": "artifact_guide.stretch_scope_0_covered_4_partial_1_open",
+      "name": "artifact_guide.stretch_scope_1_covered_3_partial_1_open",
       "status": "PASS"
     },
     {
       "detail": "present",
-      "name": "artifact_guide.the_artifact_package_explicitly_distinguishes_completed_core",
+      "name": "artifact_guide.stretch_scope_has_1_covered_3_partial_1_open_and_keeps_human",
       "status": "PASS"
     },
     {
@@ -772,14 +772,14 @@
       "status": "PASS"
     },
     {
-      "detail": "12",
+      "detail": "9",
       "name": "colm_pdf.pages_positive",
       "status": "PASS"
     },
     {
-      "detail": "12 pages; target submission range is 4-9 pages",
+      "detail": "9 pages; target submission range is 4-9 pages",
       "name": "colm_pdf.pages_within_submission_range",
-      "status": "WARN"
+      "status": "PASS"
     },
     {
       "detail": "no",
@@ -810,6 +810,6 @@
   "n_actions": 0,
   "n_checks": 161,
   "n_failed": 0,
-  "n_warn": 2,
+  "n_warn": 0,
   "warnings": []
 }

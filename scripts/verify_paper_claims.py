@@ -1821,9 +1821,9 @@ def check_plan_coverage(checks: list[dict[str, Any]]) -> None:
     add_numeric_check(checks, "plan_coverage.n_items", report["n_items"], 24, decimals=0, source=path)
 
     count_expectations = {
-        "status_counts": {"covered": 17, "partial": 6, "open": 1},
+        "status_counts": {"covered": 18, "partial": 5, "open": 1},
         "core_status_counts": {"covered": 17, "partial": 2, "open": 0},
-        "stretch_status_counts": {"covered": 0, "partial": 4, "open": 1},
+        "stretch_status_counts": {"covered": 1, "partial": 3, "open": 1},
     }
     for group, expected_counts in count_expectations.items():
         actual_counts = report[group]
@@ -1840,7 +1840,7 @@ def check_plan_coverage(checks: list[dict[str, Any]]) -> None:
         checks,
         "plan_coverage.open_or_partial",
         len(report["open_or_partial"]),
-        7,
+        6,
         decimals=0,
         source=path,
     )
@@ -1853,7 +1853,7 @@ def check_plan_coverage(checks: list[dict[str, Any]]) -> None:
         "Evaluate K=8 candidate generation in addition to K=4.": "partial",
         "Run an actual interaction-memory prompt rerun after distilling rules from failures.": "partial",
         "Validate failures with human or independent non-LLM judgments.": "open",
-        "Publish the artifact as a public repository or submission bundle.": "partial",
+        "Publish the artifact as a public repository or submission bundle.": "covered",
     }
     for item, status in expected_status.items():
         row = by_item.get(item)
@@ -1984,7 +1984,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/artifact_guide.md", "Section 32 reviewer checklist passes all 19 core-validity, results, and paper items"),
         ("docs/artifact_guide.md", "Items passed: 19/19"),
         ("docs/artifact_guide.md", "Core scope: 17 covered, 2 partial, 0 open."),
-        ("docs/artifact_guide.md", "Stretch scope: 0 covered, 4 partial, 1 open."),
+        ("docs/artifact_guide.md", "Stretch scope: 1 covered, 3 partial, 1 open."),
         ("docs/artifact_guide.md", "The artifact package explicitly distinguishes completed core requirements from stretch gaps"),
         ("docs/artifact_guide.md", "Local Benchmark-Scale Sanity Check"),
         ("docs/artifact_guide.md", "600 local scenes balanced across four initial scenario families"),
@@ -2036,9 +2036,9 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/reviewer_checklist.md", "Held-out listeners are not used for method selection."),
         ("docs/reviewer_checklist.md", "Claims match actual results."),
         ("docs/plan_coverage_audit.md", "Plan Coverage Audit"),
-        ("docs/plan_coverage_audit.md", "Overall: 17 covered, 6 partial, 1 open across 24 plan items."),
+        ("docs/plan_coverage_audit.md", "Overall: 18 covered, 5 partial, 1 open across 24 plan items."),
         ("docs/plan_coverage_audit.md", "Core scope: 17 covered, 2 partial, 0 open."),
-        ("docs/plan_coverage_audit.md", "Stretch scope: 0 covered, 4 partial, 1 open."),
+        ("docs/plan_coverage_audit.md", "Stretch scope: 1 covered, 3 partial, 1 open."),
         ("docs/partial_observability_local_check.md", "mirror self-play | 0.653 | 1.000 | 0.347"),
         ("docs/partial_observability_api50_check.md", "Candidate messages referencing private landmarks: 0"),
         ("docs/partial_observability_api50_check.md", "no_coord_consensus_info | 0.987"),
@@ -2090,7 +2090,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("REPRODUCE.md", "scripts/audit_plan_coverage.py"),
         ("REPRODUCE.md", "docs/plan_coverage_audit.md"),
         ("REPRODUCE.md", "core scope has `17` covered, `2` partial, and `0` open items"),
-        ("REPRODUCE.md", "stretch scope has `0` covered, `4` partial, and `1` open item"),
+        ("REPRODUCE.md", "stretch scope has `1` covered, `3` partial, and `1` open item"),
         ("REPRODUCE.md", "partial_observability_api50_mirror_failures_coded.csv"),
         ("REPRODUCE.md", "scripts/make_artifact_guide.py"),
         ("REPRODUCE.md", "scripts/analyze_api_listener_leave_one_out.py"),
