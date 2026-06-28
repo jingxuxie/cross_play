@@ -17,8 +17,8 @@ conda run -n cross_play python scripts/analyze_api_token_accounting.py \
   --json-out results/api_token_accounting.json
 ```
 
-The current report is `docs/api_token_accounting.md`: `4,982` cached responses
-have complete usage metadata and contain `1,410,092` total tokens. Dollar cost
+The current report is `docs/api_token_accounting.md`: `5,866` cached responses
+have complete usage metadata and contain `1,680,454` total tokens. Dollar cost
 is not estimated from cached files; use the provider dashboard for final
 billing.
 
@@ -153,6 +153,56 @@ conda run -n cross_play python scripts/analyze_cross_model_failure_overlap.py \
   --json-out results/cross_model_failure_overlap.json \
   --markdown-out docs/cross_model_failure_overlap.md \
   --units-out results/cross_model_failure_overlap_units.jsonl
+```
+
+## GPT-5.5 speaker smoke
+
+The Experiment 3 smoke report is `docs/gpt55_speaker_smoke_report.md`. It
+compares existing perspective-stress speaker candidates with newly generated
+GPT-5.5 speaker candidates on the same first 10 scenes, evaluated by GPT-5.5
+held-out listener prompts. GPT-5.5 direct-first rises from `0.800` to `1.000`,
+mirror self-play rises from `0.667` to `0.867`, and population-play remains
+`1.000` for both candidate pools. The full 50-scene speaker audit has GPT-5.5
+direct-first `0.993`, mirror self-play `0.853` despite same-play `1.000`, and
+population-play `1.000`. This is now paper-facing Experiment 3 evidence under
+GPT-5.5 held-out listeners.
+
+```bash
+conda run -n cross_play python scripts/analyze_gpt55_speaker_smoke.py \
+  --json-out results/gpt55_speaker_smoke.json \
+  --markdown-out docs/gpt55_speaker_smoke_report.md
+```
+
+## GPT-5.5 follow-up plan status
+
+The generated status report `docs/gpt55_followup_plan_status.md` maps
+`additional_experiments_gpt55_plan.md` to the current artifacts. It currently
+marks `4` follow-up experiments covered, `2` partial, and `0` future with no
+missing evidence paths. Use it as a claim-boundary check before promoting the
+API K=8 no-coordinate or human-validation ideas into paper headline claims.
+
+```bash
+conda run -n cross_play python scripts/audit_gpt55_followup_plan.py \
+  --json-out results/gpt55_followup_plan_status.json \
+  --markdown-out docs/gpt55_followup_plan_status.md
+```
+
+## Human validation packet
+
+The optional human-validation extension is protocol-ready in
+`docs/human_validation_packet.md`. It contains `20` participant-safe items:
+`10` perspective mirror failures, `5` partial-observability mirror failures,
+and `5` mirror-success controls. It also writes a response template and a
+researcher-only answer key. No human annotations are present yet, so this is not
+human-validation evidence.
+
+```bash
+conda run -n cross_play python scripts/make_human_validation_packet.py \
+  --items-out data/human_validation_items.jsonl \
+  --responses-out data/human_validation_response_template.csv \
+  --answer-key-out results/human_validation_answer_key.json \
+  --markdown-out docs/human_validation_packet.md \
+  --html-out docs/human_validation_packet.html
 ```
 
 ## Cache-only API listener leave-one-out check

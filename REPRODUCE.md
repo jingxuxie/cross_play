@@ -22,7 +22,7 @@ conda run -n cross_play python scripts/analyze_api_token_accounting.py \
   --json-out results/api_token_accounting.json
 ```
 
-Current result: `4,982` cached Responses API files contain `1,410,092` total
+Current result: `5,866` cached Responses API files contain `1,680,454` total
 tokens, with `0` missing usage records.
 
 ## Local sanity pilot
@@ -396,6 +396,118 @@ Current result:
   under GPT-5.5;
 - all GPT-5.5 mirror-failure scenes are symbolic-verifier positives, and
   GPT-5.5 population-play has zero scene-level failures in both settings.
+
+## GPT-5.5 speaker smoke
+
+This auxiliary Experiment 3 smoke compares existing perspective-stress speaker
+candidates with newly generated GPT-5.5 speaker candidates on the same first 10
+scenes. The analysis command below is offline once the JSONL artifacts are
+present.
+
+```bash
+conda run -n cross_play python scripts/analyze_gpt55_speaker_smoke.py \
+  --json-out results/gpt55_speaker_smoke.json \
+  --markdown-out docs/gpt55_speaker_smoke_report.md
+```
+
+Current result: on the same first 10 scenes, GPT-5.5 speaker direct-first is
+`1.000` and mirror self-play is `0.867`, versus `0.800` and `0.667` for the
+existing speaker candidates; population-play is `1.000` for both. The full
+50-scene speaker audit has GPT-5.5 direct-first `0.993`, mirror self-play
+`0.853` despite same-play `1.000`, and population-play `1.000`. This is now
+paper-facing Experiment 3 evidence under GPT-5.5 held-out listeners.
+
+To regenerate the raw API artifacts, run the following cache-backed commands.
+They may spend API budget if the corresponding files under
+`data/cached_responses/` are absent.
+
+```bash
+conda run -n cross_play python scripts/evaluate_candidate_file_api.py \
+  --scene-file data/perspective_stress50_scenes.jsonl \
+  --candidates results/perspective_stress50_hybrid_candidates.jsonl \
+  --model gpt-5.5 \
+  --temperature none \
+  --reasoning-effort none \
+  --records-out results/gpt55_existing_speaker_perspective10_records.jsonl \
+  --summary-out results/gpt55_existing_speaker_perspective10_summary.json \
+  --all-candidate-records-out results/gpt55_existing_speaker_perspective10_candidate_eval_records.jsonl \
+  --audit-out results/gpt55_existing_speaker_perspective10_audit.jsonl \
+  --max-scenes 10 \
+  --checkpoint-every 1
+
+conda run -n cross_play python scripts/run_hybrid_api_pilot.py \
+  --scene-file data/perspective_stress50_scenes.jsonl \
+  --max-scenes 10 \
+  --k 4 \
+  --model gpt-5.5 \
+  --temperature none \
+  --reasoning-effort none \
+  --records-out results/gpt55_speaker_perspective10_records.jsonl \
+  --summary-out results/gpt55_speaker_perspective10_summary.json \
+  --candidates-out results/gpt55_speaker_perspective10_candidates.jsonl \
+  --all-candidate-records-out results/gpt55_speaker_perspective10_candidate_eval_records.jsonl \
+  --checkpoint-every 1
+
+conda run -n cross_play python scripts/run_hybrid_api_pilot.py \
+  --scene-file data/perspective_stress50_scenes.jsonl \
+  --max-scenes 20 \
+  --k 4 \
+  --model gpt-5.5 \
+  --temperature none \
+  --reasoning-effort none \
+  --records-out results/gpt55_speaker_perspective20_records.jsonl \
+  --summary-out results/gpt55_speaker_perspective20_summary.json \
+  --candidates-out results/gpt55_speaker_perspective20_candidates.jsonl \
+  --all-candidate-records-out results/gpt55_speaker_perspective20_candidate_eval_records.jsonl \
+  --checkpoint-every 1
+
+conda run -n cross_play python scripts/run_hybrid_api_pilot.py \
+  --scene-file data/perspective_stress50_scenes.jsonl \
+  --max-scenes 50 \
+  --k 4 \
+  --model gpt-5.5 \
+  --temperature none \
+  --reasoning-effort none \
+  --records-out results/gpt55_speaker_perspective50_records.jsonl \
+  --summary-out results/gpt55_speaker_perspective50_summary.json \
+  --candidates-out results/gpt55_speaker_perspective50_candidates.jsonl \
+  --all-candidate-records-out results/gpt55_speaker_perspective50_candidate_eval_records.jsonl \
+  --checkpoint-every 1
+```
+
+## GPT-5.5 follow-up plan status
+
+This cache/offline audit maps `additional_experiments_gpt55_plan.md` to current
+artifacts and makes the claim boundary explicit.
+
+```bash
+conda run -n cross_play python scripts/audit_gpt55_followup_plan.py \
+  --json-out results/gpt55_followup_plan_status.json \
+  --markdown-out docs/gpt55_followup_plan_status.md
+```
+
+Current result: `4` follow-up experiments covered, `2` partial, and `0` future,
+with `0` missing evidence paths. The report treats the 50-scene GPT-5.5 speaker
+audit as covered, while API K=8 no-coordinate generation and human listener
+validation remain incomplete.
+
+## Human validation packet
+
+This prepares the optional 20-item human validation sample. It does not include
+collected annotations and should not be cited as human-validation evidence.
+
+```bash
+conda run -n cross_play python scripts/make_human_validation_packet.py \
+  --items-out data/human_validation_items.jsonl \
+  --responses-out data/human_validation_response_template.csv \
+  --answer-key-out results/human_validation_answer_key.json \
+  --markdown-out docs/human_validation_packet.md \
+  --html-out docs/human_validation_packet.html
+```
+
+Current packet: `10` perspective mirror failures, `5` partial-observability
+mirror failures, and `5` mirror-success controls. Participant-facing files omit
+target IDs, condition labels, scene IDs, and held-out success rates.
 
 ## No-exact-coordinate ablation
 

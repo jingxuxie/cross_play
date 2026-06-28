@@ -15,6 +15,17 @@ It is generated from the current JSON/JSONL artifacts and is intended as a revie
 | API token accounting | `docs/api_token_accounting.md` |
 | Cross-model held-out listener audit | `docs/cross_model_listener_audit.md` |
 | Cross-model failure overlap audit | `docs/cross_model_failure_overlap.md` |
+| GPT-5.5 speaker smoke report | `docs/gpt55_speaker_smoke_report.md` |
+| GPT-5.5 speaker 20-scene records | `results/gpt55_speaker_perspective20_records.jsonl` |
+| GPT-5.5 speaker 20-scene candidates | `results/gpt55_speaker_perspective20_candidates.jsonl` |
+| GPT-5.5 speaker 20-scene candidate eval | `results/gpt55_speaker_perspective20_candidate_eval_records.jsonl` |
+| GPT-5.5 speaker 50-scene records | `results/gpt55_speaker_perspective50_records.jsonl` |
+| GPT-5.5 speaker 50-scene candidates | `results/gpt55_speaker_perspective50_candidates.jsonl` |
+| GPT-5.5 speaker 50-scene candidate eval | `results/gpt55_speaker_perspective50_candidate_eval_records.jsonl` |
+| GPT-5.5 follow-up plan status | `docs/gpt55_followup_plan_status.md` |
+| Human validation packet | `docs/human_validation_packet.md` |
+| Human validation participant items | `data/human_validation_items.jsonl` |
+| Human validation response template | `data/human_validation_response_template.csv` |
 | 600-scene local sanity check | `docs/local_benchmark600_check.md` |
 | Local stronger-plan K=8 diagnostic | `docs/local_stronger_plan_k8.md` |
 | Local stronger-plan scene file | `data/local_stronger_plan1200_scenes.jsonl` |
@@ -40,6 +51,9 @@ It is generated from the current JSON/JSONL artifacts and is intended as a revie
 | API token accounting script | `scripts/analyze_api_token_accounting.py` |
 | Cross-model listener audit script | `scripts/analyze_cross_model_listener_audit.py` |
 | Cross-model failure overlap script | `scripts/analyze_cross_model_failure_overlap.py` |
+| GPT-5.5 speaker smoke script | `scripts/analyze_gpt55_speaker_smoke.py` |
+| GPT-5.5 follow-up status script | `scripts/audit_gpt55_followup_plan.py` |
+| Human validation packet script | `scripts/make_human_validation_packet.py` |
 | Local benchmark analysis script | `scripts/analyze_local_benchmark.py` |
 | Local stronger-plan diagnostic script | `scripts/analyze_local_stronger_plan.py` |
 | API listener leave-one-out script | `scripts/analyze_api_listener_leave_one_out.py` |
@@ -74,18 +88,18 @@ It is generated from the current JSON/JSONL artifacts and is intended as a revie
 |---|---|---:|---:|---:|---:|---:|
 | local_benchmark600 | `data/local_benchmark600_scenes.jsonl` | 600 | 10800 | 0 | 0 | 0 |
 | mixed_50 | `data/dev_scenes.jsonl` | 50 | 2550 | 50 | 50 | 50 |
-| perspective_stress_50 | `data/perspective_stress50_scenes.jsonl` | 50 | 4800 | 50 | 150 | 50 |
+| perspective_stress_50 | `data/perspective_stress50_scenes.jsonl` | 50 | 6900 | 120 | 150 | 120 |
 | partial_observability_api50 | `data/partial_observability_local50_scenes.jsonl` | 50 | 4050 | 50 | 150 | 50 |
 
 ## Cached Response Models
 
-Cache files: 4982.
+Cache files: 5866.
 
 | Requested model | Response model | Cached responses |
 |---|---|---:|
 | `gpt-4.1-nano` | `gpt-4.1-nano-2025-04-14` | 1236 |
 | `gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770 |
-| `gpt-5.5` | `gpt-5.5-2026-04-23` | 976 |
+| `gpt-5.5` | `gpt-5.5-2026-04-23` | 1860 |
 
 ## API Token Accounting
 
@@ -93,13 +107,13 @@ This cache-only budget audit summarizes stored Responses API usage metadata. It 
 
 | Cache files | Readable | Missing usage | Input tokens | Output tokens | Total tokens | Source |
 |---:|---:|---:|---:|---:|---:|---|
-| 4982 | 4982 | 0 | 1287186 | 122906 | 1410092 | `results/api_token_accounting.json` |
+| 5866 | 5866 | 0 | 1535340 | 145114 | 1680454 | `results/api_token_accounting.json` |
 
 | Requested model | Response model | Responses | Input tokens | Output tokens | Total tokens |
 |---|---|---:|---:|---:|---:|
 | `gpt-4.1-nano` | `gpt-4.1-nano-2025-04-14` | 1236 | 301032 | 31225 | 332257 |
 | `gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770 | 751850 | 68860 | 820710 |
-| `gpt-5.5` | `gpt-5.5-2026-04-23` | 976 | 234304 | 22821 | 257125 |
+| `gpt-5.5` | `gpt-5.5-2026-04-23` | 1860 | 482458 | 45029 | 527487 |
 
 ## Headline Full-Candidate Results
 
@@ -135,6 +149,48 @@ All GPT-5.5 mirror-failure scenes are symbolic-verifier positives in both settin
 |---|---|---:|---:|---|
 | partial_observability | gpt-4.1-nano: 26, gpt-5.4-nano: 25, gpt-5.5: 26 | 25 | 26 | `results/cross_model_failure_overlap.json` |
 | perspective_stress | gpt-4.1-nano: 22, gpt-5.4-nano: 14, gpt-5.5: 25 | 10 | 30 | `results/cross_model_failure_overlap.json` |
+
+## GPT-5.5 Speaker Smoke
+
+This section keeps the original 10-scene same-scene smoke comparison and, when present, the full GPT-5.5 speaker audit for all perspective-stress scenes.
+
+| Same scenes | Existing direct | GPT-5.5 direct | Existing mirror | GPT-5.5 mirror | Existing population | GPT-5.5 population | K=1 robust scenes | Uncached GPT-5.5 speaker calls | Source |
+|---:|---:|---:|---:|---:|---:|---:|---|---:|---|
+| 10 | 0.800 | 1.000 | 0.667 | 0.867 | 1.000 | 1.000 | 0.700 to 1.000 | 10 | `results/gpt55_speaker_smoke.json` |
+The GPT-5.5 speaker run records 8485 speaker tokens and writes its human-readable report to `docs/gpt55_speaker_smoke_report.md`.
+
+50-scene speaker audit:
+
+| Scenes | Direct | Shortest | Mirror | Mirror same-play | Mirror gap | Population | Oracle | K=1 robust | K=2 robust | Uncached speaker calls | Uncached speaker tokens |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 50 | 0.993 | 0.800 | 0.853 | 1.000 | 0.147 | 1.000 | 1.000 | 0.980 | 1.000 | 30 | 25478 |
+This extension is the current paper-facing speaker-generation evidence when it covers all 50 perspective-stress scenes.
+
+## GPT-5.5 Follow-Up Plan Status
+
+This generated claim-boundary audit maps `additional_experiments_gpt55_plan.md` to the current evidence package.
+Covered: 4. Partial: 2. Future: 0. Missing evidence paths: 0.
+
+| Status | Experiment | Interpretation |
+|---|---|---|
+| covered | Experiment 1: GPT-5.5 held-out listener audit | Fifty-scene perspective-stress and partial-observability selected-message audits include GPT-5.5 listeners, paired population-minus-mirror gaps, and cross-model context. |
+| covered | Experiment 2: cross-model listener matrix | The artifact has gpt-4.1-nano, gpt-5.4-nano, and gpt-5.5 listener-family rows for perspective stress and partial observability, plus failure-overlap diagnostics. |
+| covered | Experiment 3: GPT-5.5 speaker candidate-generation audit | The original same-10-scene smoke shows GPT-5.5 speaker direct-first improves from 0.800 to 1.000 and mirror from 0.667 to 0.867, while population stays 1.000. The full 50-scene perspective-stress speaker audit has direct-first 0.993, mirror 0.853 despite same-play 1.000, population 1.000, and oracle 1.000 under GPT-5.5 held-out listeners. |
+| partial | Experiment 4: stronger no-coordinate candidate generation | The no-API local K=8 diagnostic supports the candidate-diversity explanation, but the cached API speaker artifacts remain K=4. |
+| partial | Experiment 5: small human validation | The 20-item participant-safe annotation packet and response template are prepared, but no human annotations are present. The current completed independent support remains the rule-based ambiguity verifier. |
+| covered | Experiment 6: rule-based ambiguity verifier | The rule-based verifier recovers the coded mirror-failure taxonomy with symbolic ambiguity, attribute-under-specification, and frame-sensitive recall all at 1.000. |
+
+Claim boundary: Safe to claim: the mirror gap persists under GPT-5.5 held-out listeners, and the cross-model matrix supports the core cross-play argument. Safe to claim: the 50-scene GPT-5.5 speaker audit shows stronger speakers reduce first-candidate brittleness but do not remove the value of population selection. Not yet safe as paper headline: API K=8 no-coordinate generation or human listener validation.
+
+## Human Validation Packet
+
+This protocol artifact prepares the optional 20-scene human validation sample. It has no collected human annotations, so it should not be cited as human-validation evidence yet.
+
+| Items | Condition counts | Participant items | Response template | Answer key |
+|---:|---|---|---|---|
+| 20 | mirror_success_control=5, partial_mirror_failure=5, perspective_mirror_failure=10 | `data/human_validation_items.jsonl` | `data/human_validation_response_template.csv` | `results/human_validation_answer_key.json` |
+
+Participant-facing files exclude condition labels, scene IDs, target IDs, and held-out success rates.
 
 ## No-Coordinate Ablations
 
@@ -462,6 +518,9 @@ Stretch scope: 2 covered, 3 partial, 0 open.
 |---|---|---|
 | Same-play can overstate held-out communicative success. | `results/paper_claims_verification.md; results/*_population_vs_mirror_paired.md` | mirror same-play is 1.000 while cross-play is lower in mixed, perspective, alternate-model, and partial-observability runs |
 | The mirror self-play gap persists under GPT-5.5 and across held-out listener families. | `docs/cross_model_listener_audit.md; docs/cross_model_failure_overlap.md; results/cross_model_listener_audit.json; results/cross_model_failure_overlap.json; paper/tables/cross_model_listener_audit.tex` | population-minus-mirror gaps are 0.187, 0.287, and 0.327 on perspective stress and 0.333, 0.340, and 0.347 on partial observability; 20 of 22 GPT-4.1 perspective mirror-failure scenes and 26 of 26 partial-observability scenes also fail under GPT-5.5 |
+| A bounded GPT-5.5 speaker smoke improves first-candidate quality but does not make mirror selection the robust selector. | `docs/gpt55_speaker_smoke_report.md; results/gpt55_speaker_smoke.json` | on the same 10 perspective-stress scenes, direct-first rises from 0.800 to 1.000 and mirror rises from 0.667 to 0.867; the 50-scene speaker audit has GPT-5.5 direct-first 0.993, mirror 0.853, and population-play 1.000 |
+| The GPT-5.5 follow-up evidence is explicitly bounded by covered, partial, and future rows. | `docs/gpt55_followup_plan_status.md; results/gpt55_followup_plan_status.json` | follow-up plan status is 4 covered, 2 partial, and 0 future, with no missing evidence paths |
+| The human-validation extension is protocol-ready but has no collected human labels yet. | `docs/human_validation_packet.md; data/human_validation_items.jsonl; results/human_validation_answer_key.json` | the prepared packet has 20 participant-safe items: 10 perspective mirror failures, 5 partial-observability mirror failures, and 5 mirror-success controls |
 | Population-play closes the observed full-candidate cross-play gaps. | `paper/tables/mixed50.tex; paper/tables/perspective_stress50.tex; paper/tables/perspective_altmodel50.tex; results/partial_observability_api50_summary.json` | population cross-play is 1.000 in all full-candidate paper-facing runs |
 | The strongest full-candidate result depends on explicit listener-invariant fallbacks. | `paper/tables/perspective_stress50_gpt41nano_no_coord.tex; paper/tables/selection_mechanisms_stress_no_coord.tex` | no-coordinate stress population drops to 0.420 while consensus+info reaches 0.760 |
 | Partial-observability failures are under-informativeness failures, not private-landmark leakage. | `docs/partial_observability_api50_check.md; results/partial_observability_api50_check.json; results/partial_observability_api50_mirror_failures_coded.csv` | 0 candidate messages reference private landmarks; all 50 full-run mirror failures are underspecified-distractor choices |
@@ -481,17 +540,17 @@ Stretch scope: 2 covered, 3 partial, 0 open.
 | The artifact package explicitly distinguishes completed core requirements from stretch gaps. | `docs/plan_coverage_audit.md; results/plan_coverage_audit.json` | core scope has 17 covered, 2 partial, 0 open items; stretch scope has 2 covered, 3 partial, 0 open after adding independent non-LLM validation |
 | The released generator supports a benchmark-scale local sanity sweep. | `docs/local_benchmark600_check.md; results/local_benchmark600_check.json` | 600 local scenes balanced across four initial scenario families; mirror same-play is 1.000 but cross-play is 0.631 |
 | The local artifact supports the stronger-plan 1,000+200 scale and K=8 diagnostic. | `docs/local_stronger_plan_k8.md; results/local_stronger_plan_k8.json` | no-coordinate oracle over 1,200 local scenes rises from 0.808 at K=4 to 0.995 at K=8 |
-| The cached benchmark artifacts are internally consistent. | `results/benchmark_integrity_audit.md` | 194/194 integrity checks pass |
-| API usage is bounded and cache-replayable. | `docs/api_token_accounting.md; results/api_token_accounting.json` | 4982 cached responses have complete usage metadata totaling 1410092 tokens |
+| The cached benchmark artifacts are internally consistent. | `results/benchmark_integrity_audit.md` | 242/242 integrity checks pass |
+| API usage is bounded and cache-replayable. | `docs/api_token_accounting.md; results/api_token_accounting.json` | 5866 cached responses have complete usage metadata totaling 1680454 tokens |
 
 ## Quality Gates
 
 | Gate | Checks | Failed | Warnings | Open actions | Source |
 |---|---:|---:|---:|---:|---|
-| benchmark integrity | 194 | 0 | 0 | 0 | `results/benchmark_integrity_audit.json` |
-| paper claims | 852 | 0 | 0 | 0 | `results/paper_claims_verification.json` |
+| benchmark integrity | 242 | 0 | 0 | 0 | `results/benchmark_integrity_audit.json` |
+| paper claims | 966 | 0 | 0 | 0 | `results/paper_claims_verification.json` |
 | reviewer checklist | 19 | 0 | 0 | 0 | `results/reviewer_checklist.json` |
-| submission readiness | 168 | 0 | 0 | 0 | `results/submission_readiness_audit.json` |
+| submission readiness | 211 | 0 | 0 | 0 | `results/submission_readiness_audit.json` |
 
 ## Refresh Commands
 

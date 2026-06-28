@@ -57,6 +57,18 @@ def main() -> None:
     parser.add_argument("--scene-file", required=True)
     parser.add_argument("--candidates", required=True)
     parser.add_argument("--model", required=True)
+    parser.add_argument(
+        "--temperature",
+        type=parse_temperature,
+        default=0.0,
+        help="Sampling temperature, or 'none' to omit the API parameter.",
+    )
+    parser.add_argument(
+        "--reasoning-effort",
+        type=parse_optional_string,
+        default=None,
+        help="Reasoning effort, or 'omit' to omit the API parameter.",
+    )
     parser.add_argument("--cache-dir", default="data/cached_responses")
     parser.add_argument("--records-out", required=True)
     parser.add_argument("--summary-out", required=True)
@@ -75,7 +87,12 @@ def main() -> None:
     if args.max_scenes > 0:
         candidate_rows = candidate_rows[: args.max_scenes]
 
-    client = OpenAIResponsesClient(model=args.model, cache_dir=args.cache_dir)
+    client = OpenAIResponsesClient(
+        model=args.model,
+        temperature=args.temperature,
+        reasoning_effort=args.reasoning_effort,
+        cache_dir=args.cache_dir,
+    )
     heldout = [
         ApiHeldoutListener(client, f"{args.model}:direct_last", "heldout_direct_last"),
         ApiHeldoutListener(client, f"{args.model}:careful", "heldout_careful"),
@@ -158,6 +175,18 @@ def write_outputs(
         write_jsonl(args.audit_out, audit_rows)
     if summary:
         write_summary(args.summary_out, summarize_records(records))
+
+
+def parse_temperature(value: str) -> float | None:
+    if value.lower() in {"none", "null", "omit"}:
+        return None
+    return float(value)
+
+
+def parse_optional_string(value: str) -> str | None:
+    if value.lower() in {"none_param", "null", "omit"}:
+        return None
+    return value
 
 
 if __name__ == "__main__":

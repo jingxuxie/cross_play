@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PRAG-CrossPlay Human Validation Packet</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 32px; max-width: 980px; line-height: 1.45; }
+    .item { border: 1px solid #ccc; padding: 16px; margin: 16px 0; }
+    .message { font-weight: 700; }
+    label { display: block; margin: 8px 0; }
+    .object-id { font-family: monospace; }
+    .select { margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <h1>PRAG-CrossPlay Human Validation Packet</h1>
+  <p>Choose the object referred to by each message and mark whether the message is ambiguous from the listed objects.</p>
+  <section class="item">
+  <h2>HVAL_001</h2>
+  <p class="message">It’s a large red sphere.</p>
+  <fieldset>
+    <legend>Which object is the message referring to?</legend>
+    <label><input type="radio" name="HVAL_001_choice" value="obj_1"> <span class="object-id">obj_1</span>: large red sphere at row 4, column 1</label>
+<label><input type="radio" name="HVAL_001_choice" value="obj_5"> <span class="object-id">obj_5</span>: large blue sphere at row 2, column 3</label>
+<label><input type="radio" name="HVAL_001_choice" value="obj_2"> <span class="object-id">obj_2</span>: large red sphere at row 1, column 4</label>
+<label><input type="radio" name="HVAL_001_choice" value="obj_3"> <span class="object-id">obj_3</span>: large green cylinder at row 4, column 2</label>
+<label><input type="radio" name="HVAL_001_choice" value="obj_4"> <span class="object-id">obj_4</span>: small orange cylinder at row 5, column 5</label>
+  </fieldset>
+  <label class="select">Ambiguous?
+    <select name="HVAL_001_ambiguous">
+      <option value=""></option>
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select>
+  </label>
+  <label class="select">Confidence
+    <select name="HVAL_001_confidence">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label>
+</section>
+
+<section class="item">
+  <h2>HVAL_002</h2>
+  <p class="message">Find the small yellow sphere left of the large green cube.</p>
+  <fieldset>
+    <legend>Which object is the message referring to?</legend>
+    <label><input type="radio" name="HVAL_002_choice" value="obj_5"> <span class="object-id">obj_5</span>: small green cube at row 2, column 3</label>
+<label><input type="radio" name="HVAL_002_choice" value="obj_2"> <span class="object-id">obj_2</span>: small yellow sphere at row 1, column 4</label>
+<label><input type="radio" name="HVAL_002_choice" value="obj_1"> <span class="object-id">obj_1</span>: small yellow sphere at row 4, column 1</label>
+<label><input type="radio" name="HVAL_002_choice" value="obj_3"> <span class="object-id">obj_3</span>: large green cube at row 4, column 2</label>
+<label><input type="radio" name="HVAL_002_choice" value="obj_4"> <span class="object-id">obj_4</span>: small orange pyramid at row 5, column 5</label>
+  </fieldset>
+  <label class="select">Ambiguous?
+    <select name="HVAL_002_ambiguous">
+      <option value=""></option>
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select>
+  </label>
+  <label class="select">Confidence
+    <select name="HVAL_002_confidence">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label>
+</section>
+
+<section class="item">
+  <h2>HVAL_003</h2>
+  <p class="message">It’s a large red sphere.</p>
+  <fieldset>
+    <legend>Which object is the message referring to?</legend>
+    <label><input type="radio" name="HVAL_003_choice" value="obj_1"> <span class="object-id">obj_1</span>: large red sphere at row 4, column 1</label>
+<label><input type="radio" name="HVAL_003_choice" value="obj_5"> <span class="object-id">obj_5</span>: large green cylinder at row 2, column 3</label>
+<label><input type="radio" name="HVAL_003_choice" value="obj_3"> <span class="object-id">obj_3</span>: large orange cube at row 4, column 2</label>
+<label><input type="radio" name="HVAL_003_choice" value="obj_2"> <span class="object-id">obj_2</span>: large red sphere at row 1, column 4</label>
+<label><input type="radio" name="HVAL_003_choice" value="obj_4"> <span class="object-id">obj_4</span>: large blue sphere at row 5, column 5</label>
+  </fieldset>
+  <label class="select">Ambiguous?
+    <select name="HVAL_003_ambiguous">
+      <option value=""></option>
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select>
+  </label>
+  <label class="select">Confidence
+    <select name="HVAL_003_confidence">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label>
+</section>
+
+<section class="item">
+  <h2>HVAL_004</h2>
+  <p class="message">It’s a small green sphere.</p>
+  <fieldset>
+    <legend>Which object is the message referring to?</legend>
+    <label><input type="radio" name="HVAL_004_choice" value="obj_1"> <span class="object-id">obj_1</span>: small green sphere at row 4, column 1</label>
+<label><input type="radio" name="HVAL_004_choice" value="obj_5"> <span class="object-id">obj_5</span>: large red cube at row 2, column 3</label>
+<label><input type="radio" name="HVAL_004_choice" value="obj_4"> <span class="object-id">obj_4</span>: large purple cylinder at row 5, column 5</label>
+<label><input type="radio" name="HVAL_004_choice" value="obj_2"> <span class="object-id">obj_2</span>: small green sphere at row 1, column 4</label>
+<label><input type="radio" name="HVAL_004_choice" value="obj_3"> <span class="object-id">obj_3</span>: large red cylinder at row 4, column 2</label>
+  </fieldset>
+  <label class="select">Ambiguous?
+    <select name="HVAL_004_ambiguous">
+      <option value=""></option>
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select>
+  </label>
+  <label class="select">Confidence
+    <select name="HVAL_004_confidence">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label>
+</section>
+
+<section class="item">
+  <h2>HVAL_005</h2>
+  <p class="message">It’s a small blue cube.</p>
+  <fieldset>
+    <legend>Which object is the message referring to?</legend>
+    <label><input type="radio" name="HVAL_005_choice" value="obj_1"> <span class="object-id">obj_1</span>: small blue cube at row 4, column 1</label>
+<label><input type="radio" name="HVAL_005_choice" value="obj_4"> <span class="object-id">obj_4</span>: small orange cylinder at row 5, column 5</label>
+<label><input type="radio" name="HVAL_005_choice" value="obj_2"> <span class="object-id">obj_2</span>: small blue cube at row 1, column 4</label>
+<label><input type="radio" name="HVAL_005_choice" value="obj_3"> <span class="object-id">obj_3</span>: large yellow pyramid at row 4, column 2</label>
+<label><input type="radio" name="HVAL_005_choice" value="obj_5"> <span class="object-id">obj_5</span>: large green cone at row 2, column 3</label>
+  </fieldset>
+  <label class="select">Ambiguous?
+    <select name="HVAL_005_ambiguous">
+      <option value=""></option>
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select>
+  </label>
+  <label class="select">Confidence
+    <select name="HVAL_005_confidence">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label>
+</section>
+
+<section class="item">
+  <h2>HVAL_006</h2>
+  <p class="message">Large blue cube.</p>
+  <fieldset>
+    <legend>Which object is the message referring to?</legend>
+    <label><input type="radio" name="HVAL_006_choice" value="obj_3"> <span class="object-id">obj_3</span>: large purple pyramid at row 4, column 2</label>
+<label><input type="radio" name="HVAL_006_choice" value="obj_1"> <span class="object-id">obj_1</span>: large blue cube at row 4, column 1</label>
+<label><input type="radio" name="HVAL_006_choice" value="obj_4"> <span class="object-id">obj_4</span>: large red cube at row 5, column 5</label>
+<label><input type="radio" name="HVAL_006_choice" value="obj_5"> <span class="object-id">obj_5</span>: small purple sphere at row 2, column 3</label>
+<label><input type="radio" name="HVAL_006_choice" value="obj_2"> <span class="object-id">obj_2</span>: large blue cube at row 1, column 4</label>
+  </fieldset>
+  <label class="select">Ambiguous?
+    <select name="HVAL_006_ambiguous">
+      <option value=""></option>
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select>
+  </label>
+  <label class="select">Confidence
+    <select name="HVAL_006_confidence">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label>
+</section>
+
+<section class="item">
+  <h2>HVAL_007</h2>
+  <p class="message">Find the large yellow cube left of the purple cylinder.</p>
+  <fieldset>
+    <legend>Which object is the message referring to?</legend>
+    <label><input type="radio" name="HVAL_007_choice" value="obj_4"> <span class="object-id">obj_4</span>: large purple pyramid at row 5, column 5</label>
+<label><input type="radio" name="HVAL_007_choice" value="obj_2"> <span class="object-id">obj_2</span>: large yellow cube at row 1, column 4</label>
+<label><input type="radio" name="HVAL_007_choice" value="obj_1"> <span class="object-id">obj_1</span>: large yellow cube at row 4, column 1</label>
+<label><input type="radio" name="HVAL_007_choice" value="obj_5"> <span class="object-id">obj_5</span>: small yellow cone at row 2, column 3</label>
+<label><input type="radio" name="HVAL_007_choice" value="obj_3"> <span class="object-id">obj_3</span>: large purple cylinder at row 4, column 2</label>
+  </fieldset>
+  <label class="select">Ambiguous?
+    <select name="HVAL_007_ambiguous">
+      <option value=""></option>
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select>
+  </label>
+  <label class="select">Confidence
+    <select name="HVAL_007_confidence">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label>
+</section>
+
+<section class="item">
+  <h2>HVAL_008</h2>
+  <p class="message">It’s a small blue sphere.</p>
+  <fieldset>
+    <legend>Which object is the message referring to?</legend>
+    <label><input type="radio" name="HVAL_008_choice" value="obj_5"> <span class="object-id">obj_5</span>: small blue cube at row 2, column 3</label>
+<label><input type="radio" name="HVAL_008_choice" value="obj_4"> <span class="object-id">obj_4</span>: small red pyramid at row 5, column 5</label>
+<label><input type="radio" name="HVAL_008_choice" value="obj_3"> <span class="object-id">obj_3</span>: large red cone at row 4, column 2</label>
+<label><input type="radio" name="HVAL_008_choice" value="obj_1"> <span class="object-id">obj_1</span>: small blue sphere at row 4, column 1</label>
+<label><input type="radio" name="HVAL_008_choice" value="obj_2"> <span class="object-id">obj_2</span>: small blue sphere at row 1, column 4</label>
+  </fieldset>
+  <label class="select">Ambiguous?
+    <select name="HVAL_008_ambiguous">
+      <option value=""></option>
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select>
+  </label>
+  <label class="select">Confidence
+    <select name="HVAL_008_confidence">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label>
+</section>
+
+<section class="item">
+  <h2>HVAL_009</h2>
+  <p class="message">It’s a large yellow cube.</p>
+  <fieldset>
+    <legend>Which object is the message referring to?</legend>
+    <label><input type="radio" name="HVAL_009_choice" value="obj_1"> <span class="object-id">obj_1</span>: large yellow cube at row 4, column 1</label>
+<label><input type="radio" name="HVAL_009_choice" value="obj_2"> <span class="object-id">obj_2</span>: large yellow cube at row 1, column 4</label>
+<label><input type="radio" name="HVAL_009_choice" value="obj_4"> <span class="object-id">obj_4</span>: large purple sphere at row 5, column 5</label>
+<label><input type="radio" name="HVAL_009_choice" value="obj_5"> <span class="object-id">obj_5</span>: small green sphere at row 2, column 3</label>
+<label><input type="radio" name="HVAL_009_choice" value="obj_3"> <span class="object-id">obj_3</span>: large green sphere at row 4, column 2</label>
+  </fieldset>
+  <label class="select">Ambiguous?
+    <select name="HVAL_009_ambiguous">
+      <option value=""></option>
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select>
+  </label>
+  <label class="select">Confidence
+    <select name="HVAL_009_confidence">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label>
+</section>
+
+<section class="item">
+  <h2>HVAL_010</h2>
+  <p class="message">Small red sphere.</p>
+  <fieldset>
+    <legend>Which object is the message referring to?</legend>
+    <label><input type="radio" name="HVAL_010_choice" value="obj_3"> <span class="object-id">obj_3</span>: large yellow cylinder at row 4, column 2</label>
+<label><input type="radio" name="HVAL_010_choice" value="obj_1"> <span class="object-id">obj_1</span>: small red sphere at row 4, column 1</label>
+<label><input type="radio" name="HVAL_010_choice" value="obj_4"> <span class="object-id">obj_4</span>: large orange sphere at row 5, column 5</label>
+<label><input type="radio" name="HVAL_010_choice" value="obj_5"> <span class="object-id">obj_5</span>: small blue cylinder at row 2, column 3</label>
+<label><input type="radio" name="HVAL_010_choice" value="obj_2"> <span class="object-id">obj_2</span>: small red sphere at row 1, column 4</label>
+  </fieldset>
+  <label class="select">Ambiguous?
+    <select name="HVAL_010_ambiguous">
+      <option value=""></option>
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select>
+  </label>
+  <label class="select">Confidence
+    <select name="HVAL_010_confidence">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label>
+</section>
+
+<section class="item">
+  <h2>HVAL_011</h2>
+  <p class="message">Large red sphere.</p>
+  <fieldset>
+    <legend>Which object is the message referring to?</legend>
+    <label><input type="radio" name="HVAL_011_choice" value="obj_1"> <span class="object-id">obj_1</span>: large red sphere at row 3, column 2</label>
+<label><input type="radio" name="HVAL_011_choice" value="obj_2"> <span class="object-id">obj_2</span>: large red sphere at row 3, column 4</label>
+<label><input type="radio" name="HVAL_011_choice" value="obj_4"> <span class="object-id">obj_4</span>: large purple pyramid at row 4, column 2</label>
+<label><input type="radio" name="HVAL_011_choice" value="obj_5"> <span class="object-id">obj_5</span>: small blue sphere at row 5, column 5</label>
+  </fieldset>
+  <label class="select">Ambiguous?
+    <select name="HVAL_011_ambiguous">
+      <option value=""></option>
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select>
+  </label>
+  <label class="select">Confidence
+    <select name="HVAL_011_confidence">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label>
+</section>
+
+<section class="item">
+  <h2>HVAL_012</h2>
+  <p class="message">Large red sphere.</p>
+  <fieldset>
+    <legend>Which object is the message referring to?</legend>
+    <label><input type="radio" name="HVAL_012_choice" value="obj_1"> <span class="object-id">obj_1</span>: large red sphere at row 3, column 2</label>
+<label><input type="radio" name="HVAL_012_choice" value="obj_2"> <span class="object-id">obj_2</span>: large red sphere at row 3, column 4</label>
+<label><input type="radio" name="HVAL_012_choice" value="obj_4"> <span class="object-id">obj_4</span>: large green cylinder at row 4, column 2</label>
+<label><input type="radio" name="HVAL_012_choice" value="obj_5"> <span class="object-id">obj_5</span>: large purple pyramid at row 5, column 5</label>
+  </fieldset>
+  <label class="select">Ambiguous?
+    <select name="HVAL_012_ambiguous">
+      <option value=""></option>
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select>
+  </label>
+  <label class="select">Confidence
+    <select name="HVAL_012_confidence">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label>
+</section>
+
+<section class="item">
+  <h2>HVAL_013</h2>
+  <p class="message">Small green sphere.</p>
+  <fieldset>
+    <legend>Which object is the message referring to?</legend>
+    <label><input type="radio" name="HVAL_013_choice" value="obj_1"> <span class="object-id">obj_1</span>: small green sphere at row 3, column 2</label>
+<label><input type="radio" name="HVAL_013_choice" value="obj_5"> <span class="object-id">obj_5</span>: large red cube at row 5, column 5</label>
+<label><input type="radio" name="HVAL_013_choice" value="obj_4"> <span class="object-id">obj_4</span>: large purple cone at row 4, column 2</label>
+<label><input type="radio" name="HVAL_013_choice" value="obj_2"> <span class="object-id">obj_2</span>: small green sphere at row 3, column 4</label>
+  </fieldset>
+  <label class="select">Ambiguous?
+    <select name="HVAL_013_ambiguous">
+      <option value=""></option>
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select>
+  </label>
+  <label class="select">Confidence
+    <select name="HVAL_013_confidence">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label>
+</section>
+
+<section class="item">
+  <h2>HVAL_014</h2>
+  <p class="message">Large yellow sphere.</p>
+  <fieldset>
+    <legend>Which object is the message referring to?</legend>
+    <label><input type="radio" name="HVAL_014_choice" value="obj_1"> <span class="object-id">obj_1</span>: large yellow sphere at row 3, column 2</label>
+<label><input type="radio" name="HVAL_014_choice" value="obj_5"> <span class="object-id">obj_5</span>: small purple pyramid at row 5, column 5</label>
+<label><input type="radio" name="HVAL_014_choice" value="obj_2"> <span class="object-id">obj_2</span>: large yellow sphere at row 3, column 4</label>
+<label><input type="radio" name="HVAL_014_choice" value="obj_4"> <span class="object-id">obj_4</span>: large green pyramid at row 4, column 2</label>
+  </fieldset>
+  <label class="select">Ambiguous?
+    <select name="HVAL_014_ambiguous">
+      <option value=""></option>
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select>
+  </label>
+  <label class="select">Confidence
+    <select name="HVAL_014_confidence">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label>
+</section>
+
+<section class="item">
+  <h2>HVAL_015</h2>
+  <p class="message">Small blue cube.</p>
+  <fieldset>
+    <legend>Which object is the message referring to?</legend>
+    <label><input type="radio" name="HVAL_015_choice" value="obj_1"> <span class="object-id">obj_1</span>: small blue cube at row 3, column 2</label>
+<label><input type="radio" name="HVAL_015_choice" value="obj_4"> <span class="object-id">obj_4</span>: large purple sphere at row 4, column 2</label>
+<label><input type="radio" name="HVAL_015_choice" value="obj_2"> <span class="object-id">obj_2</span>: small blue cube at row 3, column 4</label>
+<label><input type="radio" name="HVAL_015_choice" value="obj_5"> <span class="object-id">obj_5</span>: large green cone at row 5, column 5</label>
+  </fieldset>
+  <label class="select">Ambiguous?
+    <select name="HVAL_015_ambiguous">
+      <option value=""></option>
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select>
+  </label>
+  <label class="select">Confidence
+    <select name="HVAL_015_confidence">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label>
+</section>
+
+<section class="item">
+  <h2>HVAL_016</h2>
+  <p class="message">Go to row 4, column 1: small blue cube.</p>
+  <fieldset>
+    <legend>Which object is the message referring to?</legend>
+    <label><input type="radio" name="HVAL_016_choice" value="obj_5"> <span class="object-id">obj_5</span>: large red cube at row 2, column 3</label>
+<label><input type="radio" name="HVAL_016_choice" value="obj_2"> <span class="object-id">obj_2</span>: small blue cube at row 1, column 4</label>
+<label><input type="radio" name="HVAL_016_choice" value="obj_1"> <span class="object-id">obj_1</span>: small blue cube at row 4, column 1</label>
+<label><input type="radio" name="HVAL_016_choice" value="obj_3"> <span class="object-id">obj_3</span>: large red sphere at row 4, column 2</label>
+<label><input type="radio" name="HVAL_016_choice" value="obj_4"> <span class="object-id">obj_4</span>: large yellow cylinder at row 5, column 5</label>
+  </fieldset>
+  <label class="select">Ambiguous?
+    <select name="HVAL_016_ambiguous">
+      <option value=""></option>
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select>
+  </label>
+  <label class="select">Confidence
+    <select name="HVAL_016_confidence">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label>
+</section>
+
+<section class="item">
+  <h2>HVAL_017</h2>
+  <p class="message">It’s a large blue sphere.</p>
+  <fieldset>
+    <legend>Which object is the message referring to?</legend>
+    <label><input type="radio" name="HVAL_017_choice" value="obj_5"> <span class="object-id">obj_5</span>: small blue cylinder at row 2, column 3</label>
+<label><input type="radio" name="HVAL_017_choice" value="obj_1"> <span class="object-id">obj_1</span>: large blue sphere at row 4, column 1</label>
+<label><input type="radio" name="HVAL_017_choice" value="obj_2"> <span class="object-id">obj_2</span>: large blue sphere at row 1, column 4</label>
+<label><input type="radio" name="HVAL_017_choice" value="obj_4"> <span class="object-id">obj_4</span>: large purple cube at row 5, column 5</label>
+<label><input type="radio" name="HVAL_017_choice" value="obj_3"> <span class="object-id">obj_3</span>: large green pyramid at row 4, column 2</label>
+  </fieldset>
+  <label class="select">Ambiguous?
+    <select name="HVAL_017_ambiguous">
+      <option value=""></option>
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select>
+  </label>
+  <label class="select">Confidence
+    <select name="HVAL_017_confidence">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label>
+</section>
+
+<section class="item">
+  <h2>HVAL_018</h2>
+  <p class="message">It’s the leftmost large yellow sphere, below the top row.</p>
+  <fieldset>
+    <legend>Which object is the message referring to?</legend>
+    <label><input type="radio" name="HVAL_018_choice" value="obj_2"> <span class="object-id">obj_2</span>: large yellow sphere at row 1, column 4</label>
+<label><input type="radio" name="HVAL_018_choice" value="obj_5"> <span class="object-id">obj_5</span>: large yellow sphere at row 2, column 3</label>
+<label><input type="radio" name="HVAL_018_choice" value="obj_3"> <span class="object-id">obj_3</span>: large red cone at row 4, column 2</label>
+<label><input type="radio" name="HVAL_018_choice" value="obj_1"> <span class="object-id">obj_1</span>: large yellow sphere at row 4, column 1</label>
+<label><input type="radio" name="HVAL_018_choice" value="obj_4"> <span class="object-id">obj_4</span>: small blue pyramid at row 5, column 5</label>
+  </fieldset>
+  <label class="select">Ambiguous?
+    <select name="HVAL_018_ambiguous">
+      <option value=""></option>
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select>
+  </label>
+  <label class="select">Confidence
+    <select name="HVAL_018_confidence">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label>
+</section>
+
+<section class="item">
+  <h2>HVAL_019</h2>
+  <p class="message">Go to row 4, column 1: the large blue sphere.</p>
+  <fieldset>
+    <legend>Which object is the message referring to?</legend>
+    <label><input type="radio" name="HVAL_019_choice" value="obj_3"> <span class="object-id">obj_3</span>: large purple cone at row 4, column 2</label>
+<label><input type="radio" name="HVAL_019_choice" value="obj_2"> <span class="object-id">obj_2</span>: large blue sphere at row 1, column 4</label>
+<label><input type="radio" name="HVAL_019_choice" value="obj_1"> <span class="object-id">obj_1</span>: large blue sphere at row 4, column 1</label>
+<label><input type="radio" name="HVAL_019_choice" value="obj_4"> <span class="object-id">obj_4</span>: small orange sphere at row 5, column 5</label>
+<label><input type="radio" name="HVAL_019_choice" value="obj_5"> <span class="object-id">obj_5</span>: small yellow cube at row 2, column 3</label>
+  </fieldset>
+  <label class="select">Ambiguous?
+    <select name="HVAL_019_ambiguous">
+      <option value=""></option>
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select>
+  </label>
+  <label class="select">Confidence
+    <select name="HVAL_019_confidence">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label>
+</section>
+
+<section class="item">
+  <h2>HVAL_020</h2>
+  <p class="message">It’s a small blue sphere.</p>
+  <fieldset>
+    <legend>Which object is the message referring to?</legend>
+    <label><input type="radio" name="HVAL_020_choice" value="obj_3"> <span class="object-id">obj_3</span>: large red pyramid at row 4, column 2</label>
+<label><input type="radio" name="HVAL_020_choice" value="obj_5"> <span class="object-id">obj_5</span>: large green cube at row 2, column 3</label>
+<label><input type="radio" name="HVAL_020_choice" value="obj_1"> <span class="object-id">obj_1</span>: small blue sphere at row 4, column 1</label>
+<label><input type="radio" name="HVAL_020_choice" value="obj_2"> <span class="object-id">obj_2</span>: small blue sphere at row 1, column 4</label>
+<label><input type="radio" name="HVAL_020_choice" value="obj_4"> <span class="object-id">obj_4</span>: small blue cube at row 5, column 5</label>
+  </fieldset>
+  <label class="select">Ambiguous?
+    <select name="HVAL_020_ambiguous">
+      <option value=""></option>
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select>
+  </label>
+  <label class="select">Confidence
+    <select name="HVAL_020_confidence">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </label>
+</section>
+
+</body>
+</html>

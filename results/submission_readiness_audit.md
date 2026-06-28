@@ -1,6 +1,6 @@
 # Submission Readiness Audit
 
-Checks: 176/176 non-failing.
+Checks: 215/215 non-failing.
 Warnings: 0.
 Open actions: 0.
 
@@ -20,6 +20,10 @@ Open actions: 0.
 | PASS | `artifact.docs/api_token_accounting.md` | present |
 | PASS | `artifact.docs/cross_model_listener_audit.md` | present |
 | PASS | `artifact.docs/cross_model_failure_overlap.md` | present |
+| PASS | `artifact.docs/gpt55_speaker_smoke_report.md` | present |
+| PASS | `artifact.docs/gpt55_followup_plan_status.md` | present |
+| PASS | `artifact.docs/human_validation_packet.md` | present |
+| PASS | `artifact.docs/human_validation_packet.html` | present |
 | PASS | `artifact.docs/local_benchmark600_check.md` | present |
 | PASS | `artifact.docs/local_stronger_plan_k8.md` | present |
 | PASS | `artifact.docs/api_listener_leave_one_out.md` | present |
@@ -46,10 +50,31 @@ Open actions: 0.
 | PASS | `artifact.results/cross_model_listener_audit.json` | present |
 | PASS | `artifact.results/cross_model_failure_overlap.json` | present |
 | PASS | `artifact.results/cross_model_failure_overlap_units.jsonl` | present |
+| PASS | `artifact.results/gpt55_speaker_smoke.json` | present |
+| PASS | `artifact.results/gpt55_existing_speaker_perspective10_records.jsonl` | present |
+| PASS | `artifact.results/gpt55_existing_speaker_perspective10_summary.json` | present |
+| PASS | `artifact.results/gpt55_existing_speaker_perspective10_candidate_eval_records.jsonl` | present |
+| PASS | `artifact.results/gpt55_existing_speaker_perspective10_audit.jsonl` | present |
+| PASS | `artifact.results/gpt55_speaker_perspective10_records.jsonl` | present |
+| PASS | `artifact.results/gpt55_speaker_perspective10_summary.json` | present |
+| PASS | `artifact.results/gpt55_speaker_perspective10_candidates.jsonl` | present |
+| PASS | `artifact.results/gpt55_speaker_perspective10_candidate_eval_records.jsonl` | present |
+| PASS | `artifact.results/gpt55_speaker_perspective20_records.jsonl` | present |
+| PASS | `artifact.results/gpt55_speaker_perspective20_summary.json` | present |
+| PASS | `artifact.results/gpt55_speaker_perspective20_candidates.jsonl` | present |
+| PASS | `artifact.results/gpt55_speaker_perspective20_candidate_eval_records.jsonl` | present |
+| PASS | `artifact.results/gpt55_speaker_perspective50_records.jsonl` | present |
+| PASS | `artifact.results/gpt55_speaker_perspective50_summary.json` | present |
+| PASS | `artifact.results/gpt55_speaker_perspective50_candidates.jsonl` | present |
+| PASS | `artifact.results/gpt55_speaker_perspective50_candidate_eval_records.jsonl` | present |
+| PASS | `artifact.results/gpt55_followup_plan_status.json` | present |
+| PASS | `artifact.results/human_validation_answer_key.json` | present |
 | PASS | `artifact.results/local_benchmark600_check.json` | present |
 | PASS | `artifact.results/local_benchmark600_summary.json` | present |
 | PASS | `artifact.results/local_benchmark600_records.jsonl` | present |
 | PASS | `artifact.data/local_benchmark600_scenes.jsonl` | present |
+| PASS | `artifact.data/human_validation_items.jsonl` | present |
+| PASS | `artifact.data/human_validation_response_template.csv` | present |
 | PASS | `artifact.results/local_stronger_plan_k8.json` | present |
 | PASS | `artifact.data/local_stronger_plan1200_scenes.jsonl` | present |
 | PASS | `artifact.results/api_listener_leave_one_out.json` | present |
@@ -76,6 +101,9 @@ Open actions: 0.
 | PASS | `artifact.scripts/run_selected_listener_audit.py` | present |
 | PASS | `artifact.scripts/analyze_cross_model_listener_audit.py` | present |
 | PASS | `artifact.scripts/analyze_cross_model_failure_overlap.py` | present |
+| PASS | `artifact.scripts/analyze_gpt55_speaker_smoke.py` | present |
+| PASS | `artifact.scripts/audit_gpt55_followup_plan.py` | present |
+| PASS | `artifact.scripts/make_human_validation_packet.py` | present |
 | PASS | `artifact.scripts/analyze_local_benchmark.py` | present |
 | PASS | `artifact.scripts/analyze_local_stronger_plan.py` | present |
 | PASS | `artifact.scripts/analyze_partial_observability_api.py` | present |
@@ -122,6 +150,17 @@ Open actions: 0.
 | PASS | `artifact_guide.20_of_22_gpt_4_1_mirror_failure_scenes_also_fail_under_gpt_5` | present |
 | PASS | `artifact_guide.26_of_26_do` | present |
 | PASS | `artifact_guide.all_gpt_5_5_mirror_failure_scenes_are_symbolic_verifier_posi` | present |
+| PASS | `artifact_guide.gpt_5_5_speaker_smoke` | present |
+| PASS | `artifact_guide.direct_first_rises_from_0_800_to_1_000_and_mirror_rises_from` | present |
+| PASS | `artifact_guide.this_section_keeps_the_original_10_scene_same_scene_smoke_co` | present |
+| PASS | `artifact_guide.50_scene_speaker_audit` | present |
+| PASS | `artifact_guide.50_0_993_0_800_0_853_1_000_0_147_1_000_1_000` | present |
+| PASS | `artifact_guide.gpt_5_5_follow_up_plan_status` | present |
+| PASS | `artifact_guide.covered_4_partial_2_future_0_missing_evidence_paths_0` | present |
+| PASS | `artifact_guide.the_gpt_5_5_follow_up_evidence_is_explicitly_bounded_by_cove` | present |
+| PASS | `artifact_guide.human_validation_packet` | present |
+| PASS | `artifact_guide.mirror_success_control_5_partial_mirror_failure_5_perspectiv` | present |
+| PASS | `artifact_guide.participant_facing_files_exclude_condition_labels_scene_ids_` | present |
 | PASS | `artifact_guide.local_benchmark_scale_sanity_check` | present |
 | PASS | `artifact_guide.local_stronger_plan_k_8_diagnostic` | present |
 | PASS | `artifact_guide.600_local_scenes_balanced_across_four_initial_scenario_famil` | present |
@@ -169,10 +208,10 @@ Open actions: 0.
 | PASS | `artifact_guide.0_candidate_messages_reference_private_landmarks` | present |
 | PASS | `artifact_guide.all_50_full_run_mirror_failures_are_underspecified_distracto` | present |
 | PASS | `artifact_guide.local_benchmark600_data_local_benchmark600_scenes_jsonl_600_` | present |
-| PASS | `artifact_guide.194_194_integrity_checks_pass` | present |
-| PASS | `artifact_guide.4982_cached_responses_have_complete_usage_metadata_totaling_` | present |
-| PASS | `claims_verifier.no_failed_checks` | 890 checks, 0 failed |
-| PASS | `integrity_audit.no_failed_checks` | 194 checks, 0 failed |
+| PASS | `artifact_guide.242_242_integrity_checks_pass` | present |
+| PASS | `artifact_guide.5866_cached_responses_have_complete_usage_metadata_totaling_` | present |
+| PASS | `claims_verifier.no_failed_checks` | 971 checks, 0 failed |
+| PASS | `integrity_audit.no_failed_checks` | 242 checks, 0 failed |
 | PASS | `template.final_venue_template` | paper/colm2026_submission.pdf uses COLM submission style |
 | PASS | `colm_source.uses_submission_template` | COLM submission package |
 | PASS | `colm_source.has_line_numbers` | line numbers enabled for submission mode |

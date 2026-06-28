@@ -1,0 +1,190 @@
+{
+  "by_method": {
+    "api_best_of_k_shortest": {
+      "crossplay_gap": null,
+      "json_valid_rate": 1.0,
+      "listener_success_stdev": 0.04714045207910316,
+      "mean_tokens": 6.7,
+      "n_records": 30,
+      "n_scenes": 10,
+      "sameplay_success": null,
+      "success": 0.8333333333333334,
+      "success_ci95": [
+        0.6333333333333333,
+        0.9666666666666667
+      ]
+    },
+    "api_direct_first": {
+      "crossplay_gap": null,
+      "json_valid_rate": 1.0,
+      "listener_success_stdev": 0.0,
+      "mean_tokens": 12.9,
+      "n_records": 30,
+      "n_scenes": 10,
+      "sameplay_success": null,
+      "success": 1.0,
+      "success_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "hybrid_local_mirror_api_eval": {
+      "crossplay_gap": 0.1333333333333333,
+      "json_valid_rate": 1.0,
+      "listener_success_stdev": 0.09428090415820632,
+      "mean_tokens": 7.6,
+      "n_records": 30,
+      "n_scenes": 10,
+      "sameplay_success": 1.0,
+      "success": 0.8666666666666667,
+      "success_ci95": [
+        0.6666666666666666,
+        1.0
+      ]
+    },
+    "hybrid_local_population_api_eval": {
+      "crossplay_gap": 0.0,
+      "json_valid_rate": 1.0,
+      "listener_success_stdev": 0.0,
+      "mean_tokens": 9.5,
+      "n_records": 30,
+      "n_scenes": 10,
+      "sameplay_success": 1.0,
+      "success": 1.0,
+      "success_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_upper_bound": {
+      "crossplay_gap": null,
+      "json_valid_rate": 1.0,
+      "listener_success_stdev": 0.0,
+      "mean_tokens": 8.2,
+      "n_records": 30,
+      "n_scenes": 10,
+      "sameplay_success": null,
+      "success": 1.0,
+      "success_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "template": {
+      "crossplay_gap": null,
+      "json_valid_rate": 1.0,
+      "listener_success_stdev": 0.0,
+      "mean_tokens": 10.0,
+      "n_records": 30,
+      "n_scenes": 10,
+      "sameplay_success": null,
+      "success": 1.0,
+      "success_ci95": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "by_scenario_method": {
+    "perspective_shift": {
+      "api_best_of_k_shortest": {
+        "crossplay_gap": null,
+        "json_valid_rate": 1.0,
+        "listener_success_stdev": 0.04714045207910316,
+        "mean_tokens": 6.7,
+        "n_records": 30,
+        "n_scenes": 10,
+        "sameplay_success": null,
+        "success": 0.8333333333333334,
+        "success_ci95": [
+          0.6333333333333333,
+          0.9666666666666667
+        ]
+      },
+      "api_direct_first": {
+        "crossplay_gap": null,
+        "json_valid_rate": 1.0,
+        "listener_success_stdev": 0.0,
+        "mean_tokens": 12.9,
+        "n_records": 30,
+        "n_scenes": 10,
+        "sameplay_success": null,
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "hybrid_local_mirror_api_eval": {
+        "crossplay_gap": 0.1333333333333333,
+        "json_valid_rate": 1.0,
+        "listener_success_stdev": 0.09428090415820632,
+        "mean_tokens": 7.6,
+        "n_records": 30,
+        "n_scenes": 10,
+        "sameplay_success": 1.0,
+        "success": 0.8666666666666667,
+        "success_ci95": [
+          0.6666666666666666,
+          1.0
+        ]
+      },
+      "hybrid_local_population_api_eval": {
+        "crossplay_gap": 0.0,
+        "json_valid_rate": 1.0,
+        "listener_success_stdev": 0.0,
+        "mean_tokens": 9.5,
+        "n_records": 30,
+        "n_scenes": 10,
+        "sameplay_success": 1.0,
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "oracle_upper_bound": {
+        "crossplay_gap": null,
+        "json_valid_rate": 1.0,
+        "listener_success_stdev": 0.0,
+        "mean_tokens": 8.2,
+        "n_records": 30,
+        "n_scenes": 10,
+        "sameplay_success": null,
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "template": {
+        "crossplay_gap": null,
+        "json_valid_rate": 1.0,
+        "listener_success_stdev": 0.0,
+        "mean_tokens": 10.0,
+        "n_records": 30,
+        "n_scenes": 10,
+        "sameplay_success": null,
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      }
+    }
+  },
+  "overall": {
+    "crossplay_gap": 0.050000000000000044,
+    "json_valid_rate": 1.0,
+    "listener_success_stdev": 0.023570226039551553,
+    "mean_tokens": 9.15,
+    "n_records": 180,
+    "n_scenes": 10,
+    "sameplay_success": 1.0,
+    "success": 0.95,
+    "success_ci95": [
+      0.8888888888888888,
+      0.9944444444444445
+    ]
+  }
+}

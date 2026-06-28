@@ -22,33 +22,33 @@
     },
     {
       "cached_input_tokens": 0,
-      "input_tokens": 234304,
-      "mean_total_tokens": 263.44774590163934,
-      "n_responses": 976,
-      "output_tokens": 22821,
+      "input_tokens": 482458,
+      "mean_total_tokens": 283.5951612903226,
+      "n_responses": 1860,
+      "output_tokens": 45029,
       "requested_model": "gpt-5.5",
       "response_model": "gpt-5.5-2026-04-23",
-      "total_tokens": 257125
+      "total_tokens": 527487
     }
   ],
   "by_schema_family": [
     {
       "cached_input_tokens": 0,
-      "input_tokens": 1164608,
+      "input_tokens": 1373252,
       "label": "listener",
-      "mean_total_tokens": 265.0648839137645,
-      "n_responses": 4824,
-      "output_tokens": 114065,
-      "total_tokens": 1278673
+      "mean_total_tokens": 266.27129727819016,
+      "n_responses": 5658,
+      "output_tokens": 133311,
+      "total_tokens": 1506563
     },
     {
       "cached_input_tokens": 0,
-      "input_tokens": 122578,
+      "input_tokens": 162088,
       "label": "speaker",
-      "mean_total_tokens": 831.7658227848101,
-      "n_responses": 158,
-      "output_tokens": 8841,
-      "total_tokens": 131419
+      "mean_total_tokens": 836.0144230769231,
+      "n_responses": 208,
+      "output_tokens": 11803,
+      "total_tokens": 173891
     }
   ],
   "by_schema_version": [
@@ -72,30 +72,30 @@
     },
     {
       "cached_input_tokens": 0,
-      "input_tokens": 349030,
+      "input_tokens": 414686,
       "label": "listener-heldout_careful-v1",
-      "mean_total_tokens": 251.4,
-      "n_responses": 1530,
-      "output_tokens": 35612,
-      "total_tokens": 384642
+      "mean_total_tokens": 252.59513274336283,
+      "n_responses": 1808,
+      "output_tokens": 42006,
+      "total_tokens": 456692
     },
     {
       "cached_input_tokens": 0,
-      "input_tokens": 381419,
+      "input_tokens": 452913,
       "label": "listener-heldout_direct_last-v1",
-      "mean_total_tokens": 273.12802090137166,
-      "n_responses": 1531,
-      "output_tokens": 36740,
-      "total_tokens": 418159
+      "mean_total_tokens": 274.22830292979546,
+      "n_responses": 1809,
+      "output_tokens": 43166,
+      "total_tokens": 496079
     },
     {
       "cached_input_tokens": 0,
-      "input_tokens": 381160,
+      "input_tokens": 452654,
       "label": "listener-heldout_strict_last-v1",
-      "mean_total_tokens": 273.0509803921569,
-      "n_responses": 1530,
-      "output_tokens": 36608,
-      "total_tokens": 417768
+      "mean_total_tokens": 274.1637168141593,
+      "n_responses": 1808,
+      "output_tokens": 43034,
+      "total_tokens": 495688
     },
     {
       "cached_input_tokens": 0,
@@ -171,19 +171,19 @@
     },
     {
       "cached_input_tokens": 0,
-      "input_tokens": 117037,
+      "input_tokens": 156547,
       "label": "speaker-v2-target-attrs",
-      "mean_total_tokens": 836.0266666666666,
-      "n_responses": 150,
-      "output_tokens": 8367,
-      "total_tokens": 125404
+      "mean_total_tokens": 839.38,
+      "n_responses": 200,
+      "output_tokens": 11329,
+      "total_tokens": 167876
     }
   ],
   "cache_dir": "data/cached_responses",
   "missing_usage_examples": [],
-  "n_cache_files": 4982,
+  "n_cache_files": 5866,
   "n_missing_usage": 0,
-  "n_readable": 4982,
+  "n_readable": 5866,
   "n_unreadable": 0,
   "notes": [
     "This report uses stored usage fields in data/cached_responses/*.json.",
@@ -192,11 +192,11 @@
   ],
   "totals": {
     "cached_input_tokens": 0,
-    "input_tokens": 1287186,
-    "mean_total_tokens": 283.0373344038539,
-    "n_responses": 4982,
-    "output_tokens": 122906,
-    "total_tokens": 1410092
+    "input_tokens": 1535340,
+    "mean_total_tokens": 286.473576542789,
+    "n_responses": 5866,
+    "output_tokens": 145114,
+    "total_tokens": 1680454
   },
   "unreadable_examples": []
 }

@@ -57,7 +57,18 @@ def main() -> None:
     parser.add_argument("--max-scenes", type=int, default=12)
     parser.add_argument("--k", type=int, default=4)
     parser.add_argument("--model", default="gpt-5.4-nano")
-    parser.add_argument("--temperature", type=float, default=0.0)
+    parser.add_argument(
+        "--temperature",
+        type=parse_temperature,
+        default=0.0,
+        help="Sampling temperature, or 'none' to omit the API parameter.",
+    )
+    parser.add_argument(
+        "--reasoning-effort",
+        type=parse_optional_string,
+        default=None,
+        help="Reasoning effort, or 'omit' to omit the API parameter.",
+    )
     parser.add_argument("--cache-dir", default="data/cached_responses")
     parser.add_argument("--records-out", default="results/hybrid_api_pilot_records.jsonl")
     parser.add_argument("--summary-out", default="results/hybrid_api_pilot_summary.json")
@@ -72,6 +83,7 @@ def main() -> None:
     client = OpenAIResponsesClient(
         model=args.model,
         temperature=args.temperature,
+        reasoning_effort=args.reasoning_effort,
         cache_dir=args.cache_dir,
     )
     local_train = training_listeners()
@@ -157,6 +169,18 @@ def main() -> None:
     write_summary(args.summary_out, summary)
     print(markdown_table(summary))
     print(f"wrote records={args.records_out} candidates={args.candidates_out} summary={args.summary_out}")
+
+
+def parse_temperature(value: str) -> float | None:
+    if value.lower() in {"none", "null", "omit"}:
+        return None
+    return float(value)
+
+
+def parse_optional_string(value: str) -> str | None:
+    if value.lower() in {"none_param", "null", "omit"}:
+        return None
+    return value
 
 
 if __name__ == "__main__":

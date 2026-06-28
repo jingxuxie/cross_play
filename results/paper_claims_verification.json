@@ -1373,6 +1373,321 @@
       "source": "results/cross_model_failure_overlap.json"
     },
     {
+      "actual": "10",
+      "expected": "10",
+      "name": "gpt55_speaker_smoke.same_scene_count",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "0.800",
+      "expected": "0.800",
+      "name": "gpt55_speaker_smoke.existing_direct_success",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "gpt55_speaker_smoke.gpt55_direct_success",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "0.200",
+      "expected": "0.200",
+      "name": "gpt55_speaker_smoke.direct_first_gain",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "0.667",
+      "expected": "0.667",
+      "name": "gpt55_speaker_smoke.existing_mirror_success",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "0.867",
+      "expected": "0.867",
+      "name": "gpt55_speaker_smoke.gpt55_mirror_success",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "0.200",
+      "expected": "0.200",
+      "name": "gpt55_speaker_smoke.mirror_gain",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "gpt55_speaker_smoke.existing_population_success",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "gpt55_speaker_smoke.gpt55_population_success",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "gpt55_speaker_smoke.population_gain",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "gpt55_speaker_smoke.oracle_gain",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "0.700",
+      "expected": "0.700",
+      "name": "gpt55_speaker_smoke.existing_k1_robust",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "gpt55_speaker_smoke.gpt55_k1_robust",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "10",
+      "expected": "10",
+      "name": "gpt55_speaker_smoke.uncached_speaker_calls",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "8485",
+      "expected": "8485",
+      "name": "gpt55_speaker_smoke.speaker_tokens",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "0.993",
+      "expected": "0.993",
+      "name": "gpt55_speaker_50scene.api_direct_first.success",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "0.800",
+      "expected": "0.800",
+      "name": "gpt55_speaker_50scene.api_best_of_k_shortest.success",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "0.853",
+      "expected": "0.853",
+      "name": "gpt55_speaker_50scene.hybrid_local_mirror_api_eval.success",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "gpt55_speaker_50scene.hybrid_local_mirror_api_eval.sameplay_success",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "0.147",
+      "expected": "0.147",
+      "name": "gpt55_speaker_50scene.hybrid_local_mirror_api_eval.crossplay_gap",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "gpt55_speaker_50scene.hybrid_local_population_api_eval.success",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "gpt55_speaker_50scene.oracle_upper_bound.success",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "gpt55_speaker_50scene.n_scenes",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "0.980",
+      "expected": "0.980",
+      "name": "gpt55_speaker_50scene.k1_robust",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "gpt55_speaker_50scene.k2_robust",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "30",
+      "expected": "30",
+      "name": "gpt55_speaker_50scene.uncached_speaker_calls",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "25478",
+      "expected": "25478",
+      "name": "gpt55_speaker_50scene.uncached_speaker_tokens",
+      "ok": true,
+      "source": "results/gpt55_speaker_smoke.json"
+    },
+    {
+      "actual": "4",
+      "expected": "4",
+      "name": "gpt55_followup_plan_status.covered",
+      "ok": true,
+      "source": "results/gpt55_followup_plan_status.json"
+    },
+    {
+      "actual": "2",
+      "expected": "2",
+      "name": "gpt55_followup_plan_status.partial",
+      "ok": true,
+      "source": "results/gpt55_followup_plan_status.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "gpt55_followup_plan_status.future",
+      "ok": true,
+      "source": "results/gpt55_followup_plan_status.json"
+    },
+    {
+      "actual": "6",
+      "expected": "6",
+      "name": "gpt55_followup_plan_status.total",
+      "ok": true,
+      "source": "results/gpt55_followup_plan_status.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "gpt55_followup_plan_status.missing_evidence_paths",
+      "ok": true,
+      "source": "results/gpt55_followup_plan_status.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "gpt55_followup_plan_status.exp1_gpt55_listener_audit.covered",
+      "ok": true,
+      "source": "results/gpt55_followup_plan_status.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "gpt55_followup_plan_status.exp2_cross_model_matrix.covered",
+      "ok": true,
+      "source": "results/gpt55_followup_plan_status.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "gpt55_followup_plan_status.exp3_gpt55_speaker_generation.covered",
+      "ok": true,
+      "source": "results/gpt55_followup_plan_status.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "gpt55_followup_plan_status.exp4_k8_no_coordinate_generation.partial",
+      "ok": true,
+      "source": "results/gpt55_followup_plan_status.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "gpt55_followup_plan_status.exp5_human_validation.partial",
+      "ok": true,
+      "source": "results/gpt55_followup_plan_status.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "gpt55_followup_plan_status.exp6_rule_based_verifier.covered",
+      "ok": true,
+      "source": "results/gpt55_followup_plan_status.json"
+    },
+    {
+      "actual": "20",
+      "expected": "20",
+      "name": "human_validation_packet.n_items",
+      "ok": true,
+      "source": "results/human_validation_answer_key.json"
+    },
+    {
+      "actual": "10",
+      "expected": "10",
+      "name": "human_validation_packet.perspective_mirror_failure",
+      "ok": true,
+      "source": "results/human_validation_answer_key.json"
+    },
+    {
+      "actual": "5",
+      "expected": "5",
+      "name": "human_validation_packet.partial_mirror_failure",
+      "ok": true,
+      "source": "results/human_validation_answer_key.json"
+    },
+    {
+      "actual": "5",
+      "expected": "5",
+      "name": "human_validation_packet.mirror_success_control",
+      "ok": true,
+      "source": "results/human_validation_answer_key.json"
+    },
+    {
+      "actual": "20",
+      "expected": "20",
+      "name": "human_validation_packet.participant_items",
+      "ok": true,
+      "source": "data/human_validation_items.jsonl"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "human_validation_packet.no_participant_label_fields",
+      "ok": true,
+      "source": "data/human_validation_items.jsonl"
+    },
+    {
+      "actual": "20",
+      "expected": "20",
+      "name": "human_validation_packet.response_template_rows",
+      "ok": true,
+      "source": "data/human_validation_response_template.csv"
+    },
+    {
       "actual": "0.953",
       "expected": "0.953",
       "name": "api_loo.mixed_50.mirror",
@@ -4327,8 +4642,8 @@
       "source": "results/benchmark_integrity_audit.json"
     },
     {
-      "actual": "194",
-      "expected": "194",
+      "actual": "242",
+      "expected": "242",
       "name": "integrity_audit.n_checks",
       "ok": true,
       "source": "results/benchmark_integrity_audit.json"
@@ -4369,15 +4684,15 @@
       "source": "results/benchmark_integrity_audit.json"
     },
     {
-      "actual": "4982",
-      "expected": "4982",
+      "actual": "5866",
+      "expected": "5866",
       "name": "api_token_accounting.n_cache_files",
       "ok": true,
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "4982",
-      "expected": "4982",
+      "actual": "5866",
+      "expected": "5866",
       "name": "api_token_accounting.n_readable",
       "ok": true,
       "source": "results/api_token_accounting.json"
@@ -4390,22 +4705,22 @@
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "1287186",
-      "expected": "1287186",
+      "actual": "1535340",
+      "expected": "1535340",
       "name": "api_token_accounting.input_tokens",
       "ok": true,
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "122906",
-      "expected": "122906",
+      "actual": "145114",
+      "expected": "145114",
       "name": "api_token_accounting.output_tokens",
       "ok": true,
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "1410092",
-      "expected": "1410092",
+      "actual": "1680454",
+      "expected": "1680454",
       "name": "api_token_accounting.total_tokens",
       "ok": true,
       "source": "results/api_token_accounting.json"
@@ -4439,15 +4754,15 @@
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "976",
-      "expected": "976",
+      "actual": "1860",
+      "expected": "1860",
       "name": "api_token_accounting.gpt-5.5.gpt-5.5-2026-04-23.responses",
       "ok": true,
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "257125",
-      "expected": "257125",
+      "actual": "527487",
+      "expected": "527487",
       "name": "api_token_accounting.gpt-5.5.gpt-5.5-2026-04-23.total_tokens",
       "ok": true,
       "source": "results/api_token_accounting.json"
@@ -4742,6 +5057,41 @@
     {
       "actual": "present",
       "expected": "present",
+      "name": "text.paper/main.tex.a 50-scene \\texttt{gpt-5.5} speaker-generation audit",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.token-accounting report over 5,866 cached responses",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.direct first-candidate success to 0.993",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.mirror selection still reaches only 0.853 cross-play success",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.paired population-minus-mirror difference of 0.147",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
       "name": "text.paper/main.tex.The paper makes three contributions",
       "ok": true,
       "source": "paper/main.tex"
@@ -4819,7 +5169,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/api_token_accounting.md.4982 | 4982 | 0 | 1287186 | 122906 | 1410092",
+      "name": "text.docs/api_token_accounting.md.5866 | 5866 | 0 | 1535340 | 145114 | 1680454",
       "ok": true,
       "source": "docs/api_token_accounting.md"
     },
@@ -4875,6 +5225,83 @@
     {
       "actual": "present",
       "expected": "present",
+      "name": "text.docs/gpt55_speaker_smoke_report.md.GPT-5.5 Speaker Smoke",
+      "ok": true,
+      "source": "docs/gpt55_speaker_smoke_report.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/gpt55_speaker_smoke_report.md.Existing speaker direct-first success under GPT-5.5 is 0.800; GPT-5.5 speaker direct-first success is 1.000.",
+      "ok": true,
+      "source": "docs/gpt55_speaker_smoke_report.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/gpt55_speaker_smoke_report.md.50-Scene Speaker Audit",
+      "ok": true,
+      "source": "docs/gpt55_speaker_smoke_report.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/gpt55_speaker_smoke_report.md.| 50 | 0.993 | 0.800 | 0.853 | 1.000 | 0.147 | 1.000 | 1.000 |",
+      "ok": true,
+      "source": "docs/gpt55_speaker_smoke_report.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/gpt55_speaker_smoke_report.md.The same-scene table remains a smoke comparison; the extension section is the current paper-facing Experiment 3 speaker result when it has 50 scenes.",
+      "ok": true,
+      "source": "docs/gpt55_speaker_smoke_report.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/gpt55_followup_plan_status.md.GPT-5.5 Follow-Up Plan Status",
+      "ok": true,
+      "source": "docs/gpt55_followup_plan_status.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/gpt55_followup_plan_status.md.Covered: 4. Partial: 2. Future: 0. Missing evidence paths: 0.",
+      "ok": true,
+      "source": "docs/gpt55_followup_plan_status.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/gpt55_followup_plan_status.md.Not yet safe as paper headline: API K=8 no-coordinate generation or human listener validation.",
+      "ok": true,
+      "source": "docs/gpt55_followup_plan_status.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/human_validation_packet.md.Human Validation Packet",
+      "ok": true,
+      "source": "docs/human_validation_packet.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/human_validation_packet.md.Items: 20. Condition counts: mirror_success_control=5, partial_mirror_failure=5, perspective_mirror_failure=10.",
+      "ok": true,
+      "source": "docs/human_validation_packet.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/human_validation_packet.md.Participant files exclude condition labels, scene IDs, target IDs, and held-out success rates.",
+      "ok": true,
+      "source": "docs/human_validation_packet.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
       "name": "text.docs/api_token_accounting.md.`gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770",
       "ok": true,
       "source": "docs/api_token_accounting.md"
@@ -4903,7 +5330,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/artifact_guide.md.4982 cached responses have complete usage metadata totaling 1410092 tokens",
+      "name": "text.docs/artifact_guide.md.5866 cached responses have complete usage metadata totaling 1680454 tokens",
       "ok": true,
       "source": "docs/artifact_guide.md"
     },
@@ -4925,6 +5352,83 @@
       "actual": "present",
       "expected": "present",
       "name": "text.docs/artifact_guide.md.All GPT-5.5 mirror-failure scenes are symbolic-verifier positives",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.GPT-5.5 Speaker Smoke",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.direct-first rises from 0.800 to 1.000 and mirror rises from 0.667 to 0.867",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.This section keeps the original 10-scene same-scene smoke comparison",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.50-scene speaker audit",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.| 50 | 0.993 | 0.800 | 0.853 | 1.000 | 0.147 | 1.000 | 1.000 | 0.980 | 1.000 | 30 | 25478 |",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.GPT-5.5 Follow-Up Plan Status",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Covered: 4. Partial: 2. Future: 0. Missing evidence paths: 0.",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.The GPT-5.5 follow-up evidence is explicitly bounded by covered, partial, and future rows.",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Human Validation Packet",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.the prepared packet has 20 participant-safe items",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Participant-facing files exclude condition labels, scene IDs, target IDs, and held-out success rates.",
       "ok": true,
       "source": "docs/artifact_guide.md"
     },
@@ -5260,7 +5764,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/artifact_guide.md.194/194 integrity checks pass",
+      "name": "text.docs/artifact_guide.md.242/242 integrity checks pass",
       "ok": true,
       "source": "docs/artifact_guide.md"
     },
@@ -5715,7 +6219,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.REPRODUCE.md.cached Responses API files contain `1,410,092` total tokens",
+      "name": "text.REPRODUCE.md.cached Responses API files contain `1,680,454` total tokens",
       "ok": true,
       "source": "REPRODUCE.md"
     },
@@ -5758,6 +6262,48 @@
       "actual": "present",
       "expected": "present",
       "name": "text.REPRODUCE.md.`26` of `26` GPT-4.1 mirror-failure scenes also fail",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/analyze_gpt55_speaker_smoke.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.50-scene speaker audit has GPT-5.5 direct-first `0.993`, mirror self-play `0.853`",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/audit_gpt55_followup_plan.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.follow-up experiments covered, `2` partial, and `0` future",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/make_human_validation_packet.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.Participant-facing files omit target IDs, condition labels, scene IDs, and held-out success rates.",
       "ok": true,
       "source": "REPRODUCE.md"
     },
@@ -6093,6 +6639,27 @@
     {
       "actual": "present",
       "expected": "present",
+      "name": "text.README.md.docs/gpt55_speaker_smoke_report.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/gpt55_followup_plan_status.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/human_validation_packet.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
       "name": "text.README.md.docs/rule_based_ambiguity_verifier.md",
       "ok": true,
       "source": "README.md"
@@ -6231,6 +6798,6 @@
       "source": "paper/colm2026_submission.tex"
     }
   ],
-  "n_checks": 890,
+  "n_checks": 971,
   "n_failed": 0
 }

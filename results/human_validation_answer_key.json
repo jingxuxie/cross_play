@@ -1,0 +1,389 @@
+{
+  "analysis_plan": [
+    "Collect three independent annotations per item.",
+    "Primary accuracy: fraction of annotations whose chosen_object_id matches target_id.",
+    "Primary ambiguity rate: fraction of annotations marked ambiguous.",
+    "Report rates by condition: perspective_mirror_failure, partial_mirror_failure, and mirror_success_control.",
+    "Do not use this packet as human-validation evidence until external annotations are collected."
+  ],
+  "description": "Answer key for the human validation packet. Do not distribute this file to annotators.",
+  "items": [
+    {
+      "condition": "perspective_mirror_failure",
+      "heldout_choices": {
+        "obj_1": 1,
+        "obj_2": 2
+      },
+      "heldout_success_rate": 0.3333333333333333,
+      "item_id": "HVAL_001",
+      "message": "It\u2019s a large red sphere.",
+      "method": "hybrid_local_mirror_api_eval",
+      "records_file": "results/perspective_stress50_gpt41nano_records.jsonl",
+      "scenario_type": "perspective_shift",
+      "scene_file": "data/perspective_stress50_scenes.jsonl",
+      "scene_id": "ps_000000",
+      "source": "perspective",
+      "target_description": "large red sphere at row 4, column 1",
+      "target_id": "obj_1"
+    },
+    {
+      "condition": "perspective_mirror_failure",
+      "heldout_choices": {
+        "obj_2": 3
+      },
+      "heldout_success_rate": 0.0,
+      "item_id": "HVAL_002",
+      "message": "Find the small yellow sphere left of the large green cube.",
+      "method": "hybrid_local_mirror_api_eval",
+      "records_file": "results/perspective_stress50_gpt41nano_records.jsonl",
+      "scenario_type": "perspective_shift",
+      "scene_file": "data/perspective_stress50_scenes.jsonl",
+      "scene_id": "ps_000003",
+      "source": "perspective",
+      "target_description": "small yellow sphere at row 4, column 1",
+      "target_id": "obj_1"
+    },
+    {
+      "condition": "perspective_mirror_failure",
+      "heldout_choices": {
+        "obj_1": 1,
+        "obj_2": 2
+      },
+      "heldout_success_rate": 0.3333333333333333,
+      "item_id": "HVAL_003",
+      "message": "It\u2019s a large red sphere.",
+      "method": "hybrid_local_mirror_api_eval",
+      "records_file": "results/perspective_stress50_gpt41nano_records.jsonl",
+      "scenario_type": "perspective_shift",
+      "scene_file": "data/perspective_stress50_scenes.jsonl",
+      "scene_id": "ps_000004",
+      "source": "perspective",
+      "target_description": "large red sphere at row 4, column 1",
+      "target_id": "obj_1"
+    },
+    {
+      "condition": "perspective_mirror_failure",
+      "heldout_choices": {
+        "obj_1": 1,
+        "obj_2": 2
+      },
+      "heldout_success_rate": 0.3333333333333333,
+      "item_id": "HVAL_004",
+      "message": "It\u2019s a small green sphere.",
+      "method": "hybrid_local_mirror_api_eval",
+      "records_file": "results/perspective_stress50_gpt41nano_records.jsonl",
+      "scenario_type": "perspective_shift",
+      "scene_file": "data/perspective_stress50_scenes.jsonl",
+      "scene_id": "ps_000005",
+      "source": "perspective",
+      "target_description": "small green sphere at row 4, column 1",
+      "target_id": "obj_1"
+    },
+    {
+      "condition": "perspective_mirror_failure",
+      "heldout_choices": {
+        "obj_1": 1,
+        "obj_2": 2
+      },
+      "heldout_success_rate": 0.3333333333333333,
+      "item_id": "HVAL_005",
+      "message": "It\u2019s a small blue cube.",
+      "method": "hybrid_local_mirror_api_eval",
+      "records_file": "results/perspective_stress50_gpt41nano_records.jsonl",
+      "scenario_type": "perspective_shift",
+      "scene_file": "data/perspective_stress50_scenes.jsonl",
+      "scene_id": "ps_000008",
+      "source": "perspective",
+      "target_description": "small blue cube at row 4, column 1",
+      "target_id": "obj_1"
+    },
+    {
+      "condition": "perspective_mirror_failure",
+      "heldout_choices": {
+        "obj_1": 1,
+        "obj_2": 2
+      },
+      "heldout_success_rate": 0.3333333333333333,
+      "item_id": "HVAL_006",
+      "message": "Large blue cube.",
+      "method": "hybrid_local_mirror_api_eval",
+      "records_file": "results/perspective_stress50_gpt41nano_records.jsonl",
+      "scenario_type": "perspective_shift",
+      "scene_file": "data/perspective_stress50_scenes.jsonl",
+      "scene_id": "ps_000009",
+      "source": "perspective",
+      "target_description": "large blue cube at row 4, column 1",
+      "target_id": "obj_1"
+    },
+    {
+      "condition": "perspective_mirror_failure",
+      "heldout_choices": {
+        "obj_1": 2,
+        "obj_2": 1
+      },
+      "heldout_success_rate": 0.6666666666666666,
+      "item_id": "HVAL_007",
+      "message": "Find the large yellow cube left of the purple cylinder.",
+      "method": "hybrid_local_mirror_api_eval",
+      "records_file": "results/perspective_stress50_gpt41nano_records.jsonl",
+      "scenario_type": "perspective_shift",
+      "scene_file": "data/perspective_stress50_scenes.jsonl",
+      "scene_id": "ps_000011",
+      "source": "perspective",
+      "target_description": "large yellow cube at row 4, column 1",
+      "target_id": "obj_1"
+    },
+    {
+      "condition": "perspective_mirror_failure",
+      "heldout_choices": {
+        "obj_1": 2,
+        "obj_2": 1
+      },
+      "heldout_success_rate": 0.6666666666666666,
+      "item_id": "HVAL_008",
+      "message": "It\u2019s a small blue sphere.",
+      "method": "hybrid_local_mirror_api_eval",
+      "records_file": "results/perspective_stress50_gpt41nano_records.jsonl",
+      "scenario_type": "perspective_shift",
+      "scene_file": "data/perspective_stress50_scenes.jsonl",
+      "scene_id": "ps_000012",
+      "source": "perspective",
+      "target_description": "small blue sphere at row 4, column 1",
+      "target_id": "obj_1"
+    },
+    {
+      "condition": "perspective_mirror_failure",
+      "heldout_choices": {
+        "obj_2": 3
+      },
+      "heldout_success_rate": 0.0,
+      "item_id": "HVAL_009",
+      "message": "It\u2019s a large yellow cube.",
+      "method": "hybrid_local_mirror_api_eval",
+      "records_file": "results/perspective_stress50_gpt41nano_records.jsonl",
+      "scenario_type": "perspective_shift",
+      "scene_file": "data/perspective_stress50_scenes.jsonl",
+      "scene_id": "ps_000013",
+      "source": "perspective",
+      "target_description": "large yellow cube at row 4, column 1",
+      "target_id": "obj_1"
+    },
+    {
+      "condition": "perspective_mirror_failure",
+      "heldout_choices": {
+        "obj_1": 1,
+        "obj_2": 2
+      },
+      "heldout_success_rate": 0.3333333333333333,
+      "item_id": "HVAL_010",
+      "message": "Small red sphere.",
+      "method": "hybrid_local_mirror_api_eval",
+      "records_file": "results/perspective_stress50_gpt41nano_records.jsonl",
+      "scenario_type": "perspective_shift",
+      "scene_file": "data/perspective_stress50_scenes.jsonl",
+      "scene_id": "ps_000018",
+      "source": "perspective",
+      "target_description": "small red sphere at row 4, column 1",
+      "target_id": "obj_1"
+    },
+    {
+      "condition": "partial_mirror_failure",
+      "heldout_choices": {
+        "obj_1": 1,
+        "obj_2": 2
+      },
+      "heldout_success_rate": 0.3333333333333333,
+      "item_id": "HVAL_011",
+      "message": "Large red sphere.",
+      "method": "hybrid_local_mirror_api_eval",
+      "records_file": "results/partial_observability_api50_records.jsonl",
+      "scenario_type": "partial_observability",
+      "scene_file": "data/partial_observability_local50_scenes.jsonl",
+      "scene_id": "po_000000",
+      "source": "partial_observability",
+      "target_description": "large red sphere at row 3, column 2",
+      "target_id": "obj_1"
+    },
+    {
+      "condition": "partial_mirror_failure",
+      "heldout_choices": {
+        "obj_1": 1,
+        "obj_2": 2
+      },
+      "heldout_success_rate": 0.3333333333333333,
+      "item_id": "HVAL_012",
+      "message": "Large red sphere.",
+      "method": "hybrid_local_mirror_api_eval",
+      "records_file": "results/partial_observability_api50_records.jsonl",
+      "scenario_type": "partial_observability",
+      "scene_file": "data/partial_observability_local50_scenes.jsonl",
+      "scene_id": "po_000004",
+      "source": "partial_observability",
+      "target_description": "large red sphere at row 3, column 2",
+      "target_id": "obj_1"
+    },
+    {
+      "condition": "partial_mirror_failure",
+      "heldout_choices": {
+        "obj_1": 1,
+        "obj_2": 2
+      },
+      "heldout_success_rate": 0.3333333333333333,
+      "item_id": "HVAL_013",
+      "message": "Small green sphere.",
+      "method": "hybrid_local_mirror_api_eval",
+      "records_file": "results/partial_observability_api50_records.jsonl",
+      "scenario_type": "partial_observability",
+      "scene_file": "data/partial_observability_local50_scenes.jsonl",
+      "scene_id": "po_000005",
+      "source": "partial_observability",
+      "target_description": "small green sphere at row 3, column 2",
+      "target_id": "obj_1"
+    },
+    {
+      "condition": "partial_mirror_failure",
+      "heldout_choices": {
+        "obj_1": 1,
+        "obj_2": 2
+      },
+      "heldout_success_rate": 0.3333333333333333,
+      "item_id": "HVAL_014",
+      "message": "Large yellow sphere.",
+      "method": "hybrid_local_mirror_api_eval",
+      "records_file": "results/partial_observability_api50_records.jsonl",
+      "scenario_type": "partial_observability",
+      "scene_file": "data/partial_observability_local50_scenes.jsonl",
+      "scene_id": "po_000006",
+      "source": "partial_observability",
+      "target_description": "large yellow sphere at row 3, column 2",
+      "target_id": "obj_1"
+    },
+    {
+      "condition": "partial_mirror_failure",
+      "heldout_choices": {
+        "obj_1": 1,
+        "obj_2": 2
+      },
+      "heldout_success_rate": 0.3333333333333333,
+      "item_id": "HVAL_015",
+      "message": "Small blue cube.",
+      "method": "hybrid_local_mirror_api_eval",
+      "records_file": "results/partial_observability_api50_records.jsonl",
+      "scenario_type": "partial_observability",
+      "scene_file": "data/partial_observability_local50_scenes.jsonl",
+      "scene_id": "po_000008",
+      "source": "partial_observability",
+      "target_description": "small blue cube at row 3, column 2",
+      "target_id": "obj_1"
+    },
+    {
+      "condition": "mirror_success_control",
+      "heldout_choices": {
+        "obj_1": 3
+      },
+      "heldout_success_rate": 1.0,
+      "item_id": "HVAL_016",
+      "message": "Go to row 4, column 1: small blue cube.",
+      "method": "hybrid_local_mirror_api_eval",
+      "records_file": "results/perspective_stress50_gpt41nano_records.jsonl",
+      "scenario_type": "perspective_shift",
+      "scene_file": "data/perspective_stress50_scenes.jsonl",
+      "scene_id": "ps_000001",
+      "source": "perspective",
+      "target_description": "small blue cube at row 4, column 1",
+      "target_id": "obj_1"
+    },
+    {
+      "condition": "mirror_success_control",
+      "heldout_choices": {
+        "obj_1": 3
+      },
+      "heldout_success_rate": 1.0,
+      "item_id": "HVAL_017",
+      "message": "It\u2019s a large blue sphere.",
+      "method": "hybrid_local_mirror_api_eval",
+      "records_file": "results/perspective_stress50_gpt41nano_records.jsonl",
+      "scenario_type": "perspective_shift",
+      "scene_file": "data/perspective_stress50_scenes.jsonl",
+      "scene_id": "ps_000002",
+      "source": "perspective",
+      "target_description": "large blue sphere at row 4, column 1",
+      "target_id": "obj_1"
+    },
+    {
+      "condition": "mirror_success_control",
+      "heldout_choices": {
+        "obj_1": 3
+      },
+      "heldout_success_rate": 1.0,
+      "item_id": "HVAL_018",
+      "message": "It\u2019s the leftmost large yellow sphere, below the top row.",
+      "method": "hybrid_local_mirror_api_eval",
+      "records_file": "results/perspective_stress50_gpt41nano_records.jsonl",
+      "scenario_type": "perspective_shift",
+      "scene_file": "data/perspective_stress50_scenes.jsonl",
+      "scene_id": "ps_000006",
+      "source": "perspective",
+      "target_description": "large yellow sphere at row 4, column 1",
+      "target_id": "obj_1"
+    },
+    {
+      "condition": "mirror_success_control",
+      "heldout_choices": {
+        "obj_1": 3
+      },
+      "heldout_success_rate": 1.0,
+      "item_id": "HVAL_019",
+      "message": "Go to row 4, column 1: the large blue sphere.",
+      "method": "hybrid_local_mirror_api_eval",
+      "records_file": "results/perspective_stress50_gpt41nano_records.jsonl",
+      "scenario_type": "perspective_shift",
+      "scene_file": "data/perspective_stress50_scenes.jsonl",
+      "scene_id": "ps_000007",
+      "source": "perspective",
+      "target_description": "large blue sphere at row 4, column 1",
+      "target_id": "obj_1"
+    },
+    {
+      "condition": "mirror_success_control",
+      "heldout_choices": {
+        "obj_1": 3
+      },
+      "heldout_success_rate": 1.0,
+      "item_id": "HVAL_020",
+      "message": "It\u2019s a small blue sphere.",
+      "method": "hybrid_local_mirror_api_eval",
+      "records_file": "results/perspective_stress50_gpt41nano_records.jsonl",
+      "scenario_type": "perspective_shift",
+      "scene_file": "data/perspective_stress50_scenes.jsonl",
+      "scene_id": "ps_000010",
+      "source": "perspective",
+      "target_description": "small blue sphere at row 4, column 1",
+      "target_id": "obj_1"
+    }
+  ],
+  "summary": {
+    "condition_counts": {
+      "mirror_success_control": 5,
+      "partial_mirror_failure": 5,
+      "perspective_mirror_failure": 10
+    },
+    "label_fields_kept_out_of_participant_packet": [
+      "condition",
+      "scene_id",
+      "target_id",
+      "heldout_success_rate"
+    ],
+    "n_items": 20,
+    "participant_safe_fields": [
+      "item_id",
+      "message",
+      "listener_orientation",
+      "object_options"
+    ],
+    "source_counts": {
+      "partial_observability": 5,
+      "perspective": 15
+    }
+  }
+}

@@ -59,6 +59,9 @@ def main() -> None:
     check_partial_api_extension(checks)
     check_cross_model_listener_audit(checks)
     check_cross_model_failure_overlap(checks)
+    check_gpt55_speaker_smoke(checks)
+    check_gpt55_followup_plan_status(checks)
+    check_human_validation_packet(checks)
     check_api_listener_leave_one_out(checks)
     check_selection_regret(checks)
     check_candidate_pool(checks)
@@ -410,7 +413,7 @@ def check_integrity_audit(checks: list[dict[str, Any]]) -> None:
         checks,
         "integrity_audit.n_checks",
         report.get("n_checks", -1),
-        194,
+        242,
         decimals=0,
         source=path,
     )
@@ -460,12 +463,12 @@ def check_api_token_accounting(checks: list[dict[str, Any]]) -> None:
     path = "results/api_token_accounting.json"
     report = json.loads(Path(path).read_text(encoding="utf-8"))
     totals = report["totals"]
-    add_numeric_check(checks, "api_token_accounting.n_cache_files", report["n_cache_files"], 4982, decimals=0, source=path)
-    add_numeric_check(checks, "api_token_accounting.n_readable", report["n_readable"], 4982, decimals=0, source=path)
+    add_numeric_check(checks, "api_token_accounting.n_cache_files", report["n_cache_files"], 5866, decimals=0, source=path)
+    add_numeric_check(checks, "api_token_accounting.n_readable", report["n_readable"], 5866, decimals=0, source=path)
     add_numeric_check(checks, "api_token_accounting.n_missing_usage", report["n_missing_usage"], 0, decimals=0, source=path)
-    add_numeric_check(checks, "api_token_accounting.input_tokens", totals["input_tokens"], 1287186, decimals=0, source=path)
-    add_numeric_check(checks, "api_token_accounting.output_tokens", totals["output_tokens"], 122906, decimals=0, source=path)
-    add_numeric_check(checks, "api_token_accounting.total_tokens", totals["total_tokens"], 1410092, decimals=0, source=path)
+    add_numeric_check(checks, "api_token_accounting.input_tokens", totals["input_tokens"], 1535340, decimals=0, source=path)
+    add_numeric_check(checks, "api_token_accounting.output_tokens", totals["output_tokens"], 145114, decimals=0, source=path)
+    add_numeric_check(checks, "api_token_accounting.total_tokens", totals["total_tokens"], 1680454, decimals=0, source=path)
 
     by_model = {
         (row["requested_model"], row["response_model"]): row
@@ -481,8 +484,8 @@ def check_api_token_accounting(checks: list[dict[str, Any]]) -> None:
             "total_tokens": 820710,
         },
         ("gpt-5.5", "gpt-5.5-2026-04-23"): {
-            "responses": 976,
-            "total_tokens": 257125,
+            "responses": 1860,
+            "total_tokens": 527487,
         },
     }
     for key, values in expected_models.items():
@@ -897,6 +900,219 @@ def check_cross_model_failure_overlap(checks: list[dict[str, Any]]) -> None:
                 decimals=0,
                 source=path,
             )
+
+
+def check_gpt55_speaker_smoke(checks: list[dict[str, Any]]) -> None:
+    path = "results/gpt55_speaker_smoke.json"
+    report = json.loads(Path(path).read_text(encoding="utf-8"))
+    comparison = report["comparison"]
+    expected = {
+        "same_scene_count": 10,
+        "existing_direct_success": 0.800,
+        "gpt55_direct_success": 1.000,
+        "direct_first_gain": 0.200,
+        "existing_mirror_success": 0.667,
+        "gpt55_mirror_success": 0.867,
+        "mirror_gain": 0.200,
+        "existing_population_success": 1.000,
+        "gpt55_population_success": 1.000,
+        "population_gain": 0.000,
+        "oracle_gain": 0.000,
+    }
+    integer_keys = {"same_scene_count"}
+    for key, expected_value in expected.items():
+        add_numeric_check(
+            checks,
+            f"gpt55_speaker_smoke.{key}",
+            comparison[key],
+            expected_value,
+            decimals=0 if key in integer_keys else 3,
+            source=path,
+        )
+
+    sources = {source["label"]: source for source in report["sources"]}
+    gpt55 = sources["gpt55_speaker"]
+    existing = sources["existing_gpt54_speaker"]
+    add_numeric_check(
+        checks,
+        "gpt55_speaker_smoke.existing_k1_robust",
+        existing["candidate_budget"][0]["robust_scene_rate"],
+        0.700,
+        decimals=3,
+        source=path,
+    )
+    add_numeric_check(
+        checks,
+        "gpt55_speaker_smoke.gpt55_k1_robust",
+        gpt55["candidate_budget"][0]["robust_scene_rate"],
+        1.000,
+        decimals=3,
+        source=path,
+    )
+    add_numeric_check(
+        checks,
+        "gpt55_speaker_smoke.uncached_speaker_calls",
+        gpt55["speaker_usage"]["uncached_speaker_calls"],
+        10,
+        decimals=0,
+        source=path,
+    )
+    add_numeric_check(
+        checks,
+        "gpt55_speaker_smoke.speaker_tokens",
+        gpt55["speaker_usage"]["total_tokens"],
+        8485,
+        decimals=0,
+        source=path,
+    )
+
+    progress = report["progress_extension"]
+    progress_methods = {row["method"]: row for row in progress["methods"]}
+    progress_expected = {
+        "api_direct_first.success": (
+            progress_methods["api_direct_first"]["success"],
+            0.993,
+            3,
+        ),
+        "api_best_of_k_shortest.success": (
+            progress_methods["api_best_of_k_shortest"]["success"],
+            0.800,
+            3,
+        ),
+        "hybrid_local_mirror_api_eval.success": (
+            progress_methods["hybrid_local_mirror_api_eval"]["success"],
+            0.853,
+            3,
+        ),
+        "hybrid_local_mirror_api_eval.sameplay_success": (
+            progress_methods["hybrid_local_mirror_api_eval"]["sameplay_success"],
+            1.000,
+            3,
+        ),
+        "hybrid_local_mirror_api_eval.crossplay_gap": (
+            progress_methods["hybrid_local_mirror_api_eval"]["crossplay_gap"],
+            0.147,
+            3,
+        ),
+        "hybrid_local_population_api_eval.success": (
+            progress_methods["hybrid_local_population_api_eval"]["success"],
+            1.000,
+            3,
+        ),
+        "oracle_upper_bound.success": (
+            progress_methods["oracle_upper_bound"]["success"],
+            1.000,
+            3,
+        ),
+        "n_scenes": (progress["n_scenes"], 50, 0),
+        "k1_robust": (progress["candidate_budget"][0]["robust_scene_rate"], 0.980, 3),
+        "k2_robust": (progress["candidate_budget"][1]["robust_scene_rate"], 1.000, 3),
+        "uncached_speaker_calls": (
+            progress["speaker_usage"]["uncached_speaker_calls"],
+            30,
+            0,
+        ),
+        "uncached_speaker_tokens": (
+            progress["speaker_usage"]["uncached_total_tokens"],
+            25478,
+            0,
+        ),
+    }
+    for key, (actual, expected_value, decimals) in progress_expected.items():
+        add_numeric_check(
+            checks,
+            f"gpt55_speaker_50scene.{key}",
+            actual,
+            expected_value,
+            decimals=decimals,
+            source=path,
+        )
+
+
+def check_gpt55_followup_plan_status(checks: list[dict[str, Any]]) -> None:
+    path = "results/gpt55_followup_plan_status.json"
+    report = json.loads(Path(path).read_text(encoding="utf-8"))
+    summary = report["summary"]
+    expected = {
+        "covered": 4,
+        "partial": 2,
+        "future": 0,
+        "total": 6,
+        "missing_evidence_paths": 0,
+    }
+    for key, expected_value in expected.items():
+        add_numeric_check(
+            checks,
+            f"gpt55_followup_plan_status.{key}",
+            summary[key],
+            expected_value,
+            decimals=0,
+            source=path,
+        )
+    statuses = {row["key"]: row["status"] for row in report["items"]}
+    expected_statuses = {
+        "exp1_gpt55_listener_audit": "covered",
+        "exp2_cross_model_matrix": "covered",
+        "exp3_gpt55_speaker_generation": "covered",
+        "exp4_k8_no_coordinate_generation": "partial",
+        "exp5_human_validation": "partial",
+        "exp6_rule_based_verifier": "covered",
+    }
+    for key, expected_status in expected_statuses.items():
+        add_bool_check(
+            checks,
+            f"gpt55_followup_plan_status.{key}.{expected_status}",
+            statuses.get(key) == expected_status,
+            source=path,
+        )
+
+
+def check_human_validation_packet(checks: list[dict[str, Any]]) -> None:
+    answer_path = "results/human_validation_answer_key.json"
+    items_path = "data/human_validation_items.jsonl"
+    response_path = "data/human_validation_response_template.csv"
+    answer = json.loads(Path(answer_path).read_text(encoding="utf-8"))
+    participant_items = read_jsonl(items_path)
+    summary = answer["summary"]
+    add_numeric_check(checks, "human_validation_packet.n_items", summary["n_items"], 20, decimals=0, source=answer_path)
+    expected_counts = {
+        "perspective_mirror_failure": 10,
+        "partial_mirror_failure": 5,
+        "mirror_success_control": 5,
+    }
+    for key, expected_count in expected_counts.items():
+        add_numeric_check(
+            checks,
+            f"human_validation_packet.{key}",
+            summary["condition_counts"][key],
+            expected_count,
+            decimals=0,
+            source=answer_path,
+        )
+    add_numeric_check(
+        checks,
+        "human_validation_packet.participant_items",
+        len(participant_items),
+        20,
+        decimals=0,
+        source=items_path,
+    )
+    forbidden_fields = {"condition", "scene_id", "target_id", "heldout_success_rate"}
+    leaks = [
+        item["item_id"]
+        for item in participant_items
+        if forbidden_fields & set(item.keys())
+    ]
+    add_bool_check(checks, "human_validation_packet.no_participant_label_fields", not leaks, source=items_path)
+    response_lines = Path(response_path).read_text(encoding="utf-8").splitlines()
+    add_numeric_check(
+        checks,
+        "human_validation_packet.response_template_rows",
+        len(response_lines) - 1,
+        20,
+        decimals=0,
+        source=response_path,
+    )
 
 
 def check_api_listener_leave_one_out(checks: list[dict[str, Any]]) -> None:
@@ -2056,6 +2272,11 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("paper/main.tex", "\\section{Related Work}"),
         ("paper/main.tex", "We generate five scenario families"),
         ("paper/main.tex", "We report three bounded API experiments"),
+        ("paper/main.tex", "a 50-scene \\texttt{gpt-5.5} speaker-generation audit"),
+        ("paper/main.tex", "token-accounting report over 5,866 cached responses"),
+        ("paper/main.tex", "direct first-candidate success to 0.993"),
+        ("paper/main.tex", "mirror selection still reaches only 0.853 cross-play success"),
+        ("paper/main.tex", "paired population-minus-mirror difference of 0.147"),
         ("paper/main.tex", "The paper makes three contributions"),
         ("paper/main.tex", "no-API 600-scene balanced local sweep"),
         ("docs/local_stronger_plan_k8.md", "Local Stronger-Plan K=8 Diagnostic"),
@@ -2067,7 +2288,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/protocol_and_prompts.md", "Record Schema"),
         ("docs/protocol_and_prompts.md", "a bounded `partial_observability` support run"),
         ("docs/api_token_accounting.md", "API Token Accounting"),
-        ("docs/api_token_accounting.md", "4982 | 4982 | 0 | 1287186 | 122906 | 1410092"),
+        ("docs/api_token_accounting.md", "5866 | 5866 | 0 | 1535340 | 145114 | 1680454"),
         ("docs/cross_model_listener_audit.md", "Cross-Model Held-Out Listener Audit"),
         ("docs/cross_model_listener_audit.md", "Perspective stress | gpt-5.5 | 0.793 | 0.507 | 0.673 | 1.000 | 1.000"),
         ("docs/cross_model_listener_audit.md", "Partial observability | gpt-5.5 | 0.740 | 0.453 | 0.653 | 1.000 | 1.000"),
@@ -2075,14 +2296,36 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/cross_model_failure_overlap.md", "20 of the 22 GPT-4.1 mirror-failure scenes also fail under GPT-5.5"),
         ("docs/cross_model_failure_overlap.md", "26 of the 26 GPT-4.1 mirror-failure scenes also fail under GPT-5.5"),
         ("docs/cross_model_failure_overlap.md", "Population-play has 0 GPT-5.5 scene-level failures"),
+        ("docs/gpt55_speaker_smoke_report.md", "GPT-5.5 Speaker Smoke"),
+        ("docs/gpt55_speaker_smoke_report.md", "Existing speaker direct-first success under GPT-5.5 is 0.800; GPT-5.5 speaker direct-first success is 1.000."),
+        ("docs/gpt55_speaker_smoke_report.md", "50-Scene Speaker Audit"),
+        ("docs/gpt55_speaker_smoke_report.md", "| 50 | 0.993 | 0.800 | 0.853 | 1.000 | 0.147 | 1.000 | 1.000 |"),
+        ("docs/gpt55_speaker_smoke_report.md", "The same-scene table remains a smoke comparison; the extension section is the current paper-facing Experiment 3 speaker result when it has 50 scenes."),
+        ("docs/gpt55_followup_plan_status.md", "GPT-5.5 Follow-Up Plan Status"),
+        ("docs/gpt55_followup_plan_status.md", "Covered: 4. Partial: 2. Future: 0. Missing evidence paths: 0."),
+        ("docs/gpt55_followup_plan_status.md", "Not yet safe as paper headline: API K=8 no-coordinate generation or human listener validation."),
+        ("docs/human_validation_packet.md", "Human Validation Packet"),
+        ("docs/human_validation_packet.md", "Items: 20. Condition counts: mirror_success_control=5, partial_mirror_failure=5, perspective_mirror_failure=10."),
+        ("docs/human_validation_packet.md", "Participant files exclude condition labels, scene IDs, target IDs, and held-out success rates."),
         ("docs/api_token_accounting.md", "`gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770"),
         ("docs/artifact_guide.md", "PRAG-CrossPlay Artifact Guide"),
         ("docs/artifact_guide.md", "Claim-To-Evidence Map"),
         ("docs/artifact_guide.md", "API Token Accounting"),
-        ("docs/artifact_guide.md", "4982 cached responses have complete usage metadata totaling 1410092 tokens"),
+        ("docs/artifact_guide.md", "5866 cached responses have complete usage metadata totaling 1680454 tokens"),
         ("docs/artifact_guide.md", "Cross-Model Failure Overlap Audit"),
         ("docs/artifact_guide.md", "20 of 22 GPT-4.1 mirror-failure scenes also fail under GPT-5.5"),
         ("docs/artifact_guide.md", "All GPT-5.5 mirror-failure scenes are symbolic-verifier positives"),
+        ("docs/artifact_guide.md", "GPT-5.5 Speaker Smoke"),
+        ("docs/artifact_guide.md", "direct-first rises from 0.800 to 1.000 and mirror rises from 0.667 to 0.867"),
+        ("docs/artifact_guide.md", "This section keeps the original 10-scene same-scene smoke comparison"),
+        ("docs/artifact_guide.md", "50-scene speaker audit"),
+        ("docs/artifact_guide.md", "| 50 | 0.993 | 0.800 | 0.853 | 1.000 | 0.147 | 1.000 | 1.000 | 0.980 | 1.000 | 30 | 25478 |"),
+        ("docs/artifact_guide.md", "GPT-5.5 Follow-Up Plan Status"),
+        ("docs/artifact_guide.md", "Covered: 4. Partial: 2. Future: 0. Missing evidence paths: 0."),
+        ("docs/artifact_guide.md", "The GPT-5.5 follow-up evidence is explicitly bounded by covered, partial, and future rows."),
+        ("docs/artifact_guide.md", "Human Validation Packet"),
+        ("docs/artifact_guide.md", "the prepared packet has 20 participant-safe items"),
+        ("docs/artifact_guide.md", "Participant-facing files exclude condition labels, scene IDs, target IDs, and held-out success rates."),
         ("docs/artifact_guide.md", "Local Stronger-Plan K=8 Diagnostic"),
         ("docs/artifact_guide.md", "No-coordinate oracle success on the initial 1,000 scenes rises from 0.870 at K=4 to 0.995 at K=8"),
         ("docs/artifact_guide.md", "No-coordinate oracle success on the 200 partial-observability scenes rises from 0.495 at K=4 to 0.997 at K=8"),
@@ -2130,7 +2373,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/artifact_guide.md", "0 candidate messages reference private landmarks"),
         ("docs/artifact_guide.md", "all 50 full-run mirror failures are underspecified-distractor choices"),
         ("docs/artifact_guide.md", "local_benchmark600 | `data/local_benchmark600_scenes.jsonl` | 600 | 10800"),
-        ("docs/artifact_guide.md", "194/194 integrity checks pass"),
+        ("docs/artifact_guide.md", "242/242 integrity checks pass"),
         ("docs/local_benchmark600_check.md", "Mirror self-play has same-play 1.000 but cross-play 0.631"),
         ("docs/local_benchmark600_check.md", "perspective_shift | 0.000 | 0.158 | 1.000 | 0.842"),
         ("docs/api_listener_leave_one_out.md", "API Listener Leave-One-Out Analysis"),
@@ -2195,13 +2438,19 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("REPRODUCE.md", "--partial 50"),
         ("REPRODUCE.md", "scripts/analyze_partial_observability_api.py"),
         ("REPRODUCE.md", "scripts/analyze_api_token_accounting.py"),
-        ("REPRODUCE.md", "cached Responses API files contain `1,410,092` total tokens"),
+        ("REPRODUCE.md", "cached Responses API files contain `1,680,454` total tokens"),
         ("REPRODUCE.md", "scripts/run_selected_listener_audit.py"),
         ("REPRODUCE.md", "scripts/analyze_cross_model_listener_audit.py"),
         ("REPRODUCE.md", "GPT-5.5 mirror self-play is `0.673`"),
         ("REPRODUCE.md", "scripts/analyze_cross_model_failure_overlap.py"),
         ("REPRODUCE.md", "`20` of `22` GPT-4.1 mirror-failure scenes also fail"),
         ("REPRODUCE.md", "`26` of `26` GPT-4.1 mirror-failure scenes also fail"),
+        ("REPRODUCE.md", "scripts/analyze_gpt55_speaker_smoke.py"),
+        ("REPRODUCE.md", "50-scene speaker audit has GPT-5.5 direct-first `0.993`, mirror self-play `0.853`"),
+        ("REPRODUCE.md", "scripts/audit_gpt55_followup_plan.py"),
+        ("REPRODUCE.md", "follow-up experiments covered, `2` partial, and `0` future"),
+        ("REPRODUCE.md", "scripts/make_human_validation_packet.py"),
+        ("REPRODUCE.md", "Participant-facing files omit target IDs, condition labels, scene IDs, and held-out success rates."),
         ("REPRODUCE.md", "scripts/analyze_local_benchmark.py"),
         ("REPRODUCE.md", "local_benchmark600_check.json"),
         ("REPRODUCE.md", "scripts/analyze_local_stronger_plan.py"),
@@ -2249,6 +2498,9 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("README.md", "docs/api_token_accounting.md"),
         ("README.md", "docs/cross_model_listener_audit.md"),
         ("README.md", "docs/cross_model_failure_overlap.md"),
+        ("README.md", "docs/gpt55_speaker_smoke_report.md"),
+        ("README.md", "docs/gpt55_followup_plan_status.md"),
+        ("README.md", "docs/human_validation_packet.md"),
         ("README.md", "docs/rule_based_ambiguity_verifier.md"),
         ("README.md", "docs/local_benchmark600_check.md"),
         ("README.md", "docs/local_stronger_plan_k8.md"),

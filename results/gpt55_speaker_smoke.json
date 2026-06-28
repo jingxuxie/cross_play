@@ -1,0 +1,502 @@
+{
+  "comparison": {
+    "direct_first_gain": 0.19999999999999996,
+    "existing_direct_success": 0.8,
+    "existing_mirror_success": 0.6666666666666666,
+    "existing_population_success": 1.0,
+    "gpt55_direct_success": 1.0,
+    "gpt55_mirror_success": 0.8666666666666667,
+    "gpt55_population_success": 1.0,
+    "mirror_gain": 0.20000000000000007,
+    "oracle_gain": 0.0,
+    "population_gain": 0.0,
+    "same_scene_count": 10
+  },
+  "description": "Bounded 10-scene perspective-stress smoke test for Experiment 3. It compares existing GPT-5.4-nano speaker candidates with newly generated GPT-5.5 speaker candidates under the same GPT-5.5 held-out listeners.",
+  "interpretation": "The GPT-5.5 speaker improves direct first-candidate success on this small sample, but local mirror selection can still select brittle messages. Population-play remains the robust selector in both candidate pools. The 50-scene extension, when present, is the paper-facing speaker-generation audit.",
+  "progress_extension": {
+    "candidate_budget": [
+      {
+        "k": 1,
+        "oracle_success": 0.9933333333333333,
+        "robust_scene_rate": 0.98
+      },
+      {
+        "k": 2,
+        "oracle_success": 1.0,
+        "robust_scene_rate": 1.0
+      },
+      {
+        "k": 3,
+        "oracle_success": 1.0,
+        "robust_scene_rate": 1.0
+      },
+      {
+        "k": 4,
+        "oracle_success": 1.0,
+        "robust_scene_rate": 1.0
+      }
+    ],
+    "candidate_eval_records": "results/gpt55_speaker_perspective50_candidate_eval_records.jsonl",
+    "candidate_roles": [
+      {
+        "candidate_index": 0,
+        "coordinate_rate": 0.0,
+        "left_right_rate": 0.98,
+        "mean_tokens": 12.84,
+        "n_messages": 50,
+        "role": "natural_first"
+      },
+      {
+        "candidate_index": 1,
+        "coordinate_rate": 0.0,
+        "left_right_rate": 0.48,
+        "mean_tokens": 7.12,
+        "n_messages": 50,
+        "role": "attribute_short"
+      },
+      {
+        "candidate_index": 2,
+        "coordinate_rate": 0.0,
+        "left_right_rate": 1.0,
+        "mean_tokens": 11.2,
+        "n_messages": 50,
+        "role": "relational_or_spatial"
+      },
+      {
+        "candidate_index": 3,
+        "coordinate_rate": 1.0,
+        "left_right_rate": 0.0,
+        "mean_tokens": 9.6,
+        "n_messages": 50,
+        "role": "coordinate_fallback"
+      }
+    ],
+    "candidates": "results/gpt55_speaker_perspective50_candidates.jsonl",
+    "description": "GPT-5.5 speaker candidates evaluated with GPT-5.5 listeners on all 50 perspective-stress scenes.",
+    "label": "gpt55_speaker_50scene",
+    "listener_model": "gpt-5.5",
+    "methods": [
+      {
+        "crossplay_gap": null,
+        "failure_scenes": 1,
+        "mean_tokens": 12.84,
+        "method": "api_direct_first",
+        "sameplay_success": null,
+        "success": 0.9933333333333333,
+        "success_ci95": [
+          0.98,
+          1.0
+        ]
+      },
+      {
+        "crossplay_gap": null,
+        "failure_scenes": 21,
+        "mean_tokens": 7.02,
+        "method": "api_best_of_k_shortest",
+        "sameplay_success": null,
+        "success": 0.8,
+        "success_ci95": [
+          0.7266666666666667,
+          0.8666666666666667
+        ]
+      },
+      {
+        "crossplay_gap": 0.1466666666666666,
+        "failure_scenes": 12,
+        "mean_tokens": 8.18,
+        "method": "hybrid_local_mirror_api_eval",
+        "sameplay_success": 1.0,
+        "success": 0.8533333333333334,
+        "success_ci95": [
+          0.7733333333333333,
+          0.92
+        ]
+      },
+      {
+        "crossplay_gap": 0.0,
+        "failure_scenes": 0,
+        "mean_tokens": 9.6,
+        "method": "hybrid_local_population_api_eval",
+        "sameplay_success": 1.0,
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "crossplay_gap": null,
+        "failure_scenes": 0,
+        "mean_tokens": 8.74,
+        "method": "oracle_upper_bound",
+        "sameplay_success": null,
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "crossplay_gap": null,
+        "failure_scenes": 0,
+        "mean_tokens": 10.0,
+        "method": "template",
+        "sameplay_success": null,
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      }
+    ],
+    "n_scenes": 50,
+    "population_minus_mirror": {
+      "diff_a_minus_b": 0.1466666666666667,
+      "diff_ci95": [
+        0.08000000000000002,
+        0.22666666666666668
+      ],
+      "mean_a": 1.0,
+      "mean_b": 0.8533333333333333,
+      "method_a": "hybrid_local_population_api_eval",
+      "method_b": "hybrid_local_mirror_api_eval",
+      "n_pairs": 50,
+      "paired_bootstrap_p_two_sided": 0.0,
+      "scenario_type": null
+    },
+    "records": "results/gpt55_speaker_perspective50_records.jsonl",
+    "speaker_model": "gpt-5.5",
+    "speaker_usage": {
+      "speaker_calls": 50,
+      "total_tokens": 42472,
+      "uncached_speaker_calls": 30,
+      "uncached_total_tokens": 25478
+    },
+    "summary": "results/gpt55_speaker_perspective50_summary.json"
+  },
+  "sources": [
+    {
+      "candidate_budget": [
+        {
+          "k": 1,
+          "oracle_success": 0.8,
+          "robust_scene_rate": 0.7
+        },
+        {
+          "k": 2,
+          "oracle_success": 0.8,
+          "robust_scene_rate": 0.7
+        },
+        {
+          "k": 3,
+          "oracle_success": 1.0,
+          "robust_scene_rate": 1.0
+        },
+        {
+          "k": 4,
+          "oracle_success": 1.0,
+          "robust_scene_rate": 1.0
+        }
+      ],
+      "candidate_eval_records": "results/gpt55_existing_speaker_perspective10_candidate_eval_records.jsonl",
+      "candidate_roles": [
+        {
+          "candidate_index": 0,
+          "coordinate_rate": 0.0,
+          "left_right_rate": 0.7,
+          "mean_tokens": 11.3,
+          "n_messages": 10,
+          "role": "natural_first"
+        },
+        {
+          "candidate_index": 1,
+          "coordinate_rate": 0.0,
+          "left_right_rate": 0.0,
+          "mean_tokens": 4.8,
+          "n_messages": 10,
+          "role": "attribute_short"
+        },
+        {
+          "candidate_index": 2,
+          "coordinate_rate": 0.0,
+          "left_right_rate": 1.0,
+          "mean_tokens": 11.8,
+          "n_messages": 10,
+          "role": "relational_or_spatial"
+        },
+        {
+          "candidate_index": 3,
+          "coordinate_rate": 1.0,
+          "left_right_rate": 0.0,
+          "mean_tokens": 11,
+          "n_messages": 10,
+          "role": "coordinate_fallback"
+        }
+      ],
+      "candidates": "results/perspective_stress50_hybrid_candidates.jsonl",
+      "description": "Existing perspective-stress speaker candidates evaluated with GPT-5.5 listeners on the first 10 scenes.",
+      "label": "existing_gpt54_speaker",
+      "listener_model": "gpt-5.5",
+      "methods": [
+        {
+          "crossplay_gap": null,
+          "failure_scenes": 3,
+          "mean_tokens": 11.3,
+          "method": "api_direct_first",
+          "sameplay_success": null,
+          "success": 0.8,
+          "success_ci95": [
+            0.6,
+            1.0
+          ]
+        },
+        {
+          "crossplay_gap": null,
+          "failure_scenes": 10,
+          "mean_tokens": 4.8,
+          "method": "api_best_of_k_shortest",
+          "sameplay_success": null,
+          "success": 0.5,
+          "success_ci95": [
+            0.4,
+            0.6
+          ]
+        },
+        {
+          "crossplay_gap": 0.33333333333333337,
+          "failure_scenes": 5,
+          "mean_tokens": 7.7,
+          "method": "hybrid_local_mirror_api_eval",
+          "sameplay_success": 1.0,
+          "success": 0.6666666666666666,
+          "success_ci95": [
+            0.4666666666666667,
+            0.8666666666666667
+          ]
+        },
+        {
+          "crossplay_gap": 0.0,
+          "failure_scenes": 0,
+          "mean_tokens": 11.0,
+          "method": "hybrid_local_population_api_eval",
+          "sameplay_success": 1.0,
+          "success": 1.0,
+          "success_ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "crossplay_gap": null,
+          "failure_scenes": 0,
+          "mean_tokens": 10.5,
+          "method": "oracle_upper_bound",
+          "sameplay_success": null,
+          "success": 1.0,
+          "success_ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "crossplay_gap": null,
+          "failure_scenes": 0,
+          "mean_tokens": 10.0,
+          "method": "template",
+          "sameplay_success": null,
+          "success": 1.0,
+          "success_ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "n_scenes": 10,
+      "population_minus_mirror": {
+        "diff_a_minus_b": 0.33333333333333337,
+        "diff_ci95": [
+          0.13333333333333336,
+          0.5333333333333334
+        ],
+        "mean_a": 1.0,
+        "mean_b": 0.6666666666666666,
+        "method_a": "hybrid_local_population_api_eval",
+        "method_b": "hybrid_local_mirror_api_eval",
+        "n_pairs": 10,
+        "paired_bootstrap_p_two_sided": 0.0016,
+        "scenario_type": null
+      },
+      "records": "results/gpt55_existing_speaker_perspective10_records.jsonl",
+      "speaker_model": "gpt-5.4-nano",
+      "speaker_usage": {
+        "speaker_calls": 10,
+        "total_tokens": 8485,
+        "uncached_speaker_calls": 0,
+        "uncached_total_tokens": 0
+      },
+      "summary": "results/gpt55_existing_speaker_perspective10_summary.json"
+    },
+    {
+      "candidate_budget": [
+        {
+          "k": 1,
+          "oracle_success": 1.0,
+          "robust_scene_rate": 1.0
+        },
+        {
+          "k": 2,
+          "oracle_success": 1.0,
+          "robust_scene_rate": 1.0
+        },
+        {
+          "k": 3,
+          "oracle_success": 1.0,
+          "robust_scene_rate": 1.0
+        },
+        {
+          "k": 4,
+          "oracle_success": 1.0,
+          "robust_scene_rate": 1.0
+        }
+      ],
+      "candidate_eval_records": "results/gpt55_speaker_perspective10_candidate_eval_records.jsonl",
+      "candidate_roles": [
+        {
+          "candidate_index": 0,
+          "coordinate_rate": 0.0,
+          "left_right_rate": 1.0,
+          "mean_tokens": 12.9,
+          "n_messages": 10,
+          "role": "natural_first"
+        },
+        {
+          "candidate_index": 1,
+          "coordinate_rate": 0.0,
+          "left_right_rate": 0.6,
+          "mean_tokens": 6.7,
+          "n_messages": 10,
+          "role": "attribute_short"
+        },
+        {
+          "candidate_index": 2,
+          "coordinate_rate": 0.0,
+          "left_right_rate": 1.0,
+          "mean_tokens": 10.9,
+          "n_messages": 10,
+          "role": "relational_or_spatial"
+        },
+        {
+          "candidate_index": 3,
+          "coordinate_rate": 1.0,
+          "left_right_rate": 0.0,
+          "mean_tokens": 9.5,
+          "n_messages": 10,
+          "role": "coordinate_fallback"
+        }
+      ],
+      "candidates": "results/gpt55_speaker_perspective10_candidates.jsonl",
+      "description": "GPT-5.5 speaker candidates evaluated with GPT-5.5 listeners on the same first 10 scenes.",
+      "label": "gpt55_speaker",
+      "listener_model": "gpt-5.5",
+      "methods": [
+        {
+          "crossplay_gap": null,
+          "failure_scenes": 0,
+          "mean_tokens": 12.9,
+          "method": "api_direct_first",
+          "sameplay_success": null,
+          "success": 1.0,
+          "success_ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "crossplay_gap": null,
+          "failure_scenes": 3,
+          "mean_tokens": 6.7,
+          "method": "api_best_of_k_shortest",
+          "sameplay_success": null,
+          "success": 0.8333333333333334,
+          "success_ci95": [
+            0.6333333333333333,
+            0.9666666666666667
+          ]
+        },
+        {
+          "crossplay_gap": 0.1333333333333333,
+          "failure_scenes": 2,
+          "mean_tokens": 7.6,
+          "method": "hybrid_local_mirror_api_eval",
+          "sameplay_success": 1.0,
+          "success": 0.8666666666666667,
+          "success_ci95": [
+            0.6666666666666666,
+            1.0
+          ]
+        },
+        {
+          "crossplay_gap": 0.0,
+          "failure_scenes": 0,
+          "mean_tokens": 9.5,
+          "method": "hybrid_local_population_api_eval",
+          "sameplay_success": 1.0,
+          "success": 1.0,
+          "success_ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "crossplay_gap": null,
+          "failure_scenes": 0,
+          "mean_tokens": 8.2,
+          "method": "oracle_upper_bound",
+          "sameplay_success": null,
+          "success": 1.0,
+          "success_ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "crossplay_gap": null,
+          "failure_scenes": 0,
+          "mean_tokens": 10.0,
+          "method": "template",
+          "sameplay_success": null,
+          "success": 1.0,
+          "success_ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "n_scenes": 10,
+      "population_minus_mirror": {
+        "diff_a_minus_b": 0.13333333333333336,
+        "diff_ci95": [
+          0.0,
+          0.33333333333333337
+        ],
+        "mean_a": 1.0,
+        "mean_b": 0.8666666666666667,
+        "method_a": "hybrid_local_population_api_eval",
+        "method_b": "hybrid_local_mirror_api_eval",
+        "n_pairs": 10,
+        "paired_bootstrap_p_two_sided": 0.198,
+        "scenario_type": null
+      },
+      "records": "results/gpt55_speaker_perspective10_records.jsonl",
+      "speaker_model": "gpt-5.5",
+      "speaker_usage": {
+        "speaker_calls": 10,
+        "total_tokens": 8485,
+        "uncached_speaker_calls": 10,
+        "uncached_total_tokens": 8485
+      },
+      "summary": "results/gpt55_speaker_perspective10_summary.json"
+    }
+  ]
+}

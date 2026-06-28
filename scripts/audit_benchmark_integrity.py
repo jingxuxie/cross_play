@@ -50,9 +50,15 @@ GROUPS = [
             "results/perspective_stress50_gpt41nano_no_coord_records.jsonl",
             "results/perspective_stress50_hybrid_candidate_eval_records.jsonl",
             "results/perspective_stress50_gpt41nano_candidate_eval_records.jsonl",
+            "results/gpt55_speaker_perspective20_records.jsonl",
+            "results/gpt55_speaker_perspective20_candidate_eval_records.jsonl",
+            "results/gpt55_speaker_perspective50_records.jsonl",
+            "results/gpt55_speaker_perspective50_candidate_eval_records.jsonl",
         ],
         "candidate_files": [
             "results/perspective_stress50_hybrid_candidates.jsonl",
+            "results/gpt55_speaker_perspective20_candidates.jsonl",
+            "results/gpt55_speaker_perspective50_candidates.jsonl",
         ],
         "audit_files": [
             "results/perspective_stress50_gpt41nano_audit.jsonl",

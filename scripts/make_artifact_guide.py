@@ -48,6 +48,9 @@ def build_report() -> dict[str, Any]:
         "headline_results": headline_results(),
         "cross_model_listener": cross_model_listener(),
         "cross_model_failure_overlap": cross_model_failure_overlap(),
+        "gpt55_speaker_smoke": gpt55_speaker_smoke(),
+        "gpt55_followup_plan_status": gpt55_followup_plan_status(),
+        "human_validation_packet": human_validation_packet(),
         "no_coord_results": no_coord_results(),
         "local_benchmark": local_benchmark(),
         "local_stronger_plan": local_stronger_plan(),
@@ -202,6 +205,84 @@ def cross_model_failure_overlap() -> dict[str, Any] | None:
         "runs": report["runs"],
         "overlap": report["overlap"],
         "key_findings": report["key_findings"],
+    }
+
+
+def gpt55_speaker_smoke() -> dict[str, Any] | None:
+    path = Path("results/gpt55_speaker_smoke.json")
+    if not path.exists():
+        return None
+    report = read_json(str(path))
+    sources = {source["label"]: source for source in report["sources"]}
+    gpt55 = sources["gpt55_speaker"]
+    existing = sources["existing_gpt54_speaker"]
+    progress = report.get("progress_extension")
+    progress_payload = None
+    if progress:
+        mirror = method_row(progress, "hybrid_local_mirror_api_eval")
+        progress_payload = {
+            "n_scenes": progress["n_scenes"],
+            "direct_success": method_row(progress, "api_direct_first")["success"],
+            "shortest_success": method_row(progress, "api_best_of_k_shortest")["success"],
+            "mirror_success": mirror["success"],
+            "mirror_sameplay": mirror["sameplay_success"],
+            "mirror_gap": mirror["crossplay_gap"],
+            "population_success": method_row(progress, "hybrid_local_population_api_eval")["success"],
+            "oracle_success": method_row(progress, "oracle_upper_bound")["success"],
+            "k1_robust": progress["candidate_budget"][0]["robust_scene_rate"],
+            "k2_robust": progress["candidate_budget"][1]["robust_scene_rate"],
+            "uncached_speaker_calls": progress["speaker_usage"]["uncached_speaker_calls"],
+            "uncached_speaker_tokens": progress["speaker_usage"]["uncached_total_tokens"],
+        }
+    return {
+        "source": str(path),
+        "markdown": "docs/gpt55_speaker_smoke_report.md",
+        "script": "scripts/analyze_gpt55_speaker_smoke.py",
+        "same_scene_count": report["comparison"]["same_scene_count"],
+        "existing_direct_success": report["comparison"]["existing_direct_success"],
+        "gpt55_direct_success": report["comparison"]["gpt55_direct_success"],
+        "existing_mirror_success": report["comparison"]["existing_mirror_success"],
+        "gpt55_mirror_success": report["comparison"]["gpt55_mirror_success"],
+        "existing_population_success": report["comparison"]["existing_population_success"],
+        "gpt55_population_success": report["comparison"]["gpt55_population_success"],
+        "existing_k1_robust": existing["candidate_budget"][0]["robust_scene_rate"],
+        "gpt55_k1_robust": gpt55["candidate_budget"][0]["robust_scene_rate"],
+        "uncached_speaker_calls": gpt55["speaker_usage"]["uncached_speaker_calls"],
+        "speaker_total_tokens": gpt55["speaker_usage"]["total_tokens"],
+        "progress_extension": progress_payload,
+    }
+
+
+def gpt55_followup_plan_status() -> dict[str, Any] | None:
+    path = Path("results/gpt55_followup_plan_status.json")
+    if not path.exists():
+        return None
+    report = read_json(str(path))
+    return {
+        "source": str(path),
+        "markdown": "docs/gpt55_followup_plan_status.md",
+        "script": "scripts/audit_gpt55_followup_plan.py",
+        "summary": report["summary"],
+        "items": report["items"],
+        "claim_boundary": report["paper_claim_boundary"],
+        "next_best_steps": report["next_best_steps"],
+    }
+
+
+def human_validation_packet() -> dict[str, Any] | None:
+    path = Path("results/human_validation_answer_key.json")
+    if not path.exists():
+        return None
+    report = read_json(str(path))
+    return {
+        "source": str(path),
+        "markdown": "docs/human_validation_packet.md",
+        "html": "docs/human_validation_packet.html",
+        "items": "data/human_validation_items.jsonl",
+        "response_template": "data/human_validation_response_template.csv",
+        "script": "scripts/make_human_validation_packet.py",
+        "summary": report["summary"],
+        "analysis_plan": report["analysis_plan"],
     }
 
 
@@ -663,6 +744,21 @@ def claim_map() -> list[dict[str, str]]:
             "anchor": "population-minus-mirror gaps are 0.187, 0.287, and 0.327 on perspective stress and 0.333, 0.340, and 0.347 on partial observability; 20 of 22 GPT-4.1 perspective mirror-failure scenes and 26 of 26 partial-observability scenes also fail under GPT-5.5",
         },
         {
+            "claim": "A bounded GPT-5.5 speaker smoke improves first-candidate quality but does not make mirror selection the robust selector.",
+            "evidence": "docs/gpt55_speaker_smoke_report.md; results/gpt55_speaker_smoke.json",
+            "anchor": "on the same 10 perspective-stress scenes, direct-first rises from 0.800 to 1.000 and mirror rises from 0.667 to 0.867; the 50-scene speaker audit has GPT-5.5 direct-first 0.993, mirror 0.853, and population-play 1.000",
+        },
+        {
+            "claim": "The GPT-5.5 follow-up evidence is explicitly bounded by covered, partial, and future rows.",
+            "evidence": "docs/gpt55_followup_plan_status.md; results/gpt55_followup_plan_status.json",
+            "anchor": "follow-up plan status is 4 covered, 2 partial, and 0 future, with no missing evidence paths",
+        },
+        {
+            "claim": "The human-validation extension is protocol-ready but has no collected human labels yet.",
+            "evidence": "docs/human_validation_packet.md; data/human_validation_items.jsonl; results/human_validation_answer_key.json",
+            "anchor": "the prepared packet has 20 participant-safe items: 10 perspective mirror failures, 5 partial-observability mirror failures, and 5 mirror-success controls",
+        },
+        {
             "claim": "Population-play closes the observed full-candidate cross-play gaps.",
             "evidence": "paper/tables/mixed50.tex; paper/tables/perspective_stress50.tex; paper/tables/perspective_altmodel50.tex; results/partial_observability_api50_summary.json",
             "anchor": "population cross-play is 1.000 in all full-candidate paper-facing runs",
@@ -760,12 +856,12 @@ def claim_map() -> list[dict[str, str]]:
         {
             "claim": "The cached benchmark artifacts are internally consistent.",
             "evidence": "results/benchmark_integrity_audit.md",
-            "anchor": "194/194 integrity checks pass",
+            "anchor": "242/242 integrity checks pass",
         },
         {
             "claim": "API usage is bounded and cache-replayable.",
             "evidence": "docs/api_token_accounting.md; results/api_token_accounting.json",
-            "anchor": "4982 cached responses have complete usage metadata totaling 1410092 tokens",
+            "anchor": "5866 cached responses have complete usage metadata totaling 1680454 tokens",
         },
     ]
 
@@ -780,6 +876,17 @@ def core_files() -> list[tuple[str, str]]:
         ("API token accounting", "docs/api_token_accounting.md"),
         ("Cross-model held-out listener audit", "docs/cross_model_listener_audit.md"),
         ("Cross-model failure overlap audit", "docs/cross_model_failure_overlap.md"),
+        ("GPT-5.5 speaker smoke report", "docs/gpt55_speaker_smoke_report.md"),
+        ("GPT-5.5 speaker 20-scene records", "results/gpt55_speaker_perspective20_records.jsonl"),
+        ("GPT-5.5 speaker 20-scene candidates", "results/gpt55_speaker_perspective20_candidates.jsonl"),
+        ("GPT-5.5 speaker 20-scene candidate eval", "results/gpt55_speaker_perspective20_candidate_eval_records.jsonl"),
+        ("GPT-5.5 speaker 50-scene records", "results/gpt55_speaker_perspective50_records.jsonl"),
+        ("GPT-5.5 speaker 50-scene candidates", "results/gpt55_speaker_perspective50_candidates.jsonl"),
+        ("GPT-5.5 speaker 50-scene candidate eval", "results/gpt55_speaker_perspective50_candidate_eval_records.jsonl"),
+        ("GPT-5.5 follow-up plan status", "docs/gpt55_followup_plan_status.md"),
+        ("Human validation packet", "docs/human_validation_packet.md"),
+        ("Human validation participant items", "data/human_validation_items.jsonl"),
+        ("Human validation response template", "data/human_validation_response_template.csv"),
         ("600-scene local sanity check", "docs/local_benchmark600_check.md"),
         ("Local stronger-plan K=8 diagnostic", "docs/local_stronger_plan_k8.md"),
         ("Local stronger-plan scene file", "data/local_stronger_plan1200_scenes.jsonl"),
@@ -805,6 +912,9 @@ def core_files() -> list[tuple[str, str]]:
         ("API token accounting script", "scripts/analyze_api_token_accounting.py"),
         ("Cross-model listener audit script", "scripts/analyze_cross_model_listener_audit.py"),
         ("Cross-model failure overlap script", "scripts/analyze_cross_model_failure_overlap.py"),
+        ("GPT-5.5 speaker smoke script", "scripts/analyze_gpt55_speaker_smoke.py"),
+        ("GPT-5.5 follow-up status script", "scripts/audit_gpt55_followup_plan.py"),
+        ("Human validation packet script", "scripts/make_human_validation_packet.py"),
         ("Local benchmark analysis script", "scripts/analyze_local_benchmark.py"),
         ("Local stronger-plan diagnostic script", "scripts/analyze_local_stronger_plan.py"),
         ("API listener leave-one-out script", "scripts/analyze_api_listener_leave_one_out.py"),
@@ -985,6 +1095,110 @@ def render_markdown(report: dict[str, Any]) -> str:
             lines.append(
                 f"| {row['setting']} | {counts} | {row['all_listener_failure_scenes']} | {row['any_listener_failure_scenes']} | `{overlap['source']}` |"
             )
+
+    if report["gpt55_speaker_smoke"]:
+        smoke = report["gpt55_speaker_smoke"]
+        lines.extend(
+            [
+                "",
+                "## GPT-5.5 Speaker Smoke",
+                "",
+                "This section keeps the original 10-scene same-scene smoke comparison and, when present, the full GPT-5.5 speaker audit for all perspective-stress scenes.",
+                "",
+                "| Same scenes | Existing direct | GPT-5.5 direct | Existing mirror | GPT-5.5 mirror | Existing population | GPT-5.5 population | K=1 robust scenes | Uncached GPT-5.5 speaker calls | Source |",
+                "|---:|---:|---:|---:|---:|---:|---:|---|---:|---|",
+                "| {same} | {existing_direct} | {gpt55_direct} | {existing_mirror} | {gpt55_mirror} | {existing_population} | {gpt55_population} | {existing_k1} to {gpt55_k1} | {calls} | `{source}` |".format(
+                    same=smoke["same_scene_count"],
+                    existing_direct=fmt(smoke["existing_direct_success"]),
+                    gpt55_direct=fmt(smoke["gpt55_direct_success"]),
+                    existing_mirror=fmt(smoke["existing_mirror_success"]),
+                    gpt55_mirror=fmt(smoke["gpt55_mirror_success"]),
+                    existing_population=fmt(smoke["existing_population_success"]),
+                    gpt55_population=fmt(smoke["gpt55_population_success"]),
+                    existing_k1=fmt(smoke["existing_k1_robust"]),
+                    gpt55_k1=fmt(smoke["gpt55_k1_robust"]),
+                    calls=smoke["uncached_speaker_calls"],
+                    source=smoke["source"],
+                ),
+                f"The GPT-5.5 speaker run records {smoke['speaker_total_tokens']} speaker tokens and writes its human-readable report to `{smoke['markdown']}`.",
+            ]
+        )
+        if smoke["progress_extension"]:
+            progress = smoke["progress_extension"]
+            extension_label = (
+                "50-scene speaker audit"
+                if progress["n_scenes"] >= 50
+                else f"{progress['n_scenes']}-scene extension"
+            )
+            lines.extend(
+                [
+                    "",
+                    f"{extension_label}:",
+                    "",
+                    "| Scenes | Direct | Shortest | Mirror | Mirror same-play | Mirror gap | Population | Oracle | K=1 robust | K=2 robust | Uncached speaker calls | Uncached speaker tokens |",
+                    "|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
+                    "| {scenes} | {direct} | {shortest} | {mirror} | {sameplay} | {gap} | {population} | {oracle} | {k1} | {k2} | {calls} | {tokens} |".format(
+                        scenes=progress["n_scenes"],
+                        direct=fmt(progress["direct_success"]),
+                        shortest=fmt(progress["shortest_success"]),
+                        mirror=fmt(progress["mirror_success"]),
+                        sameplay=fmt(progress["mirror_sameplay"]),
+                        gap=fmt(progress["mirror_gap"]),
+                        population=fmt(progress["population_success"]),
+                        oracle=fmt(progress["oracle_success"]),
+                        k1=fmt(progress["k1_robust"]),
+                        k2=fmt(progress["k2_robust"]),
+                        calls=progress["uncached_speaker_calls"],
+                        tokens=progress["uncached_speaker_tokens"],
+                    ),
+                    "This extension is the current paper-facing speaker-generation evidence when it covers all 50 perspective-stress scenes.",
+                ]
+            )
+
+    if report["gpt55_followup_plan_status"]:
+        status = report["gpt55_followup_plan_status"]
+        summary = status["summary"]
+        lines.extend(
+            [
+                "",
+                "## GPT-5.5 Follow-Up Plan Status",
+                "",
+                "This generated claim-boundary audit maps `additional_experiments_gpt55_plan.md` to the current evidence package.",
+                f"Covered: {summary['covered']}. Partial: {summary['partial']}. Future: {summary['future']}. Missing evidence paths: {summary['missing_evidence_paths']}.",
+                "",
+                "| Status | Experiment | Interpretation |",
+                "|---|---|---|",
+            ]
+        )
+        for row in status["items"]:
+            lines.append(
+                f"| {row['status']} | {row['title']} | {row['interpretation']} |"
+            )
+        lines.extend(
+            [
+                "",
+                "Claim boundary: " + " ".join(status["claim_boundary"]),
+            ]
+        )
+
+    if report["human_validation_packet"]:
+        human = report["human_validation_packet"]
+        summary = human["summary"]
+        condition_counts = format_counts_equals(summary["condition_counts"])
+        lines.extend(
+            [
+                "",
+                "## Human Validation Packet",
+                "",
+                "This protocol artifact prepares the optional 20-scene human validation sample. It has no collected human annotations, so it should not be cited as human-validation evidence yet.",
+                "",
+                "| Items | Condition counts | Participant items | Response template | Answer key |",
+                "|---:|---|---|---|---|",
+                f"| {summary['n_items']} | {condition_counts} | `{human['items']}` | `{human['response_template']}` | `{human['source']}` |",
+                "",
+                "Participant-facing files exclude condition labels, scene IDs, target IDs, and held-out success rates.",
+            ]
+        )
 
     lines.extend(
         [
@@ -1562,8 +1776,19 @@ def read_json(path: str | None) -> Any:
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
 
+def method_row(source: dict[str, Any], method: str) -> dict[str, Any]:
+    for row in source["methods"]:
+        if row["method"] == method:
+            return row
+    raise KeyError(method)
+
+
 def format_counts(counts: dict[str, int]) -> str:
     return ", ".join(f"{key}:{value}" for key, value in counts.items())
+
+
+def format_counts_equals(counts: dict[str, int]) -> str:
+    return ", ".join(f"{key}={value}" for key, value in counts.items())
 
 
 def format_label_rates(rows: list[dict[str, Any]]) -> str:

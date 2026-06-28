@@ -1,6 +1,6 @@
 # Paper Claims Verification
 
-Checks passed: 890/890.
+Checks passed: 971/971.
 
 | Status | Check | Actual | Expected | Source |
 |---|---|---:|---:|---|
@@ -200,6 +200,51 @@ Checks passed: 890/890.
 | PASS | `cross_model_failure_overlap.partial_observability.gpt-5.5` | 26 | 26 | `results/cross_model_failure_overlap.json` |
 | PASS | `cross_model_failure_overlap.partial_observability.all` | 25 | 25 | `results/cross_model_failure_overlap.json` |
 | PASS | `cross_model_failure_overlap.partial_observability.any` | 26 | 26 | `results/cross_model_failure_overlap.json` |
+| PASS | `gpt55_speaker_smoke.same_scene_count` | 10 | 10 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_smoke.existing_direct_success` | 0.800 | 0.800 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_smoke.gpt55_direct_success` | 1.000 | 1.000 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_smoke.direct_first_gain` | 0.200 | 0.200 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_smoke.existing_mirror_success` | 0.667 | 0.667 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_smoke.gpt55_mirror_success` | 0.867 | 0.867 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_smoke.mirror_gain` | 0.200 | 0.200 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_smoke.existing_population_success` | 1.000 | 1.000 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_smoke.gpt55_population_success` | 1.000 | 1.000 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_smoke.population_gain` | 0.000 | 0.000 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_smoke.oracle_gain` | 0.000 | 0.000 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_smoke.existing_k1_robust` | 0.700 | 0.700 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_smoke.gpt55_k1_robust` | 1.000 | 1.000 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_smoke.uncached_speaker_calls` | 10 | 10 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_smoke.speaker_tokens` | 8485 | 8485 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_50scene.api_direct_first.success` | 0.993 | 0.993 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_50scene.api_best_of_k_shortest.success` | 0.800 | 0.800 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_50scene.hybrid_local_mirror_api_eval.success` | 0.853 | 0.853 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_50scene.hybrid_local_mirror_api_eval.sameplay_success` | 1.000 | 1.000 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_50scene.hybrid_local_mirror_api_eval.crossplay_gap` | 0.147 | 0.147 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_50scene.hybrid_local_population_api_eval.success` | 1.000 | 1.000 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_50scene.oracle_upper_bound.success` | 1.000 | 1.000 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_50scene.n_scenes` | 50 | 50 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_50scene.k1_robust` | 0.980 | 0.980 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_50scene.k2_robust` | 1.000 | 1.000 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_50scene.uncached_speaker_calls` | 30 | 30 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_speaker_50scene.uncached_speaker_tokens` | 25478 | 25478 | `results/gpt55_speaker_smoke.json` |
+| PASS | `gpt55_followup_plan_status.covered` | 4 | 4 | `results/gpt55_followup_plan_status.json` |
+| PASS | `gpt55_followup_plan_status.partial` | 2 | 2 | `results/gpt55_followup_plan_status.json` |
+| PASS | `gpt55_followup_plan_status.future` | 0 | 0 | `results/gpt55_followup_plan_status.json` |
+| PASS | `gpt55_followup_plan_status.total` | 6 | 6 | `results/gpt55_followup_plan_status.json` |
+| PASS | `gpt55_followup_plan_status.missing_evidence_paths` | 0 | 0 | `results/gpt55_followup_plan_status.json` |
+| PASS | `gpt55_followup_plan_status.exp1_gpt55_listener_audit.covered` | present | present | `results/gpt55_followup_plan_status.json` |
+| PASS | `gpt55_followup_plan_status.exp2_cross_model_matrix.covered` | present | present | `results/gpt55_followup_plan_status.json` |
+| PASS | `gpt55_followup_plan_status.exp3_gpt55_speaker_generation.covered` | present | present | `results/gpt55_followup_plan_status.json` |
+| PASS | `gpt55_followup_plan_status.exp4_k8_no_coordinate_generation.partial` | present | present | `results/gpt55_followup_plan_status.json` |
+| PASS | `gpt55_followup_plan_status.exp5_human_validation.partial` | present | present | `results/gpt55_followup_plan_status.json` |
+| PASS | `gpt55_followup_plan_status.exp6_rule_based_verifier.covered` | present | present | `results/gpt55_followup_plan_status.json` |
+| PASS | `human_validation_packet.n_items` | 20 | 20 | `results/human_validation_answer_key.json` |
+| PASS | `human_validation_packet.perspective_mirror_failure` | 10 | 10 | `results/human_validation_answer_key.json` |
+| PASS | `human_validation_packet.partial_mirror_failure` | 5 | 5 | `results/human_validation_answer_key.json` |
+| PASS | `human_validation_packet.mirror_success_control` | 5 | 5 | `results/human_validation_answer_key.json` |
+| PASS | `human_validation_packet.participant_items` | 20 | 20 | `data/human_validation_items.jsonl` |
+| PASS | `human_validation_packet.no_participant_label_fields` | present | present | `data/human_validation_items.jsonl` |
+| PASS | `human_validation_packet.response_template_rows` | 20 | 20 | `data/human_validation_response_template.csv` |
 | PASS | `api_loo.mixed_50.mirror` | 0.953 | 0.953 | `results/api_listener_leave_one_out.json` |
 | PASS | `api_loo.mixed_50.population` | 0.973 | 0.973 | `results/api_listener_leave_one_out.json` |
 | PASS | `api_loo.mixed_50.oracle` | 1.000 | 1.000 | `results/api_listener_leave_one_out.json` |
@@ -622,24 +667,24 @@ Checks passed: 890/890.
 | PASS | `plan_coverage.item.publish_the_artifact_as_a_public_repository_or_submission_bundle.present` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.publish_the_artifact_as_a_public_repository_or_submission_bundle.covered` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `integrity_audit.n_failed` | 0 | 0 | `results/benchmark_integrity_audit.json` |
-| PASS | `integrity_audit.n_checks` | 194 | 194 | `results/benchmark_integrity_audit.json` |
+| PASS | `integrity_audit.n_checks` | 242 | 242 | `results/benchmark_integrity_audit.json` |
 | PASS | `integrity_audit.local_benchmark600.scenes` | 600 | 600 | `results/benchmark_integrity_audit.json` |
 | PASS | `integrity_audit.local_benchmark600.record_rows` | 10800 | 10800 | `results/benchmark_integrity_audit.json` |
 | PASS | `integrity_audit.has_exact_gpt54_version` | present | present | `results/benchmark_integrity_audit.json` |
 | PASS | `integrity_audit.has_exact_gpt41_version` | present | present | `results/benchmark_integrity_audit.json` |
 | PASS | `integrity_audit.has_exact_gpt55_version` | present | present | `results/benchmark_integrity_audit.json` |
-| PASS | `api_token_accounting.n_cache_files` | 4982 | 4982 | `results/api_token_accounting.json` |
-| PASS | `api_token_accounting.n_readable` | 4982 | 4982 | `results/api_token_accounting.json` |
+| PASS | `api_token_accounting.n_cache_files` | 5866 | 5866 | `results/api_token_accounting.json` |
+| PASS | `api_token_accounting.n_readable` | 5866 | 5866 | `results/api_token_accounting.json` |
 | PASS | `api_token_accounting.n_missing_usage` | 0 | 0 | `results/api_token_accounting.json` |
-| PASS | `api_token_accounting.input_tokens` | 1287186 | 1287186 | `results/api_token_accounting.json` |
-| PASS | `api_token_accounting.output_tokens` | 122906 | 122906 | `results/api_token_accounting.json` |
-| PASS | `api_token_accounting.total_tokens` | 1410092 | 1410092 | `results/api_token_accounting.json` |
+| PASS | `api_token_accounting.input_tokens` | 1535340 | 1535340 | `results/api_token_accounting.json` |
+| PASS | `api_token_accounting.output_tokens` | 145114 | 145114 | `results/api_token_accounting.json` |
+| PASS | `api_token_accounting.total_tokens` | 1680454 | 1680454 | `results/api_token_accounting.json` |
 | PASS | `api_token_accounting.gpt-4.1-nano.gpt-4.1-nano-2025-04-14.responses` | 1236 | 1236 | `results/api_token_accounting.json` |
 | PASS | `api_token_accounting.gpt-4.1-nano.gpt-4.1-nano-2025-04-14.total_tokens` | 332257 | 332257 | `results/api_token_accounting.json` |
 | PASS | `api_token_accounting.gpt-5.4-nano.gpt-5.4-nano-2026-03-17.responses` | 2770 | 2770 | `results/api_token_accounting.json` |
 | PASS | `api_token_accounting.gpt-5.4-nano.gpt-5.4-nano-2026-03-17.total_tokens` | 820710 | 820710 | `results/api_token_accounting.json` |
-| PASS | `api_token_accounting.gpt-5.5.gpt-5.5-2026-04-23.responses` | 976 | 976 | `results/api_token_accounting.json` |
-| PASS | `api_token_accounting.gpt-5.5.gpt-5.5-2026-04-23.total_tokens` | 257125 | 257125 | `results/api_token_accounting.json` |
+| PASS | `api_token_accounting.gpt-5.5.gpt-5.5-2026-04-23.responses` | 1860 | 1860 | `results/api_token_accounting.json` |
+| PASS | `api_token_accounting.gpt-5.5.gpt-5.5-2026-04-23.total_tokens` | 527487 | 527487 | `results/api_token_accounting.json` |
 | PASS | `text.paper/main.tex.consensus+info reaches 0.760` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.consensus+info success of 0.920` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.A candidate-role audit shows` | present | present | `paper/main.tex` |
@@ -681,6 +726,11 @@ Checks passed: 890/890.
 | PASS | `text.paper/main.tex.\section{Related Work}` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.We generate five scenario families` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.We report three bounded API experiments` | present | present | `paper/main.tex` |
+| PASS | `text.paper/main.tex.a 50-scene \texttt{gpt-5.5} speaker-generation audit` | present | present | `paper/main.tex` |
+| PASS | `text.paper/main.tex.token-accounting report over 5,866 cached responses` | present | present | `paper/main.tex` |
+| PASS | `text.paper/main.tex.direct first-candidate success to 0.993` | present | present | `paper/main.tex` |
+| PASS | `text.paper/main.tex.mirror selection still reaches only 0.853 cross-play success` | present | present | `paper/main.tex` |
+| PASS | `text.paper/main.tex.paired population-minus-mirror difference of 0.147` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.The paper makes three contributions` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.no-API 600-scene balanced local sweep` | present | present | `paper/main.tex` |
 | PASS | `text.docs/local_stronger_plan_k8.md.Local Stronger-Plan K=8 Diagnostic` | present | present | `docs/local_stronger_plan_k8.md` |
@@ -692,7 +742,7 @@ Checks passed: 890/890.
 | PASS | `text.docs/protocol_and_prompts.md.Record Schema` | present | present | `docs/protocol_and_prompts.md` |
 | PASS | `text.docs/protocol_and_prompts.md.a bounded `partial_observability` support run` | present | present | `docs/protocol_and_prompts.md` |
 | PASS | `text.docs/api_token_accounting.md.API Token Accounting` | present | present | `docs/api_token_accounting.md` |
-| PASS | `text.docs/api_token_accounting.md.4982 | 4982 | 0 | 1287186 | 122906 | 1410092` | present | present | `docs/api_token_accounting.md` |
+| PASS | `text.docs/api_token_accounting.md.5866 | 5866 | 0 | 1535340 | 145114 | 1680454` | present | present | `docs/api_token_accounting.md` |
 | PASS | `text.docs/cross_model_listener_audit.md.Cross-Model Held-Out Listener Audit` | present | present | `docs/cross_model_listener_audit.md` |
 | PASS | `text.docs/cross_model_listener_audit.md.Perspective stress | gpt-5.5 | 0.793 | 0.507 | 0.673 | 1.000 | 1.000` | present | present | `docs/cross_model_listener_audit.md` |
 | PASS | `text.docs/cross_model_listener_audit.md.Partial observability | gpt-5.5 | 0.740 | 0.453 | 0.653 | 1.000 | 1.000` | present | present | `docs/cross_model_listener_audit.md` |
@@ -700,14 +750,36 @@ Checks passed: 890/890.
 | PASS | `text.docs/cross_model_failure_overlap.md.20 of the 22 GPT-4.1 mirror-failure scenes also fail under GPT-5.5` | present | present | `docs/cross_model_failure_overlap.md` |
 | PASS | `text.docs/cross_model_failure_overlap.md.26 of the 26 GPT-4.1 mirror-failure scenes also fail under GPT-5.5` | present | present | `docs/cross_model_failure_overlap.md` |
 | PASS | `text.docs/cross_model_failure_overlap.md.Population-play has 0 GPT-5.5 scene-level failures` | present | present | `docs/cross_model_failure_overlap.md` |
+| PASS | `text.docs/gpt55_speaker_smoke_report.md.GPT-5.5 Speaker Smoke` | present | present | `docs/gpt55_speaker_smoke_report.md` |
+| PASS | `text.docs/gpt55_speaker_smoke_report.md.Existing speaker direct-first success under GPT-5.5 is 0.800; GPT-5.5 speaker direct-first success is 1.000.` | present | present | `docs/gpt55_speaker_smoke_report.md` |
+| PASS | `text.docs/gpt55_speaker_smoke_report.md.50-Scene Speaker Audit` | present | present | `docs/gpt55_speaker_smoke_report.md` |
+| PASS | `text.docs/gpt55_speaker_smoke_report.md.| 50 | 0.993 | 0.800 | 0.853 | 1.000 | 0.147 | 1.000 | 1.000 |` | present | present | `docs/gpt55_speaker_smoke_report.md` |
+| PASS | `text.docs/gpt55_speaker_smoke_report.md.The same-scene table remains a smoke comparison; the extension section is the current paper-facing Experiment 3 speaker result when it has 50 scenes.` | present | present | `docs/gpt55_speaker_smoke_report.md` |
+| PASS | `text.docs/gpt55_followup_plan_status.md.GPT-5.5 Follow-Up Plan Status` | present | present | `docs/gpt55_followup_plan_status.md` |
+| PASS | `text.docs/gpt55_followup_plan_status.md.Covered: 4. Partial: 2. Future: 0. Missing evidence paths: 0.` | present | present | `docs/gpt55_followup_plan_status.md` |
+| PASS | `text.docs/gpt55_followup_plan_status.md.Not yet safe as paper headline: API K=8 no-coordinate generation or human listener validation.` | present | present | `docs/gpt55_followup_plan_status.md` |
+| PASS | `text.docs/human_validation_packet.md.Human Validation Packet` | present | present | `docs/human_validation_packet.md` |
+| PASS | `text.docs/human_validation_packet.md.Items: 20. Condition counts: mirror_success_control=5, partial_mirror_failure=5, perspective_mirror_failure=10.` | present | present | `docs/human_validation_packet.md` |
+| PASS | `text.docs/human_validation_packet.md.Participant files exclude condition labels, scene IDs, target IDs, and held-out success rates.` | present | present | `docs/human_validation_packet.md` |
 | PASS | `text.docs/api_token_accounting.md.`gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770` | present | present | `docs/api_token_accounting.md` |
 | PASS | `text.docs/artifact_guide.md.PRAG-CrossPlay Artifact Guide` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Claim-To-Evidence Map` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.API Token Accounting` | present | present | `docs/artifact_guide.md` |
-| PASS | `text.docs/artifact_guide.md.4982 cached responses have complete usage metadata totaling 1410092 tokens` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.5866 cached responses have complete usage metadata totaling 1680454 tokens` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Cross-Model Failure Overlap Audit` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.20 of 22 GPT-4.1 mirror-failure scenes also fail under GPT-5.5` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.All GPT-5.5 mirror-failure scenes are symbolic-verifier positives` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.GPT-5.5 Speaker Smoke` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.direct-first rises from 0.800 to 1.000 and mirror rises from 0.667 to 0.867` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.This section keeps the original 10-scene same-scene smoke comparison` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.50-scene speaker audit` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.| 50 | 0.993 | 0.800 | 0.853 | 1.000 | 0.147 | 1.000 | 1.000 | 0.980 | 1.000 | 30 | 25478 |` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.GPT-5.5 Follow-Up Plan Status` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.Covered: 4. Partial: 2. Future: 0. Missing evidence paths: 0.` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.The GPT-5.5 follow-up evidence is explicitly bounded by covered, partial, and future rows.` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.Human Validation Packet` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.the prepared packet has 20 participant-safe items` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.Participant-facing files exclude condition labels, scene IDs, target IDs, and held-out success rates.` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Local Stronger-Plan K=8 Diagnostic` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.No-coordinate oracle success on the initial 1,000 scenes rises from 0.870 at K=4 to 0.995 at K=8` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.No-coordinate oracle success on the 200 partial-observability scenes rises from 0.495 at K=4 to 0.997 at K=8` | present | present | `docs/artifact_guide.md` |
@@ -755,7 +827,7 @@ Checks passed: 890/890.
 | PASS | `text.docs/artifact_guide.md.0 candidate messages reference private landmarks` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.all 50 full-run mirror failures are underspecified-distractor choices` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.local_benchmark600 | `data/local_benchmark600_scenes.jsonl` | 600 | 10800` | present | present | `docs/artifact_guide.md` |
-| PASS | `text.docs/artifact_guide.md.194/194 integrity checks pass` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.242/242 integrity checks pass` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/local_benchmark600_check.md.Mirror self-play has same-play 1.000 but cross-play 0.631` | present | present | `docs/local_benchmark600_check.md` |
 | PASS | `text.docs/local_benchmark600_check.md.perspective_shift | 0.000 | 0.158 | 1.000 | 0.842` | present | present | `docs/local_benchmark600_check.md` |
 | PASS | `text.docs/api_listener_leave_one_out.md.API Listener Leave-One-Out Analysis` | present | present | `docs/api_listener_leave_one_out.md` |
@@ -820,13 +892,19 @@ Checks passed: 890/890.
 | PASS | `text.REPRODUCE.md.--partial 50` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/analyze_partial_observability_api.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/analyze_api_token_accounting.py` | present | present | `REPRODUCE.md` |
-| PASS | `text.REPRODUCE.md.cached Responses API files contain `1,410,092` total tokens` | present | present | `REPRODUCE.md` |
+| PASS | `text.REPRODUCE.md.cached Responses API files contain `1,680,454` total tokens` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/run_selected_listener_audit.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/analyze_cross_model_listener_audit.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.GPT-5.5 mirror self-play is `0.673`` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/analyze_cross_model_failure_overlap.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.`20` of `22` GPT-4.1 mirror-failure scenes also fail` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.`26` of `26` GPT-4.1 mirror-failure scenes also fail` | present | present | `REPRODUCE.md` |
+| PASS | `text.REPRODUCE.md.scripts/analyze_gpt55_speaker_smoke.py` | present | present | `REPRODUCE.md` |
+| PASS | `text.REPRODUCE.md.50-scene speaker audit has GPT-5.5 direct-first `0.993`, mirror self-play `0.853`` | present | present | `REPRODUCE.md` |
+| PASS | `text.REPRODUCE.md.scripts/audit_gpt55_followup_plan.py` | present | present | `REPRODUCE.md` |
+| PASS | `text.REPRODUCE.md.follow-up experiments covered, `2` partial, and `0` future` | present | present | `REPRODUCE.md` |
+| PASS | `text.REPRODUCE.md.scripts/make_human_validation_packet.py` | present | present | `REPRODUCE.md` |
+| PASS | `text.REPRODUCE.md.Participant-facing files omit target IDs, condition labels, scene IDs, and held-out success rates.` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/analyze_local_benchmark.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.local_benchmark600_check.json` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/analyze_local_stronger_plan.py` | present | present | `REPRODUCE.md` |
@@ -874,6 +952,9 @@ Checks passed: 890/890.
 | PASS | `text.README.md.docs/api_token_accounting.md` | present | present | `README.md` |
 | PASS | `text.README.md.docs/cross_model_listener_audit.md` | present | present | `README.md` |
 | PASS | `text.README.md.docs/cross_model_failure_overlap.md` | present | present | `README.md` |
+| PASS | `text.README.md.docs/gpt55_speaker_smoke_report.md` | present | present | `README.md` |
+| PASS | `text.README.md.docs/gpt55_followup_plan_status.md` | present | present | `README.md` |
+| PASS | `text.README.md.docs/human_validation_packet.md` | present | present | `README.md` |
 | PASS | `text.README.md.docs/rule_based_ambiguity_verifier.md` | present | present | `README.md` |
 | PASS | `text.README.md.docs/local_benchmark600_check.md` | present | present | `README.md` |
 | PASS | `text.README.md.docs/local_stronger_plan_k8.md` | present | present | `README.md` |

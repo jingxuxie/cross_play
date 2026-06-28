@@ -63,6 +63,26 @@
     },
     {
       "detail": "present",
+      "name": "artifact.docs/gpt55_speaker_smoke_report.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/gpt55_followup_plan_status.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/human_validation_packet.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/human_validation_packet.html",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
       "name": "artifact.docs/local_benchmark600_check.md",
       "status": "PASS"
     },
@@ -193,6 +213,101 @@
     },
     {
       "detail": "present",
+      "name": "artifact.results/gpt55_speaker_smoke.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_existing_speaker_perspective10_records.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_existing_speaker_perspective10_summary.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_existing_speaker_perspective10_candidate_eval_records.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_existing_speaker_perspective10_audit.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_speaker_perspective10_records.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_speaker_perspective10_summary.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_speaker_perspective10_candidates.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_speaker_perspective10_candidate_eval_records.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_speaker_perspective20_records.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_speaker_perspective20_summary.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_speaker_perspective20_candidates.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_speaker_perspective20_candidate_eval_records.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_speaker_perspective50_records.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_speaker_perspective50_summary.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_speaker_perspective50_candidates.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_speaker_perspective50_candidate_eval_records.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_followup_plan_status.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/human_validation_answer_key.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
       "name": "artifact.results/local_benchmark600_check.json",
       "status": "PASS"
     },
@@ -209,6 +324,16 @@
     {
       "detail": "present",
       "name": "artifact.data/local_benchmark600_scenes.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.data/human_validation_items.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.data/human_validation_response_template.csv",
       "status": "PASS"
     },
     {
@@ -339,6 +464,21 @@
     {
       "detail": "present",
       "name": "artifact.scripts/analyze_cross_model_failure_overlap.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/analyze_gpt55_speaker_smoke.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/audit_gpt55_followup_plan.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/make_human_validation_packet.py",
       "status": "PASS"
     },
     {
@@ -569,6 +709,61 @@
     {
       "detail": "present",
       "name": "artifact_guide.all_gpt_5_5_mirror_failure_scenes_are_symbolic_verifier_posi",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.gpt_5_5_speaker_smoke",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.direct_first_rises_from_0_800_to_1_000_and_mirror_rises_from",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.this_section_keeps_the_original_10_scene_same_scene_smoke_co",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.50_scene_speaker_audit",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.50_0_993_0_800_0_853_1_000_0_147_1_000_1_000",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.gpt_5_5_follow_up_plan_status",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.covered_4_partial_2_future_0_missing_evidence_paths_0",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.the_gpt_5_5_follow_up_evidence_is_explicitly_bounded_by_cove",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.human_validation_packet",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.mirror_success_control_5_partial_mirror_failure_5_perspectiv",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.participant_facing_files_exclude_condition_labels_scene_ids_",
       "status": "PASS"
     },
     {
@@ -808,21 +1003,21 @@
     },
     {
       "detail": "present",
-      "name": "artifact_guide.194_194_integrity_checks_pass",
+      "name": "artifact_guide.242_242_integrity_checks_pass",
       "status": "PASS"
     },
     {
       "detail": "present",
-      "name": "artifact_guide.4982_cached_responses_have_complete_usage_metadata_totaling_",
+      "name": "artifact_guide.5866_cached_responses_have_complete_usage_metadata_totaling_",
       "status": "PASS"
     },
     {
-      "detail": "890 checks, 0 failed",
+      "detail": "971 checks, 0 failed",
       "name": "claims_verifier.no_failed_checks",
       "status": "PASS"
     },
     {
-      "detail": "194 checks, 0 failed",
+      "detail": "242 checks, 0 failed",
       "name": "integrity_audit.no_failed_checks",
       "status": "PASS"
     },
@@ -883,7 +1078,7 @@
     }
   ],
   "n_actions": 0,
-  "n_checks": 176,
+  "n_checks": 215,
   "n_failed": 0,
   "n_warn": 0,
   "warnings": []

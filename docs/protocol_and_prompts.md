@@ -316,7 +316,7 @@ Return exactly this JSON shape: {"choice_id": "obj_...", "confidence": 0.0, "rea
 
 ## Paper-Facing Integrity Checks
 
-The current benchmark integrity report passes 194/194 checks.
+The current benchmark integrity report passes 242/242 checks.
 It verifies source-scoped scene coverage, target IDs, listener choice IDs,
 success flags, generated-message object-ID leakage, candidate selection
 membership, local selector choice IDs, speaker cache paths, cache JSON
