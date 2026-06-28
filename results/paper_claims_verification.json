@@ -1,0 +1,5578 @@
+{
+  "checks": [
+    {
+      "actual": "0.840",
+      "expected": "0.840",
+      "name": "mixed_full.api_direct_first.success",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "actual": "0.740",
+      "expected": "0.740",
+      "name": "mixed_full.api_best_of_k_shortest.success",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "actual": "0.907",
+      "expected": "0.907",
+      "name": "mixed_full.hybrid_local_mirror_api_eval.success",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "mixed_full.hybrid_local_mirror_api_eval.sameplay_success",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "actual": "0.093",
+      "expected": "0.093",
+      "name": "mixed_full.hybrid_local_mirror_api_eval.crossplay_gap",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "mixed_full.hybrid_local_population_api_eval.success",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "mixed_full.hybrid_local_population_api_eval.sameplay_success",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "mixed_full.oracle_upper_bound.success",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "actual": "0.713",
+      "expected": "0.713",
+      "name": "stress_gpt54.api_direct_first.success",
+      "ok": true,
+      "source": "results/perspective_stress50_hybrid_records.jsonl"
+    },
+    {
+      "actual": "0.420",
+      "expected": "0.420",
+      "name": "stress_gpt54.api_best_of_k_shortest.success",
+      "ok": true,
+      "source": "results/perspective_stress50_hybrid_records.jsonl"
+    },
+    {
+      "actual": "0.813",
+      "expected": "0.813",
+      "name": "stress_gpt54.hybrid_local_mirror_api_eval.success",
+      "ok": true,
+      "source": "results/perspective_stress50_hybrid_records.jsonl"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "stress_gpt54.hybrid_local_mirror_api_eval.sameplay_success",
+      "ok": true,
+      "source": "results/perspective_stress50_hybrid_records.jsonl"
+    },
+    {
+      "actual": "0.187",
+      "expected": "0.187",
+      "name": "stress_gpt54.hybrid_local_mirror_api_eval.crossplay_gap",
+      "ok": true,
+      "source": "results/perspective_stress50_hybrid_records.jsonl"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "stress_gpt54.hybrid_local_population_api_eval.success",
+      "ok": true,
+      "source": "results/perspective_stress50_hybrid_records.jsonl"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "stress_gpt54.oracle_upper_bound.success",
+      "ok": true,
+      "source": "results/perspective_stress50_hybrid_records.jsonl"
+    },
+    {
+      "actual": "0.553",
+      "expected": "0.553",
+      "name": "stress_gpt41.api_direct_first.success",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_records.jsonl"
+    },
+    {
+      "actual": "0.367",
+      "expected": "0.367",
+      "name": "stress_gpt41.api_best_of_k_shortest.success",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_records.jsonl"
+    },
+    {
+      "actual": "0.713",
+      "expected": "0.713",
+      "name": "stress_gpt41.hybrid_local_mirror_api_eval.success",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_records.jsonl"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "stress_gpt41.hybrid_local_mirror_api_eval.sameplay_success",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_records.jsonl"
+    },
+    {
+      "actual": "0.287",
+      "expected": "0.287",
+      "name": "stress_gpt41.hybrid_local_mirror_api_eval.crossplay_gap",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_records.jsonl"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "stress_gpt41.hybrid_local_population_api_eval.success",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_records.jsonl"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "stress_gpt41.oracle_upper_bound.success",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_records.jsonl"
+    },
+    {
+      "actual": "0.553",
+      "expected": "0.553",
+      "name": "stress_no_coord.no_coord_direct_first.success",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.367",
+      "expected": "0.367",
+      "name": "stress_no_coord.no_coord_best_of_k_shortest.success",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.580",
+      "expected": "0.580",
+      "name": "stress_no_coord.no_coord_mirror.success",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "stress_no_coord.no_coord_mirror.sameplay_success",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.420",
+      "expected": "0.420",
+      "name": "stress_no_coord.no_coord_mirror.crossplay_gap",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.420",
+      "expected": "0.420",
+      "name": "stress_no_coord.no_coord_population.success",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.520",
+      "expected": "0.520",
+      "name": "stress_no_coord.no_coord_population.sameplay_success",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.760",
+      "expected": "0.760",
+      "name": "stress_no_coord.no_coord_consensus_info.success",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.760",
+      "expected": "0.760",
+      "name": "stress_no_coord.no_coord_informative.success",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.793",
+      "expected": "0.793",
+      "name": "stress_no_coord.no_coord_oracle.success",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.840",
+      "expected": "0.840",
+      "name": "mixed_no_coord.no_coord_direct_first.success",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.740",
+      "expected": "0.740",
+      "name": "mixed_no_coord.no_coord_best_of_k_shortest.success",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.787",
+      "expected": "0.787",
+      "name": "mixed_no_coord.no_coord_mirror.success",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.880",
+      "expected": "0.880",
+      "name": "mixed_no_coord.no_coord_mirror.sameplay_success",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.093",
+      "expected": "0.093",
+      "name": "mixed_no_coord.no_coord_mirror.crossplay_gap",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.773",
+      "expected": "0.773",
+      "name": "mixed_no_coord.no_coord_population.success",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.813",
+      "expected": "0.813",
+      "name": "mixed_no_coord.no_coord_population.sameplay_success",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.920",
+      "expected": "0.920",
+      "name": "mixed_no_coord.no_coord_consensus_info.success",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.900",
+      "expected": "0.900",
+      "name": "mixed_no_coord.no_coord_informative.success",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.960",
+      "expected": "0.960",
+      "name": "mixed_no_coord.no_coord_oracle.success",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "mixed_full.pop_minus_mirror.n_pairs",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "actual": "0.093",
+      "expected": "0.093",
+      "name": "mixed_full.pop_minus_mirror.diff",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "actual": "0.027",
+      "expected": "0.027",
+      "name": "mixed_full.pop_minus_mirror.ci_low",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "actual": "0.173",
+      "expected": "0.173",
+      "name": "mixed_full.pop_minus_mirror.ci_high",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "actual": "0.0024",
+      "expected": "0.0024",
+      "name": "mixed_full.pop_minus_mirror.p_boot",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "actual": "10",
+      "expected": "10",
+      "name": "mixed_full.perspective_pop_minus_mirror.n_pairs",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "actual": "0.367",
+      "expected": "0.367",
+      "name": "mixed_full.perspective_pop_minus_mirror.diff",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "actual": "0.133",
+      "expected": "0.133",
+      "name": "mixed_full.perspective_pop_minus_mirror.ci_low",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "actual": "0.600",
+      "expected": "0.600",
+      "name": "mixed_full.perspective_pop_minus_mirror.ci_high",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "actual": "0.0004",
+      "expected": "0.0004",
+      "name": "mixed_full.perspective_pop_minus_mirror.p_boot",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "stress_gpt54.pop_minus_mirror.n_pairs",
+      "ok": true,
+      "source": "results/perspective_stress50_hybrid_records.jsonl"
+    },
+    {
+      "actual": "0.187",
+      "expected": "0.187",
+      "name": "stress_gpt54.pop_minus_mirror.diff",
+      "ok": true,
+      "source": "results/perspective_stress50_hybrid_records.jsonl"
+    },
+    {
+      "actual": "0.100",
+      "expected": "0.100",
+      "name": "stress_gpt54.pop_minus_mirror.ci_low",
+      "ok": true,
+      "source": "results/perspective_stress50_hybrid_records.jsonl"
+    },
+    {
+      "actual": "0.287",
+      "expected": "0.287",
+      "name": "stress_gpt54.pop_minus_mirror.ci_high",
+      "ok": true,
+      "source": "results/perspective_stress50_hybrid_records.jsonl"
+    },
+    {
+      "actual": "0.0000",
+      "expected": "0.0000",
+      "name": "stress_gpt54.pop_minus_mirror.p_boot",
+      "ok": true,
+      "source": "results/perspective_stress50_hybrid_records.jsonl"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "stress_gpt41.pop_minus_mirror.n_pairs",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_records.jsonl"
+    },
+    {
+      "actual": "0.287",
+      "expected": "0.287",
+      "name": "stress_gpt41.pop_minus_mirror.diff",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_records.jsonl"
+    },
+    {
+      "actual": "0.193",
+      "expected": "0.193",
+      "name": "stress_gpt41.pop_minus_mirror.ci_low",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_records.jsonl"
+    },
+    {
+      "actual": "0.380",
+      "expected": "0.380",
+      "name": "stress_gpt41.pop_minus_mirror.ci_high",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_records.jsonl"
+    },
+    {
+      "actual": "0.0000",
+      "expected": "0.0000",
+      "name": "stress_gpt41.pop_minus_mirror.p_boot",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_records.jsonl"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "stress_no_coord.consensus_minus_mirror.n_pairs",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.180",
+      "expected": "0.180",
+      "name": "stress_no_coord.consensus_minus_mirror.diff",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.100",
+      "expected": "0.100",
+      "name": "stress_no_coord.consensus_minus_mirror.ci_low",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.267",
+      "expected": "0.267",
+      "name": "stress_no_coord.consensus_minus_mirror.ci_high",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.0000",
+      "expected": "0.0000",
+      "name": "stress_no_coord.consensus_minus_mirror.p_boot",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "mixed_no_coord.consensus_minus_mirror.n_pairs",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.133",
+      "expected": "0.133",
+      "name": "mixed_no_coord.consensus_minus_mirror.diff",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.033",
+      "expected": "0.033",
+      "name": "mixed_no_coord.consensus_minus_mirror.ci_low",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.233",
+      "expected": "0.233",
+      "name": "mixed_no_coord.consensus_minus_mirror.ci_high",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "actual": "0.0040",
+      "expected": "0.0040",
+      "name": "mixed_no_coord.consensus_minus_mirror.p_boot",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "actual": "43",
+      "expected": "43",
+      "name": "coded_failures.total",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_mirror_failures_coded.csv"
+    },
+    {
+      "actual": "38",
+      "expected": "38",
+      "name": "coded_failures.underspecified_distractor",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_mirror_failures_coded.csv"
+    },
+    {
+      "actual": "5",
+      "expected": "5",
+      "name": "coded_failures.perspective_frame_error",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_mirror_failures_coded.csv"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "partial_coded_failures.total",
+      "ok": true,
+      "source": "results/partial_observability_api50_mirror_failures_coded.csv"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "partial_coded_failures.underspecified_distractor",
+      "ok": true,
+      "source": "results/partial_observability_api50_mirror_failures_coded.csv"
+    },
+    {
+      "actual": "59",
+      "expected": "59",
+      "name": "partial_no_coord_coded_failures.total",
+      "ok": true,
+      "source": "results/partial_observability_api50_no_coord_mirror_failures_coded.csv"
+    },
+    {
+      "actual": "59",
+      "expected": "59",
+      "name": "partial_no_coord_coded_failures.underspecified_distractor",
+      "ok": true,
+      "source": "results/partial_observability_api50_no_coord_mirror_failures_coded.csv"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "mechanism.stress_full.population_exact_coord",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_audit.jsonl"
+    },
+    {
+      "actual": "17",
+      "expected": "17",
+      "name": "mechanism.stress_full.mirror_exact_coord",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_audit.jsonl"
+    },
+    {
+      "actual": "4",
+      "expected": "4",
+      "name": "mechanism.stress_no_coord.population_spatial",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_no_coord_audit.jsonl"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "mechanism.stress_no_coord.consensus_info_spatial",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_no_coord_audit.jsonl"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "mechanism.stress_no_coord.consensus_info_fallback",
+      "ok": true,
+      "source": "results/perspective_stress50_gpt41nano_no_coord_audit.jsonl"
+    },
+    {
+      "actual": "32",
+      "expected": "32",
+      "name": "mechanism.mixed_no_coord.consensus_source",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_no_coord_audit.jsonl"
+    },
+    {
+      "actual": "18",
+      "expected": "18",
+      "name": "mechanism.mixed_no_coord.fallback_source",
+      "ok": true,
+      "source": "results/hybrid_api_pilot50_no_coord_audit.jsonl"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "partial_local.n_scenes",
+      "ok": true,
+      "source": "data/partial_observability_local50_scenes.jsonl"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "partial_local.hidden_private_landmarks",
+      "ok": true,
+      "source": "data/partial_observability_local50_scenes.jsonl"
+    },
+    {
+      "actual": "0.493",
+      "expected": "0.493",
+      "name": "partial_local.direct.success",
+      "ok": true,
+      "source": "results/partial_observability_local50_summary.json"
+    },
+    {
+      "actual": "0.653",
+      "expected": "0.653",
+      "name": "partial_local.mirror_selfplay.success",
+      "ok": true,
+      "source": "results/partial_observability_local50_summary.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "partial_local.mirror_selfplay.sameplay_success",
+      "ok": true,
+      "source": "results/partial_observability_local50_summary.json"
+    },
+    {
+      "actual": "0.347",
+      "expected": "0.347",
+      "name": "partial_local.mirror_selfplay.crossplay_gap",
+      "ok": true,
+      "source": "results/partial_observability_local50_summary.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "partial_local.population_play.success",
+      "ok": true,
+      "source": "results/partial_observability_local50_summary.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "partial_local.population_play.sameplay_success",
+      "ok": true,
+      "source": "results/partial_observability_local50_summary.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "partial_local.oracle_upper_bound.success",
+      "ok": true,
+      "source": "results/partial_observability_local50_summary.json"
+    },
+    {
+      "actual": "600",
+      "expected": "600",
+      "name": "local_benchmark600.n_scenes",
+      "ok": true,
+      "source": "data/local_benchmark600_scenes.jsonl"
+    },
+    {
+      "actual": "150",
+      "expected": "150",
+      "name": "local_benchmark600.unique_attribute.n_scenes",
+      "ok": true,
+      "source": "data/local_benchmark600_scenes.jsonl"
+    },
+    {
+      "actual": "150",
+      "expected": "150",
+      "name": "local_benchmark600.distractor_contrast.n_scenes",
+      "ok": true,
+      "source": "data/local_benchmark600_scenes.jsonl"
+    },
+    {
+      "actual": "150",
+      "expected": "150",
+      "name": "local_benchmark600.relational_reference.n_scenes",
+      "ok": true,
+      "source": "data/local_benchmark600_scenes.jsonl"
+    },
+    {
+      "actual": "150",
+      "expected": "150",
+      "name": "local_benchmark600.perspective_shift.n_scenes",
+      "ok": true,
+      "source": "data/local_benchmark600_scenes.jsonl"
+    },
+    {
+      "actual": "0.631",
+      "expected": "0.631",
+      "name": "local_benchmark600.mirror_cross",
+      "ok": true,
+      "source": "results/local_benchmark600_check.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "local_benchmark600.mirror_same",
+      "ok": true,
+      "source": "results/local_benchmark600_check.json"
+    },
+    {
+      "actual": "0.369",
+      "expected": "0.369",
+      "name": "local_benchmark600.mirror_gap",
+      "ok": true,
+      "source": "results/local_benchmark600_check.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "local_benchmark600.population_cross",
+      "ok": true,
+      "source": "results/local_benchmark600_check.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "local_benchmark600.template_cross",
+      "ok": true,
+      "source": "results/local_benchmark600_check.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "local_benchmark600.oracle_cross",
+      "ok": true,
+      "source": "results/local_benchmark600_check.json"
+    },
+    {
+      "actual": "0.158",
+      "expected": "0.158",
+      "name": "local_benchmark600.perspective_mirror_cross",
+      "ok": true,
+      "source": "results/local_benchmark600_check.json"
+    },
+    {
+      "actual": "0.842",
+      "expected": "0.842",
+      "name": "local_benchmark600.perspective_mirror_gap",
+      "ok": true,
+      "source": "results/local_benchmark600_check.json"
+    },
+    {
+      "actual": "1200",
+      "expected": "1200",
+      "name": "local_stronger_plan.n_scenes",
+      "ok": true,
+      "source": "data/local_stronger_plan1200_scenes.jsonl"
+    },
+    {
+      "actual": "250",
+      "expected": "250",
+      "name": "local_stronger_plan.unique_attribute.n_scenes",
+      "ok": true,
+      "source": "data/local_stronger_plan1200_scenes.jsonl"
+    },
+    {
+      "actual": "250",
+      "expected": "250",
+      "name": "local_stronger_plan.distractor_contrast.n_scenes",
+      "ok": true,
+      "source": "data/local_stronger_plan1200_scenes.jsonl"
+    },
+    {
+      "actual": "250",
+      "expected": "250",
+      "name": "local_stronger_plan.relational_reference.n_scenes",
+      "ok": true,
+      "source": "data/local_stronger_plan1200_scenes.jsonl"
+    },
+    {
+      "actual": "250",
+      "expected": "250",
+      "name": "local_stronger_plan.perspective_shift.n_scenes",
+      "ok": true,
+      "source": "data/local_stronger_plan1200_scenes.jsonl"
+    },
+    {
+      "actual": "200",
+      "expected": "200",
+      "name": "local_stronger_plan.partial_observability.n_scenes",
+      "ok": true,
+      "source": "data/local_stronger_plan1200_scenes.jsonl"
+    },
+    {
+      "actual": "0.870",
+      "expected": "0.870",
+      "name": "local_stronger_plan.initial_no_coord_oracle_k4",
+      "ok": true,
+      "source": "results/local_stronger_plan_k8.json"
+    },
+    {
+      "actual": "0.995",
+      "expected": "0.995",
+      "name": "local_stronger_plan.initial_no_coord_oracle_k8",
+      "ok": true,
+      "source": "results/local_stronger_plan_k8.json"
+    },
+    {
+      "actual": "0.495",
+      "expected": "0.495",
+      "name": "local_stronger_plan.partial_no_coord_oracle_k4",
+      "ok": true,
+      "source": "results/local_stronger_plan_k8.json"
+    },
+    {
+      "actual": "0.997",
+      "expected": "0.997",
+      "name": "local_stronger_plan.partial_no_coord_oracle_k8",
+      "ok": true,
+      "source": "results/local_stronger_plan_k8.json"
+    },
+    {
+      "actual": "0.992",
+      "expected": "0.992",
+      "name": "local_stronger_plan.initial_no_coord_consensus_k8",
+      "ok": true,
+      "source": "results/local_stronger_plan_k8.json"
+    },
+    {
+      "actual": "0.997",
+      "expected": "0.997",
+      "name": "local_stronger_plan.partial_no_coord_consensus_k8",
+      "ok": true,
+      "source": "results/local_stronger_plan_k8.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "local_stronger_plan.combined_full_population_k8",
+      "ok": true,
+      "source": "results/local_stronger_plan_k8.json"
+    },
+    {
+      "actual": "0.808",
+      "expected": "0.808",
+      "name": "local_stronger_plan.budget.combined_1200.no_exact_coordinates.4.oracle",
+      "ok": true,
+      "source": "results/local_stronger_plan_k8.json"
+    },
+    {
+      "actual": "0.613",
+      "expected": "0.613",
+      "name": "local_stronger_plan.budget.combined_1200.no_exact_coordinates.4.robust_scene_rate",
+      "ok": true,
+      "source": "results/local_stronger_plan_k8.json"
+    },
+    {
+      "actual": "0.995",
+      "expected": "0.995",
+      "name": "local_stronger_plan.budget.combined_1200.no_exact_coordinates.8.oracle",
+      "ok": true,
+      "source": "results/local_stronger_plan_k8.json"
+    },
+    {
+      "actual": "0.990",
+      "expected": "0.990",
+      "name": "local_stronger_plan.budget.combined_1200.no_exact_coordinates.8.robust_scene_rate",
+      "ok": true,
+      "source": "results/local_stronger_plan_k8.json"
+    },
+    {
+      "actual": "0.997",
+      "expected": "0.997",
+      "name": "local_stronger_plan.budget.partial_200.no_exact_coordinates.8.oracle",
+      "ok": true,
+      "source": "results/local_stronger_plan_k8.json"
+    },
+    {
+      "actual": "0.995",
+      "expected": "0.995",
+      "name": "local_stronger_plan.budget.partial_200.no_exact_coordinates.8.robust_scene_rate",
+      "ok": true,
+      "source": "results/local_stronger_plan_k8.json"
+    },
+    {
+      "actual": "0.993",
+      "expected": "0.993",
+      "name": "local_stronger_plan.selector.combined_1200.no_exact_coordinates.8.consensus+info.success",
+      "ok": true,
+      "source": "results/local_stronger_plan_k8.json"
+    },
+    {
+      "actual": "0.984",
+      "expected": "0.984",
+      "name": "local_stronger_plan.selector.combined_1200.no_exact_coordinates.8.population.success",
+      "ok": true,
+      "source": "results/local_stronger_plan_k8.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "local_stronger_plan.selector.combined_1200.full.8.population.success",
+      "ok": true,
+      "source": "results/local_stronger_plan_k8.json"
+    },
+    {
+      "actual": "0.740",
+      "expected": "0.740",
+      "name": "partial_api.api_direct_first.success",
+      "ok": true,
+      "source": "results/partial_observability_api50_summary.json"
+    },
+    {
+      "actual": "0.313",
+      "expected": "0.313",
+      "name": "partial_api.api_best_of_k_shortest.success",
+      "ok": true,
+      "source": "results/partial_observability_api50_summary.json"
+    },
+    {
+      "actual": "0.667",
+      "expected": "0.667",
+      "name": "partial_api.hybrid_local_mirror_api_eval.success",
+      "ok": true,
+      "source": "results/partial_observability_api50_summary.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "partial_api.hybrid_local_mirror_api_eval.sameplay_success",
+      "ok": true,
+      "source": "results/partial_observability_api50_summary.json"
+    },
+    {
+      "actual": "0.333",
+      "expected": "0.333",
+      "name": "partial_api.hybrid_local_mirror_api_eval.crossplay_gap",
+      "ok": true,
+      "source": "results/partial_observability_api50_summary.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "partial_api.hybrid_local_population_api_eval.success",
+      "ok": true,
+      "source": "results/partial_observability_api50_summary.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "partial_api.hybrid_local_population_api_eval.sameplay_success",
+      "ok": true,
+      "source": "results/partial_observability_api50_summary.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "partial_api.oracle_upper_bound.success",
+      "ok": true,
+      "source": "results/partial_observability_api50_summary.json"
+    },
+    {
+      "actual": "0.740",
+      "expected": "0.740",
+      "name": "partial_api_no_coord.no_coord_direct_first.success",
+      "ok": true,
+      "source": "results/partial_observability_api50_no_coord_summary.json"
+    },
+    {
+      "actual": "0.313",
+      "expected": "0.313",
+      "name": "partial_api_no_coord.no_coord_best_of_k_shortest.success",
+      "ok": true,
+      "source": "results/partial_observability_api50_no_coord_summary.json"
+    },
+    {
+      "actual": "0.607",
+      "expected": "0.607",
+      "name": "partial_api_no_coord.no_coord_mirror.success",
+      "ok": true,
+      "source": "results/partial_observability_api50_no_coord_summary.json"
+    },
+    {
+      "actual": "0.920",
+      "expected": "0.920",
+      "name": "partial_api_no_coord.no_coord_mirror.sameplay_success",
+      "ok": true,
+      "source": "results/partial_observability_api50_no_coord_summary.json"
+    },
+    {
+      "actual": "0.313",
+      "expected": "0.313",
+      "name": "partial_api_no_coord.no_coord_mirror.crossplay_gap",
+      "ok": true,
+      "source": "results/partial_observability_api50_no_coord_summary.json"
+    },
+    {
+      "actual": "0.727",
+      "expected": "0.727",
+      "name": "partial_api_no_coord.no_coord_population.success",
+      "ok": true,
+      "source": "results/partial_observability_api50_no_coord_summary.json"
+    },
+    {
+      "actual": "0.987",
+      "expected": "0.987",
+      "name": "partial_api_no_coord.no_coord_consensus_info.success",
+      "ok": true,
+      "source": "results/partial_observability_api50_no_coord_summary.json"
+    },
+    {
+      "actual": "0.973",
+      "expected": "0.973",
+      "name": "partial_api_no_coord.no_coord_informative.success",
+      "ok": true,
+      "source": "results/partial_observability_api50_no_coord_summary.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "partial_api_no_coord.no_coord_oracle.success",
+      "ok": true,
+      "source": "results/partial_observability_api50_no_coord_summary.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "partial_api.private_landmark_candidate_refs",
+      "ok": true,
+      "source": "results/partial_observability_api50_check.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "partial_api.coordinate_candidates",
+      "ok": true,
+      "source": "results/partial_observability_api50_check.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "partial_api.mirror_private_refs",
+      "ok": true,
+      "source": "results/partial_observability_api50_check.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "partial_api.population_private_refs",
+      "ok": true,
+      "source": "results/partial_observability_api50_check.json"
+    },
+    {
+      "actual": "0.953",
+      "expected": "0.953",
+      "name": "api_loo.mixed_50.mirror",
+      "ok": true,
+      "source": "results/api_listener_leave_one_out.json"
+    },
+    {
+      "actual": "0.973",
+      "expected": "0.973",
+      "name": "api_loo.mixed_50.population",
+      "ok": true,
+      "source": "results/api_listener_leave_one_out.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "api_loo.mixed_50.oracle",
+      "ok": true,
+      "source": "results/api_listener_leave_one_out.json"
+    },
+    {
+      "actual": "0.020",
+      "expected": "0.020",
+      "name": "api_loo.mixed_50.population_minus_mirror",
+      "ok": true,
+      "source": "results/api_listener_leave_one_out.json"
+    },
+    {
+      "actual": "150",
+      "expected": "150",
+      "name": "api_loo.mixed_50.n_units",
+      "ok": true,
+      "source": "results/api_listener_leave_one_out.json"
+    },
+    {
+      "actual": "0.907",
+      "expected": "0.907",
+      "name": "api_loo.perspective_gpt54.mirror",
+      "ok": true,
+      "source": "results/api_listener_leave_one_out.json"
+    },
+    {
+      "actual": "0.933",
+      "expected": "0.933",
+      "name": "api_loo.perspective_gpt54.population",
+      "ok": true,
+      "source": "results/api_listener_leave_one_out.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "api_loo.perspective_gpt54.oracle",
+      "ok": true,
+      "source": "results/api_listener_leave_one_out.json"
+    },
+    {
+      "actual": "0.027",
+      "expected": "0.027",
+      "name": "api_loo.perspective_gpt54.population_minus_mirror",
+      "ok": true,
+      "source": "results/api_listener_leave_one_out.json"
+    },
+    {
+      "actual": "150",
+      "expected": "150",
+      "name": "api_loo.perspective_gpt54.n_units",
+      "ok": true,
+      "source": "results/api_listener_leave_one_out.json"
+    },
+    {
+      "actual": "0.847",
+      "expected": "0.847",
+      "name": "api_loo.perspective_gpt41.mirror",
+      "ok": true,
+      "source": "results/api_listener_leave_one_out.json"
+    },
+    {
+      "actual": "0.940",
+      "expected": "0.940",
+      "name": "api_loo.perspective_gpt41.population",
+      "ok": true,
+      "source": "results/api_listener_leave_one_out.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "api_loo.perspective_gpt41.oracle",
+      "ok": true,
+      "source": "results/api_listener_leave_one_out.json"
+    },
+    {
+      "actual": "0.093",
+      "expected": "0.093",
+      "name": "api_loo.perspective_gpt41.population_minus_mirror",
+      "ok": true,
+      "source": "results/api_listener_leave_one_out.json"
+    },
+    {
+      "actual": "150",
+      "expected": "150",
+      "name": "api_loo.perspective_gpt41.n_units",
+      "ok": true,
+      "source": "results/api_listener_leave_one_out.json"
+    },
+    {
+      "actual": "0.767",
+      "expected": "0.767",
+      "name": "api_loo.partial_observability.mirror",
+      "ok": true,
+      "source": "results/api_listener_leave_one_out.json"
+    },
+    {
+      "actual": "0.940",
+      "expected": "0.940",
+      "name": "api_loo.partial_observability.population",
+      "ok": true,
+      "source": "results/api_listener_leave_one_out.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "api_loo.partial_observability.oracle",
+      "ok": true,
+      "source": "results/api_listener_leave_one_out.json"
+    },
+    {
+      "actual": "0.173",
+      "expected": "0.173",
+      "name": "api_loo.partial_observability.population_minus_mirror",
+      "ok": true,
+      "source": "results/api_listener_leave_one_out.json"
+    },
+    {
+      "actual": "150",
+      "expected": "150",
+      "name": "api_loo.partial_observability.n_units",
+      "ok": true,
+      "source": "results/api_listener_leave_one_out.json"
+    },
+    {
+      "actual": "0.093",
+      "expected": "0.093",
+      "name": "selection_regret.mixed_50_full.mirror",
+      "ok": true,
+      "source": "results/selection_regret_audit.json"
+    },
+    {
+      "actual": "0.187",
+      "expected": "0.187",
+      "name": "selection_regret.perspective_gpt54_full.mirror",
+      "ok": true,
+      "source": "results/selection_regret_audit.json"
+    },
+    {
+      "actual": "0.287",
+      "expected": "0.287",
+      "name": "selection_regret.perspective_gpt41_full.mirror",
+      "ok": true,
+      "source": "results/selection_regret_audit.json"
+    },
+    {
+      "actual": "0.333",
+      "expected": "0.333",
+      "name": "selection_regret.partial_observability_full.mirror",
+      "ok": true,
+      "source": "results/selection_regret_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "selection_regret.mixed_50_full.population",
+      "ok": true,
+      "source": "results/selection_regret_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "selection_regret.perspective_gpt54_full.population",
+      "ok": true,
+      "source": "results/selection_regret_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "selection_regret.perspective_gpt41_full.population",
+      "ok": true,
+      "source": "results/selection_regret_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "selection_regret.partial_observability_full.population",
+      "ok": true,
+      "source": "results/selection_regret_audit.json"
+    },
+    {
+      "actual": "0.040",
+      "expected": "0.040",
+      "name": "selection_regret.mixed_50_no_coord.consensus+info",
+      "ok": true,
+      "source": "results/selection_regret_audit.json"
+    },
+    {
+      "actual": "0.033",
+      "expected": "0.033",
+      "name": "selection_regret.perspective_gpt41_no_coord.consensus+info",
+      "ok": true,
+      "source": "results/selection_regret_audit.json"
+    },
+    {
+      "actual": "0.013",
+      "expected": "0.013",
+      "name": "selection_regret.partial_observability_no_coord.consensus+info",
+      "ok": true,
+      "source": "results/selection_regret_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_pool.mixed_50_full.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "3.300",
+      "expected": "3.300",
+      "name": "candidate_pool.mixed_50_full.mean_robust_candidates",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_pool.mixed_50_full.oracle_success",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_pool.perspective_gpt54_full.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "2.440",
+      "expected": "2.440",
+      "name": "candidate_pool.perspective_gpt54_full.mean_robust_candidates",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_pool.perspective_gpt54_full.oracle_success",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_pool.perspective_gpt41_full.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "2.140",
+      "expected": "2.140",
+      "name": "candidate_pool.perspective_gpt41_full.mean_robust_candidates",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_pool.perspective_gpt41_full.oracle_success",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_pool.partial_observability_full.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "2.580",
+      "expected": "2.580",
+      "name": "candidate_pool.partial_observability_full.mean_robust_candidates",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_pool.partial_observability_full.oracle_success",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "0.920",
+      "expected": "0.920",
+      "name": "candidate_pool.mixed_50_no_coord.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "2.300",
+      "expected": "2.300",
+      "name": "candidate_pool.mixed_50_no_coord.mean_robust_candidates",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "0.960",
+      "expected": "0.960",
+      "name": "candidate_pool.mixed_50_no_coord.oracle_success",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "0.660",
+      "expected": "0.660",
+      "name": "candidate_pool.perspective_gpt41_no_coord.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "1.140",
+      "expected": "1.140",
+      "name": "candidate_pool.perspective_gpt41_no_coord.mean_robust_candidates",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "0.793",
+      "expected": "0.793",
+      "name": "candidate_pool.perspective_gpt41_no_coord.oracle_success",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_pool.partial_observability_no_coord.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "1.580",
+      "expected": "1.580",
+      "name": "candidate_pool.partial_observability_no_coord.mean_robust_candidates",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_pool.partial_observability_no_coord.oracle_success",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "0.860",
+      "expected": "0.860",
+      "name": "candidate_pool.mixed_50_full.mirror.selected_robust_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "0.860",
+      "expected": "0.860",
+      "name": "candidate_pool.mixed_50_full.mirror.oracle_match_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "0.720",
+      "expected": "0.720",
+      "name": "candidate_pool.perspective_gpt54_full.mirror.selected_robust_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "0.720",
+      "expected": "0.720",
+      "name": "candidate_pool.perspective_gpt54_full.mirror.oracle_match_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "0.560",
+      "expected": "0.560",
+      "name": "candidate_pool.perspective_gpt41_full.mirror.selected_robust_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "0.560",
+      "expected": "0.560",
+      "name": "candidate_pool.perspective_gpt41_full.mirror.oracle_match_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "0.500",
+      "expected": "0.500",
+      "name": "candidate_pool.partial_observability_full.mirror.selected_robust_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "0.500",
+      "expected": "0.500",
+      "name": "candidate_pool.partial_observability_full.mirror.oracle_match_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_pool.mixed_50_full.population.selected_robust_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_pool.mixed_50_full.population.oracle_match_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_pool.perspective_gpt54_full.population.selected_robust_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_pool.perspective_gpt54_full.population.oracle_match_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_pool.perspective_gpt41_full.population.selected_robust_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_pool.perspective_gpt41_full.population.oracle_match_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_pool.partial_observability_full.population.selected_robust_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_pool.partial_observability_full.population.oracle_match_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "0.880",
+      "expected": "0.880",
+      "name": "candidate_pool.mixed_50_no_coord.consensus+info.selected_robust_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "0.940",
+      "expected": "0.940",
+      "name": "candidate_pool.mixed_50_no_coord.consensus+info.oracle_match_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "0.620",
+      "expected": "0.620",
+      "name": "candidate_pool.perspective_gpt41_no_coord.consensus+info.selected_robust_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "0.920",
+      "expected": "0.920",
+      "name": "candidate_pool.perspective_gpt41_no_coord.consensus+info.oracle_match_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "0.980",
+      "expected": "0.980",
+      "name": "candidate_pool.partial_observability_no_coord.consensus+info.selected_robust_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "0.980",
+      "expected": "0.980",
+      "name": "candidate_pool.partial_observability_no_coord.consensus+info.oracle_match_rate",
+      "ok": true,
+      "source": "results/candidate_pool_audit.json"
+    },
+    {
+      "actual": "0.840",
+      "expected": "0.840",
+      "name": "candidate_budget.mixed_50_full.k1.oracle",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.780",
+      "expected": "0.780",
+      "name": "candidate_budget.mixed_50_full.k1.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.853",
+      "expected": "0.853",
+      "name": "candidate_budget.mixed_50_full.k2.oracle",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.800",
+      "expected": "0.800",
+      "name": "candidate_budget.mixed_50_full.k2.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.960",
+      "expected": "0.960",
+      "name": "candidate_budget.mixed_50_full.k3.oracle",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.920",
+      "expected": "0.920",
+      "name": "candidate_budget.mixed_50_full.k3.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_budget.mixed_50_full.k4.oracle",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_budget.mixed_50_full.k4.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.713",
+      "expected": "0.713",
+      "name": "candidate_budget.perspective_gpt54_full.k1.oracle",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.600",
+      "expected": "0.600",
+      "name": "candidate_budget.perspective_gpt54_full.k1.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.787",
+      "expected": "0.787",
+      "name": "candidate_budget.perspective_gpt54_full.k2.oracle",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.680",
+      "expected": "0.680",
+      "name": "candidate_budget.perspective_gpt54_full.k2.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.893",
+      "expected": "0.893",
+      "name": "candidate_budget.perspective_gpt54_full.k3.oracle",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.820",
+      "expected": "0.820",
+      "name": "candidate_budget.perspective_gpt54_full.k3.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_budget.perspective_gpt54_full.k4.oracle",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_budget.perspective_gpt54_full.k4.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.553",
+      "expected": "0.553",
+      "name": "candidate_budget.perspective_gpt41_full.k1.oracle",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.380",
+      "expected": "0.380",
+      "name": "candidate_budget.perspective_gpt41_full.k1.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.620",
+      "expected": "0.620",
+      "name": "candidate_budget.perspective_gpt41_full.k2.oracle",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.400",
+      "expected": "0.400",
+      "name": "candidate_budget.perspective_gpt41_full.k2.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.793",
+      "expected": "0.793",
+      "name": "candidate_budget.perspective_gpt41_full.k3.oracle",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.660",
+      "expected": "0.660",
+      "name": "candidate_budget.perspective_gpt41_full.k3.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_budget.perspective_gpt41_full.k4.oracle",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_budget.perspective_gpt41_full.k4.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.740",
+      "expected": "0.740",
+      "name": "candidate_budget.partial_observability_full.k1.oracle",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.620",
+      "expected": "0.620",
+      "name": "candidate_budget.partial_observability_full.k1.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.747",
+      "expected": "0.747",
+      "name": "candidate_budget.partial_observability_full.k2.oracle",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "0.620",
+      "expected": "0.620",
+      "name": "candidate_budget.partial_observability_full.k2.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_budget.partial_observability_full.k3.oracle",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_budget.partial_observability_full.k3.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_budget.partial_observability_full.k4.oracle",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_budget.partial_observability_full.k4.robust_scene_rate",
+      "ok": true,
+      "source": "results/candidate_budget_audit.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "candidate_role_selection.mixed_50_full.mirror.n_scenes",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "candidate_role_selection.mixed_50_full.mirror.unresolved",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0.760",
+      "expected": "0.760",
+      "name": "candidate_role_selection.mixed_50_full.mirror.attribute_short",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0.140",
+      "expected": "0.140",
+      "name": "candidate_role_selection.mixed_50_full.mirror.coordinate_fallback",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "candidate_role_selection.mixed_50_full.population.n_scenes",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "candidate_role_selection.mixed_50_full.population.unresolved",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0.500",
+      "expected": "0.500",
+      "name": "candidate_role_selection.mixed_50_full.population.attribute_short",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0.420",
+      "expected": "0.420",
+      "name": "candidate_role_selection.mixed_50_full.population.coordinate_fallback",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "candidate_role_selection.perspective_gpt54_full.population.n_scenes",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "candidate_role_selection.perspective_gpt54_full.population.unresolved",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "candidate_role_selection.perspective_gpt54_full.population.attribute_short",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_role_selection.perspective_gpt54_full.population.coordinate_fallback",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "candidate_role_selection.perspective_gpt41_full.population.n_scenes",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "candidate_role_selection.perspective_gpt41_full.population.unresolved",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "candidate_role_selection.perspective_gpt41_full.population.attribute_short",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_role_selection.perspective_gpt41_full.population.coordinate_fallback",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "candidate_role_selection.partial_observability_full.population.n_scenes",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "candidate_role_selection.partial_observability_full.population.unresolved",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "candidate_role_selection.partial_observability_full.population.attribute_short",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "candidate_role_selection.partial_observability_full.population.coordinate_fallback",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "candidate_role_selection.mixed_50_no_coord.consensus+info.n_scenes",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "candidate_role_selection.mixed_50_no_coord.consensus+info.unresolved",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0.320",
+      "expected": "0.320",
+      "name": "candidate_role_selection.mixed_50_no_coord.consensus+info.attribute_short",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0.360",
+      "expected": "0.360",
+      "name": "candidate_role_selection.mixed_50_no_coord.consensus+info.relational_or_spatial",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "candidate_role_selection.mixed_50_no_coord.consensus+info.coordinate_fallback",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "candidate_role_selection.perspective_gpt41_no_coord.consensus+info.n_scenes",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "candidate_role_selection.perspective_gpt41_no_coord.consensus+info.unresolved",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "candidate_role_selection.perspective_gpt41_no_coord.consensus+info.attribute_short",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0.580",
+      "expected": "0.580",
+      "name": "candidate_role_selection.perspective_gpt41_no_coord.consensus+info.relational_or_spatial",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "candidate_role_selection.perspective_gpt41_no_coord.consensus+info.coordinate_fallback",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "candidate_role_selection.partial_observability_no_coord.consensus+info.n_scenes",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "candidate_role_selection.partial_observability_no_coord.consensus+info.unresolved",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "candidate_role_selection.partial_observability_no_coord.consensus+info.attribute_short",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0.460",
+      "expected": "0.460",
+      "name": "candidate_role_selection.partial_observability_no_coord.consensus+info.relational_or_spatial",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "candidate_role_selection.partial_observability_no_coord.consensus+info.coordinate_fallback",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "candidate_role_selection.perspective_gpt41_no_coord.population.n_scenes",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "candidate_role_selection.perspective_gpt41_no_coord.population.unresolved",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0.920",
+      "expected": "0.920",
+      "name": "candidate_role_selection.perspective_gpt41_no_coord.population.attribute_short",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0.080",
+      "expected": "0.080",
+      "name": "candidate_role_selection.perspective_gpt41_no_coord.population.relational_or_spatial",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "candidate_role_selection.perspective_gpt41_no_coord.population.coordinate_fallback",
+      "ok": true,
+      "source": "results/candidate_role_selection_audit.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "random_baseline.mixed_50_full.n_scenes",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "4.000",
+      "expected": "4.000",
+      "name": "random_baseline.mixed_50_full.mean_candidates",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.865",
+      "expected": "0.865",
+      "name": "random_baseline.mixed_50_full.random_expected",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.825",
+      "expected": "0.825",
+      "name": "random_baseline.mixed_50_full.random_robust_pick_rate",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "random_baseline.mixed_50_full.primary_method",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.135",
+      "expected": "0.135",
+      "name": "random_baseline.mixed_50_full.primary_minus_random",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "random_baseline.perspective_gpt54_full.n_scenes",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "4.000",
+      "expected": "4.000",
+      "name": "random_baseline.perspective_gpt54_full.mean_candidates",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.715",
+      "expected": "0.715",
+      "name": "random_baseline.perspective_gpt54_full.random_expected",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.610",
+      "expected": "0.610",
+      "name": "random_baseline.perspective_gpt54_full.random_robust_pick_rate",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "random_baseline.perspective_gpt54_full.primary_method",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.285",
+      "expected": "0.285",
+      "name": "random_baseline.perspective_gpt54_full.primary_minus_random",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "random_baseline.perspective_gpt41_full.n_scenes",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "4.000",
+      "expected": "4.000",
+      "name": "random_baseline.perspective_gpt41_full.mean_candidates",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.657",
+      "expected": "0.657",
+      "name": "random_baseline.perspective_gpt41_full.random_expected",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.535",
+      "expected": "0.535",
+      "name": "random_baseline.perspective_gpt41_full.random_robust_pick_rate",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "random_baseline.perspective_gpt41_full.primary_method",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.343",
+      "expected": "0.343",
+      "name": "random_baseline.perspective_gpt41_full.primary_minus_random",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "random_baseline.partial_observability_full.n_scenes",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "4.000",
+      "expected": "4.000",
+      "name": "random_baseline.partial_observability_full.mean_candidates",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.753",
+      "expected": "0.753",
+      "name": "random_baseline.partial_observability_full.random_expected",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.645",
+      "expected": "0.645",
+      "name": "random_baseline.partial_observability_full.random_robust_pick_rate",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "random_baseline.partial_observability_full.primary_method",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.247",
+      "expected": "0.247",
+      "name": "random_baseline.partial_observability_full.primary_minus_random",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "random_baseline.mixed_50_no_coord.n_scenes",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "3.000",
+      "expected": "3.000",
+      "name": "random_baseline.mixed_50_no_coord.mean_candidates",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.820",
+      "expected": "0.820",
+      "name": "random_baseline.mixed_50_no_coord.random_expected",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.767",
+      "expected": "0.767",
+      "name": "random_baseline.mixed_50_no_coord.random_robust_pick_rate",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "random_baseline.mixed_50_no_coord.primary_method",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.100",
+      "expected": "0.100",
+      "name": "random_baseline.mixed_50_no_coord.primary_minus_random",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "random_baseline.perspective_gpt41_no_coord.n_scenes",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "3.000",
+      "expected": "3.000",
+      "name": "random_baseline.perspective_gpt41_no_coord.mean_candidates",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.542",
+      "expected": "0.542",
+      "name": "random_baseline.perspective_gpt41_no_coord.random_expected",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.380",
+      "expected": "0.380",
+      "name": "random_baseline.perspective_gpt41_no_coord.random_robust_pick_rate",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "random_baseline.perspective_gpt41_no_coord.primary_method",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.218",
+      "expected": "0.218",
+      "name": "random_baseline.perspective_gpt41_no_coord.primary_minus_random",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "random_baseline.partial_observability_no_coord.n_scenes",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "3.000",
+      "expected": "3.000",
+      "name": "random_baseline.partial_observability_no_coord.mean_candidates",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.671",
+      "expected": "0.671",
+      "name": "random_baseline.partial_observability_no_coord.random_expected",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.527",
+      "expected": "0.527",
+      "name": "random_baseline.partial_observability_no_coord.random_robust_pick_rate",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "random_baseline.partial_observability_no_coord.primary_method",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "0.316",
+      "expected": "0.316",
+      "name": "random_baseline.partial_observability_no_coord.primary_minus_random",
+      "ok": true,
+      "source": "results/random_candidate_baseline.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "message_length.mixed_50_full.primary_method",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "5.56",
+      "expected": "5.56",
+      "name": "message_length.mixed_50_full.mirror_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "6.82",
+      "expected": "6.82",
+      "name": "message_length.mixed_50_full.primary_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "9.26",
+      "expected": "9.26",
+      "name": "message_length.mixed_50_full.direct_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "10.00",
+      "expected": "10.00",
+      "name": "message_length.mixed_50_full.template_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "1.26",
+      "expected": "1.26",
+      "name": "message_length.mixed_50_full.token_delta",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "0.093",
+      "expected": "0.093",
+      "name": "message_length.mixed_50_full.success_delta",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "message_length.perspective_gpt54_full.primary_method",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "7.40",
+      "expected": "7.40",
+      "name": "message_length.perspective_gpt54_full.mirror_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "10.22",
+      "expected": "10.22",
+      "name": "message_length.perspective_gpt54_full.primary_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "11.70",
+      "expected": "11.70",
+      "name": "message_length.perspective_gpt54_full.direct_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "10.00",
+      "expected": "10.00",
+      "name": "message_length.perspective_gpt54_full.template_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "2.82",
+      "expected": "2.82",
+      "name": "message_length.perspective_gpt54_full.token_delta",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "0.187",
+      "expected": "0.187",
+      "name": "message_length.perspective_gpt54_full.success_delta",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "message_length.perspective_gpt41_full.primary_method",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "7.40",
+      "expected": "7.40",
+      "name": "message_length.perspective_gpt41_full.mirror_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "10.22",
+      "expected": "10.22",
+      "name": "message_length.perspective_gpt41_full.primary_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "11.70",
+      "expected": "11.70",
+      "name": "message_length.perspective_gpt41_full.direct_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "10.00",
+      "expected": "10.00",
+      "name": "message_length.perspective_gpt41_full.template_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "2.82",
+      "expected": "2.82",
+      "name": "message_length.perspective_gpt41_full.token_delta",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "0.287",
+      "expected": "0.287",
+      "name": "message_length.perspective_gpt41_full.success_delta",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "message_length.partial_observability_full.primary_method",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "6.50",
+      "expected": "6.50",
+      "name": "message_length.partial_observability_full.mirror_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "9.66",
+      "expected": "9.66",
+      "name": "message_length.partial_observability_full.primary_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "9.96",
+      "expected": "9.96",
+      "name": "message_length.partial_observability_full.direct_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "10.00",
+      "expected": "10.00",
+      "name": "message_length.partial_observability_full.template_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "3.16",
+      "expected": "3.16",
+      "name": "message_length.partial_observability_full.token_delta",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "0.333",
+      "expected": "0.333",
+      "name": "message_length.partial_observability_full.success_delta",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "message_length.mixed_50_no_coord.primary_method",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "5.00",
+      "expected": "5.00",
+      "name": "message_length.mixed_50_no_coord.mirror_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "9.38",
+      "expected": "9.38",
+      "name": "message_length.mixed_50_no_coord.primary_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "9.26",
+      "expected": "9.26",
+      "name": "message_length.mixed_50_no_coord.direct_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "4.38",
+      "expected": "4.38",
+      "name": "message_length.mixed_50_no_coord.token_delta",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "0.133",
+      "expected": "0.133",
+      "name": "message_length.mixed_50_no_coord.success_delta",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "message_length.perspective_gpt41_no_coord.primary_method",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "8.28",
+      "expected": "8.28",
+      "name": "message_length.perspective_gpt41_no_coord.mirror_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "12.54",
+      "expected": "12.54",
+      "name": "message_length.perspective_gpt41_no_coord.primary_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "11.70",
+      "expected": "11.70",
+      "name": "message_length.perspective_gpt41_no_coord.direct_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "4.26",
+      "expected": "4.26",
+      "name": "message_length.perspective_gpt41_no_coord.token_delta",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "0.180",
+      "expected": "0.180",
+      "name": "message_length.perspective_gpt41_no_coord.success_delta",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "message_length.partial_observability_no_coord.primary_method",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "7.56",
+      "expected": "7.56",
+      "name": "message_length.partial_observability_no_coord.mirror_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "12.76",
+      "expected": "12.76",
+      "name": "message_length.partial_observability_no_coord.primary_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "9.96",
+      "expected": "9.96",
+      "name": "message_length.partial_observability_no_coord.direct_tokens",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "5.20",
+      "expected": "5.20",
+      "name": "message_length.partial_observability_no_coord.token_delta",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "0.380",
+      "expected": "0.380",
+      "name": "message_length.partial_observability_no_coord.success_delta",
+      "ok": true,
+      "source": "results/message_length_audit.json"
+    },
+    {
+      "actual": "0.080",
+      "expected": "0.080",
+      "name": "listener_disagreement.mixed_50_full.mirror.split",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "0.860",
+      "expected": "0.860",
+      "name": "listener_disagreement.mixed_50_full.mirror.unanimous_success",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "0.180",
+      "expected": "0.180",
+      "name": "listener_disagreement.perspective_gpt54_full.mirror.split",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "0.720",
+      "expected": "0.720",
+      "name": "listener_disagreement.perspective_gpt54_full.mirror.unanimous_success",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "0.360",
+      "expected": "0.360",
+      "name": "listener_disagreement.perspective_gpt41_full.mirror.split",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "0.560",
+      "expected": "0.560",
+      "name": "listener_disagreement.perspective_gpt41_full.mirror.unanimous_success",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "0.500",
+      "expected": "0.500",
+      "name": "listener_disagreement.partial_observability_full.mirror.split",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "0.500",
+      "expected": "0.500",
+      "name": "listener_disagreement.partial_observability_full.mirror.unanimous_success",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "listener_disagreement.mixed_50_full.population.split",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "listener_disagreement.mixed_50_full.population.unanimous_success",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "listener_disagreement.perspective_gpt54_full.population.split",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "listener_disagreement.perspective_gpt54_full.population.unanimous_success",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "listener_disagreement.perspective_gpt41_full.population.split",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "listener_disagreement.perspective_gpt41_full.population.unanimous_success",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "listener_disagreement.partial_observability_full.population.split",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "listener_disagreement.partial_observability_full.population.unanimous_success",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "0.080",
+      "expected": "0.080",
+      "name": "listener_disagreement.mixed_50_no_coord.consensus+info.split",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "0.880",
+      "expected": "0.880",
+      "name": "listener_disagreement.mixed_50_no_coord.consensus+info.unanimous_success",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "0.260",
+      "expected": "0.260",
+      "name": "listener_disagreement.perspective_gpt41_no_coord.consensus+info.split",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "0.620",
+      "expected": "0.620",
+      "name": "listener_disagreement.perspective_gpt41_no_coord.consensus+info.unanimous_success",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "0.020",
+      "expected": "0.020",
+      "name": "listener_disagreement.partial_observability_no_coord.consensus+info.split",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "0.980",
+      "expected": "0.980",
+      "name": "listener_disagreement.partial_observability_no_coord.consensus+info.unanimous_success",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "0.540",
+      "expected": "0.540",
+      "name": "listener_disagreement.partial_observability_no_coord.mirror.split",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "0.420",
+      "expected": "0.420",
+      "name": "listener_disagreement.partial_observability_no_coord.mirror.unanimous_success",
+      "ok": true,
+      "source": "results/listener_disagreement_audit.json"
+    },
+    {
+      "actual": "0.8",
+      "expected": "0.8",
+      "name": "listener_confidence.threshold",
+      "ok": true,
+      "source": "results/listener_confidence_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "listener_confidence.perspective_gpt41_full.mirror.ambiguity",
+      "ok": true,
+      "source": "results/listener_confidence_audit.json"
+    },
+    {
+      "actual": "0.147",
+      "expected": "0.147",
+      "name": "listener_confidence.perspective_gpt41_full.mirror.high_conf_failure",
+      "ok": true,
+      "source": "results/listener_confidence_audit.json"
+    },
+    {
+      "actual": "0.280",
+      "expected": "0.280",
+      "name": "listener_confidence.perspective_gpt41_full.mirror.scene_high_conf_failure",
+      "ok": true,
+      "source": "results/listener_confidence_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "listener_confidence.perspective_gpt41_no_coord.mirror.ambiguity",
+      "ok": true,
+      "source": "results/listener_confidence_audit.json"
+    },
+    {
+      "actual": "0.280",
+      "expected": "0.280",
+      "name": "listener_confidence.perspective_gpt41_no_coord.mirror.high_conf_failure",
+      "ok": true,
+      "source": "results/listener_confidence_audit.json"
+    },
+    {
+      "actual": "0.480",
+      "expected": "0.480",
+      "name": "listener_confidence.perspective_gpt41_no_coord.mirror.scene_high_conf_failure",
+      "ok": true,
+      "source": "results/listener_confidence_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "listener_confidence.perspective_gpt41_full.population.high_conf_failure",
+      "ok": true,
+      "source": "results/listener_confidence_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "listener_confidence.perspective_gpt41_full.population.scene_high_conf_failure",
+      "ok": true,
+      "source": "results/listener_confidence_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "listener_confidence.partial_observability_no_coord.consensus+info.high_conf_failure",
+      "ok": true,
+      "source": "results/listener_confidence_audit.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "listener_confidence.partial_observability_no_coord.consensus+info.scene_high_conf_failure",
+      "ok": true,
+      "source": "results/listener_confidence_audit.json"
+    },
+    {
+      "actual": "0.140",
+      "expected": "0.140",
+      "name": "listener_confidence.partial_observability_full.mirror.ambiguity",
+      "ok": true,
+      "source": "results/listener_confidence_audit.json"
+    },
+    {
+      "actual": "0.073",
+      "expected": "0.073",
+      "name": "listener_confidence.partial_observability_full.mirror.high_conf_failure",
+      "ok": true,
+      "source": "results/listener_confidence_audit.json"
+    },
+    {
+      "actual": "43",
+      "expected": "43",
+      "name": "failure_taxonomy.perspective_gpt41_full_mirror.total",
+      "ok": true,
+      "source": "results/failure_taxonomy_audit.json"
+    },
+    {
+      "actual": "38",
+      "expected": "38",
+      "name": "failure_taxonomy.perspective_gpt41_full_mirror.underspecified",
+      "ok": true,
+      "source": "results/failure_taxonomy_audit.json"
+    },
+    {
+      "actual": "5",
+      "expected": "5",
+      "name": "failure_taxonomy.perspective_gpt41_full_mirror.perspective",
+      "ok": true,
+      "source": "results/failure_taxonomy_audit.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "failure_taxonomy.partial_observability_full_mirror.total",
+      "ok": true,
+      "source": "results/failure_taxonomy_audit.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "failure_taxonomy.partial_observability_full_mirror.underspecified",
+      "ok": true,
+      "source": "results/failure_taxonomy_audit.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "failure_taxonomy.partial_observability_full_mirror.perspective",
+      "ok": true,
+      "source": "results/failure_taxonomy_audit.json"
+    },
+    {
+      "actual": "59",
+      "expected": "59",
+      "name": "failure_taxonomy.partial_observability_no_coord_mirror.total",
+      "ok": true,
+      "source": "results/failure_taxonomy_audit.json"
+    },
+    {
+      "actual": "59",
+      "expected": "59",
+      "name": "failure_taxonomy.partial_observability_no_coord_mirror.underspecified",
+      "ok": true,
+      "source": "results/failure_taxonomy_audit.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "failure_taxonomy.partial_observability_no_coord_mirror.perspective",
+      "ok": true,
+      "source": "results/failure_taxonomy_audit.json"
+    },
+    {
+      "actual": "152",
+      "expected": "152",
+      "name": "failure_taxonomy.combined.total",
+      "ok": true,
+      "source": "results/failure_taxonomy_audit.json"
+    },
+    {
+      "actual": "147",
+      "expected": "147",
+      "name": "failure_taxonomy.combined.underspecified",
+      "ok": true,
+      "source": "results/failure_taxonomy_audit.json"
+    },
+    {
+      "actual": "5",
+      "expected": "5",
+      "name": "failure_taxonomy.combined.perspective",
+      "ok": true,
+      "source": "results/failure_taxonomy_audit.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "failure_taxonomy.combined.other",
+      "ok": true,
+      "source": "results/failure_taxonomy_audit.json"
+    },
+    {
+      "actual": "152",
+      "expected": "152",
+      "name": "interaction_memory_rules.combined.failure_rows",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "76",
+      "expected": "76",
+      "name": "interaction_memory_rules.combined.failure_scenes",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "0.991",
+      "expected": "0.991",
+      "name": "interaction_memory_rules.combined.mean_repair_success",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "0.987",
+      "expected": "0.987",
+      "name": "interaction_memory_rules.combined.repair_all_success",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "interaction_memory_rules.combined.repair_rule_cue",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "147",
+      "expected": "147",
+      "name": "interaction_memory_rules.rule.disambiguate_shared_attributes",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "5",
+      "expected": "5",
+      "name": "interaction_memory_rules.rule.avoid_frame_sensitive_only",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "5",
+      "expected": "5",
+      "name": "interaction_memory_rules.perspective_full_mirror.perspective_frame_error.rows",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "3",
+      "expected": "3",
+      "name": "interaction_memory_rules.perspective_full_mirror.perspective_frame_error.scenes",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "interaction_memory_rules.perspective_full_mirror.perspective_frame_error.repair_success",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "interaction_memory_rules.perspective_full_mirror.perspective_frame_error.cue",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "38",
+      "expected": "38",
+      "name": "interaction_memory_rules.perspective_full_mirror.underspecified_distractor.rows",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "19",
+      "expected": "19",
+      "name": "interaction_memory_rules.perspective_full_mirror.underspecified_distractor.scenes",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "interaction_memory_rules.perspective_full_mirror.underspecified_distractor.repair_success",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "interaction_memory_rules.perspective_full_mirror.underspecified_distractor.cue",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "50",
+      "expected": "50",
+      "name": "interaction_memory_rules.partial_observability_full_mirror.underspecified_distractor.rows",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "25",
+      "expected": "25",
+      "name": "interaction_memory_rules.partial_observability_full_mirror.underspecified_distractor.scenes",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "interaction_memory_rules.partial_observability_full_mirror.underspecified_distractor.repair_success",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "interaction_memory_rules.partial_observability_full_mirror.underspecified_distractor.cue",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "59",
+      "expected": "59",
+      "name": "interaction_memory_rules.partial_observability_no_coord_mirror.underspecified_distractor.rows",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "29",
+      "expected": "29",
+      "name": "interaction_memory_rules.partial_observability_no_coord_mirror.underspecified_distractor.scenes",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "0.977",
+      "expected": "0.977",
+      "name": "interaction_memory_rules.partial_observability_no_coord_mirror.underspecified_distractor.repair_success",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "interaction_memory_rules.partial_observability_no_coord_mirror.underspecified_distractor.cue",
+      "ok": true,
+      "source": "results/interaction_memory_rules.json"
+    },
+    {
+      "actual": "4",
+      "expected": "4",
+      "name": "qualitative_examples.n_examples",
+      "ok": true,
+      "source": "results/qualitative_failure_examples.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "qualitative_examples.perspective_underspecification.scene",
+      "ok": true,
+      "source": "results/qualitative_failure_examples.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "qualitative_examples.perspective_underspecification.category",
+      "ok": true,
+      "source": "results/qualitative_failure_examples.json"
+    },
+    {
+      "actual": "0.333",
+      "expected": "0.333",
+      "name": "qualitative_examples.perspective_underspecification.mirror_success",
+      "ok": true,
+      "source": "results/qualitative_failure_examples.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "qualitative_examples.perspective_underspecification.repair_success",
+      "ok": true,
+      "source": "results/qualitative_failure_examples.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "qualitative_examples.perspective_frame_error.scene",
+      "ok": true,
+      "source": "results/qualitative_failure_examples.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "qualitative_examples.perspective_frame_error.category",
+      "ok": true,
+      "source": "results/qualitative_failure_examples.json"
+    },
+    {
+      "actual": "0.667",
+      "expected": "0.667",
+      "name": "qualitative_examples.perspective_frame_error.mirror_success",
+      "ok": true,
+      "source": "results/qualitative_failure_examples.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "qualitative_examples.perspective_frame_error.repair_success",
+      "ok": true,
+      "source": "results/qualitative_failure_examples.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "qualitative_examples.partial_observability_underspecification.scene",
+      "ok": true,
+      "source": "results/qualitative_failure_examples.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "qualitative_examples.partial_observability_underspecification.category",
+      "ok": true,
+      "source": "results/qualitative_failure_examples.json"
+    },
+    {
+      "actual": "0.333",
+      "expected": "0.333",
+      "name": "qualitative_examples.partial_observability_underspecification.mirror_success",
+      "ok": true,
+      "source": "results/qualitative_failure_examples.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "qualitative_examples.partial_observability_underspecification.repair_success",
+      "ok": true,
+      "source": "results/qualitative_failure_examples.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "qualitative_examples.partial_observability_no_coordinate_repair.scene",
+      "ok": true,
+      "source": "results/qualitative_failure_examples.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "qualitative_examples.partial_observability_no_coordinate_repair.category",
+      "ok": true,
+      "source": "results/qualitative_failure_examples.json"
+    },
+    {
+      "actual": "0.333",
+      "expected": "0.333",
+      "name": "qualitative_examples.partial_observability_no_coordinate_repair.mirror_success",
+      "ok": true,
+      "source": "results/qualitative_failure_examples.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "qualitative_examples.partial_observability_no_coordinate_repair.repair_success",
+      "ok": true,
+      "source": "results/qualitative_failure_examples.json"
+    },
+    {
+      "actual": "19",
+      "expected": "19",
+      "name": "reviewer_checklist.n_items",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "reviewer_checklist.n_failed",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.target_id_is_never_shown_to_the_listener.present",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.target_id_is_never_shown_to_the_listener.section",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.target_id_is_never_shown_to_the_listener.pass",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.speaker_messages_are_checked_for_target_id_leakage.present",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.speaker_messages_are_checked_for_target_id_leakage.section",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.speaker_messages_are_checked_for_target_id_leakage.pass",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.listener_outputs_are_valid_object_ids.present",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.listener_outputs_are_valid_object_ids.section",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.listener_outputs_are_valid_object_ids.pass",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.same_test_scenes_are_used_across_methods.present",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.same_test_scenes_are_used_across_methods.section",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.same_test_scenes_are_used_across_methods.pass",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.prompts_are_frozen_before_final_evaluation.present",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.prompts_are_frozen_before_final_evaluation.section",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.prompts_are_frozen_before_final_evaluation.pass",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.held_out_listeners_are_not_used_for_method_selection.present",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.held_out_listeners_are_not_used_for_method_selection.section",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.held_out_listeners_are_not_used_for_method_selection.pass",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.all_responses_are_cached.present",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.all_responses_are_cached.section",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.all_responses_are_cached.pass",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.exact_model_versions_are_reported.present",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.exact_model_versions_are_reported.section",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.exact_model_versions_are_reported.pass",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.main_table_has_confidence_intervals.present",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.main_table_has_confidence_intervals.section",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.main_table_has_confidence_intervals.pass",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.scenario_table_explains_where_gains_losses_occur.present",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.scenario_table_explains_where_gains_losses_occur.section",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.scenario_table_explains_where_gains_losses_occur.pass",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.cross_play_gap_is_reported.present",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.cross_play_gap_is_reported.section",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.cross_play_gap_is_reported.pass",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.oracle_upper_bound_is_reported.present",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.oracle_upper_bound_is_reported.section",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.oracle_upper_bound_is_reported.pass",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.manual_failure_examples_support_the_quantitative_result.present",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.manual_failure_examples_support_the_quantitative_result.section",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.manual_failure_examples_support_the_quantitative_result.pass",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.intro_states_the_evaluation_blind_spot_clearly.present",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.intro_states_the_evaluation_blind_spot_clearly.section",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.intro_states_the_evaluation_blind_spot_clearly.pass",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.related_work_is_concise.present",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.related_work_is_concise.section",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.related_work_is_concise.pass",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.method_is_reproducible.present",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.method_is_reproducible.section",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.method_is_reproducible.pass",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.limitations_are_honest.present",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.limitations_are_honest.section",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.limitations_are_honest.pass",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.claims_match_actual_results.present",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.claims_match_actual_results.section",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.claims_match_actual_results.pass",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.appendix_includes_prompts_and_schemas.present",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.appendix_includes_prompts_and_schemas.section",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "reviewer_checklist.appendix_includes_prompts_and_schemas.pass",
+      "ok": true,
+      "source": "results/reviewer_checklist.json"
+    },
+    {
+      "actual": "24",
+      "expected": "24",
+      "name": "plan_coverage.n_items",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "17",
+      "expected": "17",
+      "name": "plan_coverage.status_counts.covered",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "6",
+      "expected": "6",
+      "name": "plan_coverage.status_counts.partial",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "1",
+      "expected": "1",
+      "name": "plan_coverage.status_counts.open",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "17",
+      "expected": "17",
+      "name": "plan_coverage.core_status_counts.covered",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "2",
+      "expected": "2",
+      "name": "plan_coverage.core_status_counts.partial",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "plan_coverage.core_status_counts.open",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "plan_coverage.stretch_status_counts.covered",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "4",
+      "expected": "4",
+      "name": "plan_coverage.stretch_status_counts.partial",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "1",
+      "expected": "1",
+      "name": "plan_coverage.stretch_status_counts.open",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "7",
+      "expected": "7",
+      "name": "plan_coverage.open_or_partial",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "plan_coverage.item.use_development_episodes_for_debugging_prompts_and_tuning_the_generator.present",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "plan_coverage.item.use_development_episodes_for_debugging_prompts_and_tuning_the_generator.partial",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "plan_coverage.item.hand_label_roughly_100_failures_into_interpretable_categories.present",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "plan_coverage.item.hand_label_roughly_100_failures_into_interpretable_categories.partial",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "plan_coverage.item.run_a_1_000_scene_benchmark_and_200_partial_observability_stress_episodes.present",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "plan_coverage.item.run_a_1_000_scene_benchmark_and_200_partial_observability_stress_episodes.partial",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "plan_coverage.item.evaluate_k_8_candidate_generation_in_addition_to_k_4.present",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "plan_coverage.item.evaluate_k_8_candidate_generation_in_addition_to_k_4.partial",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "plan_coverage.item.run_an_actual_interaction_memory_prompt_rerun_after_distilling_rules_from_failures.present",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "plan_coverage.item.run_an_actual_interaction_memory_prompt_rerun_after_distilling_rules_from_failures.partial",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "plan_coverage.item.validate_failures_with_human_or_independent_non_llm_judgments.present",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "plan_coverage.item.validate_failures_with_human_or_independent_non_llm_judgments.open",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "plan_coverage.item.publish_the_artifact_as_a_public_repository_or_submission_bundle.present",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "plan_coverage.item.publish_the_artifact_as_a_public_repository_or_submission_bundle.partial",
+      "ok": true,
+      "source": "results/plan_coverage_audit.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "integrity_audit.n_failed",
+      "ok": true,
+      "source": "results/benchmark_integrity_audit.json"
+    },
+    {
+      "actual": "158",
+      "expected": "158",
+      "name": "integrity_audit.n_checks",
+      "ok": true,
+      "source": "results/benchmark_integrity_audit.json"
+    },
+    {
+      "actual": "600",
+      "expected": "600",
+      "name": "integrity_audit.local_benchmark600.scenes",
+      "ok": true,
+      "source": "results/benchmark_integrity_audit.json"
+    },
+    {
+      "actual": "10800",
+      "expected": "10800",
+      "name": "integrity_audit.local_benchmark600.record_rows",
+      "ok": true,
+      "source": "results/benchmark_integrity_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "integrity_audit.has_exact_gpt54_version",
+      "ok": true,
+      "source": "results/benchmark_integrity_audit.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "integrity_audit.has_exact_gpt41_version",
+      "ok": true,
+      "source": "results/benchmark_integrity_audit.json"
+    },
+    {
+      "actual": "3520",
+      "expected": "3520",
+      "name": "api_token_accounting.n_cache_files",
+      "ok": true,
+      "source": "results/api_token_accounting.json"
+    },
+    {
+      "actual": "3520",
+      "expected": "3520",
+      "name": "api_token_accounting.n_readable",
+      "ok": true,
+      "source": "results/api_token_accounting.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "api_token_accounting.n_missing_usage",
+      "ok": true,
+      "source": "results/api_token_accounting.json"
+    },
+    {
+      "actual": "940088",
+      "expected": "940088",
+      "name": "api_token_accounting.input_tokens",
+      "ok": true,
+      "source": "results/api_token_accounting.json"
+    },
+    {
+      "actual": "87829",
+      "expected": "87829",
+      "name": "api_token_accounting.output_tokens",
+      "ok": true,
+      "source": "results/api_token_accounting.json"
+    },
+    {
+      "actual": "1027917",
+      "expected": "1027917",
+      "name": "api_token_accounting.total_tokens",
+      "ok": true,
+      "source": "results/api_token_accounting.json"
+    },
+    {
+      "actual": "750",
+      "expected": "750",
+      "name": "api_token_accounting.gpt-4.1-nano.gpt-4.1-nano-2025-04-14.responses",
+      "ok": true,
+      "source": "results/api_token_accounting.json"
+    },
+    {
+      "actual": "207207",
+      "expected": "207207",
+      "name": "api_token_accounting.gpt-4.1-nano.gpt-4.1-nano-2025-04-14.total_tokens",
+      "ok": true,
+      "source": "results/api_token_accounting.json"
+    },
+    {
+      "actual": "2770",
+      "expected": "2770",
+      "name": "api_token_accounting.gpt-5.4-nano.gpt-5.4-nano-2026-03-17.responses",
+      "ok": true,
+      "source": "results/api_token_accounting.json"
+    },
+    {
+      "actual": "820710",
+      "expected": "820710",
+      "name": "api_token_accounting.gpt-5.4-nano.gpt-5.4-nano-2026-03-17.total_tokens",
+      "ok": true,
+      "source": "results/api_token_accounting.json"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.consensus+info reaches 0.760",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.consensus+info success of 0.920",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.candidate-role audit makes this concrete",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.coordinate-fallback slot in 1.000 of scenes",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.short attribute-only slot in 0.000",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.gpt-5.4-nano-2026-03-17",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.generated protocol appendix",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.reviewer-facing artifact guide",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.cache-only leave-one-listener-out analysis",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.selection-regret audit makes this decomposition explicit",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.mirror self-play leaves regrets of 0.093, 0.187, 0.287, and 0.333",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.consensus+info reduces regret to 0.040",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.candidate-pool audit asks whether any candidate succeeds",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.population-play selects a robust candidate in 1.000 of scenes",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.robust non-coordinate candidates remain available in 0.920, 0.660, and 1.000",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.A uniform-random candidate baseline rules out the explanation that any candidate would do",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.random expected success is 0.865, 0.715, 0.657, and 0.753",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.population-play improves over random by 0.135, 0.285, 0.343, and 0.247",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.consensus+info improves over random by 0.100, 0.218, and 0.316",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.prefix-$K$ candidate-budget audit shows why the four-candidate protocol is useful",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.from 0.380 at $K=1$ to 0.660 at $K=3$ and 1.000 at $K=4$",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.listener-disagreement audit shows the same pattern",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.split held-out outcomes in 0.080, 0.180, 0.360, and 0.500",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.consensus+info reduces split outcomes from mirror's 0.540 to 0.020",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.listener-confidence audit further shows that self-reported uncertainty is not",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.mirror self-play still produces high-confidence failures",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.In scene \\texttt{ps\\_000005}",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.In scene \\texttt{ps\\_000011}",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.A generated qualitative appendix adds two partial-observability examples",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.consensus+info repair that raises held-out success from 0.333 to 1.000",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.API-population selection uses the other two",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.0.940 vs. 0.847",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.benchmark integrity audit",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.\\section{Related Work}",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.We generate five scenario families",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.We report three bounded API experiments",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.The paper contributes: (i) PRAG-CrossPlay",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.no-API 600-scene balanced local sweep",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/local_stronger_plan_k8.md.Local Stronger-Plan K=8 Diagnostic",
+      "ok": true,
+      "source": "docs/local_stronger_plan_k8.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/local_stronger_plan_k8.md.No-coordinate oracle success on the initial 1,000 scenes rises from 0.870 at K=4 to 0.995 at K=8.",
+      "ok": true,
+      "source": "docs/local_stronger_plan_k8.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/local_stronger_plan_k8.md.No-coordinate oracle success on the 200 partial-observability scenes rises from 0.495 at K=4 to 0.997 at K=8.",
+      "ok": true,
+      "source": "docs/local_stronger_plan_k8.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/local_stronger_plan_k8.md.Full-candidate local K=8 population-play reaches 1.000 over all 1,200 scenes.",
+      "ok": true,
+      "source": "docs/local_stronger_plan_k8.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/protocol_and_prompts.md.PRAG-CrossPlay Protocol, Prompts, and Schemas",
+      "ok": true,
+      "source": "docs/protocol_and_prompts.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/protocol_and_prompts.md.Speaker Prompt",
+      "ok": true,
+      "source": "docs/protocol_and_prompts.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/protocol_and_prompts.md.Record Schema",
+      "ok": true,
+      "source": "docs/protocol_and_prompts.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/protocol_and_prompts.md.a bounded `partial_observability` support run",
+      "ok": true,
+      "source": "docs/protocol_and_prompts.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/api_token_accounting.md.API Token Accounting",
+      "ok": true,
+      "source": "docs/api_token_accounting.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/api_token_accounting.md.3520 | 3520 | 0 | 940088 | 87829 | 1027917",
+      "ok": true,
+      "source": "docs/api_token_accounting.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/api_token_accounting.md.`gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770",
+      "ok": true,
+      "source": "docs/api_token_accounting.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.PRAG-CrossPlay Artifact Guide",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Claim-To-Evidence Map",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.API Token Accounting",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.3520 cached responses have complete usage metadata totaling 1027917 tokens",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Local Stronger-Plan K=8 Diagnostic",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.No-coordinate oracle success on the initial 1,000 scenes rises from 0.870 at K=4 to 0.995 at K=8",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.No-coordinate oracle success on the 200 partial-observability scenes rises from 0.495 at K=4 to 0.997 at K=8",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.At K=8 without exact coordinates, consensus+info reaches 0.992 on the initial 1,000 scenes and 0.997 on partial-observability scenes",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.API Listener Leave-One-Out Mechanism Check",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Selection Regret Audit",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Candidate Pool Robustness Audit",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Candidate Budget Audit",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Candidate Role Selection Audit",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Random Candidate Baseline",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Listener Disagreement Audit",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Qualitative Failure Examples",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Reviewer Checklist",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Plan Coverage Audit",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.full-candidate population-play has zero regret",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.population-play selects a robust candidate in 1.000 of scenes",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.alternate-model perspective robust-scene coverage rises from 0.380 at K=1 to 1.000 at K=4",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Full-candidate population coordinate-fallback rates: mixed_50_full=0.420, perspective_gpt54_full=1.000, perspective_gpt41_full=1.000, partial_observability_full=1.000",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.No-coordinate consensus+info attribute-short rates: mixed_50_no_coord=0.320, perspective_gpt41_no_coord=0.000, partial_observability_no_coord=0.000",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.population-play improves over random by 0.135, 0.285, 0.343, and 0.247",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.consensus+info improves over random by 0.100, 0.218, and 0.316",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Message Length Audit",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.full-candidate population selected messages average 6.82, 10.22, 10.22, and 9.66 tokens",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.mirror split-outcome rates are 0.080, 0.180, 0.360, and 0.500",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Listener Confidence Audit",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.alternate-model perspective ambiguity flags are 0.000 while mirror high-confidence failure rates are 0.147 and 0.280",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Failure Taxonomy Audit",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.147 of 152 coded listener-level mirror failures are underspecified-distractor cases",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Interaction Memory Rule Audit",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Coded failure rows: 152; unique failure scenes: 76",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.repair cue satisfies derived rule in 1.000 of failure scenes",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.four cache-only examples show mirror-selected messages failing held-out listeners",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Section 32 reviewer checklist passes all 19 core-validity, results, and paper items",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Items passed: 19/19",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Core scope: 17 covered, 2 partial, 0 open.",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Stretch scope: 0 covered, 4 partial, 1 open.",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.The artifact package explicitly distinguishes completed core requirements from stretch gaps",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Local Benchmark-Scale Sanity Check",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.600 local scenes balanced across four initial scenario families",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.partial_observability_api50 | `data/partial_observability_local50_scenes.jsonl` | 50",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.cache-only API listener leave-one-out improves population over mirror",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.0 candidate messages reference private landmarks",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.all 50 full-run mirror failures are underspecified-distractor choices",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.local_benchmark600 | `data/local_benchmark600_scenes.jsonl` | 600 | 10800",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.158/158 integrity checks pass",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/local_benchmark600_check.md.Mirror self-play has same-play 1.000 but cross-play 0.631",
+      "ok": true,
+      "source": "docs/local_benchmark600_check.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/local_benchmark600_check.md.perspective_shift | 0.000 | 0.158 | 1.000 | 0.842",
+      "ok": true,
+      "source": "docs/local_benchmark600_check.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/api_listener_leave_one_out.md.API Listener Leave-One-Out Analysis",
+      "ok": true,
+      "source": "docs/api_listener_leave_one_out.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/api_listener_leave_one_out.md.partial_observability | scene_eval_listener | 150 | 0.940 | 0.767 | 0.173",
+      "ok": true,
+      "source": "docs/api_listener_leave_one_out.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/selection_regret_audit.md.perspective_gpt41_full | mirror | 50 | 0.713 | 1.000 | 0.287",
+      "ok": true,
+      "source": "docs/selection_regret_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/selection_regret_audit.md.partial_observability_no_coord | consensus+info | 50 | 0.987 | 1.000 | 0.013",
+      "ok": true,
+      "source": "docs/selection_regret_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/candidate_pool_audit.md.perspective_gpt41_no_coord | no_exact_coordinates | 50 | 3.00 | 1.14 | 0.660 | 0.793",
+      "ok": true,
+      "source": "docs/candidate_pool_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/candidate_pool_audit.md.partial_observability_no_coord | consensus+info | 0.987 | 0.980 | 0.980",
+      "ok": true,
+      "source": "docs/candidate_pool_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/candidate_budget_audit.md.perspective_gpt41_full | 4 | 1.000 | 1.000",
+      "ok": true,
+      "source": "docs/candidate_budget_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/candidate_budget_audit.md.partial_observability_full | 3 | 1.000 | 1.000",
+      "ok": true,
+      "source": "docs/candidate_budget_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/candidate_role_selection_audit.md.Candidate Role Selection Audit",
+      "ok": true,
+      "source": "docs/candidate_role_selection_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/candidate_role_selection_audit.md.perspective_gpt54_full | full | population | 50 | 1.000 | 0.000 | 0.000 | 0.000 | 1.000",
+      "ok": true,
+      "source": "docs/candidate_role_selection_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/candidate_role_selection_audit.md.perspective_gpt41_no_coord | no_exact_coordinates | consensus+info | 50 | 0.760 | 0.420 | 0.000 | 0.580 | 0.000",
+      "ok": true,
+      "source": "docs/candidate_role_selection_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/candidate_role_selection_audit.md.No-coordinate consensus+info attribute-short rates: mixed_50_no_coord=0.320, perspective_gpt41_no_coord=0.000, partial_observability_no_coord=0.000",
+      "ok": true,
+      "source": "docs/candidate_role_selection_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/random_candidate_baseline.md.Random Candidate Baseline",
+      "ok": true,
+      "source": "docs/random_candidate_baseline.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/random_candidate_baseline.md.perspective_gpt41_full | full | 50 | 4.00 | 0.657 | 0.535 | population | 0.343",
+      "ok": true,
+      "source": "docs/random_candidate_baseline.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/random_candidate_baseline.md.partial_observability_no_coord | no_exact_coordinates | 50 | 3.00 | 0.671 | 0.527 | consensus+info | 0.316",
+      "ok": true,
+      "source": "docs/random_candidate_baseline.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/message_length_audit.md.Message Length Audit",
+      "ok": true,
+      "source": "docs/message_length_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/message_length_audit.md.perspective_gpt41_full | full | population | 50 | 1.000 | 10.22 | 0.098",
+      "ok": true,
+      "source": "docs/message_length_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/message_length_audit.md.partial_observability_no_coord | consensus+info | 50 | 0.380 | [0.280, 0.473] | 5.20",
+      "ok": true,
+      "source": "docs/message_length_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/listener_disagreement_audit.md.partial_observability_full | mirror | 50 | 0.667 | 0.500 | 0.500",
+      "ok": true,
+      "source": "docs/listener_disagreement_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/listener_disagreement_audit.md.partial_observability_no_coord | consensus+info | 50 | 0.987 | 0.980 | 0.020",
+      "ok": true,
+      "source": "docs/listener_disagreement_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/listener_confidence_audit.md.Listener Confidence Audit",
+      "ok": true,
+      "source": "docs/listener_confidence_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/listener_confidence_audit.md.perspective_gpt41_full | mirror | 150 | 0.713 | 0.877 | 0.000 | 0.677 | 0.147 | 0.280",
+      "ok": true,
+      "source": "docs/listener_confidence_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/listener_confidence_audit.md.perspective_gpt41_no_coord | mirror | 150 | 0.580 | 0.835 | 0.000 | 0.771 | 0.280 | 0.480",
+      "ok": true,
+      "source": "docs/listener_confidence_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/listener_confidence_audit.md.partial_observability_no_coord | consensus+info | 150 | 0.987 | 0.889 | 0.000 | 0.000 | 0.000 | 0.000",
+      "ok": true,
+      "source": "docs/listener_confidence_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/failure_taxonomy_audit.md.Failure Taxonomy Audit",
+      "ok": true,
+      "source": "docs/failure_taxonomy_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/failure_taxonomy_audit.md.combined | 152 | 147 | 5 | 0",
+      "ok": true,
+      "source": "docs/failure_taxonomy_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/interaction_memory_rules.md.Interaction Memory Rule Audit",
+      "ok": true,
+      "source": "docs/interaction_memory_rules.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/interaction_memory_rules.md.Coded failure rows: 152. Unique failure scenes: 76.",
+      "ok": true,
+      "source": "docs/interaction_memory_rules.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/interaction_memory_rules.md.Repair cue satisfies derived rule in 1.000 of failure scenes.",
+      "ok": true,
+      "source": "docs/interaction_memory_rules.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/interaction_memory_rules.md.If exact coordinates are disallowed, prefer the relational/spatial candidate",
+      "ok": true,
+      "source": "docs/interaction_memory_rules.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/qualitative_failure_examples.md.Qualitative Failure Examples",
+      "ok": true,
+      "source": "docs/qualitative_failure_examples.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/qualitative_failure_examples.md.Perspective scene with frame-sensitive relation",
+      "ok": true,
+      "source": "docs/qualitative_failure_examples.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/qualitative_failure_examples.md.No-coordinate repair using consensus+info",
+      "ok": true,
+      "source": "docs/qualitative_failure_examples.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/qualitative_failure_examples.md.0.333 (1/3) | consensus+info | 1.000 (3/3)",
+      "ok": true,
+      "source": "docs/qualitative_failure_examples.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/reviewer_checklist.md.Reviewer Checklist",
+      "ok": true,
+      "source": "docs/reviewer_checklist.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/reviewer_checklist.md.Section 32 of the original workshop plan",
+      "ok": true,
+      "source": "docs/reviewer_checklist.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/reviewer_checklist.md.Items passed: 19/19",
+      "ok": true,
+      "source": "docs/reviewer_checklist.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/reviewer_checklist.md.Held-out listeners are not used for method selection.",
+      "ok": true,
+      "source": "docs/reviewer_checklist.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/reviewer_checklist.md.Claims match actual results.",
+      "ok": true,
+      "source": "docs/reviewer_checklist.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/plan_coverage_audit.md.Plan Coverage Audit",
+      "ok": true,
+      "source": "docs/plan_coverage_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/plan_coverage_audit.md.Overall: 17 covered, 6 partial, 1 open across 24 plan items.",
+      "ok": true,
+      "source": "docs/plan_coverage_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/plan_coverage_audit.md.Core scope: 17 covered, 2 partial, 0 open.",
+      "ok": true,
+      "source": "docs/plan_coverage_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/plan_coverage_audit.md.Stretch scope: 0 covered, 4 partial, 1 open.",
+      "ok": true,
+      "source": "docs/plan_coverage_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/partial_observability_local_check.md.mirror self-play | 0.653 | 1.000 | 0.347",
+      "ok": true,
+      "source": "docs/partial_observability_local_check.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/partial_observability_api50_check.md.Candidate messages referencing private landmarks: 0",
+      "ok": true,
+      "source": "docs/partial_observability_api50_check.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/partial_observability_api50_check.md.no_coord_consensus_info | 0.987",
+      "ok": true,
+      "source": "docs/partial_observability_api50_check.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/partial_observability_api50_check.md.| underspecified_distractor | 50 |",
+      "ok": true,
+      "source": "docs/partial_observability_api50_check.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/partial_observability_api50_check.md.| underspecified_distractor | 59 |",
+      "ok": true,
+      "source": "docs/partial_observability_api50_check.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/paper_claims_iteration_002.md.Consensus+info selector: cross-play `0.920`",
+      "ok": true,
+      "source": "docs/paper_claims_iteration_002.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.partial-observability stress check",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.message-length audit rules out a pure verbosity explanation",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.Across 152 listener-level failures, 147 are underspecified",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.no coded failures are",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.mirror self-play obtains 0.667 cross-play success",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.all 50 full-run mirror failures and all 59 no-coordinate mirror",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.--partial 50",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/analyze_partial_observability_api.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/analyze_api_token_accounting.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.cached Responses API files contain `1,027,917` total tokens",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/analyze_local_benchmark.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.local_benchmark600_check.json",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/analyze_local_stronger_plan.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.No-coordinate oracle success rises from `0.808` at K=4 to `0.995` at K=8 over all `1,200` local scenes",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/analyze_selection_regret.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.mirror self-play regret is `0.093`, `0.187`, `0.287`, and `0.333`",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/analyze_candidate_pool.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.robust non-coordinate candidate availability is `0.920`, `0.660`, and `1.000`",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/analyze_candidate_budget.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.alternate-model perspective robust-scene coverage is `0.380` at `K=1`",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/analyze_candidate_role_selection.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.no-coordinate consensus+info uses the relational/spatial slot in `0.580`",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/analyze_random_candidate_baseline.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.population-play beats the uniform-random selector by `0.135`, `0.285`, `0.343`, and `0.247`",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/analyze_message_length_audit.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.full-candidate population-play messages average `6.82`, `10.22`, `10.22`, and `9.66`",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/analyze_listener_disagreement.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.full-candidate mirror split-outcome rates are `0.080`, `0.180`, `0.360`, and",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/analyze_listener_confidence_audit.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.mirror self-play still produces high-confidence failures in `0.147`",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/analyze_failure_taxonomy.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.147` of `152` coded listener-level mirror failures are `underspecified_distractor`",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/analyze_interaction_memory_rules.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.`152` coded failure rows collapse into two active rules",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.mean repair success on those failure scenes is `0.991`",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/make_qualitative_examples.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.docs/qualitative_failure_examples.md",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/make_reviewer_checklist.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.docs/reviewer_checklist.md",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/audit_plan_coverage.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.docs/plan_coverage_audit.md",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.core scope has `17` covered, `2` partial, and `0` open items",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.stretch scope has `0` covered, `4` partial, and `1` open item",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.partial_observability_api50_mirror_failures_coded.csv",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/make_artifact_guide.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/analyze_api_listener_leave_one_out.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/audit_submission_readiness.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/export_colm_submission.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/export_protocol_appendix.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/audit_benchmark_integrity.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/verify_paper_claims.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.paper/colm2026_submission.pdf",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/api_token_accounting.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/local_benchmark600_check.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/local_stronger_plan_k8.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/artifact_guide.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/api_listener_leave_one_out.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/selection_regret_audit.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/candidate_pool_audit.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/candidate_budget_audit.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/candidate_role_selection_audit.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/random_candidate_baseline.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/message_length_audit.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/listener_disagreement_audit.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/listener_confidence_audit.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/failure_taxonomy_audit.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/interaction_memory_rules.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/qualitative_failure_examples.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/reviewer_checklist.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/plan_coverage_audit.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/partial_observability_api50_check.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/colm2026_submission.tex.\\usepackage[submission]{colm2026_conference}",
+      "ok": true,
+      "source": "paper/colm2026_submission.tex"
+    }
+  ],
+  "n_checks": 796,
+  "n_failed": 0
+}

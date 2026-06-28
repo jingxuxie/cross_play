@@ -1,0 +1,354 @@
+{
+  "runs": [
+    {
+      "candidate_eval": "results/hybrid_api_pilot50_allcand_candidate_eval_records.jsonl",
+      "candidate_pool": {
+        "mean_candidates": 4,
+        "mean_robust_candidates": 3.3,
+        "oracle_success": 1.0,
+        "robust_candidate_scene_rate": 1.0,
+        "scenes_with_robust_candidate": 50
+      },
+      "filter": "full",
+      "label": "mixed_50_full",
+      "methods": [
+        {
+          "method": "api_direct_first",
+          "method_label": "direct",
+          "oracle_match_rate": 0.78,
+          "selected_robust_rate": 0.78,
+          "selected_success": 0.84
+        },
+        {
+          "method": "api_best_of_k_shortest",
+          "method_label": "shortest",
+          "oracle_match_rate": 0.7,
+          "selected_robust_rate": 0.7,
+          "selected_success": 0.74
+        },
+        {
+          "method": "hybrid_local_mirror_api_eval",
+          "method_label": "mirror",
+          "oracle_match_rate": 0.86,
+          "selected_robust_rate": 0.86,
+          "selected_success": 0.9066666666666666
+        },
+        {
+          "method": "hybrid_local_population_api_eval",
+          "method_label": "population",
+          "oracle_match_rate": 1.0,
+          "selected_robust_rate": 1.0,
+          "selected_success": 1.0
+        }
+      ],
+      "n_scenes": 50,
+      "records": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "candidate_eval": "results/perspective_stress50_hybrid_candidate_eval_records.jsonl",
+      "candidate_pool": {
+        "mean_candidates": 4,
+        "mean_robust_candidates": 2.44,
+        "oracle_success": 1.0,
+        "robust_candidate_scene_rate": 1.0,
+        "scenes_with_robust_candidate": 50
+      },
+      "filter": "full",
+      "label": "perspective_gpt54_full",
+      "methods": [
+        {
+          "method": "api_direct_first",
+          "method_label": "direct",
+          "oracle_match_rate": 0.6,
+          "selected_robust_rate": 0.6,
+          "selected_success": 0.7133333333333334
+        },
+        {
+          "method": "api_best_of_k_shortest",
+          "method_label": "shortest",
+          "oracle_match_rate": 0.3,
+          "selected_robust_rate": 0.3,
+          "selected_success": 0.42
+        },
+        {
+          "method": "hybrid_local_mirror_api_eval",
+          "method_label": "mirror",
+          "oracle_match_rate": 0.72,
+          "selected_robust_rate": 0.72,
+          "selected_success": 0.8133333333333334
+        },
+        {
+          "method": "hybrid_local_population_api_eval",
+          "method_label": "population",
+          "oracle_match_rate": 1.0,
+          "selected_robust_rate": 1.0,
+          "selected_success": 1.0
+        }
+      ],
+      "n_scenes": 50,
+      "records": "results/perspective_stress50_hybrid_records.jsonl"
+    },
+    {
+      "candidate_eval": "results/perspective_stress50_gpt41nano_candidate_eval_records.jsonl",
+      "candidate_pool": {
+        "mean_candidates": 4,
+        "mean_robust_candidates": 2.14,
+        "oracle_success": 1.0,
+        "robust_candidate_scene_rate": 1.0,
+        "scenes_with_robust_candidate": 50
+      },
+      "filter": "full",
+      "label": "perspective_gpt41_full",
+      "methods": [
+        {
+          "method": "api_direct_first",
+          "method_label": "direct",
+          "oracle_match_rate": 0.38,
+          "selected_robust_rate": 0.38,
+          "selected_success": 0.5533333333333333
+        },
+        {
+          "method": "api_best_of_k_shortest",
+          "method_label": "shortest",
+          "oracle_match_rate": 0.18,
+          "selected_robust_rate": 0.18,
+          "selected_success": 0.36666666666666664
+        },
+        {
+          "method": "hybrid_local_mirror_api_eval",
+          "method_label": "mirror",
+          "oracle_match_rate": 0.56,
+          "selected_robust_rate": 0.56,
+          "selected_success": 0.7133333333333334
+        },
+        {
+          "method": "hybrid_local_population_api_eval",
+          "method_label": "population",
+          "oracle_match_rate": 1.0,
+          "selected_robust_rate": 1.0,
+          "selected_success": 1.0
+        }
+      ],
+      "n_scenes": 50,
+      "records": "results/perspective_stress50_gpt41nano_records.jsonl"
+    },
+    {
+      "candidate_eval": "results/partial_observability_api50_candidate_eval_records.jsonl",
+      "candidate_pool": {
+        "mean_candidates": 4,
+        "mean_robust_candidates": 2.58,
+        "oracle_success": 1.0,
+        "robust_candidate_scene_rate": 1.0,
+        "scenes_with_robust_candidate": 50
+      },
+      "filter": "full",
+      "label": "partial_observability_full",
+      "methods": [
+        {
+          "method": "api_direct_first",
+          "method_label": "direct",
+          "oracle_match_rate": 0.62,
+          "selected_robust_rate": 0.62,
+          "selected_success": 0.74
+        },
+        {
+          "method": "api_best_of_k_shortest",
+          "method_label": "shortest",
+          "oracle_match_rate": 0.02,
+          "selected_robust_rate": 0.02,
+          "selected_success": 0.3133333333333333
+        },
+        {
+          "method": "hybrid_local_mirror_api_eval",
+          "method_label": "mirror",
+          "oracle_match_rate": 0.5,
+          "selected_robust_rate": 0.5,
+          "selected_success": 0.6666666666666666
+        },
+        {
+          "method": "hybrid_local_population_api_eval",
+          "method_label": "population",
+          "oracle_match_rate": 1.0,
+          "selected_robust_rate": 1.0,
+          "selected_success": 1.0
+        }
+      ],
+      "n_scenes": 50,
+      "records": "results/partial_observability_api50_records.jsonl"
+    },
+    {
+      "candidate_eval": "results/hybrid_api_pilot50_allcand_candidate_eval_records.jsonl",
+      "candidate_pool": {
+        "mean_candidates": 3,
+        "mean_robust_candidates": 2.3,
+        "oracle_success": 0.96,
+        "robust_candidate_scene_rate": 0.92,
+        "scenes_with_robust_candidate": 46
+      },
+      "filter": "no_exact_coordinates",
+      "label": "mixed_50_no_coord",
+      "methods": [
+        {
+          "method": "no_coord_direct_first",
+          "method_label": "direct",
+          "oracle_match_rate": 0.84,
+          "selected_robust_rate": 0.78,
+          "selected_success": 0.84
+        },
+        {
+          "method": "no_coord_best_of_k_shortest",
+          "method_label": "shortest",
+          "oracle_match_rate": 0.72,
+          "selected_robust_rate": 0.7,
+          "selected_success": 0.74
+        },
+        {
+          "method": "no_coord_mirror",
+          "method_label": "mirror",
+          "oracle_match_rate": 0.78,
+          "selected_robust_rate": 0.72,
+          "selected_success": 0.7866666666666666
+        },
+        {
+          "method": "no_coord_population",
+          "method_label": "population",
+          "oracle_match_rate": 0.76,
+          "selected_robust_rate": 0.74,
+          "selected_success": 0.7733333333333333
+        },
+        {
+          "method": "no_coord_consensus_info",
+          "method_label": "consensus+info",
+          "oracle_match_rate": 0.94,
+          "selected_robust_rate": 0.88,
+          "selected_success": 0.92
+        },
+        {
+          "method": "no_coord_informative",
+          "method_label": "info prior",
+          "oracle_match_rate": 0.9,
+          "selected_robust_rate": 0.84,
+          "selected_success": 0.9
+        }
+      ],
+      "n_scenes": 50,
+      "records": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "candidate_eval": "results/perspective_stress50_gpt41nano_candidate_eval_records.jsonl",
+      "candidate_pool": {
+        "mean_candidates": 3,
+        "mean_robust_candidates": 1.14,
+        "oracle_success": 0.7933333333333333,
+        "robust_candidate_scene_rate": 0.66,
+        "scenes_with_robust_candidate": 33
+      },
+      "filter": "no_exact_coordinates",
+      "label": "perspective_gpt41_no_coord",
+      "methods": [
+        {
+          "method": "no_coord_direct_first",
+          "method_label": "direct",
+          "oracle_match_rate": 0.58,
+          "selected_robust_rate": 0.38,
+          "selected_success": 0.5533333333333333
+        },
+        {
+          "method": "no_coord_best_of_k_shortest",
+          "method_label": "shortest",
+          "oracle_match_rate": 0.36,
+          "selected_robust_rate": 0.18,
+          "selected_success": 0.36666666666666664
+        },
+        {
+          "method": "no_coord_mirror",
+          "method_label": "mirror",
+          "oracle_match_rate": 0.58,
+          "selected_robust_rate": 0.36,
+          "selected_success": 0.58
+        },
+        {
+          "method": "no_coord_population",
+          "method_label": "population",
+          "oracle_match_rate": 0.42,
+          "selected_robust_rate": 0.22,
+          "selected_success": 0.42
+        },
+        {
+          "method": "no_coord_consensus_info",
+          "method_label": "consensus+info",
+          "oracle_match_rate": 0.92,
+          "selected_robust_rate": 0.62,
+          "selected_success": 0.76
+        },
+        {
+          "method": "no_coord_informative",
+          "method_label": "info prior",
+          "oracle_match_rate": 0.92,
+          "selected_robust_rate": 0.62,
+          "selected_success": 0.76
+        }
+      ],
+      "n_scenes": 50,
+      "records": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "candidate_eval": "results/partial_observability_api50_candidate_eval_records.jsonl",
+      "candidate_pool": {
+        "mean_candidates": 3,
+        "mean_robust_candidates": 1.58,
+        "oracle_success": 1.0,
+        "robust_candidate_scene_rate": 1.0,
+        "scenes_with_robust_candidate": 50
+      },
+      "filter": "no_exact_coordinates",
+      "label": "partial_observability_no_coord",
+      "methods": [
+        {
+          "method": "no_coord_direct_first",
+          "method_label": "direct",
+          "oracle_match_rate": 0.62,
+          "selected_robust_rate": 0.62,
+          "selected_success": 0.74
+        },
+        {
+          "method": "no_coord_best_of_k_shortest",
+          "method_label": "shortest",
+          "oracle_match_rate": 0.02,
+          "selected_robust_rate": 0.02,
+          "selected_success": 0.3133333333333333
+        },
+        {
+          "method": "no_coord_mirror",
+          "method_label": "mirror",
+          "oracle_match_rate": 0.42,
+          "selected_robust_rate": 0.42,
+          "selected_success": 0.6066666666666667
+        },
+        {
+          "method": "no_coord_population",
+          "method_label": "population",
+          "oracle_match_rate": 0.6,
+          "selected_robust_rate": 0.6,
+          "selected_success": 0.7266666666666667
+        },
+        {
+          "method": "no_coord_consensus_info",
+          "method_label": "consensus+info",
+          "oracle_match_rate": 0.98,
+          "selected_robust_rate": 0.98,
+          "selected_success": 0.9866666666666667
+        },
+        {
+          "method": "no_coord_informative",
+          "method_label": "info prior",
+          "oracle_match_rate": 0.96,
+          "selected_robust_rate": 0.96,
+          "selected_success": 0.9733333333333334
+        }
+      ],
+      "n_scenes": 50,
+      "records": "results/partial_observability_api50_no_coord_records.jsonl"
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "by_model": [
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 188238,
+      "mean_total_tokens": 276.276,
+      "n_responses": 750,
+      "output_tokens": 18969,
+      "requested_model": "gpt-4.1-nano",
+      "response_model": "gpt-4.1-nano-2025-04-14",
+      "total_tokens": 207207
+    },
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 751850,
+      "mean_total_tokens": 296.2851985559567,
+      "n_responses": 2770,
+      "output_tokens": 68860,
+      "requested_model": "gpt-5.4-nano",
+      "response_model": "gpt-5.4-nano-2026-03-17",
+      "total_tokens": 820710
+    }
+  ],
+  "by_schema_family": [
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 817510,
+      "label": "listener",
+      "mean_total_tokens": 266.6561570493754,
+      "n_responses": 3362,
+      "output_tokens": 78988,
+      "total_tokens": 896498
+    },
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 122578,
+      "label": "speaker",
+      "mean_total_tokens": 831.7658227848101,
+      "n_responses": 158,
+      "output_tokens": 8841,
+      "total_tokens": 131419
+    }
+  ],
+  "by_schema_version": [
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 2024,
+      "label": "listener-careful-v1",
+      "mean_total_tokens": 225.4,
+      "n_responses": 10,
+      "output_tokens": 230,
+      "total_tokens": 2254
+    },
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 1934,
+      "label": "listener-direct-v1",
+      "mean_total_tokens": 211.4,
+      "n_responses": 10,
+      "output_tokens": 180,
+      "total_tokens": 2114
+    },
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 240235,
+      "label": "listener-heldout_careful-v1",
+      "mean_total_tokens": 253.5704697986577,
+      "n_responses": 1043,
+      "output_tokens": 24239,
+      "total_tokens": 264474
+    },
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 262138,
+      "label": "listener-heldout_direct_last-v1",
+      "mean_total_tokens": 275.14285714285717,
+      "n_responses": 1043,
+      "output_tokens": 24836,
+      "total_tokens": 286974
+    },
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 262138,
+      "label": "listener-heldout_strict_last-v1",
+      "mean_total_tokens": 275.11601150527326,
+      "n_responses": 1043,
+      "output_tokens": 24808,
+      "total_tokens": 286946
+    },
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 2134,
+      "label": "listener-strict-v1",
+      "mean_total_tokens": 236.4,
+      "n_responses": 10,
+      "output_tokens": 230,
+      "total_tokens": 2364
+    },
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 8993,
+      "label": "listener-train_careful-v1",
+      "mean_total_tokens": 242.34146341463415,
+      "n_responses": 41,
+      "output_tokens": 943,
+      "total_tokens": 9936
+    },
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 8460,
+      "label": "listener-train_first-v1",
+      "mean_total_tokens": 224.34146341463415,
+      "n_responses": 41,
+      "output_tokens": 738,
+      "total_tokens": 9198
+    },
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 5653,
+      "label": "listener-train_listener_frame-v1",
+      "mean_total_tokens": 258.5416666666667,
+      "n_responses": 24,
+      "output_tokens": 552,
+      "total_tokens": 6205
+    },
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 6301,
+      "label": "listener-train_speaker_frame-v1",
+      "mean_total_tokens": 285.5416666666667,
+      "n_responses": 24,
+      "output_tokens": 552,
+      "total_tokens": 6853
+    },
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 15843,
+      "label": "listener-train_strict_last-v1",
+      "mean_total_tokens": 266.75384615384615,
+      "n_responses": 65,
+      "output_tokens": 1496,
+      "total_tokens": 17339
+    },
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 1657,
+      "label": "listener-uncertain-v1",
+      "mean_total_tokens": 230.125,
+      "n_responses": 8,
+      "output_tokens": 184,
+      "total_tokens": 1841
+    },
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 5541,
+      "label": "speaker-v1",
+      "mean_total_tokens": 751.875,
+      "n_responses": 8,
+      "output_tokens": 474,
+      "total_tokens": 6015
+    },
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 117037,
+      "label": "speaker-v2-target-attrs",
+      "mean_total_tokens": 836.0266666666666,
+      "n_responses": 150,
+      "output_tokens": 8367,
+      "total_tokens": 125404
+    }
+  ],
+  "cache_dir": "data/cached_responses",
+  "missing_usage_examples": [],
+  "n_cache_files": 3520,
+  "n_missing_usage": 0,
+  "n_readable": 3520,
+  "n_unreadable": 0,
+  "notes": [
+    "This report uses stored usage fields in data/cached_responses/*.json.",
+    "It intentionally reports token accounting only; dollar cost depends on account-specific and date-specific pricing.",
+    "Re-running cache-only analyses should not add tokens when the cached files are present."
+  ],
+  "totals": {
+    "cached_input_tokens": 0,
+    "input_tokens": 940088,
+    "mean_total_tokens": 292.021875,
+    "n_responses": 3520,
+    "output_tokens": 87829,
+    "total_tokens": 1027917
+  },
+  "unreadable_examples": []
+}

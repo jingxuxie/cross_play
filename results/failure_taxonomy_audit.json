@@ -1,0 +1,73 @@
+{
+  "combined": {
+    "category_counts": {
+      "idiosyncratic_convention": 0,
+      "listener_misparse_or_other": 0,
+      "perspective_frame_error": 5,
+      "private_landmark": 0,
+      "underspecified_distractor": 147,
+      "underspecified_other": 0,
+      "wrong_attribute": 0,
+      "wrong_relation": 0
+    },
+    "n_failures": 152,
+    "perspective_frame_fraction": 0.03289473684210526,
+    "underspecified_fraction": 0.9671052631578947
+  },
+  "failure_sets": [
+    {
+      "category_counts": {
+        "idiosyncratic_convention": 0,
+        "listener_misparse_or_other": 0,
+        "perspective_frame_error": 5,
+        "private_landmark": 0,
+        "underspecified_distractor": 38,
+        "underspecified_other": 0,
+        "wrong_attribute": 0,
+        "wrong_relation": 0
+      },
+      "display": "Perspective alt-model mirror",
+      "dominant_category": "underspecified_distractor",
+      "dominant_fraction": 0.8837209302325582,
+      "label": "perspective_gpt41_full_mirror",
+      "n_failures": 43,
+      "path": "results/perspective_stress50_gpt41nano_mirror_failures_coded.csv"
+    },
+    {
+      "category_counts": {
+        "idiosyncratic_convention": 0,
+        "listener_misparse_or_other": 0,
+        "perspective_frame_error": 0,
+        "private_landmark": 0,
+        "underspecified_distractor": 50,
+        "underspecified_other": 0,
+        "wrong_attribute": 0,
+        "wrong_relation": 0
+      },
+      "display": "Partial-observability mirror",
+      "dominant_category": "underspecified_distractor",
+      "dominant_fraction": 1.0,
+      "label": "partial_observability_full_mirror",
+      "n_failures": 50,
+      "path": "results/partial_observability_api50_mirror_failures_coded.csv"
+    },
+    {
+      "category_counts": {
+        "idiosyncratic_convention": 0,
+        "listener_misparse_or_other": 0,
+        "perspective_frame_error": 0,
+        "private_landmark": 0,
+        "underspecified_distractor": 59,
+        "underspecified_other": 0,
+        "wrong_attribute": 0,
+        "wrong_relation": 0
+      },
+      "display": "Partial no-coordinate mirror",
+      "dominant_category": "underspecified_distractor",
+      "dominant_fraction": 1.0,
+      "label": "partial_observability_no_coord_mirror",
+      "n_failures": 59,
+      "path": "results/partial_observability_api50_no_coord_mirror_failures_coded.csv"
+    }
+  ]
+}

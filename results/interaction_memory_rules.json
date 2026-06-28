@@ -1,0 +1,2212 @@
+{
+  "combined": {
+    "category_counts": {
+      "perspective_frame_error": 5,
+      "underspecified_distractor": 147
+    },
+    "mean_repair_success_on_failure_scenes": 0.9912280701754386,
+    "n_failure_rows": 152,
+    "n_failure_scenes": 76,
+    "repair_all_success_scene_rate": 0.9868421052631579,
+    "repair_rule_cue_rate": 1.0,
+    "rule_counts": {
+      "avoid_frame_sensitive_only": 5,
+      "disambiguate_shared_attributes": 147
+    }
+  },
+  "failure_sets": [
+    {
+      "by_category": [
+        {
+          "category": "perspective_frame_error",
+          "failure_rows": 5,
+          "failure_scenes": 3,
+          "mean_mirror_success_on_failure_scenes": 0.4444444444444444,
+          "mean_repair_success_on_failure_scenes": 1.0,
+          "repair_all_success_scene_rate": 1.0,
+          "repair_attribute_short_rate": 0.0,
+          "repair_coordinate_rate": 1.0,
+          "repair_rule_cue_rate": 1.0,
+          "repair_spatial_rate": 0.0,
+          "rule": "When speaker and listener perspectives differ, avoid relying only on frame-sensitive left/right language; prefer listener-invariant coordinates or unambiguous visible anchors.",
+          "rule_id": "avoid_frame_sensitive_only"
+        },
+        {
+          "category": "underspecified_distractor",
+          "failure_rows": 38,
+          "failure_scenes": 19,
+          "mean_mirror_success_on_failure_scenes": 0.3333333333333333,
+          "mean_repair_success_on_failure_scenes": 1.0,
+          "repair_all_success_scene_rate": 1.0,
+          "repair_attribute_short_rate": 0.0,
+          "repair_coordinate_rate": 1.0,
+          "repair_rule_cue_rate": 1.0,
+          "repair_spatial_rate": 0.0,
+          "rule": "If a visible distractor shares the target's basic attributes, do not use a bare attribute phrase; add a listener-visible coordinate or spatial relation.",
+          "rule_id": "disambiguate_shared_attributes"
+        }
+      ],
+      "category_counts": {
+        "perspective_frame_error": 5,
+        "underspecified_distractor": 38
+      },
+      "coded_failures": "results/perspective_stress50_gpt41nano_mirror_failures_coded.csv",
+      "label": "perspective_full_mirror",
+      "mirror_method": "hybrid_local_mirror_api_eval",
+      "n_failure_rows": 43,
+      "n_failure_scenes": 22,
+      "records": "results/perspective_stress50_gpt41nano_records.jsonl",
+      "repair_label": "population",
+      "repair_method": "hybrid_local_population_api_eval",
+      "scene_rows": [
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a large red sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "The target is the large red sphere at row 4, column 1.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "ps_000000"
+        },
+        {
+          "categories": {
+            "perspective_frame_error": 3
+          },
+          "failure_rows": 3,
+          "mirror_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "mirror_message": "Find the small yellow sphere left of the large green cube.",
+          "mirror_success": 0.0,
+          "primary_category": "perspective_frame_error",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "The target is at row 4, column 1: a small yellow sphere.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "avoid_frame_sensitive_only",
+          "scene_id": "ps_000003"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a large red sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Large red sphere at row 4, column 1.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "ps_000004"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small green sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "The target is the small green sphere at row 4, column 1.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "ps_000005"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small blue cube.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "The target is the small blue cube at row 4, column 1.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "ps_000008"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large blue cube.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "The target is the large blue cube at row 4, column 1.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "ps_000009"
+        },
+        {
+          "categories": {
+            "perspective_frame_error": 1
+          },
+          "failure_rows": 1,
+          "mirror_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "mirror_message": "Find the large yellow cube left of the purple cylinder.",
+          "mirror_success": 0.6666666666666666,
+          "primary_category": "perspective_frame_error",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Go to row 4, column 1: the large yellow cube.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "avoid_frame_sensitive_only",
+          "scene_id": "ps_000011"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 1
+          },
+          "failure_rows": 1,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small blue sphere.",
+          "mirror_success": 0.6666666666666666,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Go to row 4, column 1: small blue sphere.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "ps_000012"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 3
+          },
+          "failure_rows": 3,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a large yellow cube.",
+          "mirror_success": 0.0,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Go to row 4, column 1: the large yellow cube.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "ps_000013"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Small red sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Small red sphere at row 4, column 1.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "ps_000018"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Look for the large green sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Go to row 4, column 1: the large green sphere.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "ps_000019"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small blue sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Small blue sphere at row 4, column 1.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "ps_000021"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small blue sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "The target is the small blue sphere at row 4, column 1.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "ps_000023"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 1
+          },
+          "failure_rows": 1,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small blue sphere.",
+          "mirror_success": 0.6666666666666666,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "The target is the small blue sphere at row 4, column 1.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "ps_000030"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 3
+          },
+          "failure_rows": 3,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small green sphere.",
+          "mirror_success": 0.0,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "The target is the small green sphere at row 4, column 1.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "ps_000031"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Small blue cube.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Look at row 4, column 1: the small blue cube.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "ps_000032"
+        },
+        {
+          "categories": {
+            "perspective_frame_error": 1
+          },
+          "failure_rows": 1,
+          "mirror_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "mirror_message": "The small blue sphere on the left side of the scene.",
+          "mirror_success": 0.6666666666666666,
+          "primary_category": "perspective_frame_error",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Look for the small blue sphere at row 4, column 1.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "avoid_frame_sensitive_only",
+          "scene_id": "ps_000033"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 3
+          },
+          "failure_rows": 3,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small green cube.",
+          "mirror_success": 0.0,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "If needed: small green cube at row 4, column 1.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "ps_000034"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Small red cube.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Look at row 4, column 1: the small red cube.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "ps_000035"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a large yellow sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "If needed: large yellow sphere at row 4, column 1.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "ps_000039"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 1
+          },
+          "failure_rows": 1,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small blue sphere.",
+          "mirror_success": 0.6666666666666666,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "The target is the small blue sphere at row 4, column 1.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "ps_000045"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small green sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "The target is the small green sphere at row 4, column 1.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "ps_000048"
+        }
+      ]
+    },
+    {
+      "by_category": [
+        {
+          "category": "underspecified_distractor",
+          "failure_rows": 50,
+          "failure_scenes": 25,
+          "mean_mirror_success_on_failure_scenes": 0.3333333333333333,
+          "mean_repair_success_on_failure_scenes": 1.0,
+          "repair_all_success_scene_rate": 1.0,
+          "repair_attribute_short_rate": 0.0,
+          "repair_coordinate_rate": 1.0,
+          "repair_rule_cue_rate": 1.0,
+          "repair_spatial_rate": 0.0,
+          "rule": "If a visible distractor shares the target's basic attributes, do not use a bare attribute phrase; add a listener-visible coordinate or spatial relation.",
+          "rule_id": "disambiguate_shared_attributes"
+        }
+      ],
+      "category_counts": {
+        "underspecified_distractor": 50
+      },
+      "coded_failures": "results/partial_observability_api50_mirror_failures_coded.csv",
+      "label": "partial_observability_full_mirror",
+      "mirror_method": "hybrid_local_mirror_api_eval",
+      "n_failure_rows": 50,
+      "n_failure_scenes": 25,
+      "records": "results/partial_observability_api50_records.jsonl",
+      "repair_label": "population",
+      "repair_method": "hybrid_local_population_api_eval",
+      "scene_rows": [
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large red sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Go to row 3, column 2: the large red sphere.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000000"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large red sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "The large red sphere at row 3, column 2.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000004"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Small green sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "The target is the small green sphere at row 3, column 2.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000005"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large yellow sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Go to row 3, column 2: the large yellow sphere.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000006"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Small blue cube.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "The target is at row 3, column 2: a small blue cube.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000008"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large yellow cube.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "It\u2019s at row 3, column 2: the large yellow cube.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000013"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large blue cylinder.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Look for the large blue cylinder at row 3, column 2.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000014"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large green cylinder.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Large green cylinder at row 3, column 2.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000015"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Small red sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "It\u2019s the red sphere at row 3, column 2.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000018"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a large green sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "The target is at row 3, column 2: large green sphere.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000019"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large blue cylinder.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Large blue cylinder at row 3, column 2.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000021"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small blue sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "If needed: row 3, column 2.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000023"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s the large red cylinder.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Go to row 3, column 2: the large red cylinder.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000025"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large blue cube.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Go to row 3, column 2: the large blue cube.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000026"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a large red cylinder.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "The target is the large red cylinder at row 3, column 2.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000027"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small blue sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Small blue sphere at row 3, column 2.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000030"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small green sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Small green sphere at row 3, column 2.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000031"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small blue cube.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Small blue cube at row 3, column 2.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000032"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Small green cube.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "The small green cube at row 3, column 2.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000034"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Small red cylinder.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Look for the red cylinder at row 3, column 2.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000035"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a large red sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "The target is the large red sphere at row 3, column 2.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000037"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large yellow sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "The target is the large yellow sphere at row 3, column 2.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000039"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large green cylinder.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Go to row 3, column 2: the large green cylinder.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000040"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Pick the large yellow cylinder.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Select the object at row 3, column 2: large yellow cylinder.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000044"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large blue cylinder.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": true,
+            "frame_term": false,
+            "spatial": false
+          },
+          "repair_message": "Choose the large blue cylinder at row 3, column 2.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000045"
+        }
+      ]
+    },
+    {
+      "by_category": [
+        {
+          "category": "underspecified_distractor",
+          "failure_rows": 59,
+          "failure_scenes": 29,
+          "mean_mirror_success_on_failure_scenes": 0.3218390804597701,
+          "mean_repair_success_on_failure_scenes": 0.9770114942528736,
+          "repair_all_success_scene_rate": 0.9655172413793104,
+          "repair_attribute_short_rate": 0.0,
+          "repair_coordinate_rate": 0.0,
+          "repair_rule_cue_rate": 1.0,
+          "repair_spatial_rate": 1.0,
+          "rule": "If a visible distractor shares the target's basic attributes, do not use a bare attribute phrase; add a listener-visible coordinate or spatial relation.",
+          "rule_id": "disambiguate_shared_attributes"
+        }
+      ],
+      "category_counts": {
+        "underspecified_distractor": 59
+      },
+      "coded_failures": "results/partial_observability_api50_no_coord_mirror_failures_coded.csv",
+      "label": "partial_observability_no_coord_mirror",
+      "mirror_method": "no_coord_mirror",
+      "n_failure_rows": 59,
+      "n_failure_scenes": 29,
+      "records": "results/partial_observability_api50_no_coord_records.jsonl",
+      "repair_label": "consensus+info",
+      "repair_method": "no_coord_consensus_info",
+      "scene_rows": [
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large red sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "The large red sphere in the upper-left area of the scene.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000000"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 3
+          },
+          "failure_rows": 3,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small blue cube.",
+          "mirror_success": 0.0,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "The cube is left of the other small blue cube and below the cones.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000001"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large red sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "It\u2019s the red sphere left of the other red sphere.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000004"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Small green sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "Look for the small green sphere on the left side of the scene.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000005"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large yellow sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "The large yellow sphere on the left side of the scene.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000006"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Small blue cube.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "It\u2019s the only small blue cube, left of the large purple sphere.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000008"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large yellow cube.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "The large yellow cube\u2014it's the yellow cube on the left side of the scene.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000013"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large blue cylinder.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "It\u2019s the blue cylinder on the left side, above the purple sphere.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000014"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large green cylinder.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "It\u2019s the green cylinder on the left side of the two green cylinders.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000015"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Small red sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "Look for the small red sphere left of the other small red sphere.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000018"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a large green sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "It\u2019s the green sphere left of the other green sphere.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000019"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large blue cylinder.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "It\u2019s the blue cylinder in the left-middle area, above the purple cube.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000021"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small blue sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "The small blue sphere is left of the other small blue sphere.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000023"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s the large red cylinder.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "The red cylinder is left of the other red cylinder.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000025"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large blue cube.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "It\u2019s the blue cube on the left side of the two blue cubes.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000026"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a large red cylinder.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "Find the red cylinder on the left side, above the green cone.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000027"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 3
+          },
+          "failure_rows": 3,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Small blue cylinder.",
+          "mirror_success": 0.0,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "The small blue cylinder near the left side of the scene.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000028"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small blue sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "The small blue sphere is left of the other small blue sphere.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000030"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small green sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "The small green sphere is left of the other small green sphere and above the large orange cone.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000031"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small blue cube.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": false,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "The small blue cube is left of the other blue cube.",
+          "repair_satisfies_rule": true,
+          "repair_success": 0.3333333333333333,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000032"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Small green cube.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "The small green cube\u2014it's the only small green cube on the left side.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000034"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Small red cylinder.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "It\u2019s the small red cylinder left of the other small red cylinder.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000035"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a large red sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "Look for the large red sphere on the left side of the scene.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000037"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large yellow sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "The large yellow sphere\u2014it's the only yellow sphere on the left side of the scene.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000039"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large green cylinder.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "It\u2019s the green cylinder on the left side, in the middle row.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000040"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Pick the large yellow cylinder.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "Choose the large yellow cylinder on the left side, above the large orange cone.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000044"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "Large blue cylinder.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "It\u2019s the blue cylinder in the upper row, left of the other blue cylinder.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000045"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 2
+          },
+          "failure_rows": 2,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small green sphere.",
+          "mirror_success": 0.3333333333333333,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "It\u2019s the small green sphere left of the other small green sphere.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000048"
+        },
+        {
+          "categories": {
+            "underspecified_distractor": 1
+          },
+          "failure_rows": 1,
+          "mirror_cues": {
+            "attribute_short": true,
+            "coordinate": false,
+            "frame_term": false,
+            "spatial": false
+          },
+          "mirror_message": "It\u2019s a small blue cylinder.",
+          "mirror_success": 0.6666666666666666,
+          "primary_category": "underspecified_distractor",
+          "repair_all_success": true,
+          "repair_cues": {
+            "attribute_short": false,
+            "coordinate": false,
+            "frame_term": true,
+            "spatial": true
+          },
+          "repair_message": "It\u2019s the small blue cylinder on the left side, above the large red pyramid.",
+          "repair_satisfies_rule": true,
+          "repair_success": 1.0,
+          "rule_id": "disambiguate_shared_attributes",
+          "scene_id": "po_000049"
+        }
+      ]
+    }
+  ],
+  "prompt_snippet": [
+    "If another visible object shares the target's size/color/shape, add a visible discriminator such as row/column or an unambiguous spatial relation.",
+    "When speaker and listener perspectives differ, avoid relying only on left/right; prefer listener-invariant coordinates or visible anchors.",
+    "Use only listener-visible landmarks; never mention hidden or private landmarks.",
+    "If exact coordinates are disallowed, prefer the relational/spatial candidate over a short attribute-only candidate when both seem locally acceptable."
+  ],
+  "rules": [
+    {
+      "category": "listener_misparse_or_other",
+      "rule": "If a message already contains a discriminator but fails, inspect parser/listener behavior before changing the speaker rule.",
+      "rule_id": "inspect_listener_misparse"
+    },
+    {
+      "category": "perspective_frame_error",
+      "rule": "When speaker and listener perspectives differ, avoid relying only on frame-sensitive left/right language; prefer listener-invariant coordinates or unambiguous visible anchors.",
+      "rule_id": "avoid_frame_sensitive_only"
+    },
+    {
+      "category": "private_landmark",
+      "rule": "Never refer to landmarks or objects hidden from the listener; use listener-visible discriminators.",
+      "rule_id": "avoid_private_landmarks"
+    },
+    {
+      "category": "underspecified_distractor",
+      "rule": "If a visible distractor shares the target's basic attributes, do not use a bare attribute phrase; add a listener-visible coordinate or spatial relation.",
+      "rule_id": "disambiguate_shared_attributes"
+    },
+    {
+      "category": "underspecified_other",
+      "rule": "If a message leaves multiple plausible referents, add a visible discriminator.",
+      "rule_id": "add_visible_discriminator"
+    }
+  ]
+}

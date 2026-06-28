@@ -1,0 +1,780 @@
+{
+  "actions": [],
+  "checks": [
+    {
+      "detail": "present",
+      "name": "artifact.paper/main.tex",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.paper/main.pdf",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.paper/colm2026_submission.tex",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.paper/colm2026_submission.pdf",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.paper/colm2026_conference.sty",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.paper/colm2026_conference.bst",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.paper/references.bib",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/protocol_and_prompts.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/artifact_guide.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/api_token_accounting.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/local_benchmark600_check.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/local_stronger_plan_k8.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/api_listener_leave_one_out.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/selection_regret_audit.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/candidate_pool_audit.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/candidate_budget_audit.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/candidate_role_selection_audit.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/random_candidate_baseline.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/message_length_audit.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/listener_disagreement_audit.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/listener_confidence_audit.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/failure_taxonomy_audit.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/interaction_memory_rules.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/qualitative_failure_examples.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/reviewer_checklist.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/plan_coverage_audit.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/paper_claims_iteration_002.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/partial_observability_local_check.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.docs/partial_observability_api50_check.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/paper_claims_verification.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/benchmark_integrity_audit.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/api_token_accounting.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/local_benchmark600_check.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/local_benchmark600_summary.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/local_benchmark600_records.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.data/local_benchmark600_scenes.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/local_stronger_plan_k8.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.data/local_stronger_plan1200_scenes.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/api_listener_leave_one_out.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/selection_regret_audit.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/candidate_pool_audit.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/candidate_budget_audit.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/candidate_role_selection_audit.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/random_candidate_baseline.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/message_length_audit.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/listener_disagreement_audit.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/listener_confidence_audit.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/failure_taxonomy_audit.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/interaction_memory_rules.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/qualitative_failure_examples.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/reviewer_checklist.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/plan_coverage_audit.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/partial_observability_api50_check.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/partial_observability_api50_mirror_failures_coded.csv",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/partial_observability_api50_no_coord_mirror_failures_coded.csv",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/export_colm_submission.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/analyze_api_token_accounting.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/analyze_local_benchmark.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/analyze_local_stronger_plan.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/analyze_partial_observability_api.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/make_artifact_guide.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/analyze_api_listener_leave_one_out.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/analyze_selection_regret.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/analyze_candidate_pool.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/analyze_candidate_budget.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/analyze_candidate_role_selection.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/analyze_random_candidate_baseline.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/analyze_message_length_audit.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/analyze_listener_disagreement.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/analyze_listener_confidence_audit.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/analyze_failure_taxonomy.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/analyze_interaction_memory_rules.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/make_qualitative_examples.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/make_reviewer_checklist.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/audit_plan_coverage.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "8",
+      "name": "pdf.pages_positive",
+      "status": "PASS"
+    },
+    {
+      "detail": "8 pages; target plan is 4-8 pages",
+      "name": "pdf.pages_within_workshop_range",
+      "status": "PASS"
+    },
+    {
+      "detail": "no",
+      "name": "pdf.not_encrypted",
+      "status": "PASS"
+    },
+    {
+      "detail": "abstract environment",
+      "name": "paper.has_abstract",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "paper.section.Introduction",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "paper.section.Related Work",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "paper.section.PRAG-CrossPlay Task",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "paper.section.Methods",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "paper.section.Experiments",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "paper.section.Results",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "paper.section.Qualitative Analysis",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "paper.section.Limitations",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "paper.section.Conclusion",
+      "status": "PASS"
+    },
+    {
+      "detail": "7 table environments",
+      "name": "paper.tables",
+      "status": "PASS"
+    },
+    {
+      "detail": "1 figure environments",
+      "name": "paper.figures",
+      "status": "PASS"
+    },
+    {
+      "detail": "8 bibliography entries",
+      "name": "paper.references",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.prag_crossplay_artifact_guide",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.dataset_cards",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.claim_to_evidence_map",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.api_token_accounting",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.local_benchmark_scale_sanity_check",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.local_stronger_plan_k_8_diagnostic",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.600_local_scenes_balanced_across_four_initial_scenario_famil",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.no_coordinate_oracle_success_on_the_initial_1_000_scenes_ris",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.no_coordinate_oracle_success_on_the_200_partial_observabilit",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.at_k_8_without_exact_coordinates_consensus_info_reaches_0_99",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.api_listener_leave_one_out_mechanism_check",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.selection_regret_audit",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.candidate_pool_robustness_audit",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.candidate_budget_audit",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.candidate_role_selection_audit",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.random_candidate_baseline",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.message_length_audit",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.listener_disagreement_audit",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.listener_confidence_audit",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.failure_taxonomy_audit",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.interaction_memory_rule_audit",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.qualitative_failure_examples",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.reviewer_checklist",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.plan_coverage_audit",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.full_candidate_population_play_has_zero_regret",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.population_play_selects_a_robust_candidate_in_1_000_of_scene",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.alternate_model_perspective_robust_scene_coverage_rises_from",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.full_candidate_population_coordinate_fallback_rates_mixed_50",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.no_coordinate_consensus_info_attribute_short_rates_mixed_50_",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.population_play_improves_over_random_by_0_135_0_285_0_343_an",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.consensus_info_improves_over_random_by_0_100_0_218_and_0_316",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.full_candidate_population_selected_messages_average_6_82_10_",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.mirror_split_outcome_rates_are_0_080_0_180_0_360_and_0_500",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.alternate_model_perspective_ambiguity_flags_are_0_000_while_",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.147_of_152_coded_listener_level_mirror_failures_are_underspe",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.coded_failure_rows_152_unique_failure_scenes_76",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.repair_cue_satisfies_derived_rule_in_1_000_of_failure_scenes",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.four_cache_only_examples_show_mirror_selected_messages_faili",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.section_32_reviewer_checklist_passes_all_19_core_validity_re",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.items_passed_19_19",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.core_scope_17_covered_2_partial_0_open",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.stretch_scope_0_covered_4_partial_1_open",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.the_artifact_package_explicitly_distinguishes_completed_core",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.partial_observability_api50",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.cache_only_api_listener_leave_one_out_improves_population_ov",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.0_candidate_messages_reference_private_landmarks",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.all_50_full_run_mirror_failures_are_underspecified_distracto",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.local_benchmark600_data_local_benchmark600_scenes_jsonl_600_",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.158_158_integrity_checks_pass",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.3520_cached_responses_have_complete_usage_metadata_totaling_",
+      "status": "PASS"
+    },
+    {
+      "detail": "796 checks, 0 failed",
+      "name": "claims_verifier.no_failed_checks",
+      "status": "PASS"
+    },
+    {
+      "detail": "158 checks, 0 failed",
+      "name": "integrity_audit.no_failed_checks",
+      "status": "PASS"
+    },
+    {
+      "detail": "paper/colm2026_submission.pdf uses COLM submission style",
+      "name": "template.final_venue_template",
+      "status": "PASS"
+    },
+    {
+      "detail": "COLM submission package",
+      "name": "colm_source.uses_submission_template",
+      "status": "PASS"
+    },
+    {
+      "detail": "line numbers enabled for submission mode",
+      "name": "colm_source.has_line_numbers",
+      "status": "PASS"
+    },
+    {
+      "detail": "COLM bibliography style",
+      "name": "colm_source.uses_colm_bibliography_style",
+      "status": "PASS"
+    },
+    {
+      "detail": "8",
+      "name": "colm_pdf.pages_positive",
+      "status": "PASS"
+    },
+    {
+      "detail": "8 pages; target submission range is 4-9 pages",
+      "name": "colm_pdf.pages_within_submission_range",
+      "status": "PASS"
+    },
+    {
+      "detail": "no",
+      "name": "colm_pdf.not_encrypted",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "claims.limitation.the_current_experiments_are_intentionally_small_and_diagnost",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "claims.limitation.the_held_out_listeners_are_api_language_models_not_humans",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "claims.limitation.the_strongest_population_play_result_relies_on_exact_coordin",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "claims.limitation.broader_claims_require_larger_balanced_runs",
+      "status": "PASS"
+    }
+  ],
+  "n_actions": 0,
+  "n_checks": 154,
+  "n_failed": 0,
+  "n_warn": 0,
+  "warnings": []
+}

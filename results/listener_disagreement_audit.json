@@ -1,0 +1,382 @@
+{
+  "runs": [
+    {
+      "label": "mixed_50_full",
+      "methods": [
+        {
+          "choice_disagreement_rate": 0.12,
+          "mean_confidence": 0.7374666666666667,
+          "method": "api_direct_first",
+          "method_label": "direct",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.12,
+          "success": 0.84,
+          "unanimous_failure_rate": 0.1,
+          "unanimous_success_rate": 0.78
+        },
+        {
+          "choice_disagreement_rate": 0.08,
+          "mean_confidence": 0.782,
+          "method": "api_best_of_k_shortest",
+          "method_label": "shortest",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.08,
+          "success": 0.74,
+          "unanimous_failure_rate": 0.22,
+          "unanimous_success_rate": 0.7
+        },
+        {
+          "choice_disagreement_rate": 0.08,
+          "mean_confidence": 0.8193333333333334,
+          "method": "hybrid_local_mirror_api_eval",
+          "method_label": "mirror",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.08,
+          "success": 0.9066666666666666,
+          "unanimous_failure_rate": 0.06,
+          "unanimous_success_rate": 0.86
+        },
+        {
+          "choice_disagreement_rate": 0.0,
+          "mean_confidence": 0.9598,
+          "method": "hybrid_local_population_api_eval",
+          "method_label": "population",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.0,
+          "success": 1.0,
+          "unanimous_failure_rate": 0.0,
+          "unanimous_success_rate": 1.0
+        }
+      ],
+      "records": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "label": "perspective_gpt54_full",
+      "methods": [
+        {
+          "choice_disagreement_rate": 0.18,
+          "mean_confidence": 0.6783333333333333,
+          "method": "api_direct_first",
+          "method_label": "direct",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.18,
+          "success": 0.7133333333333334,
+          "unanimous_failure_rate": 0.22,
+          "unanimous_success_rate": 0.6
+        },
+        {
+          "choice_disagreement_rate": 0.24,
+          "mean_confidence": 0.6646666666666666,
+          "method": "api_best_of_k_shortest",
+          "method_label": "shortest",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.22,
+          "success": 0.42,
+          "unanimous_failure_rate": 0.48,
+          "unanimous_success_rate": 0.3
+        },
+        {
+          "choice_disagreement_rate": 0.18,
+          "mean_confidence": 0.7758,
+          "method": "hybrid_local_mirror_api_eval",
+          "method_label": "mirror",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.18,
+          "success": 0.8133333333333334,
+          "unanimous_failure_rate": 0.1,
+          "unanimous_success_rate": 0.72
+        },
+        {
+          "choice_disagreement_rate": 0.0,
+          "mean_confidence": 0.9989333333333333,
+          "method": "hybrid_local_population_api_eval",
+          "method_label": "population",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.0,
+          "success": 1.0,
+          "unanimous_failure_rate": 0.0,
+          "unanimous_success_rate": 1.0
+        }
+      ],
+      "records": "results/perspective_stress50_hybrid_records.jsonl"
+    },
+    {
+      "label": "perspective_gpt41_full",
+      "methods": [
+        {
+          "choice_disagreement_rate": 0.38,
+          "mean_confidence": 0.8373333333333334,
+          "method": "api_direct_first",
+          "method_label": "direct",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.36,
+          "success": 0.5533333333333333,
+          "unanimous_failure_rate": 0.26,
+          "unanimous_success_rate": 0.38
+        },
+        {
+          "choice_disagreement_rate": 0.44,
+          "mean_confidence": 0.896,
+          "method": "api_best_of_k_shortest",
+          "method_label": "shortest",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.42,
+          "success": 0.36666666666666664,
+          "unanimous_failure_rate": 0.4,
+          "unanimous_success_rate": 0.18
+        },
+        {
+          "choice_disagreement_rate": 0.36,
+          "mean_confidence": 0.8766666666666667,
+          "method": "hybrid_local_mirror_api_eval",
+          "method_label": "mirror",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.36,
+          "success": 0.7133333333333334,
+          "unanimous_failure_rate": 0.08,
+          "unanimous_success_rate": 0.56
+        },
+        {
+          "choice_disagreement_rate": 0.0,
+          "mean_confidence": 0.9993333333333333,
+          "method": "hybrid_local_population_api_eval",
+          "method_label": "population",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.0,
+          "success": 1.0,
+          "unanimous_failure_rate": 0.0,
+          "unanimous_success_rate": 1.0
+        }
+      ],
+      "records": "results/perspective_stress50_gpt41nano_records.jsonl"
+    },
+    {
+      "label": "partial_observability_full",
+      "methods": [
+        {
+          "choice_disagreement_rate": 0.32,
+          "mean_confidence": 0.8059333333333334,
+          "method": "api_direct_first",
+          "method_label": "direct",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.32,
+          "success": 0.74,
+          "unanimous_failure_rate": 0.06,
+          "unanimous_success_rate": 0.62
+        },
+        {
+          "choice_disagreement_rate": 0.7,
+          "mean_confidence": 0.6156,
+          "method": "api_best_of_k_shortest",
+          "method_label": "shortest",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.7,
+          "success": 0.3133333333333333,
+          "unanimous_failure_rate": 0.28,
+          "unanimous_success_rate": 0.02
+        },
+        {
+          "choice_disagreement_rate": 0.5,
+          "mean_confidence": 0.7413333333333333,
+          "method": "hybrid_local_mirror_api_eval",
+          "method_label": "mirror",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.5,
+          "success": 0.6666666666666666,
+          "unanimous_failure_rate": 0.0,
+          "unanimous_success_rate": 0.5
+        },
+        {
+          "choice_disagreement_rate": 0.0,
+          "mean_confidence": 0.999,
+          "method": "hybrid_local_population_api_eval",
+          "method_label": "population",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.0,
+          "success": 1.0,
+          "unanimous_failure_rate": 0.0,
+          "unanimous_success_rate": 1.0
+        }
+      ],
+      "records": "results/partial_observability_api50_records.jsonl"
+    },
+    {
+      "label": "mixed_50_no_coord",
+      "methods": [
+        {
+          "choice_disagreement_rate": 0.12,
+          "mean_confidence": 0.7606666666666667,
+          "method": "no_coord_mirror",
+          "method_label": "mirror",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.12,
+          "success": 0.7866666666666666,
+          "unanimous_failure_rate": 0.16,
+          "unanimous_success_rate": 0.72
+        },
+        {
+          "choice_disagreement_rate": 0.06,
+          "mean_confidence": 0.7933333333333333,
+          "method": "no_coord_population",
+          "method_label": "population",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.06,
+          "success": 0.7733333333333333,
+          "unanimous_failure_rate": 0.2,
+          "unanimous_success_rate": 0.74
+        },
+        {
+          "choice_disagreement_rate": 0.08,
+          "mean_confidence": 0.7824,
+          "method": "no_coord_consensus_info",
+          "method_label": "consensus+info",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.08,
+          "success": 0.92,
+          "unanimous_failure_rate": 0.04,
+          "unanimous_success_rate": 0.88
+        },
+        {
+          "choice_disagreement_rate": 0.12,
+          "mean_confidence": 0.7266666666666667,
+          "method": "no_coord_informative",
+          "method_label": "info prior",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.12,
+          "success": 0.9,
+          "unanimous_failure_rate": 0.04,
+          "unanimous_success_rate": 0.84
+        }
+      ],
+      "records": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "label": "perspective_gpt41_no_coord",
+      "methods": [
+        {
+          "choice_disagreement_rate": 0.46,
+          "mean_confidence": 0.8353333333333334,
+          "method": "no_coord_mirror",
+          "method_label": "mirror",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.46,
+          "success": 0.58,
+          "unanimous_failure_rate": 0.18,
+          "unanimous_success_rate": 0.36
+        },
+        {
+          "choice_disagreement_rate": 0.46,
+          "mean_confidence": 0.8826666666666667,
+          "method": "no_coord_population",
+          "method_label": "population",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.44,
+          "success": 0.42,
+          "unanimous_failure_rate": 0.34,
+          "unanimous_success_rate": 0.22
+        },
+        {
+          "choice_disagreement_rate": 0.26,
+          "mean_confidence": 0.8686666666666667,
+          "method": "no_coord_consensus_info",
+          "method_label": "consensus+info",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.26,
+          "success": 0.76,
+          "unanimous_failure_rate": 0.12,
+          "unanimous_success_rate": 0.62
+        },
+        {
+          "choice_disagreement_rate": 0.26,
+          "mean_confidence": 0.8686666666666667,
+          "method": "no_coord_informative",
+          "method_label": "info prior",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.26,
+          "success": 0.76,
+          "unanimous_failure_rate": 0.12,
+          "unanimous_success_rate": 0.62
+        }
+      ],
+      "records": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "label": "partial_observability_no_coord",
+      "methods": [
+        {
+          "choice_disagreement_rate": 0.54,
+          "mean_confidence": 0.7002,
+          "method": "no_coord_mirror",
+          "method_label": "mirror",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.54,
+          "success": 0.6066666666666667,
+          "unanimous_failure_rate": 0.04,
+          "unanimous_success_rate": 0.42
+        },
+        {
+          "choice_disagreement_rate": 0.36,
+          "mean_confidence": 0.7758666666666667,
+          "method": "no_coord_population",
+          "method_label": "population",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.36,
+          "success": 0.7266666666666667,
+          "unanimous_failure_rate": 0.04,
+          "unanimous_success_rate": 0.6
+        },
+        {
+          "choice_disagreement_rate": 0.02,
+          "mean_confidence": 0.889,
+          "method": "no_coord_consensus_info",
+          "method_label": "consensus+info",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.02,
+          "success": 0.9866666666666667,
+          "unanimous_failure_rate": 0.0,
+          "unanimous_success_rate": 0.98
+        },
+        {
+          "choice_disagreement_rate": 0.04,
+          "mean_confidence": 0.8796666666666667,
+          "method": "no_coord_informative",
+          "method_label": "info prior",
+          "n_listeners": 3,
+          "n_scenes": 50,
+          "split_success_rate": 0.04,
+          "success": 0.9733333333333334,
+          "unanimous_failure_rate": 0.0,
+          "unanimous_success_rate": 0.96
+        }
+      ],
+      "records": "results/partial_observability_api50_no_coord_records.jsonl"
+    }
+  ]
+}

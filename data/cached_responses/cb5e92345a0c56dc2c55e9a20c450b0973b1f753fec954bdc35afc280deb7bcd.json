@@ -1,0 +1,118 @@
+{
+  "created_at": 1782559850.1284592,
+  "data": {
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1782559849,
+    "created_at": 1782559848,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "id": "resp_00badf34599693de006a3fb468f2e8819bba16773a10249400",
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 220,
+    "max_tool_calls": null,
+    "metadata": {},
+    "model": "gpt-5.4-nano-2026-03-17",
+    "moderation": null,
+    "object": "response",
+    "output": [
+      {
+        "content": [
+          {
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"utterances\":[\"The small purple cylinder.\",\"Small purple cylinder.\",\"It\u2019s the purple cylinder left of the large green cone.\",\"Go to row 3, column 2: the small purple cylinder.\"]}",
+            "type": "output_text"
+          }
+        ],
+        "id": "msg_00badf34599693de006a3fb4693b04819bb0f34ced83e16ddc",
+        "phase": "final_answer",
+        "role": "assistant",
+        "status": "completed",
+        "type": "message"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "current_turn",
+      "effort": "none",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "status": "completed",
+    "store": true,
+    "temperature": 0.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 793,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 46,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 839
+    },
+    "user": null
+  },
+  "request_hash_payload": {
+    "endpoint": "responses",
+    "max_output_tokens": 220,
+    "model": "gpt-5.4-nano",
+    "provider": "openai",
+    "schema_version": "speaker-v2-target-attrs",
+    "system": "You are the SPEAKER in a situated reference game. Write short natural-language messages that help a listener identify the target object. Do not mention the hidden target ID. Use only listener-visible information. First verify the target object's attributes, then describe that exact object. Return valid JSON only.",
+    "temperature": 0.0,
+    "user": "Scene:\n{\n  \"listener_orientation\": \"north\",\n  \"listener_view_text\": \"Scene rr_000035. You face north.\\nRows increase from top to bottom; columns increase from left to right.\\nCandidate objects:\\n- obj_3: small purple cylinder at row 2, column 5\\n- obj_1: small purple cylinder at row 3, column 2\\n- obj_4: small purple cube at row 1, column 1\\n- obj_5: small blue cylinder at row 5, column 4\\n- obj_2: large green cone at row 3, column 3\",\n  \"objects\": [\n    {\n      \"color\": \"purple\",\n      \"column\": 5,\n      \"id\": \"obj_3\",\n      \"row\": 2,\n      \"shape\": \"cylinder\",\n      \"size\": \"small\",\n      \"visible_to_listener\": true\n    },\n    {\n      \"color\": \"purple\",\n      \"column\": 2,\n      \"id\": \"obj_1\",\n      \"row\": 3,\n      \"shape\": \"cylinder\",\n      \"size\": \"small\",\n      \"visible_to_listener\": true\n    },\n    {\n      \"color\": \"purple\",\n      \"column\": 1,\n      \"id\": \"obj_4\",\n      \"row\": 1,\n      \"shape\": \"cube\",\n      \"size\": \"small\",\n      \"visible_to_listener\": true\n    },\n    {\n      \"color\": \"blue\",\n      \"column\": 4,\n      \"id\": \"obj_5\",\n      \"row\": 5,\n      \"shape\": \"cylinder\",\n      \"size\": \"small\",\n      \"visible_to_listener\": true\n    },\n    {\n      \"color\": \"green\",\n      \"column\": 3,\n      \"id\": \"obj_2\",\n      \"row\": 3,\n      \"shape\": \"cone\",\n      \"size\": \"large\",\n      \"visible_to_listener\": true\n    }\n  ],\n  \"scenario_type\": \"relational_reference\",\n  \"scene_id\": \"rr_000035\",\n  \"speaker_orientation\": \"north\",\n  \"speaker_view_text\": \"Scene rr_000035 (relational_reference).\\nYou face north; the listener faces north.\\nRows increase from top to bottom; columns increase from left to right.\\nVisible objects:\\n- obj_3: small purple cylinder at row 2, column 5\\n- obj_1: small purple cylinder at row 3, column 2\\n- obj_4: small purple cube at row 1, column 1\\n- obj_5: small blue cylinder at row 5, column 4\\n- obj_2: large green cone at row 3, column 3\"\n}\n\nTarget object ID visible only to you: obj_1\nTarget object attributes visible to you: {\"color\": \"purple\", \"column\": 2, \"row\": 3, \"shape\": \"cylinder\", \"size\": \"small\"}\n\nGenerate exactly 4 different messages, ordered as follows:\n1. A natural first attempt without exact row/column coordinates unless there is no other option.\n2. A concise attribute-based message.\n3. A relational or spatial message using listener-visible landmarks when possible.\n4. A fully explicit fallback that may use row/column coordinates.\nEach message should be at most 25 words.\nReturn exactly this JSON shape: {\"utterances\": [\"...\", \"...\"]}"
+  },
+  "text": "{\"utterances\":[\"The small purple cylinder.\",\"Small purple cylinder.\",\"It\u2019s the purple cylinder left of the large green cone.\",\"Go to row 3, column 2: the small purple cylinder.\"]}",
+  "usage": {
+    "input_tokens": 793,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 46,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 839
+  }
+}

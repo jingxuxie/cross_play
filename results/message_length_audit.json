@@ -1,0 +1,570 @@
+{
+  "runs": [
+    {
+      "filter": "full",
+      "label": "mixed_50_full",
+      "methods": [
+        {
+          "mean_tokens": 10.0,
+          "messages_per_scene": 1,
+          "method": "template",
+          "method_label": "template",
+          "n_scenes": 50,
+          "success": 1.0,
+          "success_per_token": 0.1
+        },
+        {
+          "mean_tokens": 9.26,
+          "messages_per_scene": 1,
+          "method": "api_direct_first",
+          "method_label": "direct",
+          "n_scenes": 50,
+          "success": 0.84,
+          "success_per_token": 0.09071274298056155
+        },
+        {
+          "mean_tokens": 4.32,
+          "messages_per_scene": 1,
+          "method": "api_best_of_k_shortest",
+          "method_label": "shortest",
+          "n_scenes": 50,
+          "success": 0.74,
+          "success_per_token": 0.17129629629629628
+        },
+        {
+          "mean_tokens": 5.56,
+          "messages_per_scene": 1,
+          "method": "hybrid_local_mirror_api_eval",
+          "method_label": "mirror",
+          "n_scenes": 50,
+          "success": 0.9066666666666666,
+          "success_per_token": 0.1630695443645084
+        },
+        {
+          "mean_tokens": 6.82,
+          "messages_per_scene": 1,
+          "method": "hybrid_local_population_api_eval",
+          "method_label": "population",
+          "n_scenes": 50,
+          "success": 1.0,
+          "success_per_token": 0.14662756598240467
+        },
+        {
+          "mean_tokens": 5.96,
+          "messages_per_scene": 1,
+          "method": "oracle_upper_bound",
+          "method_label": "oracle",
+          "n_scenes": 50,
+          "success": 1.0,
+          "success_per_token": 0.16778523489932887
+        }
+      ],
+      "mirror_method": "mirror",
+      "primary_method": "population",
+      "primary_vs_mirror": {
+        "n_scenes": 50,
+        "success_delta": 0.09333333333333334,
+        "success_delta_ci95": [
+          0.02666666666666667,
+          0.17333333333333334
+        ],
+        "token_delta": 1.26,
+        "token_delta_ci95": [
+          0.66,
+          1.92
+        ],
+        "tokens_per_success_point": 13.5
+      },
+      "records": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "filter": "full",
+      "label": "perspective_gpt54_full",
+      "methods": [
+        {
+          "mean_tokens": 10.0,
+          "messages_per_scene": 1,
+          "method": "template",
+          "method_label": "template",
+          "n_scenes": 50,
+          "success": 1.0,
+          "success_per_token": 0.1
+        },
+        {
+          "mean_tokens": 11.7,
+          "messages_per_scene": 1,
+          "method": "api_direct_first",
+          "method_label": "direct",
+          "n_scenes": 50,
+          "success": 0.7133333333333334,
+          "success_per_token": 0.06096866096866098
+        },
+        {
+          "mean_tokens": 4.58,
+          "messages_per_scene": 1,
+          "method": "api_best_of_k_shortest",
+          "method_label": "shortest",
+          "n_scenes": 50,
+          "success": 0.42,
+          "success_per_token": 0.09170305676855894
+        },
+        {
+          "mean_tokens": 7.4,
+          "messages_per_scene": 1,
+          "method": "hybrid_local_mirror_api_eval",
+          "method_label": "mirror",
+          "n_scenes": 50,
+          "success": 0.8133333333333334,
+          "success_per_token": 0.10990990990990991
+        },
+        {
+          "mean_tokens": 10.22,
+          "messages_per_scene": 1,
+          "method": "hybrid_local_population_api_eval",
+          "method_label": "population",
+          "n_scenes": 50,
+          "success": 1.0,
+          "success_per_token": 0.09784735812133072
+        },
+        {
+          "mean_tokens": 8.42,
+          "messages_per_scene": 1,
+          "method": "oracle_upper_bound",
+          "method_label": "oracle",
+          "n_scenes": 50,
+          "success": 1.0,
+          "success_per_token": 0.11876484560570072
+        }
+      ],
+      "mirror_method": "mirror",
+      "primary_method": "population",
+      "primary_vs_mirror": {
+        "n_scenes": 50,
+        "success_delta": 0.18666666666666668,
+        "success_delta_ci95": [
+          0.1,
+          0.2866666666666667
+        ],
+        "token_delta": 2.82,
+        "token_delta_ci95": [
+          2.0,
+          3.66
+        ],
+        "tokens_per_success_point": 15.107142857142856
+      },
+      "records": "results/perspective_stress50_hybrid_records.jsonl"
+    },
+    {
+      "filter": "full",
+      "label": "perspective_gpt41_full",
+      "methods": [
+        {
+          "mean_tokens": 10.0,
+          "messages_per_scene": 1,
+          "method": "template",
+          "method_label": "template",
+          "n_scenes": 50,
+          "success": 1.0,
+          "success_per_token": 0.1
+        },
+        {
+          "mean_tokens": 11.7,
+          "messages_per_scene": 1,
+          "method": "api_direct_first",
+          "method_label": "direct",
+          "n_scenes": 50,
+          "success": 0.5533333333333333,
+          "success_per_token": 0.0472934472934473
+        },
+        {
+          "mean_tokens": 4.58,
+          "messages_per_scene": 1,
+          "method": "api_best_of_k_shortest",
+          "method_label": "shortest",
+          "n_scenes": 50,
+          "success": 0.36666666666666664,
+          "success_per_token": 0.08005822416302764
+        },
+        {
+          "mean_tokens": 7.4,
+          "messages_per_scene": 1,
+          "method": "hybrid_local_mirror_api_eval",
+          "method_label": "mirror",
+          "n_scenes": 50,
+          "success": 0.7133333333333334,
+          "success_per_token": 0.0963963963963964
+        },
+        {
+          "mean_tokens": 10.22,
+          "messages_per_scene": 1,
+          "method": "hybrid_local_population_api_eval",
+          "method_label": "population",
+          "n_scenes": 50,
+          "success": 1.0,
+          "success_per_token": 0.09784735812133072
+        },
+        {
+          "mean_tokens": 9.18,
+          "messages_per_scene": 1,
+          "method": "oracle_upper_bound",
+          "method_label": "oracle",
+          "n_scenes": 50,
+          "success": 1.0,
+          "success_per_token": 0.10893246187363835
+        }
+      ],
+      "mirror_method": "mirror",
+      "primary_method": "population",
+      "primary_vs_mirror": {
+        "n_scenes": 50,
+        "success_delta": 0.2866666666666667,
+        "success_delta_ci95": [
+          0.19333333333333336,
+          0.38000000000000006
+        ],
+        "token_delta": 2.82,
+        "token_delta_ci95": [
+          2.0,
+          3.66
+        ],
+        "tokens_per_success_point": 9.837209302325581
+      },
+      "records": "results/perspective_stress50_gpt41nano_records.jsonl"
+    },
+    {
+      "filter": "full",
+      "label": "partial_observability_full",
+      "methods": [
+        {
+          "mean_tokens": 10.0,
+          "messages_per_scene": 1,
+          "method": "template",
+          "method_label": "template",
+          "n_scenes": 50,
+          "success": 1.0,
+          "success_per_token": 0.1
+        },
+        {
+          "mean_tokens": 9.96,
+          "messages_per_scene": 1,
+          "method": "api_direct_first",
+          "method_label": "direct",
+          "n_scenes": 50,
+          "success": 0.74,
+          "success_per_token": 0.07429718875502007
+        },
+        {
+          "mean_tokens": 4.04,
+          "messages_per_scene": 1,
+          "method": "api_best_of_k_shortest",
+          "method_label": "shortest",
+          "n_scenes": 50,
+          "success": 0.3133333333333333,
+          "success_per_token": 0.07755775577557755
+        },
+        {
+          "mean_tokens": 6.5,
+          "messages_per_scene": 1,
+          "method": "hybrid_local_mirror_api_eval",
+          "method_label": "mirror",
+          "n_scenes": 50,
+          "success": 0.6666666666666666,
+          "success_per_token": 0.10256410256410256
+        },
+        {
+          "mean_tokens": 9.66,
+          "messages_per_scene": 1,
+          "method": "hybrid_local_population_api_eval",
+          "method_label": "population",
+          "n_scenes": 50,
+          "success": 1.0,
+          "success_per_token": 0.10351966873706003
+        },
+        {
+          "mean_tokens": 9.32,
+          "messages_per_scene": 1,
+          "method": "oracle_upper_bound",
+          "method_label": "oracle",
+          "n_scenes": 50,
+          "success": 1.0,
+          "success_per_token": 0.1072961373390558
+        }
+      ],
+      "mirror_method": "mirror",
+      "primary_method": "population",
+      "primary_vs_mirror": {
+        "n_scenes": 50,
+        "success_delta": 0.33333333333333337,
+        "success_delta_ci95": [
+          0.24000000000000002,
+          0.4266666666666667
+        ],
+        "token_delta": 3.16,
+        "token_delta_ci95": [
+          2.22,
+          4.1
+        ],
+        "tokens_per_success_point": 9.479999999999999
+      },
+      "records": "results/partial_observability_api50_records.jsonl"
+    },
+    {
+      "filter": "no_exact_coordinates",
+      "label": "mixed_50_no_coord",
+      "methods": [
+        {
+          "mean_tokens": 9.26,
+          "messages_per_scene": 1,
+          "method": "no_coord_direct_first",
+          "method_label": "direct",
+          "n_scenes": 50,
+          "success": 0.84,
+          "success_per_token": 0.09071274298056155
+        },
+        {
+          "mean_tokens": 4.32,
+          "messages_per_scene": 1,
+          "method": "no_coord_best_of_k_shortest",
+          "method_label": "shortest",
+          "n_scenes": 50,
+          "success": 0.74,
+          "success_per_token": 0.17129629629629628
+        },
+        {
+          "mean_tokens": 5.0,
+          "messages_per_scene": 1,
+          "method": "no_coord_mirror",
+          "method_label": "mirror",
+          "n_scenes": 50,
+          "success": 0.7866666666666666,
+          "success_per_token": 0.15733333333333333
+        },
+        {
+          "mean_tokens": 5.26,
+          "messages_per_scene": 1,
+          "method": "no_coord_population",
+          "method_label": "population",
+          "n_scenes": 50,
+          "success": 0.7733333333333333,
+          "success_per_token": 0.14702154626108999
+        },
+        {
+          "mean_tokens": 9.38,
+          "messages_per_scene": 1,
+          "method": "no_coord_consensus_info",
+          "method_label": "consensus+info",
+          "n_scenes": 50,
+          "success": 0.92,
+          "success_per_token": 0.09808102345415778
+        },
+        {
+          "mean_tokens": 12.36,
+          "messages_per_scene": 1,
+          "method": "no_coord_informative",
+          "method_label": "info prior",
+          "n_scenes": 50,
+          "success": 0.9,
+          "success_per_token": 0.07281553398058253
+        },
+        {
+          "mean_tokens": 6.28,
+          "messages_per_scene": 1,
+          "method": "no_coord_oracle",
+          "method_label": "oracle",
+          "n_scenes": 50,
+          "success": 0.96,
+          "success_per_token": 0.15286624203821655
+        }
+      ],
+      "mirror_method": "mirror",
+      "primary_method": "consensus+info",
+      "primary_vs_mirror": {
+        "n_scenes": 50,
+        "success_delta": 0.13333333333333333,
+        "success_delta_ci95": [
+          0.03333333333333333,
+          0.23333333333333334
+        ],
+        "token_delta": 4.38,
+        "token_delta_ci95": [
+          3.3,
+          5.52
+        ],
+        "tokens_per_success_point": 32.85
+      },
+      "records": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "filter": "no_exact_coordinates",
+      "label": "perspective_gpt41_no_coord",
+      "methods": [
+        {
+          "mean_tokens": 11.7,
+          "messages_per_scene": 1,
+          "method": "no_coord_direct_first",
+          "method_label": "direct",
+          "n_scenes": 50,
+          "success": 0.5533333333333333,
+          "success_per_token": 0.0472934472934473
+        },
+        {
+          "mean_tokens": 4.58,
+          "messages_per_scene": 1,
+          "method": "no_coord_best_of_k_shortest",
+          "method_label": "shortest",
+          "n_scenes": 50,
+          "success": 0.36666666666666664,
+          "success_per_token": 0.08005822416302764
+        },
+        {
+          "mean_tokens": 8.28,
+          "messages_per_scene": 1,
+          "method": "no_coord_mirror",
+          "method_label": "mirror",
+          "n_scenes": 50,
+          "success": 0.58,
+          "success_per_token": 0.07004830917874397
+        },
+        {
+          "mean_tokens": 5.04,
+          "messages_per_scene": 1,
+          "method": "no_coord_population",
+          "method_label": "population",
+          "n_scenes": 50,
+          "success": 0.42,
+          "success_per_token": 0.08333333333333333
+        },
+        {
+          "mean_tokens": 12.54,
+          "messages_per_scene": 1,
+          "method": "no_coord_consensus_info",
+          "method_label": "consensus+info",
+          "n_scenes": 50,
+          "success": 0.76,
+          "success_per_token": 0.06060606060606061
+        },
+        {
+          "mean_tokens": 12.54,
+          "messages_per_scene": 1,
+          "method": "no_coord_informative",
+          "method_label": "info prior",
+          "n_scenes": 50,
+          "success": 0.76,
+          "success_per_token": 0.06060606060606061
+        },
+        {
+          "mean_tokens": 9.38,
+          "messages_per_scene": 1,
+          "method": "no_coord_oracle",
+          "method_label": "oracle",
+          "n_scenes": 50,
+          "success": 0.7933333333333333,
+          "success_per_token": 0.08457711442786069
+        }
+      ],
+      "mirror_method": "mirror",
+      "primary_method": "consensus+info",
+      "primary_vs_mirror": {
+        "n_scenes": 50,
+        "success_delta": 0.18000000000000002,
+        "success_delta_ci95": [
+          0.1,
+          0.26666666666666666
+        ],
+        "token_delta": 4.26,
+        "token_delta_ci95": [
+          3.24,
+          5.28
+        ],
+        "tokens_per_success_point": 23.666666666666664
+      },
+      "records": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "filter": "no_exact_coordinates",
+      "label": "partial_observability_no_coord",
+      "methods": [
+        {
+          "mean_tokens": 9.96,
+          "messages_per_scene": 1,
+          "method": "no_coord_direct_first",
+          "method_label": "direct",
+          "n_scenes": 50,
+          "success": 0.74,
+          "success_per_token": 0.07429718875502007
+        },
+        {
+          "mean_tokens": 4.04,
+          "messages_per_scene": 1,
+          "method": "no_coord_best_of_k_shortest",
+          "method_label": "shortest",
+          "n_scenes": 50,
+          "success": 0.3133333333333333,
+          "success_per_token": 0.07755775577557755
+        },
+        {
+          "mean_tokens": 7.56,
+          "messages_per_scene": 1,
+          "method": "no_coord_mirror",
+          "method_label": "mirror",
+          "n_scenes": 50,
+          "success": 0.6066666666666667,
+          "success_per_token": 0.08024691358024692
+        },
+        {
+          "mean_tokens": 9.32,
+          "messages_per_scene": 1,
+          "method": "no_coord_population",
+          "method_label": "population",
+          "n_scenes": 50,
+          "success": 0.7266666666666667,
+          "success_per_token": 0.07796852646638054
+        },
+        {
+          "mean_tokens": 12.76,
+          "messages_per_scene": 1,
+          "method": "no_coord_consensus_info",
+          "method_label": "consensus+info",
+          "n_scenes": 50,
+          "success": 0.9866666666666667,
+          "success_per_token": 0.07732497387669801
+        },
+        {
+          "mean_tokens": 12.86,
+          "messages_per_scene": 1,
+          "method": "no_coord_informative",
+          "method_label": "info prior",
+          "n_scenes": 50,
+          "success": 0.9733333333333334,
+          "success_per_token": 0.07568688439606014
+        },
+        {
+          "mean_tokens": 11.52,
+          "messages_per_scene": 1,
+          "method": "no_coord_oracle",
+          "method_label": "oracle",
+          "n_scenes": 50,
+          "success": 1.0,
+          "success_per_token": 0.08680555555555555
+        }
+      ],
+      "mirror_method": "mirror",
+      "primary_method": "consensus+info",
+      "primary_vs_mirror": {
+        "n_scenes": 50,
+        "success_delta": 0.38000000000000006,
+        "success_delta_ci95": [
+          0.28,
+          0.4733333333333334
+        ],
+        "token_delta": 5.2,
+        "token_delta_ci95": [
+          3.98,
+          6.42
+        ],
+        "tokens_per_success_point": 13.684210526315788
+      },
+      "records": "results/partial_observability_api50_no_coord_records.jsonl"
+    }
+  ]
+}

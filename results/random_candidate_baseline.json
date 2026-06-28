@@ -1,0 +1,568 @@
+{
+  "runs": [
+    {
+      "candidate_eval": "results/hybrid_api_pilot50_allcand_candidate_eval_records.jsonl",
+      "filter": "full",
+      "label": "mixed_50_full",
+      "mean_candidates": 4,
+      "methods": [
+        {
+          "label": "direct",
+          "method": "api_direct_first",
+          "minus_random": -0.025,
+          "minus_random_ci95": [
+            -0.08166666666666667,
+            0.028333333333333335
+          ],
+          "success": 0.84
+        },
+        {
+          "label": "shortest",
+          "method": "api_best_of_k_shortest",
+          "minus_random": -0.125,
+          "minus_random_ci95": [
+            -0.19166666666666665,
+            -0.06166666666666666
+          ],
+          "success": 0.74
+        },
+        {
+          "label": "mirror",
+          "method": "hybrid_local_mirror_api_eval",
+          "minus_random": 0.04166666666666667,
+          "minus_random_ci95": [
+            -0.018333333333333337,
+            0.10333333333333333
+          ],
+          "success": 0.9066666666666666
+        },
+        {
+          "label": "population",
+          "method": "hybrid_local_population_api_eval",
+          "minus_random": 0.135,
+          "minus_random_ci95": [
+            0.07833333333333334,
+            0.19333333333333333
+          ],
+          "success": 1.0
+        },
+        {
+          "label": "oracle",
+          "method": "oracle_upper_bound",
+          "minus_random": 0.135,
+          "minus_random_ci95": [
+            0.07833333333333334,
+            0.19333333333333333
+          ],
+          "success": 1.0
+        }
+      ],
+      "n_scenes": 50,
+      "primary_method": "population",
+      "primary_minus_random": 0.135,
+      "primary_minus_random_ci95": [
+        0.07833333333333334,
+        0.19333333333333333
+      ],
+      "random_expected_success": 0.865,
+      "random_expected_success_ci95": [
+        0.805,
+        0.9216666666666666
+      ],
+      "random_robust_pick_rate": 0.825,
+      "records": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "candidate_eval": "results/perspective_stress50_hybrid_candidate_eval_records.jsonl",
+      "filter": "full",
+      "label": "perspective_gpt54_full",
+      "mean_candidates": 4,
+      "methods": [
+        {
+          "label": "direct",
+          "method": "api_direct_first",
+          "minus_random": -0.0016666666666666585,
+          "minus_random_ci95": [
+            -0.08833333333333332,
+            0.07833333333333335
+          ],
+          "success": 0.7133333333333334
+        },
+        {
+          "label": "shortest",
+          "method": "api_best_of_k_shortest",
+          "minus_random": -0.295,
+          "minus_random_ci95": [
+            -0.38166666666666665,
+            -0.205
+          ],
+          "success": 0.42
+        },
+        {
+          "label": "mirror",
+          "method": "hybrid_local_mirror_api_eval",
+          "minus_random": 0.09833333333333334,
+          "minus_random_ci95": [
+            7.771561172376097e-18,
+            0.19333333333333333
+          ],
+          "success": 0.8133333333333334
+        },
+        {
+          "label": "population",
+          "method": "hybrid_local_population_api_eval",
+          "minus_random": 0.28500000000000003,
+          "minus_random_ci95": [
+            0.22666666666666668,
+            0.34500000000000003
+          ],
+          "success": 1.0
+        },
+        {
+          "label": "oracle",
+          "method": "oracle_upper_bound",
+          "minus_random": 0.28500000000000003,
+          "minus_random_ci95": [
+            0.22666666666666668,
+            0.34500000000000003
+          ],
+          "success": 1.0
+        }
+      ],
+      "n_scenes": 50,
+      "primary_method": "population",
+      "primary_minus_random": 0.28500000000000003,
+      "primary_minus_random_ci95": [
+        0.22666666666666668,
+        0.34500000000000003
+      ],
+      "random_expected_success": 0.715,
+      "random_expected_success_ci95": [
+        0.655,
+        0.7733333333333333
+      ],
+      "random_robust_pick_rate": 0.61,
+      "records": "results/perspective_stress50_hybrid_records.jsonl"
+    },
+    {
+      "candidate_eval": "results/perspective_stress50_gpt41nano_candidate_eval_records.jsonl",
+      "filter": "full",
+      "label": "perspective_gpt41_full",
+      "mean_candidates": 4,
+      "methods": [
+        {
+          "label": "direct",
+          "method": "api_direct_first",
+          "minus_random": -0.10333333333333333,
+          "minus_random_ci95": [
+            -0.17833333333333332,
+            -0.02666666666666666
+          ],
+          "success": 0.5533333333333333
+        },
+        {
+          "label": "shortest",
+          "method": "api_best_of_k_shortest",
+          "minus_random": -0.29,
+          "minus_random_ci95": [
+            -0.35833333333333334,
+            -0.22166666666666665
+          ],
+          "success": 0.36666666666666664
+        },
+        {
+          "label": "mirror",
+          "method": "hybrid_local_mirror_api_eval",
+          "minus_random": 0.05666666666666668,
+          "minus_random_ci95": [
+            -0.026666666666666658,
+            0.14500000000000002
+          ],
+          "success": 0.7133333333333334
+        },
+        {
+          "label": "population",
+          "method": "hybrid_local_population_api_eval",
+          "minus_random": 0.3433333333333333,
+          "minus_random_ci95": [
+            0.2816666666666667,
+            0.405
+          ],
+          "success": 1.0
+        },
+        {
+          "label": "oracle",
+          "method": "oracle_upper_bound",
+          "minus_random": 0.3433333333333333,
+          "minus_random_ci95": [
+            0.2816666666666667,
+            0.405
+          ],
+          "success": 1.0
+        }
+      ],
+      "n_scenes": 50,
+      "primary_method": "population",
+      "primary_minus_random": 0.3433333333333333,
+      "primary_minus_random_ci95": [
+        0.2816666666666667,
+        0.405
+      ],
+      "random_expected_success": 0.6566666666666666,
+      "random_expected_success_ci95": [
+        0.595,
+        0.7183333333333333
+      ],
+      "random_robust_pick_rate": 0.535,
+      "records": "results/perspective_stress50_gpt41nano_records.jsonl"
+    },
+    {
+      "candidate_eval": "results/partial_observability_api50_candidate_eval_records.jsonl",
+      "filter": "full",
+      "label": "partial_observability_full",
+      "mean_candidates": 4,
+      "methods": [
+        {
+          "label": "direct",
+          "method": "api_direct_first",
+          "minus_random": -0.013333333333333329,
+          "minus_random_ci95": [
+            -0.09166666666666666,
+            0.06000000000000001
+          ],
+          "success": 0.74
+        },
+        {
+          "label": "shortest",
+          "method": "api_best_of_k_shortest",
+          "minus_random": -0.44,
+          "minus_random_ci95": [
+            -0.5,
+            -0.385
+          ],
+          "success": 0.3133333333333333
+        },
+        {
+          "label": "mirror",
+          "method": "hybrid_local_mirror_api_eval",
+          "minus_random": -0.08666666666666666,
+          "minus_random_ci95": [
+            -0.17666666666666667,
+            0.005000000000000019
+          ],
+          "success": 0.6666666666666666
+        },
+        {
+          "label": "population",
+          "method": "hybrid_local_population_api_eval",
+          "minus_random": 0.24666666666666667,
+          "minus_random_ci95": [
+            0.21666666666666667,
+            0.27666666666666667
+          ],
+          "success": 1.0
+        },
+        {
+          "label": "oracle",
+          "method": "oracle_upper_bound",
+          "minus_random": 0.24666666666666667,
+          "minus_random_ci95": [
+            0.21666666666666667,
+            0.27666666666666667
+          ],
+          "success": 1.0
+        }
+      ],
+      "n_scenes": 50,
+      "primary_method": "population",
+      "primary_minus_random": 0.24666666666666667,
+      "primary_minus_random_ci95": [
+        0.21666666666666667,
+        0.27666666666666667
+      ],
+      "random_expected_success": 0.7533333333333333,
+      "random_expected_success_ci95": [
+        0.7233333333333333,
+        0.7833333333333333
+      ],
+      "random_robust_pick_rate": 0.645,
+      "records": "results/partial_observability_api50_records.jsonl"
+    },
+    {
+      "candidate_eval": "results/hybrid_api_pilot50_allcand_candidate_eval_records.jsonl",
+      "filter": "no_exact_coordinates",
+      "label": "mixed_50_no_coord",
+      "mean_candidates": 3,
+      "methods": [
+        {
+          "label": "direct",
+          "method": "no_coord_direct_first",
+          "minus_random": 0.020000000000000004,
+          "minus_random_ci95": [
+            -0.033333333333333326,
+            0.07333333333333335
+          ],
+          "success": 0.84
+        },
+        {
+          "label": "shortest",
+          "method": "no_coord_best_of_k_shortest",
+          "minus_random": -0.08,
+          "minus_random_ci95": [
+            -0.13333333333333333,
+            -0.02888888888888889
+          ],
+          "success": 0.74
+        },
+        {
+          "label": "mirror",
+          "method": "no_coord_mirror",
+          "minus_random": -0.03333333333333333,
+          "minus_random_ci95": [
+            -0.09111111111111111,
+            0.02222222222222223
+          ],
+          "success": 0.7866666666666666
+        },
+        {
+          "label": "population",
+          "method": "no_coord_population",
+          "minus_random": -0.04666666666666666,
+          "minus_random_ci95": [
+            -0.1111111111111111,
+            0.013333333333333338
+          ],
+          "success": 0.7733333333333333
+        },
+        {
+          "label": "consensus+info",
+          "method": "no_coord_consensus_info",
+          "minus_random": 0.1,
+          "minus_random_ci95": [
+            0.03555555555555556,
+            0.16666666666666669
+          ],
+          "success": 0.92
+        },
+        {
+          "label": "info prior",
+          "method": "no_coord_informative",
+          "minus_random": 0.08,
+          "minus_random_ci95": [
+            0.011111111111111117,
+            0.1466666666666667
+          ],
+          "success": 0.9
+        },
+        {
+          "label": "oracle",
+          "method": "no_coord_oracle",
+          "minus_random": 0.14,
+          "minus_random_ci95": [
+            0.08,
+            0.20444444444444446
+          ],
+          "success": 0.96
+        }
+      ],
+      "n_scenes": 50,
+      "primary_method": "consensus+info",
+      "primary_minus_random": 0.1,
+      "primary_minus_random_ci95": [
+        0.03555555555555556,
+        0.16666666666666669
+      ],
+      "random_expected_success": 0.82,
+      "random_expected_success_ci95": [
+        0.74,
+        0.8955555555555555
+      ],
+      "random_robust_pick_rate": 0.7666666666666666,
+      "records": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "candidate_eval": "results/perspective_stress50_gpt41nano_candidate_eval_records.jsonl",
+      "filter": "no_exact_coordinates",
+      "label": "perspective_gpt41_no_coord",
+      "mean_candidates": 3,
+      "methods": [
+        {
+          "label": "direct",
+          "method": "no_coord_direct_first",
+          "minus_random": 0.011111111111111108,
+          "minus_random_ci95": [
+            -0.06,
+            0.08222222222222222
+          ],
+          "success": 0.5533333333333333
+        },
+        {
+          "label": "shortest",
+          "method": "no_coord_best_of_k_shortest",
+          "minus_random": -0.17555555555555555,
+          "minus_random_ci95": [
+            -0.24222222222222223,
+            -0.1088888888888889
+          ],
+          "success": 0.36666666666666664
+        },
+        {
+          "label": "mirror",
+          "method": "no_coord_mirror",
+          "minus_random": 0.03777777777777777,
+          "minus_random_ci95": [
+            -0.022222222222222233,
+            0.1
+          ],
+          "success": 0.58
+        },
+        {
+          "label": "population",
+          "method": "no_coord_population",
+          "minus_random": -0.12222222222222223,
+          "minus_random_ci95": [
+            -0.18888888888888888,
+            -0.05555555555555556
+          ],
+          "success": 0.42
+        },
+        {
+          "label": "consensus+info",
+          "method": "no_coord_consensus_info",
+          "minus_random": 0.2177777777777778,
+          "minus_random_ci95": [
+            0.15555555555555556,
+            0.28
+          ],
+          "success": 0.76
+        },
+        {
+          "label": "info prior",
+          "method": "no_coord_informative",
+          "minus_random": 0.2177777777777778,
+          "minus_random_ci95": [
+            0.15555555555555556,
+            0.28
+          ],
+          "success": 0.76
+        },
+        {
+          "label": "oracle",
+          "method": "no_coord_oracle",
+          "minus_random": 0.2511111111111111,
+          "minus_random_ci95": [
+            0.19555555555555557,
+            0.30444444444444446
+          ],
+          "success": 0.7933333333333333
+        }
+      ],
+      "n_scenes": 50,
+      "primary_method": "consensus+info",
+      "primary_minus_random": 0.2177777777777778,
+      "primary_minus_random_ci95": [
+        0.15555555555555556,
+        0.28
+      ],
+      "random_expected_success": 0.5422222222222222,
+      "random_expected_success_ci95": [
+        0.45999999999999996,
+        0.6244444444444445
+      ],
+      "random_robust_pick_rate": 0.38,
+      "records": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "candidate_eval": "results/partial_observability_api50_candidate_eval_records.jsonl",
+      "filter": "no_exact_coordinates",
+      "label": "partial_observability_no_coord",
+      "mean_candidates": 3,
+      "methods": [
+        {
+          "label": "direct",
+          "method": "no_coord_direct_first",
+          "minus_random": 0.06888888888888889,
+          "minus_random_ci95": [
+            -0.00222222222222223,
+            0.13777777777777778
+          ],
+          "success": 0.74
+        },
+        {
+          "label": "shortest",
+          "method": "no_coord_best_of_k_shortest",
+          "minus_random": -0.3577777777777778,
+          "minus_random_ci95": [
+            -0.41555555555555557,
+            -0.3022222222222222
+          ],
+          "success": 0.3133333333333333
+        },
+        {
+          "label": "mirror",
+          "method": "no_coord_mirror",
+          "minus_random": -0.06444444444444444,
+          "minus_random_ci95": [
+            -0.1488888888888889,
+            0.02444444444444445
+          ],
+          "success": 0.6066666666666667
+        },
+        {
+          "label": "population",
+          "method": "no_coord_population",
+          "minus_random": 0.05555555555555555,
+          "minus_random_ci95": [
+            -0.028888888888888895,
+            0.14
+          ],
+          "success": 0.7266666666666667
+        },
+        {
+          "label": "consensus+info",
+          "method": "no_coord_consensus_info",
+          "minus_random": 0.3155555555555556,
+          "minus_random_ci95": [
+            0.27111111111111114,
+            0.36
+          ],
+          "success": 0.9866666666666667
+        },
+        {
+          "label": "info prior",
+          "method": "no_coord_informative",
+          "minus_random": 0.3022222222222222,
+          "minus_random_ci95": [
+            0.25333333333333335,
+            0.3488888888888889
+          ],
+          "success": 0.9733333333333334
+        },
+        {
+          "label": "oracle",
+          "method": "no_coord_oracle",
+          "minus_random": 0.3288888888888889,
+          "minus_random_ci95": [
+            0.2888888888888889,
+            0.3688888888888889
+          ],
+          "success": 1.0
+        }
+      ],
+      "n_scenes": 50,
+      "primary_method": "consensus+info",
+      "primary_minus_random": 0.3155555555555556,
+      "primary_minus_random_ci95": [
+        0.27111111111111114,
+        0.36
+      ],
+      "random_expected_success": 0.6711111111111111,
+      "random_expected_success_ci95": [
+        0.6311111111111111,
+        0.7111111111111111
+      ],
+      "random_robust_pick_rate": 0.5266666666666666,
+      "records": "results/partial_observability_api50_no_coord_records.jsonl"
+    }
+  ]
+}

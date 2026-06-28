@@ -1,0 +1,72 @@
+[
+  {
+    "diff_a_minus_b": 0.13333333333333333,
+    "diff_ci95": [
+      0.03333333333333333,
+      0.23333333333333334
+    ],
+    "mean_a": 0.92,
+    "mean_b": 0.7866666666666666,
+    "method_a": "no_coord_consensus_info",
+    "method_b": "no_coord_mirror",
+    "n_pairs": 50,
+    "paired_bootstrap_p_two_sided": 0.004,
+    "scenario_type": null
+  },
+  {
+    "diff_a_minus_b": 0.0,
+    "diff_ci95": [
+      0.0,
+      0.0
+    ],
+    "mean_a": 1.0,
+    "mean_b": 1.0,
+    "method_a": "no_coord_consensus_info",
+    "method_b": "no_coord_mirror",
+    "n_pairs": 10,
+    "paired_bootstrap_p_two_sided": 1.0,
+    "scenario_type": "unique_attribute"
+  },
+  {
+    "diff_a_minus_b": 0.0,
+    "diff_ci95": [
+      0.0,
+      0.0
+    ],
+    "mean_a": 1.0,
+    "mean_b": 1.0,
+    "method_a": "no_coord_consensus_info",
+    "method_b": "no_coord_mirror",
+    "n_pairs": 15,
+    "paired_bootstrap_p_two_sided": 1.0,
+    "scenario_type": "distractor_contrast"
+  },
+  {
+    "diff_a_minus_b": 0.3111111111111111,
+    "diff_ci95": [
+      0.04444444444444444,
+      0.5777777777777778
+    ],
+    "mean_a": 0.8888888888888888,
+    "mean_b": 0.5777777777777777,
+    "method_a": "no_coord_consensus_info",
+    "method_b": "no_coord_mirror",
+    "n_pairs": 15,
+    "paired_bootstrap_p_two_sided": 0.0208,
+    "scenario_type": "relational_reference"
+  },
+  {
+    "diff_a_minus_b": 0.2,
+    "diff_ci95": [
+      0.0,
+      0.4666666666666667
+    ],
+    "mean_a": 0.7666666666666666,
+    "mean_b": 0.5666666666666667,
+    "method_a": "no_coord_consensus_info",
+    "method_b": "no_coord_mirror",
+    "n_pairs": 10,
+    "paired_bootstrap_p_two_sided": 0.0556,
+    "scenario_type": "perspective_shift"
+  }
+]

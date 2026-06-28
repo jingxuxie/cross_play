@@ -1,0 +1,439 @@
+{
+  "high_confidence_threshold": 0.8,
+  "runs": [
+    {
+      "label": "mixed_50_full",
+      "methods": [
+        {
+          "ambiguity_rate": 0.0,
+          "failure_high_confidence_rate": 0.25,
+          "high_confidence_failure_rate": 0.04,
+          "mean_confidence": 0.7374666666666667,
+          "mean_failure_confidence": 0.24166666666666667,
+          "mean_success_confidence": 0.8319047619047619,
+          "method": "api_direct_first",
+          "method_label": "direct",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.12,
+          "success": 0.84
+        },
+        {
+          "ambiguity_rate": 0.006666666666666667,
+          "failure_high_confidence_rate": 0.5641025641025641,
+          "high_confidence_failure_rate": 0.14666666666666667,
+          "mean_confidence": 0.782,
+          "mean_failure_confidence": 0.5358974358974359,
+          "mean_success_confidence": 0.8684684684684685,
+          "method": "api_best_of_k_shortest",
+          "method_label": "shortest",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.24,
+          "success": 0.74
+        },
+        {
+          "ambiguity_rate": 0.006666666666666667,
+          "failure_high_confidence_rate": 0.35714285714285715,
+          "high_confidence_failure_rate": 0.03333333333333333,
+          "mean_confidence": 0.8193333333333334,
+          "mean_failure_confidence": 0.33571428571428574,
+          "mean_success_confidence": 0.8691176470588236,
+          "method": "hybrid_local_mirror_api_eval",
+          "method_label": "mirror",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.06,
+          "success": 0.9066666666666666
+        },
+        {
+          "ambiguity_rate": 0.0,
+          "failure_high_confidence_rate": 0.0,
+          "high_confidence_failure_rate": 0.0,
+          "mean_confidence": 0.9598,
+          "mean_failure_confidence": null,
+          "mean_success_confidence": 0.9598,
+          "method": "hybrid_local_population_api_eval",
+          "method_label": "population",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.0,
+          "success": 1.0
+        }
+      ],
+      "records": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "label": "perspective_gpt54_full",
+      "methods": [
+        {
+          "ambiguity_rate": 0.0,
+          "failure_high_confidence_rate": 0.3023255813953488,
+          "high_confidence_failure_rate": 0.08666666666666667,
+          "mean_confidence": 0.6783333333333333,
+          "mean_failure_confidence": 0.28837209302325584,
+          "mean_success_confidence": 0.8350467289719626,
+          "method": "api_direct_first",
+          "method_label": "direct",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.2,
+          "success": 0.7133333333333334
+        },
+        {
+          "ambiguity_rate": 0.02,
+          "failure_high_confidence_rate": 0.6436781609195402,
+          "high_confidence_failure_rate": 0.37333333333333335,
+          "mean_confidence": 0.6646666666666666,
+          "mean_failure_confidence": 0.6183908045977011,
+          "mean_success_confidence": 0.7285714285714285,
+          "method": "api_best_of_k_shortest",
+          "method_label": "shortest",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.64,
+          "success": 0.42
+        },
+        {
+          "ambiguity_rate": 0.0,
+          "failure_high_confidence_rate": 0.39285714285714285,
+          "high_confidence_failure_rate": 0.07333333333333333,
+          "mean_confidence": 0.7758,
+          "mean_failure_confidence": 0.38571428571428573,
+          "mean_success_confidence": 0.865327868852459,
+          "method": "hybrid_local_mirror_api_eval",
+          "method_label": "mirror",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.2,
+          "success": 0.8133333333333334
+        },
+        {
+          "ambiguity_rate": 0.0,
+          "failure_high_confidence_rate": 0.0,
+          "high_confidence_failure_rate": 0.0,
+          "mean_confidence": 0.9989333333333333,
+          "mean_failure_confidence": null,
+          "mean_success_confidence": 0.9989333333333333,
+          "method": "hybrid_local_population_api_eval",
+          "method_label": "population",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.0,
+          "success": 1.0
+        }
+      ],
+      "records": "results/perspective_stress50_hybrid_records.jsonl"
+    },
+    {
+      "label": "perspective_gpt41_full",
+      "methods": [
+        {
+          "ambiguity_rate": 0.0,
+          "failure_high_confidence_rate": 0.7313432835820896,
+          "high_confidence_failure_rate": 0.32666666666666666,
+          "mean_confidence": 0.8373333333333334,
+          "mean_failure_confidence": 0.8029850746268656,
+          "mean_success_confidence": 0.8650602409638555,
+          "method": "api_direct_first",
+          "method_label": "direct",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.52,
+          "success": 0.5533333333333333
+        },
+        {
+          "ambiguity_rate": 0.0,
+          "failure_high_confidence_rate": 0.7789473684210526,
+          "high_confidence_failure_rate": 0.49333333333333335,
+          "mean_confidence": 0.896,
+          "mean_failure_confidence": 0.8494736842105263,
+          "mean_success_confidence": 0.9763636363636363,
+          "method": "api_best_of_k_shortest",
+          "method_label": "shortest",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.68,
+          "success": 0.36666666666666664
+        },
+        {
+          "ambiguity_rate": 0.0,
+          "failure_high_confidence_rate": 0.5116279069767442,
+          "high_confidence_failure_rate": 0.14666666666666667,
+          "mean_confidence": 0.8766666666666667,
+          "mean_failure_confidence": 0.6767441860465117,
+          "mean_success_confidence": 0.9570093457943926,
+          "method": "hybrid_local_mirror_api_eval",
+          "method_label": "mirror",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.28,
+          "success": 0.7133333333333334
+        },
+        {
+          "ambiguity_rate": 0.0,
+          "failure_high_confidence_rate": 0.0,
+          "high_confidence_failure_rate": 0.0,
+          "mean_confidence": 0.9993333333333333,
+          "mean_failure_confidence": null,
+          "mean_success_confidence": 0.9993333333333333,
+          "method": "hybrid_local_population_api_eval",
+          "method_label": "population",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.0,
+          "success": 1.0
+        }
+      ],
+      "records": "results/perspective_stress50_gpt41nano_records.jsonl"
+    },
+    {
+      "label": "partial_observability_full",
+      "methods": [
+        {
+          "ambiguity_rate": 0.03333333333333333,
+          "failure_high_confidence_rate": 0.48717948717948717,
+          "high_confidence_failure_rate": 0.12666666666666668,
+          "mean_confidence": 0.8059333333333334,
+          "mean_failure_confidence": 0.48692307692307696,
+          "mean_success_confidence": 0.9180180180180181,
+          "method": "api_direct_first",
+          "method_label": "direct",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.2,
+          "success": 0.74
+        },
+        {
+          "ambiguity_rate": 0.18666666666666668,
+          "failure_high_confidence_rate": 0.5825242718446602,
+          "high_confidence_failure_rate": 0.4,
+          "mean_confidence": 0.6156,
+          "mean_failure_confidence": 0.5695145631067962,
+          "mean_success_confidence": 0.7165957446808511,
+          "method": "api_best_of_k_shortest",
+          "method_label": "shortest",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.6,
+          "success": 0.31333333333333335
+        },
+        {
+          "ambiguity_rate": 0.14,
+          "failure_high_confidence_rate": 0.22,
+          "high_confidence_failure_rate": 0.07333333333333333,
+          "mean_confidence": 0.7413333333333333,
+          "mean_failure_confidence": 0.23,
+          "mean_success_confidence": 0.997,
+          "method": "hybrid_local_mirror_api_eval",
+          "method_label": "mirror",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.12,
+          "success": 0.6666666666666666
+        },
+        {
+          "ambiguity_rate": 0.0,
+          "failure_high_confidence_rate": 0.0,
+          "high_confidence_failure_rate": 0.0,
+          "mean_confidence": 0.999,
+          "mean_failure_confidence": null,
+          "mean_success_confidence": 0.999,
+          "method": "hybrid_local_population_api_eval",
+          "method_label": "population",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.0,
+          "success": 1.0
+        }
+      ],
+      "records": "results/partial_observability_api50_records.jsonl"
+    },
+    {
+      "label": "mixed_50_no_coord",
+      "methods": [
+        {
+          "ambiguity_rate": 0.006666666666666667,
+          "failure_high_confidence_rate": 0.5625,
+          "high_confidence_failure_rate": 0.12,
+          "mean_confidence": 0.7606666666666667,
+          "mean_failure_confidence": 0.528125,
+          "mean_success_confidence": 0.823728813559322,
+          "method": "no_coord_mirror",
+          "method_label": "mirror",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.2,
+          "success": 0.7866666666666666
+        },
+        {
+          "ambiguity_rate": 0.006666666666666667,
+          "failure_high_confidence_rate": 0.6176470588235294,
+          "high_confidence_failure_rate": 0.14,
+          "mean_confidence": 0.7933333333333333,
+          "mean_failure_confidence": 0.5852941176470589,
+          "mean_success_confidence": 0.8543103448275862,
+          "method": "no_coord_population",
+          "method_label": "population",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.22,
+          "success": 0.7733333333333333
+        },
+        {
+          "ambiguity_rate": 0.0,
+          "failure_high_confidence_rate": 0.25,
+          "high_confidence_failure_rate": 0.02,
+          "mean_confidence": 0.7824,
+          "mean_failure_confidence": 0.23333333333333334,
+          "mean_success_confidence": 0.8301449275362319,
+          "method": "no_coord_consensus_info",
+          "method_label": "consensus+info",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.02,
+          "success": 0.92
+        },
+        {
+          "ambiguity_rate": 0.0,
+          "failure_high_confidence_rate": 0.26666666666666666,
+          "high_confidence_failure_rate": 0.02666666666666667,
+          "mean_confidence": 0.7266666666666667,
+          "mean_failure_confidence": 0.25333333333333335,
+          "mean_success_confidence": 0.7792592592592592,
+          "method": "no_coord_informative",
+          "method_label": "info prior",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.04,
+          "success": 0.9
+        }
+      ],
+      "records": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "label": "perspective_gpt41_no_coord",
+      "methods": [
+        {
+          "ambiguity_rate": 0.0,
+          "failure_high_confidence_rate": 0.6666666666666666,
+          "high_confidence_failure_rate": 0.28,
+          "mean_confidence": 0.8353333333333334,
+          "mean_failure_confidence": 0.7714285714285715,
+          "mean_success_confidence": 0.8816091954022989,
+          "method": "no_coord_mirror",
+          "method_label": "mirror",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.48,
+          "success": 0.58
+        },
+        {
+          "ambiguity_rate": 0.0,
+          "failure_high_confidence_rate": 0.7586206896551724,
+          "high_confidence_failure_rate": 0.44,
+          "mean_confidence": 0.8826666666666667,
+          "mean_failure_confidence": 0.835632183908046,
+          "mean_success_confidence": 0.9476190476190476,
+          "method": "no_coord_population",
+          "method_label": "population",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.64,
+          "success": 0.42
+        },
+        {
+          "ambiguity_rate": 0.0,
+          "failure_high_confidence_rate": 0.8333333333333334,
+          "high_confidence_failure_rate": 0.2,
+          "mean_confidence": 0.8686666666666667,
+          "mean_failure_confidence": 0.8777777777777778,
+          "mean_success_confidence": 0.8657894736842106,
+          "method": "no_coord_consensus_info",
+          "method_label": "consensus+info",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.36,
+          "success": 0.76
+        },
+        {
+          "ambiguity_rate": 0.0,
+          "failure_high_confidence_rate": 0.8333333333333334,
+          "high_confidence_failure_rate": 0.2,
+          "mean_confidence": 0.8686666666666667,
+          "mean_failure_confidence": 0.8777777777777778,
+          "mean_success_confidence": 0.8657894736842106,
+          "method": "no_coord_informative",
+          "method_label": "info prior",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.36,
+          "success": 0.76
+        }
+      ],
+      "records": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "label": "partial_observability_no_coord",
+      "methods": [
+        {
+          "ambiguity_rate": 0.14666666666666667,
+          "failure_high_confidence_rate": 0.3389830508474576,
+          "high_confidence_failure_rate": 0.13333333333333333,
+          "mean_confidence": 0.7002,
+          "mean_failure_confidence": 0.3389830508474576,
+          "mean_success_confidence": 0.9343956043956044,
+          "method": "no_coord_mirror",
+          "method_label": "mirror",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.2,
+          "success": 0.6066666666666667
+        },
+        {
+          "ambiguity_rate": 0.08666666666666667,
+          "failure_high_confidence_rate": 0.36585365853658536,
+          "high_confidence_failure_rate": 0.1,
+          "mean_confidence": 0.7758666666666667,
+          "mean_failure_confidence": 0.36829268292682926,
+          "mean_success_confidence": 0.9291743119266055,
+          "method": "no_coord_population",
+          "method_label": "population",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.14,
+          "success": 0.7266666666666667
+        },
+        {
+          "ambiguity_rate": 0.0,
+          "failure_high_confidence_rate": 0.0,
+          "high_confidence_failure_rate": 0.0,
+          "mean_confidence": 0.889,
+          "mean_failure_confidence": 0.0,
+          "mean_success_confidence": 0.9010135135135136,
+          "method": "no_coord_consensus_info",
+          "method_label": "consensus+info",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.0,
+          "success": 0.9866666666666667
+        },
+        {
+          "ambiguity_rate": 0.0,
+          "failure_high_confidence_rate": 0.0,
+          "high_confidence_failure_rate": 0.0,
+          "mean_confidence": 0.8796666666666667,
+          "mean_failure_confidence": 0.0,
+          "mean_success_confidence": 0.9037671232876713,
+          "method": "no_coord_informative",
+          "method_label": "info prior",
+          "n_rows": 150,
+          "n_scenes": 50,
+          "scene_high_confidence_failure_rate": 0.0,
+          "success": 0.9733333333333334
+        }
+      ],
+      "records": "results/partial_observability_api50_no_coord_records.jsonl"
+    }
+  ]
+}

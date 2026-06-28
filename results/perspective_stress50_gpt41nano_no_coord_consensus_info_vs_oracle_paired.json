@@ -1,0 +1,63 @@
+[
+  {
+    "diff_a_minus_b": -0.03333333333333333,
+    "diff_ci95": [
+      -0.07333333333333333,
+      -0.006666666666666666
+    ],
+    "mean_a": 0.76,
+    "mean_b": 0.7933333333333333,
+    "method_a": "no_coord_consensus_info",
+    "method_b": "no_coord_oracle",
+    "n_pairs": 50,
+    "paired_bootstrap_p_two_sided": 0.0336,
+    "scenario_type": null
+  },
+  {
+    "diff_a_minus_b": null,
+    "diff_ci95": null,
+    "mean_a": null,
+    "mean_b": null,
+    "method_a": "no_coord_consensus_info",
+    "method_b": "no_coord_oracle",
+    "n_pairs": 0,
+    "paired_bootstrap_p_two_sided": null,
+    "scenario_type": "unique_attribute"
+  },
+  {
+    "diff_a_minus_b": null,
+    "diff_ci95": null,
+    "mean_a": null,
+    "mean_b": null,
+    "method_a": "no_coord_consensus_info",
+    "method_b": "no_coord_oracle",
+    "n_pairs": 0,
+    "paired_bootstrap_p_two_sided": null,
+    "scenario_type": "distractor_contrast"
+  },
+  {
+    "diff_a_minus_b": null,
+    "diff_ci95": null,
+    "mean_a": null,
+    "mean_b": null,
+    "method_a": "no_coord_consensus_info",
+    "method_b": "no_coord_oracle",
+    "n_pairs": 0,
+    "paired_bootstrap_p_two_sided": null,
+    "scenario_type": "relational_reference"
+  },
+  {
+    "diff_a_minus_b": -0.03333333333333333,
+    "diff_ci95": [
+      -0.07333333333333333,
+      -0.006666666666666666
+    ],
+    "mean_a": 0.76,
+    "mean_b": 0.7933333333333333,
+    "method_a": "no_coord_consensus_info",
+    "method_b": "no_coord_oracle",
+    "n_pairs": 50,
+    "paired_bootstrap_p_two_sided": 0.0336,
+    "scenario_type": "perspective_shift"
+  }
+]

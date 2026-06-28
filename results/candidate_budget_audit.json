@@ -1,0 +1,156 @@
+{
+  "runs": [
+    {
+      "first_robust_position": {
+        "counts": {
+          "1": 39,
+          "2": 1,
+          "3": 6,
+          "4": 4
+        },
+        "mean": 1.5,
+        "missing": 0
+      },
+      "label": "mixed_50_full",
+      "max_k": 4,
+      "n_scenes": 50,
+      "prefix_rows": [
+        {
+          "k": 1,
+          "oracle_success": 0.84,
+          "robust_scene_rate": 0.78
+        },
+        {
+          "k": 2,
+          "oracle_success": 0.8533333333333333,
+          "robust_scene_rate": 0.8
+        },
+        {
+          "k": 3,
+          "oracle_success": 0.96,
+          "robust_scene_rate": 0.92
+        },
+        {
+          "k": 4,
+          "oracle_success": 1.0,
+          "robust_scene_rate": 1.0
+        }
+      ],
+      "source": "results/hybrid_api_pilot50_allcand_candidate_eval_records.jsonl"
+    },
+    {
+      "first_robust_position": {
+        "counts": {
+          "1": 30,
+          "2": 4,
+          "3": 7,
+          "4": 9
+        },
+        "mean": 1.9,
+        "missing": 0
+      },
+      "label": "perspective_gpt54_full",
+      "max_k": 4,
+      "n_scenes": 50,
+      "prefix_rows": [
+        {
+          "k": 1,
+          "oracle_success": 0.7133333333333334,
+          "robust_scene_rate": 0.6
+        },
+        {
+          "k": 2,
+          "oracle_success": 0.7866666666666666,
+          "robust_scene_rate": 0.68
+        },
+        {
+          "k": 3,
+          "oracle_success": 0.8933333333333333,
+          "robust_scene_rate": 0.82
+        },
+        {
+          "k": 4,
+          "oracle_success": 1.0,
+          "robust_scene_rate": 1.0
+        }
+      ],
+      "source": "results/perspective_stress50_hybrid_candidate_eval_records.jsonl"
+    },
+    {
+      "first_robust_position": {
+        "counts": {
+          "1": 19,
+          "2": 1,
+          "3": 13,
+          "4": 17
+        },
+        "mean": 2.56,
+        "missing": 0
+      },
+      "label": "perspective_gpt41_full",
+      "max_k": 4,
+      "n_scenes": 50,
+      "prefix_rows": [
+        {
+          "k": 1,
+          "oracle_success": 0.5533333333333333,
+          "robust_scene_rate": 0.38
+        },
+        {
+          "k": 2,
+          "oracle_success": 0.62,
+          "robust_scene_rate": 0.4
+        },
+        {
+          "k": 3,
+          "oracle_success": 0.7933333333333333,
+          "robust_scene_rate": 0.66
+        },
+        {
+          "k": 4,
+          "oracle_success": 1.0,
+          "robust_scene_rate": 1.0
+        }
+      ],
+      "source": "results/perspective_stress50_gpt41nano_candidate_eval_records.jsonl"
+    },
+    {
+      "first_robust_position": {
+        "counts": {
+          "1": 31,
+          "2": 0,
+          "3": 19,
+          "4": 0
+        },
+        "mean": 1.76,
+        "missing": 0
+      },
+      "label": "partial_observability_full",
+      "max_k": 4,
+      "n_scenes": 50,
+      "prefix_rows": [
+        {
+          "k": 1,
+          "oracle_success": 0.74,
+          "robust_scene_rate": 0.62
+        },
+        {
+          "k": 2,
+          "oracle_success": 0.7466666666666667,
+          "robust_scene_rate": 0.62
+        },
+        {
+          "k": 3,
+          "oracle_success": 1.0,
+          "robust_scene_rate": 1.0
+        },
+        {
+          "k": 4,
+          "oracle_success": 1.0,
+          "robust_scene_rate": 1.0
+        }
+      ],
+      "source": "results/partial_observability_api50_candidate_eval_records.jsonl"
+    }
+  ]
+}

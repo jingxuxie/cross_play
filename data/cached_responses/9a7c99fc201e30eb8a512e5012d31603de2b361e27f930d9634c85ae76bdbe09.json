@@ -1,0 +1,118 @@
+{
+  "created_at": 1782590915.2734945,
+  "data": {
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1782590915,
+    "created_at": 1782590912,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "id": "resp_0afe947000966490006a402dc06b08819889effa52b3fa087f",
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 220,
+    "max_tool_calls": null,
+    "metadata": {},
+    "model": "gpt-5.4-nano-2026-03-17",
+    "moderation": null,
+    "object": "response",
+    "output": [
+      {
+        "content": [
+          {
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"utterances\":[\"The large yellow sphere\u2014it's the only yellow sphere on the left side of the scene.\",\"Large yellow sphere.\",\"Look for the yellow sphere left of the other yellow sphere.\",\"The target is the large yellow sphere at row 3, column 2.\"]}",
+            "type": "output_text"
+          }
+        ],
+        "id": "msg_0afe947000966490006a402dc288c481989124110f49011e3d",
+        "phase": "final_answer",
+        "role": "assistant",
+        "status": "completed",
+        "type": "message"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "current_turn",
+      "effort": "none",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "status": "completed",
+    "store": true,
+    "temperature": 0.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 776,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 60,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 836
+    },
+    "user": null
+  },
+  "request_hash_payload": {
+    "endpoint": "responses",
+    "max_output_tokens": 220,
+    "model": "gpt-5.4-nano",
+    "provider": "openai",
+    "schema_version": "speaker-v2-target-attrs",
+    "system": "You are the SPEAKER in a situated reference game. Write short natural-language messages that help a listener identify the target object. Do not mention the hidden target ID. Use only listener-visible information. First verify the target object's attributes, then describe that exact object. Return valid JSON only.",
+    "temperature": 0.0,
+    "user": "Scene:\n{\n  \"listener_orientation\": \"north\",\n  \"listener_view_text\": \"Scene po_000039. You face north.\\nRows increase from top to bottom; columns increase from left to right.\\nCandidate objects:\\n- obj_5: large blue cylinder at row 5, column 5\\n- obj_4: large green pyramid at row 4, column 2\\n- obj_1: large yellow sphere at row 3, column 2\\n- obj_2: large yellow sphere at row 3, column 4\",\n  \"objects\": [\n    {\n      \"color\": \"blue\",\n      \"column\": 5,\n      \"id\": \"obj_5\",\n      \"row\": 5,\n      \"shape\": \"cylinder\",\n      \"size\": \"large\",\n      \"visible_to_listener\": true\n    },\n    {\n      \"color\": \"green\",\n      \"column\": 2,\n      \"id\": \"obj_4\",\n      \"row\": 4,\n      \"shape\": \"pyramid\",\n      \"size\": \"large\",\n      \"visible_to_listener\": true\n    },\n    {\n      \"color\": \"yellow\",\n      \"column\": 2,\n      \"id\": \"obj_1\",\n      \"row\": 3,\n      \"shape\": \"sphere\",\n      \"size\": \"large\",\n      \"visible_to_listener\": true\n    },\n    {\n      \"color\": \"yellow\",\n      \"column\": 4,\n      \"id\": \"obj_2\",\n      \"row\": 3,\n      \"shape\": \"sphere\",\n      \"size\": \"large\",\n      \"visible_to_listener\": true\n    },\n    {\n      \"color\": \"blue\",\n      \"column\": 3,\n      \"id\": \"obj_3\",\n      \"row\": 3,\n      \"shape\": \"cone\",\n      \"size\": \"large\",\n      \"visible_to_listener\": false\n    }\n  ],\n  \"scenario_type\": \"partial_observability\",\n  \"scene_id\": \"po_000039\",\n  \"speaker_orientation\": \"north\",\n  \"speaker_view_text\": \"Scene po_000039 (partial_observability).\\nYou face north; the listener faces north.\\nRows increase from top to bottom; columns increase from left to right.\\nVisible objects:\\n- obj_5: large blue cylinder at row 5, column 5\\n- obj_4: large green pyramid at row 4, column 2\\n- obj_1: large yellow sphere at row 3, column 2\\n- obj_2: large yellow sphere at row 3, column 4\\n- obj_3: large blue cone at row 3, column 3\"\n}\n\nTarget object ID visible only to you: obj_1\nTarget object attributes visible to you: {\"color\": \"yellow\", \"column\": 2, \"row\": 3, \"shape\": \"sphere\", \"size\": \"large\"}\n\nGenerate exactly 4 different messages, ordered as follows:\n1. A natural first attempt without exact row/column coordinates unless there is no other option.\n2. A concise attribute-based message.\n3. A relational or spatial message using listener-visible landmarks when possible.\n4. A fully explicit fallback that may use row/column coordinates.\nEach message should be at most 25 words.\nReturn exactly this JSON shape: {\"utterances\": [\"...\", \"...\"]}"
+  },
+  "text": "{\"utterances\":[\"The large yellow sphere\u2014it's the only yellow sphere on the left side of the scene.\",\"Large yellow sphere.\",\"Look for the yellow sphere left of the other yellow sphere.\",\"The target is the large yellow sphere at row 3, column 2.\"]}",
+  "usage": {
+    "input_tokens": 776,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 60,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 836
+  }
+}

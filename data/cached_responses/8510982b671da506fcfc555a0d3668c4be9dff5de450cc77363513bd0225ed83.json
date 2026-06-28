@@ -1,0 +1,118 @@
+{
+  "created_at": 1782558601.3867702,
+  "data": {
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1782558601,
+    "created_at": 1782558600,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "id": "resp_0fc0a9d60fa4af5f006a3faf883aa8819a8c5a2cffc7f9492a",
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 220,
+    "max_tool_calls": null,
+    "metadata": {},
+    "model": "gpt-5.4-nano-2026-03-17",
+    "moderation": null,
+    "object": "response",
+    "output": [
+      {
+        "content": [
+          {
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"utterances\":[\"The large orange cube.\",\"Large orange cube.\",\"The orange cube that\u2019s left of the red sphere.\",\"If needed: the large orange cube at row 3, column 2.\"]}",
+            "type": "output_text"
+          }
+        ],
+        "id": "msg_0fc0a9d60fa4af5f006a3faf889f9c819a80f1f443041be4a6",
+        "phase": "final_answer",
+        "role": "assistant",
+        "status": "completed",
+        "type": "message"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "current_turn",
+      "effort": "none",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "status": "completed",
+    "store": true,
+    "temperature": 0.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 740,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 46,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 786
+    },
+    "user": null
+  },
+  "request_hash_payload": {
+    "endpoint": "responses",
+    "max_output_tokens": 220,
+    "model": "gpt-5.4-nano",
+    "provider": "openai",
+    "schema_version": "speaker-v1",
+    "system": "You are the SPEAKER in a situated reference game. Write short natural-language messages that help a listener identify the target object. Do not mention the hidden target ID. Use only listener-visible information. Return valid JSON only.",
+    "temperature": 0.0,
+    "user": "Scene:\n{\n  \"listener_orientation\": \"north\",\n  \"listener_view_text\": \"Scene rr_000029. You face north.\\nRows increase from top to bottom; columns increase from left to right.\\nCandidate objects:\\n- obj_2: large red sphere at row 3, column 3\\n- obj_4: large blue sphere at row 1, column 1\\n- obj_1: large orange cube at row 3, column 2\\n- obj_3: large orange cube at row 2, column 5\\n- obj_5: large blue pyramid at row 5, column 4\",\n  \"objects\": [\n    {\n      \"color\": \"red\",\n      \"column\": 3,\n      \"id\": \"obj_2\",\n      \"row\": 3,\n      \"shape\": \"sphere\",\n      \"size\": \"large\",\n      \"visible_to_listener\": true\n    },\n    {\n      \"color\": \"blue\",\n      \"column\": 1,\n      \"id\": \"obj_4\",\n      \"row\": 1,\n      \"shape\": \"sphere\",\n      \"size\": \"large\",\n      \"visible_to_listener\": true\n    },\n    {\n      \"color\": \"orange\",\n      \"column\": 2,\n      \"id\": \"obj_1\",\n      \"row\": 3,\n      \"shape\": \"cube\",\n      \"size\": \"large\",\n      \"visible_to_listener\": true\n    },\n    {\n      \"color\": \"orange\",\n      \"column\": 5,\n      \"id\": \"obj_3\",\n      \"row\": 2,\n      \"shape\": \"cube\",\n      \"size\": \"large\",\n      \"visible_to_listener\": true\n    },\n    {\n      \"color\": \"blue\",\n      \"column\": 4,\n      \"id\": \"obj_5\",\n      \"row\": 5,\n      \"shape\": \"pyramid\",\n      \"size\": \"large\",\n      \"visible_to_listener\": true\n    }\n  ],\n  \"scenario_type\": \"relational_reference\",\n  \"scene_id\": \"rr_000029\",\n  \"speaker_orientation\": \"north\",\n  \"speaker_view_text\": \"Scene rr_000029 (relational_reference).\\nYou face north; the listener faces north.\\nRows increase from top to bottom; columns increase from left to right.\\nVisible objects:\\n- obj_2: large red sphere at row 3, column 3\\n- obj_4: large blue sphere at row 1, column 1\\n- obj_1: large orange cube at row 3, column 2\\n- obj_3: large orange cube at row 2, column 5\\n- obj_5: large blue pyramid at row 5, column 4\"\n}\n\nTarget object ID visible only to you: obj_1\n\nGenerate exactly 4 different messages, ordered as follows:\n1. A natural first attempt without exact row/column coordinates unless there is no other option.\n2. A concise attribute-based message.\n3. A relational or spatial message using listener-visible landmarks when possible.\n4. A fully explicit fallback that may use row/column coordinates.\nEach message should be at most 25 words.\nReturn exactly this JSON shape: {\"utterances\": [\"...\", \"...\"]}"
+  },
+  "text": "{\"utterances\":[\"The large orange cube.\",\"Large orange cube.\",\"The orange cube that\u2019s left of the red sphere.\",\"If needed: the large orange cube at row 3, column 2.\"]}",
+  "usage": {
+    "input_tokens": 740,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 46,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 786
+  }
+}

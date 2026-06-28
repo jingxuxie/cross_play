@@ -1,0 +1,662 @@
+{
+  "role_labels": {
+    "0": "natural_first",
+    "1": "attribute_short",
+    "2": "relational_or_spatial",
+    "3": "coordinate_fallback"
+  },
+  "role_order": [
+    "natural_first",
+    "attribute_short",
+    "relational_or_spatial",
+    "coordinate_fallback"
+  ],
+  "runs": [
+    {
+      "filter": "full",
+      "label": "mixed_50_full",
+      "methods": [
+        {
+          "method": "hybrid_local_mirror_api_eval",
+          "method_label": "mirror",
+          "n_missing_success": 0,
+          "n_scenes": 50,
+          "n_success_scenes": 50,
+          "n_unresolved": 0,
+          "role_counts": {
+            "attribute_short": 38,
+            "coordinate_fallback": 7,
+            "natural_first": 0,
+            "relational_or_spatial": 5,
+            "unresolved": 0
+          },
+          "role_rates": {
+            "attribute_short": 0.76,
+            "coordinate_fallback": 0.14,
+            "natural_first": 0.0,
+            "relational_or_spatial": 0.1,
+            "unresolved": 0.0
+          },
+          "role_success": {
+            "attribute_short": 0.9210526315789473,
+            "coordinate_fallback": 1.0,
+            "relational_or_spatial": 0.6666666666666666
+          },
+          "selection_field": "mirror_selected",
+          "success": 0.9066666666666666,
+          "unresolved_examples": []
+        },
+        {
+          "method": "hybrid_local_population_api_eval",
+          "method_label": "population",
+          "n_missing_success": 0,
+          "n_scenes": 50,
+          "n_success_scenes": 50,
+          "n_unresolved": 0,
+          "role_counts": {
+            "attribute_short": 25,
+            "coordinate_fallback": 21,
+            "natural_first": 0,
+            "relational_or_spatial": 4,
+            "unresolved": 0
+          },
+          "role_rates": {
+            "attribute_short": 0.5,
+            "coordinate_fallback": 0.42,
+            "natural_first": 0.0,
+            "relational_or_spatial": 0.08,
+            "unresolved": 0.0
+          },
+          "role_success": {
+            "attribute_short": 1.0,
+            "coordinate_fallback": 1.0,
+            "relational_or_spatial": 1.0
+          },
+          "selection_field": "population_selected",
+          "success": 1.0,
+          "unresolved_examples": []
+        }
+      ],
+      "records": "results/hybrid_api_pilot50_allcand_records.jsonl",
+      "selection_kind": "full",
+      "selection_source": "results/hybrid_api_pilot50_allcand_candidates.jsonl"
+    },
+    {
+      "filter": "full",
+      "label": "perspective_gpt54_full",
+      "methods": [
+        {
+          "method": "hybrid_local_mirror_api_eval",
+          "method_label": "mirror",
+          "n_missing_success": 0,
+          "n_scenes": 50,
+          "n_success_scenes": 50,
+          "n_unresolved": 0,
+          "role_counts": {
+            "attribute_short": 24,
+            "coordinate_fallback": 17,
+            "natural_first": 1,
+            "relational_or_spatial": 8,
+            "unresolved": 0
+          },
+          "role_rates": {
+            "attribute_short": 0.48,
+            "coordinate_fallback": 0.34,
+            "natural_first": 0.02,
+            "relational_or_spatial": 0.16,
+            "unresolved": 0.0
+          },
+          "role_success": {
+            "attribute_short": 0.6944444444444444,
+            "coordinate_fallback": 1.0,
+            "natural_first": 0.6666666666666666,
+            "relational_or_spatial": 0.7916666666666666
+          },
+          "selection_field": "mirror_selected",
+          "success": 0.8133333333333334,
+          "unresolved_examples": []
+        },
+        {
+          "method": "hybrid_local_population_api_eval",
+          "method_label": "population",
+          "n_missing_success": 0,
+          "n_scenes": 50,
+          "n_success_scenes": 50,
+          "n_unresolved": 0,
+          "role_counts": {
+            "attribute_short": 0,
+            "coordinate_fallback": 50,
+            "natural_first": 0,
+            "relational_or_spatial": 0,
+            "unresolved": 0
+          },
+          "role_rates": {
+            "attribute_short": 0.0,
+            "coordinate_fallback": 1.0,
+            "natural_first": 0.0,
+            "relational_or_spatial": 0.0,
+            "unresolved": 0.0
+          },
+          "role_success": {
+            "coordinate_fallback": 1.0
+          },
+          "selection_field": "population_selected",
+          "success": 1.0,
+          "unresolved_examples": []
+        }
+      ],
+      "records": "results/perspective_stress50_hybrid_records.jsonl",
+      "selection_kind": "full",
+      "selection_source": "results/perspective_stress50_hybrid_candidates.jsonl"
+    },
+    {
+      "filter": "full",
+      "label": "perspective_gpt41_full",
+      "methods": [
+        {
+          "method": "hybrid_local_mirror_api_eval",
+          "method_label": "mirror",
+          "n_missing_success": 0,
+          "n_scenes": 50,
+          "n_success_scenes": 50,
+          "n_unresolved": 0,
+          "role_counts": {
+            "attribute_short": 24,
+            "coordinate_fallback": 17,
+            "natural_first": 1,
+            "relational_or_spatial": 8,
+            "unresolved": 0
+          },
+          "role_rates": {
+            "attribute_short": 0.48,
+            "coordinate_fallback": 0.34,
+            "natural_first": 0.02,
+            "relational_or_spatial": 0.16,
+            "unresolved": 0.0
+          },
+          "role_success": {
+            "attribute_short": 0.4722222222222222,
+            "coordinate_fallback": 1.0,
+            "natural_first": 0.6666666666666666,
+            "relational_or_spatial": 0.8333333333333334
+          },
+          "selection_field": "mirror_selected",
+          "success": 0.7133333333333334,
+          "unresolved_examples": []
+        },
+        {
+          "method": "hybrid_local_population_api_eval",
+          "method_label": "population",
+          "n_missing_success": 0,
+          "n_scenes": 50,
+          "n_success_scenes": 50,
+          "n_unresolved": 0,
+          "role_counts": {
+            "attribute_short": 0,
+            "coordinate_fallback": 50,
+            "natural_first": 0,
+            "relational_or_spatial": 0,
+            "unresolved": 0
+          },
+          "role_rates": {
+            "attribute_short": 0.0,
+            "coordinate_fallback": 1.0,
+            "natural_first": 0.0,
+            "relational_or_spatial": 0.0,
+            "unresolved": 0.0
+          },
+          "role_success": {
+            "coordinate_fallback": 1.0
+          },
+          "selection_field": "population_selected",
+          "success": 1.0,
+          "unresolved_examples": []
+        }
+      ],
+      "records": "results/perspective_stress50_gpt41nano_records.jsonl",
+      "selection_kind": "full",
+      "selection_source": "results/perspective_stress50_gpt41nano_audit.jsonl"
+    },
+    {
+      "filter": "full",
+      "label": "partial_observability_full",
+      "methods": [
+        {
+          "method": "hybrid_local_mirror_api_eval",
+          "method_label": "mirror",
+          "n_missing_success": 0,
+          "n_scenes": 50,
+          "n_success_scenes": 50,
+          "n_unresolved": 0,
+          "role_counts": {
+            "attribute_short": 25,
+            "coordinate_fallback": 24,
+            "natural_first": 1,
+            "relational_or_spatial": 0,
+            "unresolved": 0
+          },
+          "role_rates": {
+            "attribute_short": 0.5,
+            "coordinate_fallback": 0.48,
+            "natural_first": 0.02,
+            "relational_or_spatial": 0.0,
+            "unresolved": 0.0
+          },
+          "role_success": {
+            "attribute_short": 0.36,
+            "coordinate_fallback": 1.0,
+            "natural_first": 0.3333333333333333
+          },
+          "selection_field": "mirror_selected",
+          "success": 0.6666666666666666,
+          "unresolved_examples": []
+        },
+        {
+          "method": "hybrid_local_population_api_eval",
+          "method_label": "population",
+          "n_missing_success": 0,
+          "n_scenes": 50,
+          "n_success_scenes": 50,
+          "n_unresolved": 0,
+          "role_counts": {
+            "attribute_short": 0,
+            "coordinate_fallback": 50,
+            "natural_first": 0,
+            "relational_or_spatial": 0,
+            "unresolved": 0
+          },
+          "role_rates": {
+            "attribute_short": 0.0,
+            "coordinate_fallback": 1.0,
+            "natural_first": 0.0,
+            "relational_or_spatial": 0.0,
+            "unresolved": 0.0
+          },
+          "role_success": {
+            "coordinate_fallback": 1.0
+          },
+          "selection_field": "population_selected",
+          "success": 1.0,
+          "unresolved_examples": []
+        }
+      ],
+      "records": "results/partial_observability_api50_records.jsonl",
+      "selection_kind": "full",
+      "selection_source": "results/partial_observability_api50_candidates.jsonl"
+    },
+    {
+      "filter": "no_exact_coordinates",
+      "label": "mixed_50_no_coord",
+      "methods": [
+        {
+          "method": "no_coord_mirror",
+          "method_label": "mirror",
+          "n_missing_success": 0,
+          "n_scenes": 50,
+          "n_success_scenes": 50,
+          "n_unresolved": 0,
+          "role_counts": {
+            "attribute_short": 43,
+            "coordinate_fallback": 0,
+            "natural_first": 2,
+            "relational_or_spatial": 5,
+            "unresolved": 0
+          },
+          "role_rates": {
+            "attribute_short": 0.86,
+            "coordinate_fallback": 0.0,
+            "natural_first": 0.04,
+            "relational_or_spatial": 0.1,
+            "unresolved": 0.0
+          },
+          "role_success": {
+            "attribute_short": 0.813953488372093,
+            "natural_first": 0.5,
+            "relational_or_spatial": 0.6666666666666666
+          },
+          "selection_field": "mirror_selected",
+          "success": 0.7866666666666666,
+          "unresolved_examples": []
+        },
+        {
+          "method": "no_coord_population",
+          "method_label": "population",
+          "n_missing_success": 0,
+          "n_scenes": 50,
+          "n_success_scenes": 50,
+          "n_unresolved": 0,
+          "role_counts": {
+            "attribute_short": 42,
+            "coordinate_fallback": 0,
+            "natural_first": 1,
+            "relational_or_spatial": 7,
+            "unresolved": 0
+          },
+          "role_rates": {
+            "attribute_short": 0.84,
+            "coordinate_fallback": 0.0,
+            "natural_first": 0.02,
+            "relational_or_spatial": 0.14,
+            "unresolved": 0.0
+          },
+          "role_success": {
+            "attribute_short": 0.7380952380952381,
+            "natural_first": 0.6666666666666666,
+            "relational_or_spatial": 1.0
+          },
+          "selection_field": "population_selected",
+          "success": 0.7733333333333333,
+          "unresolved_examples": []
+        },
+        {
+          "method": "no_coord_consensus_info",
+          "method_label": "consensus+info",
+          "n_missing_success": 0,
+          "n_scenes": 50,
+          "n_success_scenes": 50,
+          "n_unresolved": 0,
+          "role_counts": {
+            "attribute_short": 16,
+            "coordinate_fallback": 0,
+            "natural_first": 16,
+            "relational_or_spatial": 18,
+            "unresolved": 0
+          },
+          "role_rates": {
+            "attribute_short": 0.32,
+            "coordinate_fallback": 0.0,
+            "natural_first": 0.32,
+            "relational_or_spatial": 0.36,
+            "unresolved": 0.0
+          },
+          "role_success": {
+            "attribute_short": 1.0,
+            "natural_first": 0.9791666666666666,
+            "relational_or_spatial": 0.7962962962962963
+          },
+          "selection_field": "consensus_info_selected",
+          "success": 0.92,
+          "unresolved_examples": []
+        }
+      ],
+      "records": "results/hybrid_api_pilot50_no_coord_records.jsonl",
+      "selection_kind": "no_coord",
+      "selection_source": "results/hybrid_api_pilot50_no_coord_audit.jsonl"
+    },
+    {
+      "filter": "no_exact_coordinates",
+      "label": "perspective_gpt41_no_coord",
+      "methods": [
+        {
+          "method": "no_coord_mirror",
+          "method_label": "mirror",
+          "n_missing_success": 0,
+          "n_scenes": 50,
+          "n_success_scenes": 50,
+          "n_unresolved": 0,
+          "role_counts": {
+            "attribute_short": 24,
+            "coordinate_fallback": 0,
+            "natural_first": 15,
+            "relational_or_spatial": 11,
+            "unresolved": 0
+          },
+          "role_rates": {
+            "attribute_short": 0.48,
+            "coordinate_fallback": 0.0,
+            "natural_first": 0.3,
+            "relational_or_spatial": 0.22,
+            "unresolved": 0.0
+          },
+          "role_success": {
+            "attribute_short": 0.4722222222222222,
+            "natural_first": 0.6,
+            "relational_or_spatial": 0.7878787878787878
+          },
+          "selection_field": "mirror_selected",
+          "success": 0.58,
+          "unresolved_examples": []
+        },
+        {
+          "method": "no_coord_population",
+          "method_label": "population",
+          "n_missing_success": 0,
+          "n_scenes": 50,
+          "n_success_scenes": 50,
+          "n_unresolved": 0,
+          "role_counts": {
+            "attribute_short": 46,
+            "coordinate_fallback": 0,
+            "natural_first": 0,
+            "relational_or_spatial": 4,
+            "unresolved": 0
+          },
+          "role_rates": {
+            "attribute_short": 0.92,
+            "coordinate_fallback": 0.0,
+            "natural_first": 0.0,
+            "relational_or_spatial": 0.08,
+            "unresolved": 0.0
+          },
+          "role_success": {
+            "attribute_short": 0.39855072463768115,
+            "relational_or_spatial": 0.6666666666666666
+          },
+          "selection_field": "population_selected",
+          "success": 0.42,
+          "unresolved_examples": []
+        },
+        {
+          "method": "no_coord_consensus_info",
+          "method_label": "consensus+info",
+          "n_missing_success": 0,
+          "n_scenes": 50,
+          "n_success_scenes": 50,
+          "n_unresolved": 0,
+          "role_counts": {
+            "attribute_short": 0,
+            "coordinate_fallback": 0,
+            "natural_first": 21,
+            "relational_or_spatial": 29,
+            "unresolved": 0
+          },
+          "role_rates": {
+            "attribute_short": 0.0,
+            "coordinate_fallback": 0.0,
+            "natural_first": 0.42,
+            "relational_or_spatial": 0.58,
+            "unresolved": 0.0
+          },
+          "role_success": {
+            "natural_first": 0.7301587301587301,
+            "relational_or_spatial": 0.7816091954022989
+          },
+          "selection_field": "consensus_info_selected",
+          "success": 0.76,
+          "unresolved_examples": []
+        }
+      ],
+      "records": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl",
+      "selection_kind": "no_coord",
+      "selection_source": "results/perspective_stress50_gpt41nano_no_coord_audit.jsonl"
+    },
+    {
+      "filter": "no_exact_coordinates",
+      "label": "partial_observability_no_coord",
+      "methods": [
+        {
+          "method": "no_coord_mirror",
+          "method_label": "mirror",
+          "n_missing_success": 0,
+          "n_scenes": 50,
+          "n_success_scenes": 50,
+          "n_unresolved": 0,
+          "role_counts": {
+            "attribute_short": 29,
+            "coordinate_fallback": 0,
+            "natural_first": 19,
+            "relational_or_spatial": 2,
+            "unresolved": 0
+          },
+          "role_rates": {
+            "attribute_short": 0.58,
+            "coordinate_fallback": 0.0,
+            "natural_first": 0.38,
+            "relational_or_spatial": 0.04,
+            "unresolved": 0.0
+          },
+          "role_success": {
+            "attribute_short": 0.3448275862068965,
+            "natural_first": 0.9649122807017544,
+            "relational_or_spatial": 1.0
+          },
+          "selection_field": "mirror_selected",
+          "success": 0.6066666666666667,
+          "unresolved_examples": []
+        },
+        {
+          "method": "no_coord_population",
+          "method_label": "population",
+          "n_missing_success": 0,
+          "n_scenes": 50,
+          "n_success_scenes": 50,
+          "n_unresolved": 0,
+          "role_counts": {
+            "attribute_short": 20,
+            "coordinate_fallback": 0,
+            "natural_first": 25,
+            "relational_or_spatial": 5,
+            "unresolved": 0
+          },
+          "role_rates": {
+            "attribute_short": 0.4,
+            "coordinate_fallback": 0.0,
+            "natural_first": 0.5,
+            "relational_or_spatial": 0.1,
+            "unresolved": 0.0
+          },
+          "role_success": {
+            "attribute_short": 0.35,
+            "natural_first": 0.9733333333333334,
+            "relational_or_spatial": 1.0
+          },
+          "selection_field": "population_selected",
+          "success": 0.7266666666666667,
+          "unresolved_examples": []
+        },
+        {
+          "method": "no_coord_consensus_info",
+          "method_label": "consensus+info",
+          "n_missing_success": 0,
+          "n_scenes": 50,
+          "n_success_scenes": 50,
+          "n_unresolved": 0,
+          "role_counts": {
+            "attribute_short": 0,
+            "coordinate_fallback": 0,
+            "natural_first": 27,
+            "relational_or_spatial": 23,
+            "unresolved": 0
+          },
+          "role_rates": {
+            "attribute_short": 0.0,
+            "coordinate_fallback": 0.0,
+            "natural_first": 0.54,
+            "relational_or_spatial": 0.46,
+            "unresolved": 0.0
+          },
+          "role_success": {
+            "natural_first": 1.0,
+            "relational_or_spatial": 0.9710144927536232
+          },
+          "selection_field": "consensus_info_selected",
+          "success": 0.9866666666666667,
+          "unresolved_examples": []
+        }
+      ],
+      "records": "results/partial_observability_api50_no_coord_records.jsonl",
+      "selection_kind": "no_coord",
+      "selection_source": "results/partial_observability_api50_no_coord_audit.jsonl"
+    }
+  ],
+  "summary": {
+    "full_mirror_attribute_short_rates": [
+      {
+        "label": "mixed_50_full",
+        "rate": 0.76
+      },
+      {
+        "label": "perspective_gpt54_full",
+        "rate": 0.48
+      },
+      {
+        "label": "perspective_gpt41_full",
+        "rate": 0.48
+      },
+      {
+        "label": "partial_observability_full",
+        "rate": 0.5
+      }
+    ],
+    "full_population_coordinate_fallback_rates": [
+      {
+        "label": "mixed_50_full",
+        "rate": 0.42
+      },
+      {
+        "label": "perspective_gpt54_full",
+        "rate": 1.0
+      },
+      {
+        "label": "perspective_gpt41_full",
+        "rate": 1.0
+      },
+      {
+        "label": "partial_observability_full",
+        "rate": 1.0
+      }
+    ],
+    "no_coord_consensus_attribute_short_rates": [
+      {
+        "label": "mixed_50_no_coord",
+        "rate": 0.32
+      },
+      {
+        "label": "perspective_gpt41_no_coord",
+        "rate": 0.0
+      },
+      {
+        "label": "partial_observability_no_coord",
+        "rate": 0.0
+      }
+    ],
+    "no_coord_consensus_relational_rates": [
+      {
+        "label": "mixed_50_no_coord",
+        "rate": 0.36
+      },
+      {
+        "label": "perspective_gpt41_no_coord",
+        "rate": 0.58
+      },
+      {
+        "label": "partial_observability_no_coord",
+        "rate": 0.46
+      }
+    ],
+    "no_coord_mirror_attribute_short_rates": [
+      {
+        "label": "mixed_50_no_coord",
+        "rate": 0.86
+      },
+      {
+        "label": "perspective_gpt41_no_coord",
+        "rate": 0.48
+      },
+      {
+        "label": "partial_observability_no_coord",
+        "rate": 0.58
+      }
+    ]
+  }
+}

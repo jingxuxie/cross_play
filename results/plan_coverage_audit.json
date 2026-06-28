@@ -1,0 +1,395 @@
+{
+  "core_status_counts": {
+    "covered": 17,
+    "open": 0,
+    "partial": 2
+  },
+  "items": [
+    {
+      "detail": "Benchmark artifacts, prompt appendix, cached-response checks, evaluation scripts, and paper tables are present and integrity-checked.",
+      "evidence": [
+        "prag_crossplay/scenes.py",
+        "data/local_benchmark600_scenes.jsonl",
+        "docs/protocol_and_prompts.md",
+        "data/cached_responses/",
+        "scripts/audit_benchmark_integrity.py",
+        "paper/tables/"
+      ],
+      "plan_item": "Contribution 1: PRAG-CrossPlay benchmark with scene generator, JSONL data, prompt templates, cached outputs, evaluation scripts, figures, and tables.",
+      "scope": "core",
+      "section": "Core contribution package",
+      "status": "covered"
+    },
+    {
+      "detail": "Paper and artifact guide report same-play, cross-play, and gap values.",
+      "evidence": [
+        "paper/main.tex",
+        "paper/tables/mixed50.tex",
+        "docs/artifact_guide.md"
+      ],
+      "plan_item": "Contribution 2: cross-play protocol separates same-play success, cross-play success, and generalization gap.",
+      "scope": "core",
+      "section": "Core contribution package",
+      "status": "covered"
+    },
+    {
+      "detail": "Claims, mechanism audits, and coded failures support the partner-overfitting diagnosis.",
+      "evidence": [
+        "paper/main.tex",
+        "results/paper_claims_verification.json",
+        "docs/failure_taxonomy_audit.md"
+      ],
+      "plan_item": "Contribution 3: empirical diagnosis of partner overfitting.",
+      "scope": "core",
+      "section": "Core contribution package",
+      "status": "covered"
+    },
+    {
+      "detail": "All five scenario families are implemented and documented; partial observability is included as a bounded support run.",
+      "evidence": [
+        "prag_crossplay/scenes.py",
+        "docs/protocol_and_prompts.md",
+        "data/partial_observability_local50_scenes.jsonl"
+      ],
+      "plan_item": "Implement the five scenario families, with the first four as the minimum viable paper and partial observability as a stretch condition.",
+      "scope": "core",
+      "section": "Task and scenarios",
+      "status": "covered"
+    },
+    {
+      "detail": "A no-API 600-scene balanced local benchmark validates the released generator at the planned scale.",
+      "evidence": [
+        "data/local_benchmark600_scenes.jsonl",
+        "results/local_benchmark600_check.json"
+      ],
+      "plan_item": "Minimum viable benchmark scale: 600 test episodes balanced over four initial scenario families.",
+      "scope": "core",
+      "section": "Dataset scale",
+      "status": "covered"
+    },
+    {
+      "detail": "The project uses a 50-scene dev/API pilot, not the 200 development episodes suggested by the stronger plan.",
+      "evidence": [
+        "data/dev_scenes.jsonl",
+        "results/hybrid_api_pilot50_allcand_summary.json"
+      ],
+      "plan_item": "Use development episodes for debugging prompts and tuning the generator.",
+      "scope": "core",
+      "section": "Dataset scale",
+      "status": "partial"
+    },
+    {
+      "detail": "Minimum method matrix is present in both cached API pilot summaries and the 600-scene local benchmark.",
+      "evidence": [
+        "results/hybrid_api_pilot50_allcand_summary.json",
+        "results/local_benchmark600_summary.json"
+      ],
+      "plan_item": "Run the minimum method matrix: template, direct, best-of-K, mirror self-play, population-play, and oracle upper bound.",
+      "scope": "core",
+      "section": "Experiments",
+      "status": "covered"
+    },
+    {
+      "detail": "All cached API responses have usage metadata and the held-out listener prompt surface is documented.",
+      "evidence": [
+        "data/cached_responses/",
+        "results/api_token_accounting.json",
+        "docs/protocol_and_prompts.md"
+      ],
+      "plan_item": "Use bounded API runs with cached speaker/listener calls and held-out listener prompts/models.",
+      "scope": "core",
+      "section": "Experiments",
+      "status": "covered"
+    },
+    {
+      "detail": "Held-out prompt variants and the alternate gpt-4.1-nano listener audit are documented.",
+      "evidence": [
+        "results/perspective_stress50_gpt41nano_summary.json",
+        "docs/artifact_guide.md"
+      ],
+      "plan_item": "Evaluate partner shift with held-out listener prompts and at least one alternate held-out model family.",
+      "scope": "core",
+      "section": "Experiments",
+      "status": "covered"
+    },
+    {
+      "detail": "Hard-case diagnostics are present: perspective stress, no-coordinate ablations, candidate-budget audit, and partial observability.",
+      "evidence": [
+        "results/perspective_stress50_gpt41nano_no_coord_summary.json",
+        "results/partial_observability_api50_check.json",
+        "docs/candidate_budget_audit.md"
+      ],
+      "plan_item": "Add hard-case diagnostics if results are near ceiling: perspective stress, no-coordinate ablation, and partial observability.",
+      "scope": "core",
+      "section": "Experiments",
+      "status": "covered"
+    },
+    {
+      "detail": "Objective success, gaps, CIs, and paired comparison claims are reported and verifier-covered.",
+      "evidence": [
+        "paper/main.tex",
+        "paper/tables/mixed50.tex",
+        "results/*_paired.json"
+      ],
+      "plan_item": "Report objective success, same-play, cross-play, cross-play gap, bootstrap confidence intervals, and paired comparisons.",
+      "scope": "core",
+      "section": "Metrics and statistics",
+      "status": "covered"
+    },
+    {
+      "detail": "Listener-disagreement and confidence audits cover partner-robustness and ambiguity/confidence diagnostics.",
+      "evidence": [
+        "docs/listener_disagreement_audit.md",
+        "docs/listener_confidence_audit.md"
+      ],
+      "plan_item": "Analyze robustness across partners and ambiguity/confidence proxies.",
+      "scope": "core",
+      "section": "Metrics and statistics",
+      "status": "covered"
+    },
+    {
+      "detail": "There are 152 author-coded listener-level mirror failures across paper-facing hard cases, but not a balanced 100-failure sample across all major methods.",
+      "evidence": [
+        "results/perspective_stress50_gpt41nano_mirror_failures_coded.csv",
+        "results/partial_observability_api50_mirror_failures_coded.csv",
+        "results/partial_observability_api50_no_coord_mirror_failures_coded.csv",
+        "docs/failure_taxonomy_audit.md"
+      ],
+      "plan_item": "Hand-label roughly 100 failures into interpretable categories.",
+      "scope": "core",
+      "section": "Failure analysis",
+      "status": "partial"
+    },
+    {
+      "detail": "Selection-regret and candidate-pool audits separate missing candidates from selector regret.",
+      "evidence": [
+        "docs/selection_regret_audit.md",
+        "docs/candidate_pool_audit.md"
+      ],
+      "plan_item": "Separate generation failures from selector failures with oracle upper bound and selection regret.",
+      "scope": "core",
+      "section": "Analysis artifacts",
+      "status": "covered"
+    },
+    {
+      "detail": "Random-candidate and message-length audits address two simple alternative explanations.",
+      "evidence": [
+        "docs/random_candidate_baseline.md",
+        "docs/message_length_audit.md"
+      ],
+      "plan_item": "Rule out simple explanations such as any candidate would do or longer messages are enough.",
+      "scope": "core",
+      "section": "Analysis artifacts",
+      "status": "covered"
+    },
+    {
+      "detail": "Paper and generated appendix include qualitative mirror-failure and repair examples.",
+      "evidence": [
+        "docs/qualitative_failure_examples.md",
+        "results/qualitative_failure_examples.json",
+        "paper/main.tex"
+      ],
+      "plan_item": "Produce qualitative examples showing mirror failure and population or consensus repair.",
+      "scope": "core",
+      "section": "Analysis artifacts",
+      "status": "covered"
+    },
+    {
+      "detail": "Readiness audit confirms required sections, 8-page PDFs, final-template export, and no open actions.",
+      "evidence": [
+        "paper/main.tex",
+        "paper/main.pdf",
+        "results/submission_readiness_audit.json"
+      ],
+      "plan_item": "Write a 4-8 page workshop paper with intro, related work, task, methods, experiments, results, qualitative analysis, limitations, and conclusion.",
+      "scope": "core",
+      "section": "Paper package",
+      "status": "covered"
+    },
+    {
+      "detail": "README, reproduction commands, prompt appendix, reviewer checklist, and artifact guide are present.",
+      "evidence": [
+        "README.md",
+        "REPRODUCE.md",
+        "docs/protocol_and_prompts.md",
+        "docs/reviewer_checklist.md",
+        "docs/artifact_guide.md"
+      ],
+      "plan_item": "Release a reproducible artifact package with README, protocol appendix, cached outputs, verification scripts, and quality checklist.",
+      "scope": "core",
+      "section": "Paper package",
+      "status": "covered"
+    },
+    {
+      "detail": "Claim verifier passes and limitations/conservative-claim notes are explicit.",
+      "evidence": [
+        "paper/main.tex",
+        "docs/paper_claims_iteration_002.md",
+        "results/paper_claims_verification.json"
+      ],
+      "plan_item": "Keep claims conservative and limitations honest.",
+      "scope": "core",
+      "section": "Paper package",
+      "status": "covered"
+    },
+    {
+      "detail": "A no-API local diagnostic now runs the stronger 1,000 initial-family plus 200 partial-observability scale, but the paper-facing API listener runs remain bounded 50-scene diagnostics.",
+      "evidence": [
+        "cross_play_pragmatics_workshop_plan.md",
+        "data/local_stronger_plan1200_scenes.jsonl",
+        "docs/local_stronger_plan_k8.md",
+        "results/local_stronger_plan_k8.json"
+      ],
+      "plan_item": "Run a 1,000-scene benchmark and 200 partial-observability stress episodes.",
+      "scope": "stretch",
+      "section": "Stronger-plan extensions",
+      "status": "partial"
+    },
+    {
+      "detail": "The local stronger-plan diagnostic evaluates K=8 candidate slots and shows added non-coordinate diversity; cached API speaker artifacts remain K=4.",
+      "evidence": [
+        "docs/candidate_budget_audit.md",
+        "docs/local_stronger_plan_k8.md",
+        "results/local_stronger_plan_k8.json"
+      ],
+      "plan_item": "Evaluate K=8 candidate generation in addition to K=4.",
+      "scope": "stretch",
+      "section": "Stronger-plan extensions",
+      "status": "partial"
+    },
+    {
+      "detail": "A replay-only interaction-memory rule audit is present, but no new memory-prompt generation/evaluation run is claimed.",
+      "evidence": [
+        "docs/interaction_memory_rules.md",
+        "results/interaction_memory_rules.json"
+      ],
+      "plan_item": "Run an actual interaction-memory prompt rerun after distilling rules from failures.",
+      "scope": "stretch",
+      "section": "Stronger-plan extensions",
+      "status": "partial"
+    },
+    {
+      "detail": "The paper explicitly notes that held-out listeners are API LLMs and broader human validation remains future work.",
+      "evidence": [
+        "REPRODUCE.md",
+        "paper/main.tex"
+      ],
+      "plan_item": "Validate failures with human or independent non-LLM judgments.",
+      "scope": "stretch",
+      "section": "Stronger-plan extensions",
+      "status": "open"
+    },
+    {
+      "detail": "The local artifact package is complete and reproducible, but this workspace is not currently a git repository, so public publishing is separate work.",
+      "evidence": [
+        "README.md",
+        "REPRODUCE.md"
+      ],
+      "plan_item": "Publish the artifact as a public repository or submission bundle.",
+      "scope": "stretch",
+      "section": "Release engineering",
+      "status": "partial"
+    }
+  ],
+  "n_items": 24,
+  "open_or_partial": [
+    {
+      "detail": "The project uses a 50-scene dev/API pilot, not the 200 development episodes suggested by the stronger plan.",
+      "evidence": [
+        "data/dev_scenes.jsonl",
+        "results/hybrid_api_pilot50_allcand_summary.json"
+      ],
+      "plan_item": "Use development episodes for debugging prompts and tuning the generator.",
+      "scope": "core",
+      "section": "Dataset scale",
+      "status": "partial"
+    },
+    {
+      "detail": "There are 152 author-coded listener-level mirror failures across paper-facing hard cases, but not a balanced 100-failure sample across all major methods.",
+      "evidence": [
+        "results/perspective_stress50_gpt41nano_mirror_failures_coded.csv",
+        "results/partial_observability_api50_mirror_failures_coded.csv",
+        "results/partial_observability_api50_no_coord_mirror_failures_coded.csv",
+        "docs/failure_taxonomy_audit.md"
+      ],
+      "plan_item": "Hand-label roughly 100 failures into interpretable categories.",
+      "scope": "core",
+      "section": "Failure analysis",
+      "status": "partial"
+    },
+    {
+      "detail": "A no-API local diagnostic now runs the stronger 1,000 initial-family plus 200 partial-observability scale, but the paper-facing API listener runs remain bounded 50-scene diagnostics.",
+      "evidence": [
+        "cross_play_pragmatics_workshop_plan.md",
+        "data/local_stronger_plan1200_scenes.jsonl",
+        "docs/local_stronger_plan_k8.md",
+        "results/local_stronger_plan_k8.json"
+      ],
+      "plan_item": "Run a 1,000-scene benchmark and 200 partial-observability stress episodes.",
+      "scope": "stretch",
+      "section": "Stronger-plan extensions",
+      "status": "partial"
+    },
+    {
+      "detail": "The local stronger-plan diagnostic evaluates K=8 candidate slots and shows added non-coordinate diversity; cached API speaker artifacts remain K=4.",
+      "evidence": [
+        "docs/candidate_budget_audit.md",
+        "docs/local_stronger_plan_k8.md",
+        "results/local_stronger_plan_k8.json"
+      ],
+      "plan_item": "Evaluate K=8 candidate generation in addition to K=4.",
+      "scope": "stretch",
+      "section": "Stronger-plan extensions",
+      "status": "partial"
+    },
+    {
+      "detail": "A replay-only interaction-memory rule audit is present, but no new memory-prompt generation/evaluation run is claimed.",
+      "evidence": [
+        "docs/interaction_memory_rules.md",
+        "results/interaction_memory_rules.json"
+      ],
+      "plan_item": "Run an actual interaction-memory prompt rerun after distilling rules from failures.",
+      "scope": "stretch",
+      "section": "Stronger-plan extensions",
+      "status": "partial"
+    },
+    {
+      "detail": "The paper explicitly notes that held-out listeners are API LLMs and broader human validation remains future work.",
+      "evidence": [
+        "REPRODUCE.md",
+        "paper/main.tex"
+      ],
+      "plan_item": "Validate failures with human or independent non-LLM judgments.",
+      "scope": "stretch",
+      "section": "Stronger-plan extensions",
+      "status": "open"
+    },
+    {
+      "detail": "The local artifact package is complete and reproducible, but this workspace is not currently a git repository, so public publishing is separate work.",
+      "evidence": [
+        "README.md",
+        "REPRODUCE.md"
+      ],
+      "plan_item": "Publish the artifact as a public repository or submission bundle.",
+      "scope": "stretch",
+      "section": "Release engineering",
+      "status": "partial"
+    }
+  ],
+  "source_plan": "cross_play_pragmatics_workshop_plan.md",
+  "status_counts": {
+    "covered": 17,
+    "open": 1,
+    "partial": 6
+  },
+  "status_definitions": {
+    "covered": "Current artifacts directly satisfy the plan item.",
+    "open": "The item remains future work and is not claimed by the paper.",
+    "partial": "Current artifacts address the item only at smaller scale, narrower scope, or as diagnostic support."
+  },
+  "stretch_status_counts": {
+    "covered": 0,
+    "open": 1,
+    "partial": 4
+  }
+}

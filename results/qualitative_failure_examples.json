@@ -1,0 +1,310 @@
+{
+  "description": "Cache-only representative qualitative examples linking selected messages, held-out listener choices, and generated scene context.",
+  "examples": [
+    {
+      "confuser": "obj_2: small green sphere at row 1, column 4 (visible)",
+      "failure_category": "underspecified_distractor",
+      "interpretation": "The mirror-selected message names attributes shared by the target and distractor. The population-selected message adds a listener-invariant coordinate fallback.",
+      "label": "perspective_underspecification",
+      "listener_orientation": "east",
+      "mirror_message": "It\u2019s a small green sphere.",
+      "mirror_outcome": {
+        "choices": {
+          "obj_1": 1,
+          "obj_2": 2
+        },
+        "listeners": [
+          {
+            "choice_id": "obj_1",
+            "listener": "gpt-4.1-nano:careful",
+            "reason_code": "other",
+            "success": 1
+          },
+          {
+            "choice_id": "obj_2",
+            "listener": "gpt-4.1-nano:direct_last",
+            "reason_code": "attribute",
+            "success": 0
+          },
+          {
+            "choice_id": "obj_2",
+            "listener": "gpt-4.1-nano:strict_last",
+            "reason_code": "attribute|ambiguous|position|other",
+            "success": 0
+          }
+        ],
+        "n": 3,
+        "success_rate": 0.3333333333333333,
+        "successes": 1
+      },
+      "private_landmark_id": "-",
+      "repair_label": "population",
+      "repair_message": "The target is the small green sphere at row 4, column 1.",
+      "repair_outcome": {
+        "choices": {
+          "obj_1": 3
+        },
+        "listeners": [
+          {
+            "choice_id": "obj_1",
+            "listener": "gpt-4.1-nano:careful",
+            "reason_code": "other",
+            "success": 1
+          },
+          {
+            "choice_id": "obj_1",
+            "listener": "gpt-4.1-nano:direct_last",
+            "reason_code": "attribute",
+            "success": 1
+          },
+          {
+            "choice_id": "obj_1",
+            "listener": "gpt-4.1-nano:strict_last",
+            "reason_code": "relation",
+            "success": 1
+          }
+        ],
+        "n": 3,
+        "success_rate": 1.0,
+        "successes": 3
+      },
+      "scenario_type": "perspective_shift",
+      "scene_id": "ps_000005",
+      "source_audit": "results/perspective_stress50_gpt41nano_audit.jsonl",
+      "source_coding": "results/perspective_stress50_gpt41nano_mirror_failures_coded.csv",
+      "source_records": "results/perspective_stress50_gpt41nano_records.jsonl",
+      "speaker_orientation": "north",
+      "target": "obj_1: small green sphere at row 4, column 1 (visible)",
+      "title": "Perspective scene with attribute underspecification"
+    },
+    {
+      "confuser": "obj_2: large yellow cube at row 1, column 4 (visible)",
+      "failure_category": "perspective_frame_error",
+      "interpretation": "The mirror-selected relation uses left/right language that is brittle under partner orientation shift. The population selector chooses an unambiguous fallback.",
+      "label": "perspective_frame_error",
+      "listener_orientation": "east",
+      "mirror_message": "Find the large yellow cube left of the purple cylinder.",
+      "mirror_outcome": {
+        "choices": {
+          "obj_1": 2,
+          "obj_2": 1
+        },
+        "listeners": [
+          {
+            "choice_id": "obj_2",
+            "listener": "gpt-4.1-nano:careful",
+            "reason_code": "other",
+            "success": 0
+          },
+          {
+            "choice_id": "obj_1",
+            "listener": "gpt-4.1-nano:direct_last",
+            "reason_code": "relation|position|ambiguous",
+            "success": 1
+          },
+          {
+            "choice_id": "obj_1",
+            "listener": "gpt-4.1-nano:strict_last",
+            "reason_code": "relation",
+            "success": 1
+          }
+        ],
+        "n": 3,
+        "success_rate": 0.6666666666666666,
+        "successes": 2
+      },
+      "private_landmark_id": "-",
+      "repair_label": "population",
+      "repair_message": "Go to row 4, column 1: the large yellow cube.",
+      "repair_outcome": {
+        "choices": {
+          "obj_1": 3
+        },
+        "listeners": [
+          {
+            "choice_id": "obj_1",
+            "listener": "gpt-4.1-nano:careful",
+            "reason_code": "other",
+            "success": 1
+          },
+          {
+            "choice_id": "obj_1",
+            "listener": "gpt-4.1-nano:direct_last",
+            "reason_code": "position",
+            "success": 1
+          },
+          {
+            "choice_id": "obj_1",
+            "listener": "gpt-4.1-nano:strict_last",
+            "reason_code": "position",
+            "success": 1
+          }
+        ],
+        "n": 3,
+        "success_rate": 1.0,
+        "successes": 3
+      },
+      "scenario_type": "perspective_shift",
+      "scene_id": "ps_000011",
+      "source_audit": "results/perspective_stress50_gpt41nano_audit.jsonl",
+      "source_coding": "results/perspective_stress50_gpt41nano_mirror_failures_coded.csv",
+      "source_records": "results/perspective_stress50_gpt41nano_records.jsonl",
+      "speaker_orientation": "north",
+      "target": "obj_1: large yellow cube at row 4, column 1 (visible)",
+      "title": "Perspective scene with frame-sensitive relation"
+    },
+    {
+      "confuser": "obj_2: small green sphere at row 3, column 4 (visible)",
+      "failure_category": "underspecified_distractor",
+      "interpretation": "The failure does not require private-landmark leakage: the mirror message is simply too short to distinguish two listener-visible same-attribute objects.",
+      "label": "partial_observability_underspecification",
+      "listener_orientation": "north",
+      "mirror_message": "Small green sphere.",
+      "mirror_outcome": {
+        "choices": {
+          "obj_1": 1,
+          "obj_2": 2
+        },
+        "listeners": [
+          {
+            "choice_id": "obj_1",
+            "listener": "L_test_careful_api",
+            "reason_code": "other",
+            "success": 1
+          },
+          {
+            "choice_id": "obj_2",
+            "listener": "L_test_direct_last_api",
+            "reason_code": "ambiguous",
+            "success": 0
+          },
+          {
+            "choice_id": "obj_2",
+            "listener": "L_test_strict_last_api",
+            "reason_code": "ambiguous",
+            "success": 0
+          }
+        ],
+        "n": 3,
+        "success_rate": 0.3333333333333333,
+        "successes": 1
+      },
+      "private_landmark_id": "obj_3",
+      "repair_label": "population",
+      "repair_message": "The target is the small green sphere at row 3, column 2.",
+      "repair_outcome": {
+        "choices": {
+          "obj_1": 3
+        },
+        "listeners": [
+          {
+            "choice_id": "obj_1",
+            "listener": "L_test_careful_api",
+            "reason_code": "other",
+            "success": 1
+          },
+          {
+            "choice_id": "obj_1",
+            "listener": "L_test_direct_last_api",
+            "reason_code": "position",
+            "success": 1
+          },
+          {
+            "choice_id": "obj_1",
+            "listener": "L_test_strict_last_api",
+            "reason_code": "position",
+            "success": 1
+          }
+        ],
+        "n": 3,
+        "success_rate": 1.0,
+        "successes": 3
+      },
+      "scenario_type": "partial_observability",
+      "scene_id": "po_000005",
+      "source_audit": "results/partial_observability_api50_candidates.jsonl",
+      "source_coding": "results/partial_observability_api50_mirror_failures_coded.csv",
+      "source_records": "results/partial_observability_api50_records.jsonl",
+      "speaker_orientation": "north",
+      "target": "obj_1: small green sphere at row 3, column 2 (visible)",
+      "title": "Partial-observability scene with visible distractor ambiguity"
+    },
+    {
+      "confuser": "obj_2: large red sphere at row 3, column 4 (visible)",
+      "failure_category": "underspecified_distractor",
+      "interpretation": "After exact coordinates are filtered out, consensus+info can still repair the mirror failure by selecting a more informative visible cue.",
+      "label": "partial_observability_no_coordinate_repair",
+      "listener_orientation": "north",
+      "mirror_message": "Large red sphere.",
+      "mirror_outcome": {
+        "choices": {
+          "obj_1": 1,
+          "obj_2": 2
+        },
+        "listeners": [
+          {
+            "choice_id": "obj_1",
+            "listener": "L_test_careful_api",
+            "reason_code": "other",
+            "success": 1
+          },
+          {
+            "choice_id": "obj_2",
+            "listener": "L_test_direct_last_api",
+            "reason_code": "attribute",
+            "success": 0
+          },
+          {
+            "choice_id": "obj_2",
+            "listener": "L_test_strict_last_api",
+            "reason_code": "ambiguous",
+            "success": 0
+          }
+        ],
+        "n": 3,
+        "success_rate": 0.3333333333333333,
+        "successes": 1
+      },
+      "private_landmark_id": "obj_3",
+      "repair_label": "consensus+info",
+      "repair_message": "The large red sphere in the upper-left area of the scene.",
+      "repair_outcome": {
+        "choices": {
+          "obj_1": 3
+        },
+        "listeners": [
+          {
+            "choice_id": "obj_1",
+            "listener": "L_test_careful_api",
+            "reason_code": "other",
+            "success": 1
+          },
+          {
+            "choice_id": "obj_1",
+            "listener": "L_test_direct_last_api",
+            "reason_code": "position",
+            "success": 1
+          },
+          {
+            "choice_id": "obj_1",
+            "listener": "L_test_strict_last_api",
+            "reason_code": "position",
+            "success": 1
+          }
+        ],
+        "n": 3,
+        "success_rate": 1.0,
+        "successes": 3
+      },
+      "scenario_type": "partial_observability",
+      "scene_id": "po_000000",
+      "source_audit": "results/partial_observability_api50_no_coord_audit.jsonl",
+      "source_coding": "results/partial_observability_api50_no_coord_mirror_failures_coded.csv",
+      "source_records": "results/partial_observability_api50_no_coord_records.jsonl",
+      "speaker_orientation": "north",
+      "target": "obj_1: large red sphere at row 3, column 2 (visible)",
+      "title": "No-coordinate repair using consensus+info"
+    }
+  ],
+  "n_examples": 4
+}

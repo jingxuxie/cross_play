@@ -1,0 +1,27 @@
+[
+  {
+    "diff_a_minus_b": 0.12000000000000001,
+    "diff_ci95": [
+      0.05333333333333334,
+      0.2
+    ],
+    "mean_a": 0.7266666666666667,
+    "mean_b": 0.6066666666666667,
+    "method_a": "no_coord_population",
+    "method_b": "no_coord_mirror",
+    "n_pairs": 50,
+    "paired_bootstrap_p_two_sided": 0.0,
+    "scenario_type": null
+  },
+  {
+    "diff_a_minus_b": null,
+    "diff_ci95": null,
+    "mean_a": null,
+    "mean_b": null,
+    "method_a": "no_coord_population",
+    "method_b": "no_coord_mirror",
+    "n_pairs": 0,
+    "paired_bootstrap_p_two_sided": null,
+    "scenario_type": "perspective_shift"
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "seed": 0,
+  "k": 4,
+  "scene_counts": {
+    "unique_attribute": 10,
+    "distractor_contrast": 15,
+    "relational_reference": 15,
+    "perspective_shift": 10
+  },
+  "api": {
+    "bulk_model": "gpt-5.4-nano",
+    "temperature": 0.0,
+    "max_api_pilot_scenes": 4,
+    "cache_dir": "data/cached_responses"
+  }
+}

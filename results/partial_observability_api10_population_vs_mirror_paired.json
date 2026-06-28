@@ -1,0 +1,74 @@
+[
+  {
+    "diff_a_minus_b": 0.2666666666666667,
+    "diff_ci95": [
+      0.06666666666666668,
+      0.46666666666666673
+    ],
+    "mean_a": 1.0,
+    "mean_b": 0.7333333333333333,
+    "method_a": "hybrid_local_population_api_eval",
+    "method_b": "hybrid_local_mirror_api_eval",
+    "n_pairs": 10,
+    "paired_bootstrap_p_two_sided": 0.0108,
+    "scenario_type": null
+  },
+  {
+    "diff_a_minus_b": null,
+    "diff_ci95": null,
+    "mean_a": null,
+    "mean_b": null,
+    "method_a": "hybrid_local_population_api_eval",
+    "method_b": "hybrid_local_mirror_api_eval",
+    "n_pairs": 0,
+    "paired_bootstrap_p_two_sided": null,
+    "scenario_type": "unique_attribute"
+  },
+  {
+    "diff_a_minus_b": null,
+    "diff_ci95": null,
+    "mean_a": null,
+    "mean_b": null,
+    "method_a": "hybrid_local_population_api_eval",
+    "method_b": "hybrid_local_mirror_api_eval",
+    "n_pairs": 0,
+    "paired_bootstrap_p_two_sided": null,
+    "scenario_type": "distractor_contrast"
+  },
+  {
+    "diff_a_minus_b": null,
+    "diff_ci95": null,
+    "mean_a": null,
+    "mean_b": null,
+    "method_a": "hybrid_local_population_api_eval",
+    "method_b": "hybrid_local_mirror_api_eval",
+    "n_pairs": 0,
+    "paired_bootstrap_p_two_sided": null,
+    "scenario_type": "relational_reference"
+  },
+  {
+    "diff_a_minus_b": null,
+    "diff_ci95": null,
+    "mean_a": null,
+    "mean_b": null,
+    "method_a": "hybrid_local_population_api_eval",
+    "method_b": "hybrid_local_mirror_api_eval",
+    "n_pairs": 0,
+    "paired_bootstrap_p_two_sided": null,
+    "scenario_type": "perspective_shift"
+  },
+  {
+    "diff_a_minus_b": 0.2666666666666667,
+    "diff_ci95": [
+      0.06666666666666668,
+      0.46666666666666673
+    ],
+    "mean_a": 1.0,
+    "mean_b": 0.7333333333333333,
+    "method_a": "hybrid_local_population_api_eval",
+    "method_b": "hybrid_local_mirror_api_eval",
+    "n_pairs": 10,
+    "paired_bootstrap_p_two_sided": 0.0108,
+    "scenario_type": "partial_observability"
+  }
+]
