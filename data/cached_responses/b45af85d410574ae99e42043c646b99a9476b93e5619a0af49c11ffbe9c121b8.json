@@ -1,0 +1,124 @@
+{
+  "created_at": 1782688874.1444473,
+  "data": {
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1782688873,
+    "created_at": 1782688872,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "id": "resp_0047aafc073f8a12006a41ac6838888196ae31dda1e4aa4562",
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 180,
+    "max_tool_calls": null,
+    "metadata": {},
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "object": "response",
+    "output": [
+      {
+        "content": [],
+        "id": "rs_0047aafc073f8a12006a41ac68ed348196ace4948d34af6d74",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "content": [
+          {
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"message\":\"Select the large red sphere at row 3, column 2.\"}",
+            "type": "output_text"
+          }
+        ],
+        "id": "msg_0047aafc073f8a12006a41ac69b94881969349e7e711a8e182",
+        "phase": "final_answer",
+        "role": "assistant",
+        "status": "completed",
+        "type": "message"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "current_turn",
+      "effort": "medium",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "status": "completed",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 848,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 92,
+      "output_tokens_details": {
+        "reasoning_tokens": 68
+      },
+      "total_tokens": 940
+    },
+    "user": null
+  },
+  "request_hash_payload": {
+    "endpoint": "responses",
+    "max_output_tokens": 180,
+    "model": "gpt-5.5",
+    "provider": "openai",
+    "schema_version": "interaction-memory-speaker-v1",
+    "system": "You are the SPEAKER in a situated reference game. You previously saw a message fail under held-out listeners. Use the interaction-memory rules to write one short replacement message that lets the listener identify the exact target. Use only listener-visible information, never mention the hidden target ID, and return valid JSON only.",
+    "temperature": null,
+    "user": "Scene:\n{\n  \"listener_orientation\": \"north\",\n  \"listener_view_text\": \"Scene po_000000. You face north.\\nRows increase from top to bottom; columns increase from left to right.\\nCandidate objects:\\n- obj_1: large red sphere at row 3, column 2\\n- obj_2: large red sphere at row 3, column 4\\n- obj_4: large purple pyramid at row 4, column 2\\n- obj_5: small blue sphere at row 5, column 5\",\n  \"objects\": [\n    {\n      \"color\": \"red\",\n      \"column\": 2,\n      \"id\": \"obj_1\",\n      \"row\": 3,\n      \"shape\": \"sphere\",\n      \"size\": \"large\",\n      \"visible_to_listener\": true\n    },\n    {\n      \"color\": \"red\",\n      \"column\": 4,\n      \"id\": \"obj_2\",\n      \"row\": 3,\n      \"shape\": \"sphere\",\n      \"size\": \"large\",\n      \"visible_to_listener\": true\n    },\n    {\n      \"color\": \"green\",\n      \"column\": 3,\n      \"id\": \"obj_3\",\n      \"row\": 3,\n      \"shape\": \"cylinder\",\n      \"size\": \"large\",\n      \"visible_to_listener\": false\n    },\n    {\n      \"color\": \"purple\",\n      \"column\": 2,\n      \"id\": \"obj_4\",\n      \"row\": 4,\n      \"shape\": \"pyramid\",\n      \"size\": \"large\",\n      \"visible_to_listener\": true\n    },\n    {\n      \"color\": \"blue\",\n      \"column\": 5,\n      \"id\": \"obj_5\",\n      \"row\": 5,\n      \"shape\": \"sphere\",\n      \"size\": \"small\",\n      \"visible_to_listener\": true\n    }\n  ],\n  \"scenario_type\": \"partial_observability\",\n  \"scene_id\": \"po_000000\",\n  \"speaker_orientation\": \"north\",\n  \"speaker_view_text\": \"Scene po_000000 (partial_observability).\\nYou face north; the listener faces north.\\nRows increase from top to bottom; columns increase from left to right.\\nVisible objects:\\n- obj_1: large red sphere at row 3, column 2\\n- obj_2: large red sphere at row 3, column 4\\n- obj_3: large green cylinder at row 3, column 3\\n- obj_4: large purple pyramid at row 4, column 2\\n- obj_5: small blue sphere at row 5, column 5\"\n}\n\nTarget object ID visible only to you: obj_1\nTarget object attributes visible to you: {\"color\": \"red\", \"column\": 2, \"row\": 3, \"shape\": \"sphere\", \"size\": \"large\"}\nPreviously failed message: \"Large red sphere.\"\nObserved failure condition: partial_mirror_failure\n\nInteraction-memory rules:\n1. If another visible object shares the target's size/color/shape, add a visible discriminator such as row/column or an unambiguous spatial relation.\n2. When speaker and listener perspectives differ, avoid relying only on left/right; prefer listener-invariant coordinates or visible anchors.\n3. Use only listener-visible landmarks; never mention hidden or private landmarks.\n4. If exact coordinates are disallowed, prefer the relational/spatial candidate over a short attribute-only candidate when both seem locally acceptable.\n\nWrite exactly one replacement message, at most 25 words. Prefer coordinates only when they are the clearest listener-invariant visible discriminator.\nReturn exactly this JSON shape: {\"message\": \"...\"}"
+  },
+  "text": "{\"message\":\"Select the large red sphere at row 3, column 2.\"}",
+  "usage": {
+    "input_tokens": 848,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 92,
+    "output_tokens_details": {
+      "reasoning_tokens": 68
+    },
+    "total_tokens": 940
+  }
+}

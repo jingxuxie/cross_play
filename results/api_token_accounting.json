@@ -22,24 +22,33 @@
     },
     {
       "cached_input_tokens": 0,
-      "input_tokens": 821936,
-      "mean_total_tokens": 289.4470550370132,
-      "n_responses": 3107,
-      "output_tokens": 77376,
+      "input_tokens": 845422,
+      "mean_total_tokens": 292.92353870458135,
+      "n_responses": 3165,
+      "output_tokens": 81681,
       "requested_model": "gpt-5.5",
       "response_model": "gpt-5.5-2026-04-23",
-      "total_tokens": 899312
+      "total_tokens": 927103
     }
   ],
   "by_schema_family": [
     {
       "cached_input_tokens": 0,
-      "input_tokens": 1670270,
+      "input_tokens": 12913,
+      "label": "interaction",
+      "mean_total_tokens": 948.6666666666666,
+      "n_responses": 15,
+      "output_tokens": 1317,
+      "total_tokens": 14230
+    },
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 1680843,
       "label": "listener",
-      "mean_total_tokens": 267.12122538293215,
-      "n_responses": 6855,
-      "output_tokens": 160846,
-      "total_tokens": 1831116
+      "mean_total_tokens": 267.42200637866046,
+      "n_responses": 6898,
+      "output_tokens": 163834,
+      "total_tokens": 1844677
     },
     {
       "cached_input_tokens": 0,
@@ -52,6 +61,15 @@
     }
   ],
   "by_schema_version": [
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 12913,
+      "label": "interaction-memory-speaker-v1",
+      "mean_total_tokens": 948.6666666666666,
+      "n_responses": 15,
+      "output_tokens": 1317,
+      "total_tokens": 14230
+    },
     {
       "cached_input_tokens": 0,
       "input_tokens": 2024,
@@ -72,30 +90,39 @@
     },
     {
       "cached_input_tokens": 0,
-      "input_tokens": 508106,
+      "input_tokens": 511355,
       "label": "listener-heldout_careful-v1",
-      "mean_total_tokens": 253.4159492523788,
-      "n_responses": 2207,
-      "output_tokens": 51183,
-      "total_tokens": 559289
+      "mean_total_tokens": 253.64160288158487,
+      "n_responses": 2221,
+      "output_tokens": 51983,
+      "total_tokens": 563338
     },
     {
       "cached_input_tokens": 0,
-      "input_tokens": 554712,
+      "input_tokens": 238,
+      "label": "listener-heldout_careful-v1-retry600",
+      "mean_total_tokens": 328,
+      "n_responses": 1,
+      "output_tokens": 90,
+      "total_tokens": 328
+    },
+    {
+      "cached_input_tokens": 0,
+      "input_tokens": 557996,
       "label": "listener-heldout_direct_last-v1",
-      "mean_total_tokens": 274.9352355072464,
-      "n_responses": 2208,
-      "output_tokens": 52345,
-      "total_tokens": 607057
+      "mean_total_tokens": 275.2143178748312,
+      "n_responses": 2221,
+      "output_tokens": 53255,
+      "total_tokens": 611251
     },
     {
       "cached_input_tokens": 0,
-      "input_tokens": 554453,
+      "input_tokens": 558255,
       "label": "listener-heldout_strict_last-v1",
-      "mean_total_tokens": 274.8826461259628,
-      "n_responses": 2207,
-      "output_tokens": 52213,
-      "total_tokens": 606666
+      "mean_total_tokens": 275.27272727272725,
+      "n_responses": 2222,
+      "output_tokens": 53401,
+      "total_tokens": 611656
     },
     {
       "cached_input_tokens": 0,
@@ -190,9 +217,9 @@
   ],
   "cache_dir": "data/cached_responses",
   "missing_usage_examples": [],
-  "n_cache_files": 7113,
+  "n_cache_files": 7171,
   "n_missing_usage": 0,
-  "n_readable": 7113,
+  "n_readable": 7171,
   "n_unreadable": 0,
   "notes": [
     "This report uses stored usage fields in data/cached_responses/*.json.",
@@ -201,11 +228,11 @@
   ],
   "totals": {
     "cached_input_tokens": 0,
-    "input_tokens": 1874818,
-    "mean_total_tokens": 288.52509489666807,
-    "n_responses": 7113,
-    "output_tokens": 177461,
-    "total_tokens": 2052279
+    "input_tokens": 1898304,
+    "mean_total_tokens": 290.0669362710919,
+    "n_responses": 7171,
+    "output_tokens": 181766,
+    "total_tokens": 2080070
   },
   "unreadable_examples": []
 }

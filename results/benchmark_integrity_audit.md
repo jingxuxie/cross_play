@@ -17,7 +17,7 @@ Checks passed: 290/290.
 |---|---|---:|
 | `gpt-4.1-nano` | `gpt-4.1-nano-2025-04-14` | 1236 |
 | `gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770 |
-| `gpt-5.5` | `gpt-5.5-2026-04-23` | 3107 |
+| `gpt-5.5` | `gpt-5.5-2026-04-23` | 3165 |
 
 ## Warnings
 
@@ -315,5 +315,5 @@ Checks passed: 290/290.
 | PASS | `results/partial_observability_api50_no_coord_audit.jsonl.scene_ids_known` | all rows mapped |
 | PASS | `results/partial_observability_api50_no_coord_audit.jsonl.messages_no_object_id_leakage` | no audit candidate/selection contains obj_* IDs |
 | PASS | `results/partial_observability_api50_no_coord_audit.jsonl.local_choice_ids_valid` | all local selector choices are valid object IDs |
-| PASS | `data/cached_responses.cache_files_present` | 7113 cache files |
+| PASS | `data/cached_responses.cache_files_present` | 7171 cache files |
 | PASS | `data/cached_responses.cache_files_readable` | all cache files parse as JSON |

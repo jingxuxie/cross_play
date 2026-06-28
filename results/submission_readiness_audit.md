@@ -1,6 +1,6 @@
 # Submission Readiness Audit
 
-Checks: 233/233 non-failing.
+Checks: 240/240 non-failing.
 Warnings: 0.
 Open actions: 0.
 
@@ -39,6 +39,7 @@ Open actions: 0.
 | PASS | `artifact.docs/failure_taxonomy_audit.md` | present |
 | PASS | `artifact.docs/rule_based_ambiguity_verifier.md` | present |
 | PASS | `artifact.docs/interaction_memory_rules.md` | present |
+| PASS | `artifact.docs/interaction_memory_prompt_rerun.md` | present |
 | PASS | `artifact.docs/qualitative_failure_examples.md` | present |
 | PASS | `artifact.docs/reviewer_checklist.md` | present |
 | PASS | `artifact.docs/plan_coverage_audit.md` | present |
@@ -103,6 +104,9 @@ Open actions: 0.
 | PASS | `artifact.results/rule_based_ambiguity_verifier.json` | present |
 | PASS | `artifact.results/rule_based_ambiguity_verifier_units.jsonl` | present |
 | PASS | `artifact.results/interaction_memory_rules.json` | present |
+| PASS | `artifact.results/interaction_memory_prompt_rerun_summary.json` | present |
+| PASS | `artifact.results/interaction_memory_prompt_rerun_records.jsonl` | present |
+| PASS | `artifact.results/interaction_memory_prompt_rerun_messages.jsonl` | present |
 | PASS | `artifact.results/qualitative_failure_examples.json` | present |
 | PASS | `artifact.results/reviewer_checklist.json` | present |
 | PASS | `artifact.results/plan_coverage_audit.json` | present |
@@ -134,6 +138,7 @@ Open actions: 0.
 | PASS | `artifact.scripts/analyze_failure_taxonomy.py` | present |
 | PASS | `artifact.scripts/analyze_rule_based_ambiguity.py` | present |
 | PASS | `artifact.scripts/analyze_interaction_memory_rules.py` | present |
+| PASS | `artifact.scripts/run_interaction_memory_rerun.py` | present |
 | PASS | `artifact.scripts/make_qualitative_examples.py` | present |
 | PASS | `artifact.scripts/make_reviewer_checklist.py` | present |
 | PASS | `artifact.scripts/audit_plan_coverage.py` | present |
@@ -215,20 +220,22 @@ Open actions: 0.
 | PASS | `artifact_guide.perspective_mirror_failure_scenes_flagged` | present |
 | PASS | `artifact_guide.coded_failure_rows_152_unique_failure_scenes_76` | present |
 | PASS | `artifact_guide.repair_cue_satisfies_derived_rule_in_1_000_of_failure_scenes` | present |
+| PASS | `artifact_guide.15_human_packet_mirror_failure_items` | present |
+| PASS | `artifact_guide.interaction_memory_prompt_success_1_000_versus_mirror_self_p` | present |
 | PASS | `artifact_guide.four_cache_only_examples_show_mirror_selected_messages_faili` | present |
 | PASS | `artifact_guide.section_32_reviewer_checklist_passes_all_19_core_validity_re` | present |
 | PASS | `artifact_guide.items_passed_19_19` | present |
 | PASS | `artifact_guide.core_scope_17_covered_2_partial_0_open` | present |
-| PASS | `artifact_guide.stretch_scope_3_covered_2_partial_0_open` | present |
-| PASS | `artifact_guide.stretch_scope_has_3_covered_2_partial_0_open_after_adding_th` | present |
+| PASS | `artifact_guide.stretch_scope_4_covered_1_partial_0_open` | present |
+| PASS | `artifact_guide.stretch_scope_has_4_covered_1_partial_0_open_after_adding_th` | present |
 | PASS | `artifact_guide.partial_observability_api50` | present |
 | PASS | `artifact_guide.cache_only_api_listener_leave_one_out_improves_population_ov` | present |
 | PASS | `artifact_guide.0_candidate_messages_reference_private_landmarks` | present |
 | PASS | `artifact_guide.all_50_full_run_mirror_failures_are_underspecified_distracto` | present |
 | PASS | `artifact_guide.local_benchmark600_data_local_benchmark600_scenes_jsonl_600_` | present |
 | PASS | `artifact_guide.290_290_integrity_checks_pass` | present |
-| PASS | `artifact_guide.7113_cached_responses_have_complete_usage_metadata_totaling_` | present |
-| PASS | `claims_verifier.no_failed_checks` | 1027 checks, 0 failed |
+| PASS | `artifact_guide.7171_cached_responses_have_complete_usage_metadata_totaling_` | present |
+| PASS | `claims_verifier.no_failed_checks` | 1054 checks, 0 failed |
 | PASS | `integrity_audit.no_failed_checks` | 290 checks, 0 failed |
 | PASS | `template.final_venue_template` | paper/colm2026_submission.pdf uses COLM submission style |
 | PASS | `colm_source.uses_submission_template` | COLM submission package |

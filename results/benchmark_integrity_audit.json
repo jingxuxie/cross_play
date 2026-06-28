@@ -1441,7 +1441,7 @@
       "ok": true
     },
     {
-      "detail": "7113 cache files",
+      "detail": "7171 cache files",
       "name": "data/cached_responses.cache_files_present",
       "ok": true
     },
@@ -1467,12 +1467,12 @@
           "response_model": "gpt-5.4-nano-2026-03-17"
         },
         {
-          "n": 3107,
+          "n": 3165,
           "requested_model": "gpt-5.5",
           "response_model": "gpt-5.5-2026-04-23"
         }
       ],
-      "n_cache_files": 7113
+      "n_cache_files": 7171
     },
     "groups": [
       {

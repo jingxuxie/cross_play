@@ -46,6 +46,9 @@ It is generated from the current JSON/JSONL artifacts and is intended as a revie
 | Failure taxonomy audit | `docs/failure_taxonomy_audit.md` |
 | Rule-based ambiguity verifier | `docs/rule_based_ambiguity_verifier.md` |
 | Interaction memory rules | `docs/interaction_memory_rules.md` |
+| Interaction memory prompt rerun | `docs/interaction_memory_prompt_rerun.md` |
+| Interaction memory prompt rerun summary | `results/interaction_memory_prompt_rerun_summary.json` |
+| Interaction memory prompt rerun records | `results/interaction_memory_prompt_rerun_records.jsonl` |
 | Qualitative failure examples | `docs/qualitative_failure_examples.md` |
 | Reviewer checklist | `docs/reviewer_checklist.md` |
 | Plan coverage audit | `docs/plan_coverage_audit.md` |
@@ -74,6 +77,7 @@ It is generated from the current JSON/JSONL artifacts and is intended as a revie
 | Failure taxonomy script | `scripts/analyze_failure_taxonomy.py` |
 | Rule-based ambiguity verifier script | `scripts/analyze_rule_based_ambiguity.py` |
 | Interaction memory rule script | `scripts/analyze_interaction_memory_rules.py` |
+| Interaction memory prompt rerun script | `scripts/run_interaction_memory_rerun.py` |
 | Qualitative examples script | `scripts/make_qualitative_examples.py` |
 | Reviewer checklist script | `scripts/make_reviewer_checklist.py` |
 | Plan coverage audit script | `scripts/audit_plan_coverage.py` |
@@ -99,13 +103,13 @@ It is generated from the current JSON/JSONL artifacts and is intended as a revie
 
 ## Cached Response Models
 
-Cache files: 7113.
+Cache files: 7171.
 
 | Requested model | Response model | Cached responses |
 |---|---|---:|
 | `gpt-4.1-nano` | `gpt-4.1-nano-2025-04-14` | 1236 |
 | `gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770 |
-| `gpt-5.5` | `gpt-5.5-2026-04-23` | 3107 |
+| `gpt-5.5` | `gpt-5.5-2026-04-23` | 3165 |
 
 ## API Token Accounting
 
@@ -113,13 +117,13 @@ This cache-only budget audit summarizes stored Responses API usage metadata. It 
 
 | Cache files | Readable | Missing usage | Input tokens | Output tokens | Total tokens | Source |
 |---:|---:|---:|---:|---:|---:|---|
-| 7113 | 7113 | 0 | 1874818 | 177461 | 2052279 | `results/api_token_accounting.json` |
+| 7171 | 7171 | 0 | 1898304 | 181766 | 2080070 | `results/api_token_accounting.json` |
 
 | Requested model | Response model | Responses | Input tokens | Output tokens | Total tokens |
 |---|---|---:|---:|---:|---:|
 | `gpt-4.1-nano` | `gpt-4.1-nano-2025-04-14` | 1236 | 301032 | 31225 | 332257 |
 | `gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770 | 751850 | 68860 | 820710 |
-| `gpt-5.5` | `gpt-5.5-2026-04-23` | 3107 | 821936 | 77376 | 899312 |
+| `gpt-5.5` | `gpt-5.5-2026-04-23` | 3165 | 845422 | 81681 | 927103 |
 
 ## Headline Full-Candidate Results
 
@@ -512,6 +516,29 @@ This replay-only audit derives future speaker-prompt rules from the coded mirror
 
 Coded failure rows: 152; unique failure scenes: 76; rule counts: avoid_frame_sensitive_only:5, disambiguate_shared_attributes:147; mean repair success on failure scenes: 0.991; repair cue satisfies derived rule in 1.000 of failure scenes.
 
+## Interaction-Memory Prompt Rerun
+
+This bounded API audit turns the replay-only rule set into a direct prompt-rerun diagnostic on the 15 mirror-failure items from the human-validation packet. It is not human-validation evidence.
+
+Items: 15; conditions: partial_mirror_failure:5, perspective_mirror_failure:10.
+
+| Method | Success | Mean tokens | Source |
+|---|---:|---:|---|
+| mirror_selfplay | 0.422 | 4.8 | `results/interaction_memory_prompt_rerun_summary.json` |
+| interaction_memory_prompt | 1.000 | 10.2 | `results/interaction_memory_prompt_rerun_summary.json` |
+| population_play | 1.000 | 10.5 | `results/interaction_memory_prompt_rerun_summary.json` |
+
+| Condition | Method | Items | Success | Mean tokens |
+|---|---|---:|---:|---:|
+| partial_mirror_failure | mirror_selfplay | 5 | 0.333 | 3.0 |
+| partial_mirror_failure | interaction_memory_prompt | 5 | 1.000 | 10.6 |
+| partial_mirror_failure | population_play | 5 | 1.000 | 10.6 |
+| perspective_mirror_failure | mirror_selfplay | 10 | 0.467 | 5.7 |
+| perspective_mirror_failure | interaction_memory_prompt | 10 | 1.000 | 10.0 |
+| perspective_mirror_failure | population_play | 10 | 1.000 | 10.5 |
+
+Overall paired gain over mirror self-play: 0.578 over 15 scenes, 95% bootstrap CI [0.444, 0.667].
+
 ## Qualitative Failure Examples
 
 Representative cache-only examples link selected messages to held-out listener choices and scene context.
@@ -538,16 +565,15 @@ Items passed: 19/19.
 ## Plan Coverage Audit
 
 This generated audit maps the original workshop plan to the current artifacts and separates claimed core coverage from partial or open stretch items.
-Overall: 20 covered, 4 partial, 0 open across 24 plan items.
+Overall: 21 covered, 3 partial, 0 open across 24 plan items.
 Core scope: 17 covered, 2 partial, 0 open.
-Stretch scope: 3 covered, 2 partial, 0 open.
+Stretch scope: 4 covered, 1 partial, 0 open.
 
 | Status | Scope | Plan item | Detail | Source |
 |---|---|---|---|---|
 | partial | core | Use development episodes for debugging prompts and tuning the generator. | The project uses a 50-scene dev/API pilot, not the 200 development episodes suggested by the stronger plan. | `docs/plan_coverage_audit.md` |
 | partial | core | Hand-label roughly 100 failures into interpretable categories. | There are 152 author-coded listener-level mirror failures across paper-facing hard cases, but not a balanced 100-failure sample across all major methods. | `docs/plan_coverage_audit.md` |
 | partial | stretch | Run a 1,000-scene benchmark and 200 partial-observability stress episodes. | A no-API local diagnostic now runs the stronger 1,000 initial-family plus 200 partial-observability scale, but the paper-facing API listener runs remain bounded 50-scene diagnostics. | `docs/plan_coverage_audit.md` |
-| partial | stretch | Run an actual interaction-memory prompt rerun after distilling rules from failures. | A replay-only interaction-memory rule audit is present, but no new memory-prompt generation/evaluation run is claimed. | `docs/plan_coverage_audit.md` |
 
 ## Claim-To-Evidence Map
 
@@ -574,19 +600,20 @@ Stretch scope: 3 covered, 2 partial, 0 open.
 | Representative failures reflect real target-distractor ambiguity or frame sensitivity. | `docs/failure_taxonomy_audit.md; docs/qualitative_failure_examples.md; results/qualitative_failure_examples.json` | 147 of 152 coded listener-level mirror failures are underspecified-distractor cases and 5 are perspective-frame errors |
 | A rule-based non-LLM verifier recovers the coded mirror-failure taxonomy. | `docs/rule_based_ambiguity_verifier.md; results/rule_based_ambiguity_verifier.json; results/rule_based_ambiguity_verifier_units.jsonl` | combined coded failure set has symbolic ambiguity recall 1.000, attribute-under-specification recall 1.000, and frame-sensitive recall 1.000 |
 | The coded failures induce a small interaction-memory rule set. | `docs/interaction_memory_rules.md; results/interaction_memory_rules.json` | 152 coded failure rows collapse into disambiguate-shared-attributes and avoid-frame-sensitive-only rules; cached repairs satisfy the derived cue in 1.000 of failure scenes |
+| A bounded interaction-memory prompt rerun repairs the sampled mirror-failure items. | `docs/interaction_memory_prompt_rerun.md; results/interaction_memory_prompt_rerun_summary.json; results/interaction_memory_prompt_rerun_records.jsonl` | 15 human-packet mirror-failure items: interaction-memory prompt success 1.000 versus mirror self-play 0.422, matching population-play at 1.000 |
 | The original pre-submission checklist is backed by concrete artifacts. | `docs/reviewer_checklist.md; results/reviewer_checklist.json` | Section 32 reviewer checklist passes all 19 core-validity, results, and paper items |
-| The artifact package explicitly distinguishes completed core requirements from stretch gaps. | `docs/plan_coverage_audit.md; results/plan_coverage_audit.json` | core scope has 17 covered, 2 partial, 0 open items; stretch scope has 3 covered, 2 partial, 0 open after adding the API K=8 no-coordinate audit |
+| The artifact package explicitly distinguishes completed core requirements from stretch gaps. | `docs/plan_coverage_audit.md; results/plan_coverage_audit.json` | core scope has 17 covered, 2 partial, 0 open items; stretch scope has 4 covered, 1 partial, 0 open after adding the API K=8 no-coordinate audit and the interaction-memory prompt rerun |
 | The released generator supports a benchmark-scale local sanity sweep. | `docs/local_benchmark600_check.md; results/local_benchmark600_check.json` | 600 local scenes balanced across four initial scenario families; mirror same-play is 1.000 but cross-play is 0.631 |
 | The local artifact supports the stronger-plan 1,000+200 scale and K=8 diagnostic. | `docs/local_stronger_plan_k8.md; results/local_stronger_plan_k8.json` | no-coordinate oracle over 1,200 local scenes rises from 0.808 at K=4 to 0.995 at K=8 |
 | The cached benchmark artifacts are internally consistent. | `results/benchmark_integrity_audit.md` | 290/290 integrity checks pass |
-| API usage is bounded and cache-replayable. | `docs/api_token_accounting.md; results/api_token_accounting.json` | 7113 cached responses have complete usage metadata totaling 2052279 tokens |
+| API usage is bounded and cache-replayable. | `docs/api_token_accounting.md; results/api_token_accounting.json` | 7171 cached responses have complete usage metadata totaling 2080070 tokens |
 
 ## Quality Gates
 
 | Gate | Checks | Failed | Warnings | Open actions | Source |
 |---|---:|---:|---:|---:|---|
 | benchmark integrity | 290 | 0 | 0 | 0 | `results/benchmark_integrity_audit.json` |
-| paper claims | 1027 | 0 | 0 | 0 | `results/paper_claims_verification.json` |
+| paper claims | 1049 | 5 | 0 | 0 | `results/paper_claims_verification.json` |
 | reviewer checklist | 19 | 0 | 0 | 0 | `results/reviewer_checklist.json` |
 | submission readiness | 233 | 0 | 0 | 0 | `results/submission_readiness_audit.json` |
 
@@ -677,6 +704,13 @@ conda run -n cross_play python scripts/analyze_rule_based_ambiguity.py \
 conda run -n cross_play python scripts/analyze_interaction_memory_rules.py \
   --markdown-out docs/interaction_memory_rules.md \
   --json-out results/interaction_memory_rules.json
+
+conda run -n cross_play python scripts/run_interaction_memory_rerun.py \
+  --max-items 15 --temperature omit \
+  --records-out results/interaction_memory_prompt_rerun_records.jsonl \
+  --messages-out results/interaction_memory_prompt_rerun_messages.jsonl \
+  --summary-out results/interaction_memory_prompt_rerun_summary.json \
+  --markdown-out docs/interaction_memory_prompt_rerun.md
 
 conda run -n cross_play python scripts/make_qualitative_examples.py \
   --markdown-out docs/qualitative_failure_examples.md \

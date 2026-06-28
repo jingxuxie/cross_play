@@ -4194,6 +4194,160 @@
       "source": "results/interaction_memory_rules.json"
     },
     {
+      "actual": "15",
+      "expected": "15",
+      "name": "interaction_memory_prompt_rerun.n_items",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "10",
+      "expected": "10",
+      "name": "interaction_memory_prompt_rerun.condition.perspective_mirror_failure",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "5",
+      "expected": "5",
+      "name": "interaction_memory_prompt_rerun.condition.partial_mirror_failure",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "0.422",
+      "expected": "0.422",
+      "name": "interaction_memory_prompt_rerun.mirror_selfplay.success",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "interaction_memory_prompt_rerun.interaction_memory_prompt.success",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "interaction_memory_prompt_rerun.population_play.success",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "15",
+      "expected": "15",
+      "name": "interaction_memory_prompt_rerun.overall.interaction_memory_prompt.mirror_selfplay.pairs",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "interaction_memory_prompt_rerun.overall.interaction_memory_prompt.mirror_selfplay.mean_a",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "0.422",
+      "expected": "0.422",
+      "name": "interaction_memory_prompt_rerun.overall.interaction_memory_prompt.mirror_selfplay.mean_b",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "0.578",
+      "expected": "0.578",
+      "name": "interaction_memory_prompt_rerun.overall.interaction_memory_prompt.mirror_selfplay.diff",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "15",
+      "expected": "15",
+      "name": "interaction_memory_prompt_rerun.overall.interaction_memory_prompt.population_play.pairs",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "interaction_memory_prompt_rerun.overall.interaction_memory_prompt.population_play.mean_a",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "interaction_memory_prompt_rerun.overall.interaction_memory_prompt.population_play.mean_b",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "interaction_memory_prompt_rerun.overall.interaction_memory_prompt.population_play.diff",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "5",
+      "expected": "5",
+      "name": "interaction_memory_prompt_rerun.partial_mirror_failure.interaction_memory_prompt.mirror_selfplay.pairs",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "interaction_memory_prompt_rerun.partial_mirror_failure.interaction_memory_prompt.mirror_selfplay.mean_a",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "0.333",
+      "expected": "0.333",
+      "name": "interaction_memory_prompt_rerun.partial_mirror_failure.interaction_memory_prompt.mirror_selfplay.mean_b",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "0.667",
+      "expected": "0.667",
+      "name": "interaction_memory_prompt_rerun.partial_mirror_failure.interaction_memory_prompt.mirror_selfplay.diff",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "10",
+      "expected": "10",
+      "name": "interaction_memory_prompt_rerun.perspective_mirror_failure.interaction_memory_prompt.mirror_selfplay.pairs",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "interaction_memory_prompt_rerun.perspective_mirror_failure.interaction_memory_prompt.mirror_selfplay.mean_a",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "0.467",
+      "expected": "0.467",
+      "name": "interaction_memory_prompt_rerun.perspective_mirror_failure.interaction_memory_prompt.mirror_selfplay.mean_b",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
+      "actual": "0.533",
+      "expected": "0.533",
+      "name": "interaction_memory_prompt_rerun.perspective_mirror_failure.interaction_memory_prompt.mirror_selfplay.diff",
+      "ok": true,
+      "source": "results/interaction_memory_prompt_rerun_summary.json"
+    },
+    {
       "actual": "4",
       "expected": "4",
       "name": "qualitative_examples.n_examples",
@@ -4733,15 +4887,15 @@
       "source": "results/plan_coverage_audit.json"
     },
     {
-      "actual": "20",
-      "expected": "20",
+      "actual": "21",
+      "expected": "21",
       "name": "plan_coverage.status_counts.covered",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
     },
     {
-      "actual": "4",
-      "expected": "4",
+      "actual": "3",
+      "expected": "3",
       "name": "plan_coverage.status_counts.partial",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
@@ -4775,15 +4929,15 @@
       "source": "results/plan_coverage_audit.json"
     },
     {
-      "actual": "3",
-      "expected": "3",
+      "actual": "4",
+      "expected": "4",
       "name": "plan_coverage.stretch_status_counts.covered",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
     },
     {
-      "actual": "2",
-      "expected": "2",
+      "actual": "1",
+      "expected": "1",
       "name": "plan_coverage.stretch_status_counts.partial",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
@@ -4796,8 +4950,8 @@
       "source": "results/plan_coverage_audit.json"
     },
     {
-      "actual": "4",
-      "expected": "4",
+      "actual": "3",
+      "expected": "3",
       "name": "plan_coverage.open_or_partial",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
@@ -4868,7 +5022,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "plan_coverage.item.run_an_actual_interaction_memory_prompt_rerun_after_distilling_rules_from_failures.partial",
+      "name": "plan_coverage.item.run_an_actual_interaction_memory_prompt_rerun_after_distilling_rules_from_failures.covered",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
     },
@@ -4950,15 +5104,15 @@
       "source": "results/benchmark_integrity_audit.json"
     },
     {
-      "actual": "7113",
-      "expected": "7113",
+      "actual": "7171",
+      "expected": "7171",
       "name": "api_token_accounting.n_cache_files",
       "ok": true,
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "7113",
-      "expected": "7113",
+      "actual": "7171",
+      "expected": "7171",
       "name": "api_token_accounting.n_readable",
       "ok": true,
       "source": "results/api_token_accounting.json"
@@ -4971,22 +5125,22 @@
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "1874818",
-      "expected": "1874818",
+      "actual": "1898304",
+      "expected": "1898304",
       "name": "api_token_accounting.input_tokens",
       "ok": true,
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "177461",
-      "expected": "177461",
+      "actual": "181766",
+      "expected": "181766",
       "name": "api_token_accounting.output_tokens",
       "ok": true,
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "2052279",
-      "expected": "2052279",
+      "actual": "2080070",
+      "expected": "2080070",
       "name": "api_token_accounting.total_tokens",
       "ok": true,
       "source": "results/api_token_accounting.json"
@@ -5020,15 +5174,15 @@
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "3107",
-      "expected": "3107",
+      "actual": "3165",
+      "expected": "3165",
       "name": "api_token_accounting.gpt-5.5.gpt-5.5-2026-04-23.responses",
       "ok": true,
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "899312",
-      "expected": "899312",
+      "actual": "927103",
+      "expected": "927103",
       "name": "api_token_accounting.gpt-5.5.gpt-5.5-2026-04-23.total_tokens",
       "ok": true,
       "source": "results/api_token_accounting.json"
@@ -5330,7 +5484,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.paper/main.tex.token-accounting report over 7,113 cached responses",
+      "name": "text.paper/main.tex.token-accounting report over 7,171 cached responses",
       "ok": true,
       "source": "paper/main.tex"
     },
@@ -5463,7 +5617,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/api_token_accounting.md.7113 | 7113 | 0 | 1874818 | 177461 | 2052279",
+      "name": "text.docs/api_token_accounting.md.7171 | 7171 | 0 | 1898304 | 181766 | 2080070",
       "ok": true,
       "source": "docs/api_token_accounting.md"
     },
@@ -5666,7 +5820,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/artifact_guide.md.7113 cached responses have complete usage metadata totaling 2052279 tokens",
+      "name": "text.docs/artifact_guide.md.7171 cached responses have complete usage metadata totaling 2080070 tokens",
       "ok": true,
       "source": "docs/artifact_guide.md"
     },
@@ -6037,6 +6191,20 @@
     {
       "actual": "present",
       "expected": "present",
+      "name": "text.docs/artifact_guide.md.Interaction-Memory Prompt Rerun",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.interaction-memory prompt success 1.000 versus mirror self-play 0.422",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
       "name": "text.docs/artifact_guide.md.four cache-only examples show mirror-selected messages failing held-out listeners",
       "ok": true,
       "source": "docs/artifact_guide.md"
@@ -6065,14 +6233,14 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/artifact_guide.md.Stretch scope: 3 covered, 2 partial, 0 open.",
+      "name": "text.docs/artifact_guide.md.Stretch scope: 4 covered, 1 partial, 0 open.",
       "ok": true,
       "source": "docs/artifact_guide.md"
     },
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/artifact_guide.md.stretch scope has 3 covered, 2 partial, 0 open after adding the API K=8 no-coordinate audit",
+      "name": "text.docs/artifact_guide.md.stretch scope has 4 covered, 1 partial, 0 open after adding the API K=8 no-coordinate audit and the interaction-memory prompt rerun",
       "ok": true,
       "source": "docs/artifact_guide.md"
     },
@@ -6450,7 +6618,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/plan_coverage_audit.md.Overall: 20 covered, 4 partial, 0 open across 24 plan items.",
+      "name": "text.docs/plan_coverage_audit.md.Overall: 21 covered, 3 partial, 0 open across 24 plan items.",
       "ok": true,
       "source": "docs/plan_coverage_audit.md"
     },
@@ -6464,7 +6632,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/plan_coverage_audit.md.Stretch scope: 3 covered, 2 partial, 0 open.",
+      "name": "text.docs/plan_coverage_audit.md.Stretch scope: 4 covered, 1 partial, 0 open.",
       "ok": true,
       "source": "docs/plan_coverage_audit.md"
     },
@@ -6583,7 +6751,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.REPRODUCE.md.cached Responses API files contain `2,052,279` total tokens",
+      "name": "text.REPRODUCE.md.cached Responses API files contain `2,080,070` total tokens",
       "ok": true,
       "source": "REPRODUCE.md"
     },
@@ -6884,6 +7052,20 @@
     {
       "actual": "present",
       "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/run_interaction_memory_rerun.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.interaction-memory prompt success is `1.000`, versus mirror self-play",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
       "name": "text.REPRODUCE.md.scripts/make_qualitative_examples.py",
       "ok": true,
       "source": "REPRODUCE.md"
@@ -6933,7 +7115,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.REPRODUCE.md.stretch scope has `3` covered, `2` partial, and `0` open items",
+      "name": "text.REPRODUCE.md.stretch scope has `4` covered, `1` partial, and `0` open items",
       "ok": true,
       "source": "REPRODUCE.md"
     },
@@ -7157,6 +7339,13 @@
     {
       "actual": "present",
       "expected": "present",
+      "name": "text.README.md.docs/interaction_memory_prompt_rerun.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
       "name": "text.README.md.docs/qualitative_failure_examples.md",
       "ok": true,
       "source": "README.md"
@@ -7190,6 +7379,6 @@
       "source": "paper/colm2026_submission.tex"
     }
   ],
-  "n_checks": 1027,
+  "n_checks": 1054,
   "n_failed": 0
 }

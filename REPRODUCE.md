@@ -22,7 +22,7 @@ conda run -n cross_play python scripts/analyze_api_token_accounting.py \
   --json-out results/api_token_accounting.json
 ```
 
-Current result: `7,113` cached Responses API files contain `2,052,279` total
+Current result: `7,171` cached Responses API files contain `2,080,070` total
 tokens, with `0` missing usage records.
 
 ## Local sanity pilot
@@ -910,6 +910,31 @@ Current result:
   `1.000` of the `76` unique failure scenes;
 - mean repair success on those failure scenes is `0.991`.
 
+## Interaction-memory prompt rerun
+
+This bounded GPT-5.5 prompt rerun applies the distilled interaction-memory
+rules to sampled mirror-failure items from the human-validation packet. It uses
+cached responses when present and spends API budget only for missing speaker or
+listener calls.
+
+```bash
+conda run -n cross_play python scripts/run_interaction_memory_rerun.py \
+  --max-items 15 --temperature omit \
+  --records-out results/interaction_memory_prompt_rerun_records.jsonl \
+  --messages-out results/interaction_memory_prompt_rerun_messages.jsonl \
+  --summary-out results/interaction_memory_prompt_rerun_summary.json \
+  --markdown-out docs/interaction_memory_prompt_rerun.md
+```
+
+Current result:
+
+- `15` human-packet mirror-failure items are evaluated;
+- interaction-memory prompt success is `1.000`, versus mirror self-play
+  `0.422`;
+- population-play on the same sampled scenes is also `1.000`;
+- this is prompt-rerun evidence, not human-listener validation or evidence that
+  an online learner autonomously discovers the rules.
+
 ## Cache-only qualitative failure examples
 
 This report selects representative cached scenes where mirror-selected messages
@@ -965,7 +990,7 @@ Expected output:
 - `docs/plan_coverage_audit.md`;
 - `results/plan_coverage_audit.json`;
 - core scope has `17` covered, `2` partial, and `0` open items;
-- stretch scope has `3` covered, `2` partial, and `0` open items.
+- stretch scope has `4` covered, `1` partial, and `0` open items.
 
 ## Protocol appendix
 

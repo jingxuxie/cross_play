@@ -1,6 +1,6 @@
 # Paper Claims Verification
 
-Checks passed: 1027/1027.
+Checks passed: 1054/1054.
 
 | Status | Check | Actual | Expected | Source |
 |---|---|---:|---:|---|
@@ -603,6 +603,28 @@ Checks passed: 1027/1027.
 | PASS | `interaction_memory_rules.partial_observability_no_coord_mirror.underspecified_distractor.scenes` | 29 | 29 | `results/interaction_memory_rules.json` |
 | PASS | `interaction_memory_rules.partial_observability_no_coord_mirror.underspecified_distractor.repair_success` | 0.977 | 0.977 | `results/interaction_memory_rules.json` |
 | PASS | `interaction_memory_rules.partial_observability_no_coord_mirror.underspecified_distractor.cue` | 1.000 | 1.000 | `results/interaction_memory_rules.json` |
+| PASS | `interaction_memory_prompt_rerun.n_items` | 15 | 15 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.condition.perspective_mirror_failure` | 10 | 10 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.condition.partial_mirror_failure` | 5 | 5 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.mirror_selfplay.success` | 0.422 | 0.422 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.interaction_memory_prompt.success` | 1.000 | 1.000 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.population_play.success` | 1.000 | 1.000 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.overall.interaction_memory_prompt.mirror_selfplay.pairs` | 15 | 15 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.overall.interaction_memory_prompt.mirror_selfplay.mean_a` | 1.000 | 1.000 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.overall.interaction_memory_prompt.mirror_selfplay.mean_b` | 0.422 | 0.422 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.overall.interaction_memory_prompt.mirror_selfplay.diff` | 0.578 | 0.578 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.overall.interaction_memory_prompt.population_play.pairs` | 15 | 15 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.overall.interaction_memory_prompt.population_play.mean_a` | 1.000 | 1.000 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.overall.interaction_memory_prompt.population_play.mean_b` | 1.000 | 1.000 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.overall.interaction_memory_prompt.population_play.diff` | 0.000 | 0.000 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.partial_mirror_failure.interaction_memory_prompt.mirror_selfplay.pairs` | 5 | 5 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.partial_mirror_failure.interaction_memory_prompt.mirror_selfplay.mean_a` | 1.000 | 1.000 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.partial_mirror_failure.interaction_memory_prompt.mirror_selfplay.mean_b` | 0.333 | 0.333 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.partial_mirror_failure.interaction_memory_prompt.mirror_selfplay.diff` | 0.667 | 0.667 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.perspective_mirror_failure.interaction_memory_prompt.mirror_selfplay.pairs` | 10 | 10 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.perspective_mirror_failure.interaction_memory_prompt.mirror_selfplay.mean_a` | 1.000 | 1.000 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.perspective_mirror_failure.interaction_memory_prompt.mirror_selfplay.mean_b` | 0.467 | 0.467 | `results/interaction_memory_prompt_rerun_summary.json` |
+| PASS | `interaction_memory_prompt_rerun.perspective_mirror_failure.interaction_memory_prompt.mirror_selfplay.diff` | 0.533 | 0.533 | `results/interaction_memory_prompt_rerun_summary.json` |
 | PASS | `qualitative_examples.n_examples` | 4 | 4 | `results/qualitative_failure_examples.json` |
 | PASS | `qualitative_examples.perspective_underspecification.scene` | present | present | `results/qualitative_failure_examples.json` |
 | PASS | `qualitative_examples.perspective_underspecification.category` | present | present | `results/qualitative_failure_examples.json` |
@@ -680,16 +702,16 @@ Checks passed: 1027/1027.
 | PASS | `reviewer_checklist.appendix_includes_prompts_and_schemas.section` | present | present | `results/reviewer_checklist.json` |
 | PASS | `reviewer_checklist.appendix_includes_prompts_and_schemas.pass` | present | present | `results/reviewer_checklist.json` |
 | PASS | `plan_coverage.n_items` | 24 | 24 | `results/plan_coverage_audit.json` |
-| PASS | `plan_coverage.status_counts.covered` | 20 | 20 | `results/plan_coverage_audit.json` |
-| PASS | `plan_coverage.status_counts.partial` | 4 | 4 | `results/plan_coverage_audit.json` |
+| PASS | `plan_coverage.status_counts.covered` | 21 | 21 | `results/plan_coverage_audit.json` |
+| PASS | `plan_coverage.status_counts.partial` | 3 | 3 | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.status_counts.open` | 0 | 0 | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.core_status_counts.covered` | 17 | 17 | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.core_status_counts.partial` | 2 | 2 | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.core_status_counts.open` | 0 | 0 | `results/plan_coverage_audit.json` |
-| PASS | `plan_coverage.stretch_status_counts.covered` | 3 | 3 | `results/plan_coverage_audit.json` |
-| PASS | `plan_coverage.stretch_status_counts.partial` | 2 | 2 | `results/plan_coverage_audit.json` |
+| PASS | `plan_coverage.stretch_status_counts.covered` | 4 | 4 | `results/plan_coverage_audit.json` |
+| PASS | `plan_coverage.stretch_status_counts.partial` | 1 | 1 | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.stretch_status_counts.open` | 0 | 0 | `results/plan_coverage_audit.json` |
-| PASS | `plan_coverage.open_or_partial` | 4 | 4 | `results/plan_coverage_audit.json` |
+| PASS | `plan_coverage.open_or_partial` | 3 | 3 | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.use_development_episodes_for_debugging_prompts_and_tuning_the_generator.present` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.use_development_episodes_for_debugging_prompts_and_tuning_the_generator.partial` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.hand_label_roughly_100_failures_into_interpretable_categories.present` | present | present | `results/plan_coverage_audit.json` |
@@ -699,7 +721,7 @@ Checks passed: 1027/1027.
 | PASS | `plan_coverage.item.evaluate_k_8_candidate_generation_in_addition_to_k_4.present` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.evaluate_k_8_candidate_generation_in_addition_to_k_4.covered` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.run_an_actual_interaction_memory_prompt_rerun_after_distilling_rules_from_failures.present` | present | present | `results/plan_coverage_audit.json` |
-| PASS | `plan_coverage.item.run_an_actual_interaction_memory_prompt_rerun_after_distilling_rules_from_failures.partial` | present | present | `results/plan_coverage_audit.json` |
+| PASS | `plan_coverage.item.run_an_actual_interaction_memory_prompt_rerun_after_distilling_rules_from_failures.covered` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.validate_failures_with_human_or_independent_non_llm_judgments.present` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.validate_failures_with_human_or_independent_non_llm_judgments.covered` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.publish_the_artifact_as_a_public_repository_or_submission_bundle.present` | present | present | `results/plan_coverage_audit.json` |
@@ -711,18 +733,18 @@ Checks passed: 1027/1027.
 | PASS | `integrity_audit.has_exact_gpt54_version` | present | present | `results/benchmark_integrity_audit.json` |
 | PASS | `integrity_audit.has_exact_gpt41_version` | present | present | `results/benchmark_integrity_audit.json` |
 | PASS | `integrity_audit.has_exact_gpt55_version` | present | present | `results/benchmark_integrity_audit.json` |
-| PASS | `api_token_accounting.n_cache_files` | 7113 | 7113 | `results/api_token_accounting.json` |
-| PASS | `api_token_accounting.n_readable` | 7113 | 7113 | `results/api_token_accounting.json` |
+| PASS | `api_token_accounting.n_cache_files` | 7171 | 7171 | `results/api_token_accounting.json` |
+| PASS | `api_token_accounting.n_readable` | 7171 | 7171 | `results/api_token_accounting.json` |
 | PASS | `api_token_accounting.n_missing_usage` | 0 | 0 | `results/api_token_accounting.json` |
-| PASS | `api_token_accounting.input_tokens` | 1874818 | 1874818 | `results/api_token_accounting.json` |
-| PASS | `api_token_accounting.output_tokens` | 177461 | 177461 | `results/api_token_accounting.json` |
-| PASS | `api_token_accounting.total_tokens` | 2052279 | 2052279 | `results/api_token_accounting.json` |
+| PASS | `api_token_accounting.input_tokens` | 1898304 | 1898304 | `results/api_token_accounting.json` |
+| PASS | `api_token_accounting.output_tokens` | 181766 | 181766 | `results/api_token_accounting.json` |
+| PASS | `api_token_accounting.total_tokens` | 2080070 | 2080070 | `results/api_token_accounting.json` |
 | PASS | `api_token_accounting.gpt-4.1-nano.gpt-4.1-nano-2025-04-14.responses` | 1236 | 1236 | `results/api_token_accounting.json` |
 | PASS | `api_token_accounting.gpt-4.1-nano.gpt-4.1-nano-2025-04-14.total_tokens` | 332257 | 332257 | `results/api_token_accounting.json` |
 | PASS | `api_token_accounting.gpt-5.4-nano.gpt-5.4-nano-2026-03-17.responses` | 2770 | 2770 | `results/api_token_accounting.json` |
 | PASS | `api_token_accounting.gpt-5.4-nano.gpt-5.4-nano-2026-03-17.total_tokens` | 820710 | 820710 | `results/api_token_accounting.json` |
-| PASS | `api_token_accounting.gpt-5.5.gpt-5.5-2026-04-23.responses` | 3107 | 3107 | `results/api_token_accounting.json` |
-| PASS | `api_token_accounting.gpt-5.5.gpt-5.5-2026-04-23.total_tokens` | 899312 | 899312 | `results/api_token_accounting.json` |
+| PASS | `api_token_accounting.gpt-5.5.gpt-5.5-2026-04-23.responses` | 3165 | 3165 | `results/api_token_accounting.json` |
+| PASS | `api_token_accounting.gpt-5.5.gpt-5.5-2026-04-23.total_tokens` | 927103 | 927103 | `results/api_token_accounting.json` |
 | PASS | `text.paper/main.tex.consensus+info reaches 0.760` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.consensus+info success of 0.920` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.A candidate-role audit shows` | present | present | `paper/main.tex` |
@@ -765,7 +787,7 @@ Checks passed: 1027/1027.
 | PASS | `text.paper/main.tex.We generate five scenario families` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.We report three bounded API experiments` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.a 50-scene \texttt{gpt-5.5} speaker-generation audit` | present | present | `paper/main.tex` |
-| PASS | `text.paper/main.tex.token-accounting report over 7,113 cached responses` | present | present | `paper/main.tex` |
+| PASS | `text.paper/main.tex.token-accounting report over 7,171 cached responses` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.The dedicated API K=8 no-coordinate run changes this interpretation` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.400 of 400 generated candidates survive the exact-coordinate filter` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.population-play rises from 0.833 to 0.993` | present | present | `paper/main.tex` |
@@ -784,7 +806,7 @@ Checks passed: 1027/1027.
 | PASS | `text.docs/protocol_and_prompts.md.Record Schema` | present | present | `docs/protocol_and_prompts.md` |
 | PASS | `text.docs/protocol_and_prompts.md.a bounded `partial_observability` support run` | present | present | `docs/protocol_and_prompts.md` |
 | PASS | `text.docs/api_token_accounting.md.API Token Accounting` | present | present | `docs/api_token_accounting.md` |
-| PASS | `text.docs/api_token_accounting.md.7113 | 7113 | 0 | 1874818 | 177461 | 2052279` | present | present | `docs/api_token_accounting.md` |
+| PASS | `text.docs/api_token_accounting.md.7171 | 7171 | 0 | 1898304 | 181766 | 2080070` | present | present | `docs/api_token_accounting.md` |
 | PASS | `text.docs/cross_model_listener_audit.md.Cross-Model Held-Out Listener Audit` | present | present | `docs/cross_model_listener_audit.md` |
 | PASS | `text.docs/cross_model_listener_audit.md.Perspective stress | gpt-5.5 | 0.793 | 0.507 | 0.673 | 1.000 | 1.000` | present | present | `docs/cross_model_listener_audit.md` |
 | PASS | `text.docs/cross_model_listener_audit.md.Partial observability | gpt-5.5 | 0.740 | 0.453 | 0.653 | 1.000 | 1.000` | present | present | `docs/cross_model_listener_audit.md` |
@@ -813,7 +835,7 @@ Checks passed: 1027/1027.
 | PASS | `text.docs/artifact_guide.md.PRAG-CrossPlay Artifact Guide` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Claim-To-Evidence Map` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.API Token Accounting` | present | present | `docs/artifact_guide.md` |
-| PASS | `text.docs/artifact_guide.md.7113 cached responses have complete usage metadata totaling 2052279 tokens` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.7171 cached responses have complete usage metadata totaling 2080070 tokens` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Cross-Model Failure Overlap Audit` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.20 of 22 GPT-4.1 mirror-failure scenes also fail under GPT-5.5` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.All GPT-5.5 mirror-failure scenes are symbolic-verifier positives` | present | present | `docs/artifact_guide.md` |
@@ -866,12 +888,14 @@ Checks passed: 1027/1027.
 | PASS | `text.docs/artifact_guide.md.Interaction Memory Rule Audit` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Coded failure rows: 152; unique failure scenes: 76` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.repair cue satisfies derived rule in 1.000 of failure scenes` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.Interaction-Memory Prompt Rerun` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.interaction-memory prompt success 1.000 versus mirror self-play 0.422` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.four cache-only examples show mirror-selected messages failing held-out listeners` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Section 32 reviewer checklist passes all 19 core-validity, results, and paper items` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Items passed: 19/19` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Core scope: 17 covered, 2 partial, 0 open.` | present | present | `docs/artifact_guide.md` |
-| PASS | `text.docs/artifact_guide.md.Stretch scope: 3 covered, 2 partial, 0 open.` | present | present | `docs/artifact_guide.md` |
-| PASS | `text.docs/artifact_guide.md.stretch scope has 3 covered, 2 partial, 0 open after adding the API K=8 no-coordinate audit` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.Stretch scope: 4 covered, 1 partial, 0 open.` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.stretch scope has 4 covered, 1 partial, 0 open after adding the API K=8 no-coordinate audit and the interaction-memory prompt rerun` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Local Benchmark-Scale Sanity Check` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.600 local scenes balanced across four initial scenario families` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.partial_observability_api50 | `data/partial_observability_local50_scenes.jsonl` | 50` | present | present | `docs/artifact_guide.md` |
@@ -925,9 +949,9 @@ Checks passed: 1027/1027.
 | PASS | `text.docs/reviewer_checklist.md.Held-out listeners are not used for method selection.` | present | present | `docs/reviewer_checklist.md` |
 | PASS | `text.docs/reviewer_checklist.md.Claims match actual results.` | present | present | `docs/reviewer_checklist.md` |
 | PASS | `text.docs/plan_coverage_audit.md.Plan Coverage Audit` | present | present | `docs/plan_coverage_audit.md` |
-| PASS | `text.docs/plan_coverage_audit.md.Overall: 20 covered, 4 partial, 0 open across 24 plan items.` | present | present | `docs/plan_coverage_audit.md` |
+| PASS | `text.docs/plan_coverage_audit.md.Overall: 21 covered, 3 partial, 0 open across 24 plan items.` | present | present | `docs/plan_coverage_audit.md` |
 | PASS | `text.docs/plan_coverage_audit.md.Core scope: 17 covered, 2 partial, 0 open.` | present | present | `docs/plan_coverage_audit.md` |
-| PASS | `text.docs/plan_coverage_audit.md.Stretch scope: 3 covered, 2 partial, 0 open.` | present | present | `docs/plan_coverage_audit.md` |
+| PASS | `text.docs/plan_coverage_audit.md.Stretch scope: 4 covered, 1 partial, 0 open.` | present | present | `docs/plan_coverage_audit.md` |
 | PASS | `text.docs/partial_observability_local_check.md.mirror self-play | 0.653 | 1.000 | 0.347` | present | present | `docs/partial_observability_local_check.md` |
 | PASS | `text.docs/partial_observability_api50_check.md.Candidate messages referencing private landmarks: 0` | present | present | `docs/partial_observability_api50_check.md` |
 | PASS | `text.docs/partial_observability_api50_check.md.no_coord_consensus_info | 0.987` | present | present | `docs/partial_observability_api50_check.md` |
@@ -944,7 +968,7 @@ Checks passed: 1027/1027.
 | PASS | `text.REPRODUCE.md.--partial 50` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/analyze_partial_observability_api.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/analyze_api_token_accounting.py` | present | present | `REPRODUCE.md` |
-| PASS | `text.REPRODUCE.md.cached Responses API files contain `2,052,279` total tokens` | present | present | `REPRODUCE.md` |
+| PASS | `text.REPRODUCE.md.cached Responses API files contain `2,080,070` total tokens` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/run_selected_listener_audit.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/analyze_cross_model_listener_audit.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.GPT-5.5 mirror self-play is `0.673`` | present | present | `REPRODUCE.md` |
@@ -987,6 +1011,8 @@ Checks passed: 1027/1027.
 | PASS | `text.REPRODUCE.md.scripts/analyze_interaction_memory_rules.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.`152` coded failure rows collapse into two active rules` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.mean repair success on those failure scenes is `0.991`` | present | present | `REPRODUCE.md` |
+| PASS | `text.REPRODUCE.md.scripts/run_interaction_memory_rerun.py` | present | present | `REPRODUCE.md` |
+| PASS | `text.REPRODUCE.md.interaction-memory prompt success is `1.000`, versus mirror self-play` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/make_qualitative_examples.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.docs/qualitative_failure_examples.md` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/make_reviewer_checklist.py` | present | present | `REPRODUCE.md` |
@@ -994,7 +1020,7 @@ Checks passed: 1027/1027.
 | PASS | `text.REPRODUCE.md.scripts/audit_plan_coverage.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.docs/plan_coverage_audit.md` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.core scope has `17` covered, `2` partial, and `0` open items` | present | present | `REPRODUCE.md` |
-| PASS | `text.REPRODUCE.md.stretch scope has `3` covered, `2` partial, and `0` open items` | present | present | `REPRODUCE.md` |
+| PASS | `text.REPRODUCE.md.stretch scope has `4` covered, `1` partial, and `0` open items` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.partial_observability_api50_mirror_failures_coded.csv` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/make_artifact_guide.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/analyze_api_listener_leave_one_out.py` | present | present | `REPRODUCE.md` |
@@ -1026,6 +1052,7 @@ Checks passed: 1027/1027.
 | PASS | `text.README.md.docs/listener_confidence_audit.md` | present | present | `README.md` |
 | PASS | `text.README.md.docs/failure_taxonomy_audit.md` | present | present | `README.md` |
 | PASS | `text.README.md.docs/interaction_memory_rules.md` | present | present | `README.md` |
+| PASS | `text.README.md.docs/interaction_memory_prompt_rerun.md` | present | present | `README.md` |
 | PASS | `text.README.md.docs/qualitative_failure_examples.md` | present | present | `README.md` |
 | PASS | `text.README.md.docs/reviewer_checklist.md` | present | present | `README.md` |
 | PASS | `text.README.md.docs/plan_coverage_audit.md` | present | present | `README.md` |

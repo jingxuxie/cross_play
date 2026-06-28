@@ -260,15 +260,18 @@
       "status": "covered"
     },
     {
-      "detail": "A replay-only interaction-memory rule audit is present, but no new memory-prompt generation/evaluation run is claimed.",
+      "detail": "A bounded GPT-5.5 interaction-memory prompt rerun on the 15 human-packet mirror-failure items raises held-out success from 0.422 for mirror messages to 1.000, matching population-play on the same sampled scenes.",
       "evidence": [
         "docs/interaction_memory_rules.md",
-        "results/interaction_memory_rules.json"
+        "results/interaction_memory_rules.json",
+        "docs/interaction_memory_prompt_rerun.md",
+        "results/interaction_memory_prompt_rerun_summary.json",
+        "scripts/run_interaction_memory_rerun.py"
       ],
       "plan_item": "Run an actual interaction-memory prompt rerun after distilling rules from failures.",
       "scope": "stretch",
       "section": "Stronger-plan extensions",
-      "status": "partial"
+      "status": "covered"
     },
     {
       "detail": "A cache-only rule-based verifier gives independent non-LLM support for the coded mirror-failure taxonomy; human validation remains a future extension.",
@@ -332,24 +335,13 @@
       "scope": "stretch",
       "section": "Stronger-plan extensions",
       "status": "partial"
-    },
-    {
-      "detail": "A replay-only interaction-memory rule audit is present, but no new memory-prompt generation/evaluation run is claimed.",
-      "evidence": [
-        "docs/interaction_memory_rules.md",
-        "results/interaction_memory_rules.json"
-      ],
-      "plan_item": "Run an actual interaction-memory prompt rerun after distilling rules from failures.",
-      "scope": "stretch",
-      "section": "Stronger-plan extensions",
-      "status": "partial"
     }
   ],
   "source_plan": "cross_play_pragmatics_workshop_plan.md",
   "status_counts": {
-    "covered": 20,
+    "covered": 21,
     "open": 0,
-    "partial": 4
+    "partial": 3
   },
   "status_definitions": {
     "covered": "Current artifacts directly satisfy the plan item.",
@@ -357,8 +349,8 @@
     "partial": "Current artifacts address the item only at smaller scale, narrower scope, or as diagnostic support."
   },
   "stretch_status_counts": {
-    "covered": 3,
+    "covered": 4,
     "open": 0,
-    "partial": 2
+    "partial": 1
   }
 }

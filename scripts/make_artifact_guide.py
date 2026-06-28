@@ -67,6 +67,7 @@ def build_report() -> dict[str, Any]:
         "failure_taxonomy": failure_taxonomy(),
         "rule_based_ambiguity": rule_based_ambiguity(),
         "interaction_memory_rules": interaction_memory_rules(),
+        "interaction_memory_prompt_rerun": interaction_memory_prompt_rerun(),
         "qualitative_examples": qualitative_examples(),
         "reviewer_checklist": reviewer_checklist(),
         "plan_coverage": plan_coverage(),
@@ -622,6 +623,25 @@ def interaction_memory_rules() -> dict[str, Any] | None:
     }
 
 
+def interaction_memory_prompt_rerun() -> dict[str, Any] | None:
+    path = Path("results/interaction_memory_prompt_rerun_summary.json")
+    if not path.exists():
+        return None
+    report = read_json(str(path))
+    return {
+        "source": str(path),
+        "markdown": "docs/interaction_memory_prompt_rerun.md",
+        "records": "results/interaction_memory_prompt_rerun_records.jsonl",
+        "messages": "results/interaction_memory_prompt_rerun_messages.jsonl",
+        "script": "scripts/run_interaction_memory_rerun.py",
+        "n_items": report["n_items"],
+        "condition_counts": report["condition_counts"],
+        "by_method": report["by_method"],
+        "by_condition_method": report["by_condition_method"],
+        "comparisons": report["comparisons"],
+    }
+
+
 def qualitative_examples() -> list[dict[str, Any]]:
     path = Path("results/qualitative_failure_examples.json")
     if not path.exists():
@@ -856,6 +876,11 @@ def claim_map() -> list[dict[str, str]]:
             "anchor": "152 coded failure rows collapse into disambiguate-shared-attributes and avoid-frame-sensitive-only rules; cached repairs satisfy the derived cue in 1.000 of failure scenes",
         },
         {
+            "claim": "A bounded interaction-memory prompt rerun repairs the sampled mirror-failure items.",
+            "evidence": "docs/interaction_memory_prompt_rerun.md; results/interaction_memory_prompt_rerun_summary.json; results/interaction_memory_prompt_rerun_records.jsonl",
+            "anchor": "15 human-packet mirror-failure items: interaction-memory prompt success 1.000 versus mirror self-play 0.422, matching population-play at 1.000",
+        },
+        {
             "claim": "The original pre-submission checklist is backed by concrete artifacts.",
             "evidence": "docs/reviewer_checklist.md; results/reviewer_checklist.json",
             "anchor": "Section 32 reviewer checklist passes all 19 core-validity, results, and paper items",
@@ -863,7 +888,7 @@ def claim_map() -> list[dict[str, str]]:
         {
             "claim": "The artifact package explicitly distinguishes completed core requirements from stretch gaps.",
             "evidence": "docs/plan_coverage_audit.md; results/plan_coverage_audit.json",
-            "anchor": "core scope has 17 covered, 2 partial, 0 open items; stretch scope has 3 covered, 2 partial, 0 open after adding the API K=8 no-coordinate audit",
+            "anchor": "core scope has 17 covered, 2 partial, 0 open items; stretch scope has 4 covered, 1 partial, 0 open after adding the API K=8 no-coordinate audit and the interaction-memory prompt rerun",
         },
         {
             "claim": "The released generator supports a benchmark-scale local sanity sweep.",
@@ -883,7 +908,7 @@ def claim_map() -> list[dict[str, str]]:
         {
             "claim": "API usage is bounded and cache-replayable.",
             "evidence": "docs/api_token_accounting.md; results/api_token_accounting.json",
-            "anchor": "7113 cached responses have complete usage metadata totaling 2052279 tokens",
+            "anchor": "7171 cached responses have complete usage metadata totaling 2080070 tokens",
         },
     ]
 
@@ -929,6 +954,9 @@ def core_files() -> list[tuple[str, str]]:
         ("Failure taxonomy audit", "docs/failure_taxonomy_audit.md"),
         ("Rule-based ambiguity verifier", "docs/rule_based_ambiguity_verifier.md"),
         ("Interaction memory rules", "docs/interaction_memory_rules.md"),
+        ("Interaction memory prompt rerun", "docs/interaction_memory_prompt_rerun.md"),
+        ("Interaction memory prompt rerun summary", "results/interaction_memory_prompt_rerun_summary.json"),
+        ("Interaction memory prompt rerun records", "results/interaction_memory_prompt_rerun_records.jsonl"),
         ("Qualitative failure examples", "docs/qualitative_failure_examples.md"),
         ("Reviewer checklist", "docs/reviewer_checklist.md"),
         ("Plan coverage audit", "docs/plan_coverage_audit.md"),
@@ -957,6 +985,7 @@ def core_files() -> list[tuple[str, str]]:
         ("Failure taxonomy script", "scripts/analyze_failure_taxonomy.py"),
         ("Rule-based ambiguity verifier script", "scripts/analyze_rule_based_ambiguity.py"),
         ("Interaction memory rule script", "scripts/analyze_interaction_memory_rules.py"),
+        ("Interaction memory prompt rerun script", "scripts/run_interaction_memory_rerun.py"),
         ("Qualitative examples script", "scripts/make_qualitative_examples.py"),
         ("Reviewer checklist script", "scripts/make_reviewer_checklist.py"),
         ("Plan coverage audit script", "scripts/audit_plan_coverage.py"),
@@ -1638,6 +1667,59 @@ def render_markdown(report: dict[str, Any]) -> str:
             ]
         )
 
+    if report["interaction_memory_prompt_rerun"]:
+        rerun = report["interaction_memory_prompt_rerun"]
+        counts = format_counts(rerun["condition_counts"])
+        lines.extend(
+            [
+                "",
+                "## Interaction-Memory Prompt Rerun",
+                "",
+                "This bounded API audit turns the replay-only rule set into a direct prompt-rerun diagnostic on the 15 mirror-failure items from the human-validation packet. It is not human-validation evidence.",
+                "",
+                f"Items: {rerun['n_items']}; conditions: {counts}.",
+                "",
+                "| Method | Success | Mean tokens | Source |",
+                "|---|---:|---:|---|",
+            ]
+        )
+        for method in ["mirror_selfplay", "interaction_memory_prompt", "population_play"]:
+            stats = rerun["by_method"][method]
+            lines.append(
+                f"| {method} | {fmt(stats['success'])} | {stats['mean_tokens']:.1f} | `{rerun['source']}` |"
+            )
+        lines.extend(
+            [
+                "",
+                "| Condition | Method | Items | Success | Mean tokens |",
+                "|---|---|---:|---:|---:|",
+            ]
+        )
+        for condition, by_method in rerun["by_condition_method"].items():
+            for method in ["mirror_selfplay", "interaction_memory_prompt", "population_play"]:
+                stats = by_method[method]
+                lines.append(
+                    f"| {condition} | {method} | {stats['n_items']} | {fmt(stats['success'])} | {stats['mean_tokens']:.1f} |"
+                )
+        overall = next(
+            row
+            for row in rerun["comparisons"]
+            if row.get("condition", "overall") == "overall"
+            and row["method_a"] == "interaction_memory_prompt"
+            and row["method_b"] == "mirror_selfplay"
+        )
+        lines.extend(
+            [
+                "",
+                "Overall paired gain over mirror self-play: {diff} over {pairs} scenes, 95% bootstrap CI [{lo}, {hi}].".format(
+                    diff=fmt(overall["diff_a_minus_b"]),
+                    pairs=overall["n_pairs"],
+                    lo=fmt(overall["diff_ci95"][0]),
+                    hi=fmt(overall["diff_ci95"][1]),
+                ),
+            ]
+        )
+
     if report["qualitative_examples"]:
         lines.extend(
             [
@@ -1815,6 +1897,13 @@ def render_markdown(report: dict[str, Any]) -> str:
             "conda run -n cross_play python scripts/analyze_interaction_memory_rules.py \\",
             "  --markdown-out docs/interaction_memory_rules.md \\",
             "  --json-out results/interaction_memory_rules.json",
+            "",
+            "conda run -n cross_play python scripts/run_interaction_memory_rerun.py \\",
+            "  --max-items 15 --temperature omit \\",
+            "  --records-out results/interaction_memory_prompt_rerun_records.jsonl \\",
+            "  --messages-out results/interaction_memory_prompt_rerun_messages.jsonl \\",
+            "  --summary-out results/interaction_memory_prompt_rerun_summary.json \\",
+            "  --markdown-out docs/interaction_memory_prompt_rerun.md",
             "",
             "conda run -n cross_play python scripts/make_qualitative_examples.py \\",
             "  --markdown-out docs/qualitative_failure_examples.md \\",

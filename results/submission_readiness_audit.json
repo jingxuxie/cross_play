@@ -158,6 +158,11 @@
     },
     {
       "detail": "present",
+      "name": "artifact.docs/interaction_memory_prompt_rerun.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
       "name": "artifact.docs/qualitative_failure_examples.md",
       "status": "PASS"
     },
@@ -478,6 +483,21 @@
     },
     {
       "detail": "present",
+      "name": "artifact.results/interaction_memory_prompt_rerun_summary.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/interaction_memory_prompt_rerun_records.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/interaction_memory_prompt_rerun_messages.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
       "name": "artifact.results/qualitative_failure_examples.json",
       "status": "PASS"
     },
@@ -629,6 +649,11 @@
     {
       "detail": "present",
       "name": "artifact.scripts/analyze_interaction_memory_rules.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/run_interaction_memory_rerun.py",
       "status": "PASS"
     },
     {
@@ -1038,6 +1063,16 @@
     },
     {
       "detail": "present",
+      "name": "artifact_guide.15_human_packet_mirror_failure_items",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.interaction_memory_prompt_success_1_000_versus_mirror_self_p",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
       "name": "artifact_guide.four_cache_only_examples_show_mirror_selected_messages_faili",
       "status": "PASS"
     },
@@ -1058,12 +1093,12 @@
     },
     {
       "detail": "present",
-      "name": "artifact_guide.stretch_scope_3_covered_2_partial_0_open",
+      "name": "artifact_guide.stretch_scope_4_covered_1_partial_0_open",
       "status": "PASS"
     },
     {
       "detail": "present",
-      "name": "artifact_guide.stretch_scope_has_3_covered_2_partial_0_open_after_adding_th",
+      "name": "artifact_guide.stretch_scope_has_4_covered_1_partial_0_open_after_adding_th",
       "status": "PASS"
     },
     {
@@ -1098,11 +1133,11 @@
     },
     {
       "detail": "present",
-      "name": "artifact_guide.7113_cached_responses_have_complete_usage_metadata_totaling_",
+      "name": "artifact_guide.7171_cached_responses_have_complete_usage_metadata_totaling_",
       "status": "PASS"
     },
     {
-      "detail": "1027 checks, 0 failed",
+      "detail": "1054 checks, 0 failed",
       "name": "claims_verifier.no_failed_checks",
       "status": "PASS"
     },
@@ -1168,7 +1203,7 @@
     }
   ],
   "n_actions": 0,
-  "n_checks": 233,
+  "n_checks": 240,
   "n_failed": 0,
   "n_warn": 0,
   "warnings": []

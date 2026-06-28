@@ -428,9 +428,24 @@ def plan_items() -> list[PlanItem]:
             "Stronger-plan extensions",
             "stretch",
             "Run an actual interaction-memory prompt rerun after distilling rules from failures.",
-            ["docs/interaction_memory_rules.md", "results/interaction_memory_rules.json"],
-            lambda: (
-                "partial",
+            [
+                "docs/interaction_memory_rules.md",
+                "results/interaction_memory_rules.json",
+                "docs/interaction_memory_prompt_rerun.md",
+                "results/interaction_memory_prompt_rerun_summary.json",
+                "scripts/run_interaction_memory_rerun.py",
+            ],
+            lambda: covered_if(
+                ctx.json("results/interaction_memory_prompt_rerun_summary.json").get("n_items") == 15
+                and round(
+                    ctx.json("results/interaction_memory_prompt_rerun_summary.json")
+                    .get("by_method", {})
+                    .get("interaction_memory_prompt", {})
+                    .get("success", 0.0),
+                    3,
+                )
+                == 1.000,
+                "A bounded GPT-5.5 interaction-memory prompt rerun on the 15 human-packet mirror-failure items raises held-out success from 0.422 for mirror messages to 1.000, matching population-play on the same sampled scenes.",
                 "A replay-only interaction-memory rule audit is present, but no new memory-prompt generation/evaluation run is claimed.",
             ),
         ),

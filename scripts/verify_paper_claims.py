@@ -75,6 +75,7 @@ def main() -> None:
     check_failure_taxonomy(checks)
     check_rule_based_ambiguity(checks)
     check_interaction_memory_rules(checks)
+    check_interaction_memory_prompt_rerun(checks)
     check_qualitative_examples(checks)
     check_reviewer_checklist(checks)
     check_plan_coverage(checks)
@@ -464,12 +465,12 @@ def check_api_token_accounting(checks: list[dict[str, Any]]) -> None:
     path = "results/api_token_accounting.json"
     report = json.loads(Path(path).read_text(encoding="utf-8"))
     totals = report["totals"]
-    add_numeric_check(checks, "api_token_accounting.n_cache_files", report["n_cache_files"], 7113, decimals=0, source=path)
-    add_numeric_check(checks, "api_token_accounting.n_readable", report["n_readable"], 7113, decimals=0, source=path)
+    add_numeric_check(checks, "api_token_accounting.n_cache_files", report["n_cache_files"], 7171, decimals=0, source=path)
+    add_numeric_check(checks, "api_token_accounting.n_readable", report["n_readable"], 7171, decimals=0, source=path)
     add_numeric_check(checks, "api_token_accounting.n_missing_usage", report["n_missing_usage"], 0, decimals=0, source=path)
-    add_numeric_check(checks, "api_token_accounting.input_tokens", totals["input_tokens"], 1874818, decimals=0, source=path)
-    add_numeric_check(checks, "api_token_accounting.output_tokens", totals["output_tokens"], 177461, decimals=0, source=path)
-    add_numeric_check(checks, "api_token_accounting.total_tokens", totals["total_tokens"], 2052279, decimals=0, source=path)
+    add_numeric_check(checks, "api_token_accounting.input_tokens", totals["input_tokens"], 1898304, decimals=0, source=path)
+    add_numeric_check(checks, "api_token_accounting.output_tokens", totals["output_tokens"], 181766, decimals=0, source=path)
+    add_numeric_check(checks, "api_token_accounting.total_tokens", totals["total_tokens"], 2080070, decimals=0, source=path)
 
     by_model = {
         (row["requested_model"], row["response_model"]): row
@@ -485,8 +486,8 @@ def check_api_token_accounting(checks: list[dict[str, Any]]) -> None:
             "total_tokens": 820710,
         },
         ("gpt-5.5", "gpt-5.5-2026-04-23"): {
-            "responses": 3107,
-            "total_tokens": 899312,
+            "responses": 3165,
+            "total_tokens": 927103,
         },
     }
     for key, values in expected_models.items():
@@ -2178,6 +2179,113 @@ def check_interaction_memory_rules(checks: list[dict[str, Any]]) -> None:
         )
 
 
+def check_interaction_memory_prompt_rerun(checks: list[dict[str, Any]]) -> None:
+    path = "results/interaction_memory_prompt_rerun_summary.json"
+    report = json.loads(Path(path).read_text(encoding="utf-8"))
+    add_numeric_check(
+        checks,
+        "interaction_memory_prompt_rerun.n_items",
+        report["n_items"],
+        15,
+        decimals=0,
+        source=path,
+    )
+    expected_conditions = {
+        "perspective_mirror_failure": 10,
+        "partial_mirror_failure": 5,
+    }
+    for condition, expected in expected_conditions.items():
+        add_numeric_check(
+            checks,
+            f"interaction_memory_prompt_rerun.condition.{condition}",
+            report["condition_counts"][condition],
+            expected,
+            decimals=0,
+            source=path,
+        )
+
+    expected_methods = {
+        "mirror_selfplay": 0.422,
+        "interaction_memory_prompt": 1.000,
+        "population_play": 1.000,
+    }
+    for method, expected in expected_methods.items():
+        add_numeric_check(
+            checks,
+            f"interaction_memory_prompt_rerun.{method}.success",
+            report["by_method"][method]["success"],
+            expected,
+            decimals=3,
+            source=path,
+        )
+
+    comparisons = {
+        (row.get("condition", "overall"), row["method_a"], row["method_b"]): row
+        for row in report["comparisons"]
+    }
+    expected_comparisons = {
+        ("overall", "interaction_memory_prompt", "mirror_selfplay"): {
+            "n_pairs": 15,
+            "mean_a": 1.000,
+            "mean_b": 0.422,
+            "diff": 0.578,
+        },
+        ("overall", "interaction_memory_prompt", "population_play"): {
+            "n_pairs": 15,
+            "mean_a": 1.000,
+            "mean_b": 1.000,
+            "diff": 0.000,
+        },
+        ("partial_mirror_failure", "interaction_memory_prompt", "mirror_selfplay"): {
+            "n_pairs": 5,
+            "mean_a": 1.000,
+            "mean_b": 0.333,
+            "diff": 0.667,
+        },
+        ("perspective_mirror_failure", "interaction_memory_prompt", "mirror_selfplay"): {
+            "n_pairs": 10,
+            "mean_a": 1.000,
+            "mean_b": 0.467,
+            "diff": 0.533,
+        },
+    }
+    for key, values in expected_comparisons.items():
+        row = comparisons[key]
+        label = ".".join(key)
+        add_numeric_check(
+            checks,
+            f"interaction_memory_prompt_rerun.{label}.pairs",
+            row["n_pairs"],
+            values["n_pairs"],
+            decimals=0,
+            source=path,
+        )
+        add_numeric_check(
+            checks,
+            f"interaction_memory_prompt_rerun.{label}.mean_a",
+            row["mean_a"],
+            values["mean_a"],
+            decimals=3,
+            source=path,
+        )
+        add_numeric_check(
+            checks,
+            f"interaction_memory_prompt_rerun.{label}.mean_b",
+            row["mean_b"],
+            values["mean_b"],
+            decimals=3,
+            source=path,
+        )
+        add_numeric_check(
+            checks,
+            f"interaction_memory_prompt_rerun.{label}.diff",
+            row["diff_a_minus_b"],
+            values["diff"],
+            decimals=3,
+            source=path,
+        )
+
+
 def check_qualitative_examples(checks: list[dict[str, Any]]) -> None:
     path = "results/qualitative_failure_examples.json"
     report = json.loads(Path(path).read_text(encoding="utf-8"))
@@ -2299,9 +2407,9 @@ def check_plan_coverage(checks: list[dict[str, Any]]) -> None:
     add_numeric_check(checks, "plan_coverage.n_items", report["n_items"], 24, decimals=0, source=path)
 
     count_expectations = {
-        "status_counts": {"covered": 20, "partial": 4, "open": 0},
+        "status_counts": {"covered": 21, "partial": 3, "open": 0},
         "core_status_counts": {"covered": 17, "partial": 2, "open": 0},
-        "stretch_status_counts": {"covered": 3, "partial": 2, "open": 0},
+        "stretch_status_counts": {"covered": 4, "partial": 1, "open": 0},
     }
     for group, expected_counts in count_expectations.items():
         actual_counts = report[group]
@@ -2318,7 +2426,7 @@ def check_plan_coverage(checks: list[dict[str, Any]]) -> None:
         checks,
         "plan_coverage.open_or_partial",
         len(report["open_or_partial"]),
-        4,
+        3,
         decimals=0,
         source=path,
     )
@@ -2329,7 +2437,7 @@ def check_plan_coverage(checks: list[dict[str, Any]]) -> None:
         "Hand-label roughly 100 failures into interpretable categories.": "partial",
         "Run a 1,000-scene benchmark and 200 partial-observability stress episodes.": "partial",
         "Evaluate K=8 candidate generation in addition to K=4.": "covered",
-        "Run an actual interaction-memory prompt rerun after distilling rules from failures.": "partial",
+        "Run an actual interaction-memory prompt rerun after distilling rules from failures.": "covered",
         "Validate failures with human or independent non-LLM judgments.": "covered",
         "Publish the artifact as a public repository or submission bundle.": "covered",
     }
@@ -2410,7 +2518,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("paper/main.tex", "We generate five scenario families"),
         ("paper/main.tex", "We report three bounded API experiments"),
         ("paper/main.tex", "a 50-scene \\texttt{gpt-5.5} speaker-generation audit"),
-        ("paper/main.tex", "token-accounting report over 7,113 cached responses"),
+        ("paper/main.tex", "token-accounting report over 7,171 cached responses"),
         ("paper/main.tex", "The dedicated API K=8 no-coordinate run changes this interpretation"),
         ("paper/main.tex", "400 of 400 generated candidates survive the exact-coordinate filter"),
         ("paper/main.tex", "population-play rises from 0.833 to 0.993"),
@@ -2429,7 +2537,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/protocol_and_prompts.md", "Record Schema"),
         ("docs/protocol_and_prompts.md", "a bounded `partial_observability` support run"),
         ("docs/api_token_accounting.md", "API Token Accounting"),
-        ("docs/api_token_accounting.md", "7113 | 7113 | 0 | 1874818 | 177461 | 2052279"),
+        ("docs/api_token_accounting.md", "7171 | 7171 | 0 | 1898304 | 181766 | 2080070"),
         ("docs/cross_model_listener_audit.md", "Cross-Model Held-Out Listener Audit"),
         ("docs/cross_model_listener_audit.md", "Perspective stress | gpt-5.5 | 0.793 | 0.507 | 0.673 | 1.000 | 1.000"),
         ("docs/cross_model_listener_audit.md", "Partial observability | gpt-5.5 | 0.740 | 0.453 | 0.653 | 1.000 | 1.000"),
@@ -2458,7 +2566,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/artifact_guide.md", "PRAG-CrossPlay Artifact Guide"),
         ("docs/artifact_guide.md", "Claim-To-Evidence Map"),
         ("docs/artifact_guide.md", "API Token Accounting"),
-        ("docs/artifact_guide.md", "7113 cached responses have complete usage metadata totaling 2052279 tokens"),
+        ("docs/artifact_guide.md", "7171 cached responses have complete usage metadata totaling 2080070 tokens"),
         ("docs/artifact_guide.md", "Cross-Model Failure Overlap Audit"),
         ("docs/artifact_guide.md", "20 of 22 GPT-4.1 mirror-failure scenes also fail under GPT-5.5"),
         ("docs/artifact_guide.md", "All GPT-5.5 mirror-failure scenes are symbolic-verifier positives"),
@@ -2511,12 +2619,14 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/artifact_guide.md", "Interaction Memory Rule Audit"),
         ("docs/artifact_guide.md", "Coded failure rows: 152; unique failure scenes: 76"),
         ("docs/artifact_guide.md", "repair cue satisfies derived rule in 1.000 of failure scenes"),
+        ("docs/artifact_guide.md", "Interaction-Memory Prompt Rerun"),
+        ("docs/artifact_guide.md", "interaction-memory prompt success 1.000 versus mirror self-play 0.422"),
         ("docs/artifact_guide.md", "four cache-only examples show mirror-selected messages failing held-out listeners"),
         ("docs/artifact_guide.md", "Section 32 reviewer checklist passes all 19 core-validity, results, and paper items"),
         ("docs/artifact_guide.md", "Items passed: 19/19"),
         ("docs/artifact_guide.md", "Core scope: 17 covered, 2 partial, 0 open."),
-        ("docs/artifact_guide.md", "Stretch scope: 3 covered, 2 partial, 0 open."),
-        ("docs/artifact_guide.md", "stretch scope has 3 covered, 2 partial, 0 open after adding the API K=8 no-coordinate audit"),
+        ("docs/artifact_guide.md", "Stretch scope: 4 covered, 1 partial, 0 open."),
+        ("docs/artifact_guide.md", "stretch scope has 4 covered, 1 partial, 0 open after adding the API K=8 no-coordinate audit and the interaction-memory prompt rerun"),
         ("docs/artifact_guide.md", "Local Benchmark-Scale Sanity Check"),
         ("docs/artifact_guide.md", "600 local scenes balanced across four initial scenario families"),
         ("docs/artifact_guide.md", "partial_observability_api50 | `data/partial_observability_local50_scenes.jsonl` | 50"),
@@ -2570,9 +2680,9 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/reviewer_checklist.md", "Held-out listeners are not used for method selection."),
         ("docs/reviewer_checklist.md", "Claims match actual results."),
         ("docs/plan_coverage_audit.md", "Plan Coverage Audit"),
-        ("docs/plan_coverage_audit.md", "Overall: 20 covered, 4 partial, 0 open across 24 plan items."),
+        ("docs/plan_coverage_audit.md", "Overall: 21 covered, 3 partial, 0 open across 24 plan items."),
         ("docs/plan_coverage_audit.md", "Core scope: 17 covered, 2 partial, 0 open."),
-        ("docs/plan_coverage_audit.md", "Stretch scope: 3 covered, 2 partial, 0 open."),
+        ("docs/plan_coverage_audit.md", "Stretch scope: 4 covered, 1 partial, 0 open."),
         ("docs/partial_observability_local_check.md", "mirror self-play | 0.653 | 1.000 | 0.347"),
         ("docs/partial_observability_api50_check.md", "Candidate messages referencing private landmarks: 0"),
         ("docs/partial_observability_api50_check.md", "no_coord_consensus_info | 0.987"),
@@ -2589,7 +2699,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("REPRODUCE.md", "--partial 50"),
         ("REPRODUCE.md", "scripts/analyze_partial_observability_api.py"),
         ("REPRODUCE.md", "scripts/analyze_api_token_accounting.py"),
-        ("REPRODUCE.md", "cached Responses API files contain `2,052,279` total tokens"),
+        ("REPRODUCE.md", "cached Responses API files contain `2,080,070` total tokens"),
         ("REPRODUCE.md", "scripts/run_selected_listener_audit.py"),
         ("REPRODUCE.md", "scripts/analyze_cross_model_listener_audit.py"),
         ("REPRODUCE.md", "GPT-5.5 mirror self-play is `0.673`"),
@@ -2632,6 +2742,8 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("REPRODUCE.md", "scripts/analyze_interaction_memory_rules.py"),
         ("REPRODUCE.md", "`152` coded failure rows collapse into two active rules"),
         ("REPRODUCE.md", "mean repair success on those failure scenes is `0.991`"),
+        ("REPRODUCE.md", "scripts/run_interaction_memory_rerun.py"),
+        ("REPRODUCE.md", "interaction-memory prompt success is `1.000`, versus mirror self-play"),
         ("REPRODUCE.md", "scripts/make_qualitative_examples.py"),
         ("REPRODUCE.md", "docs/qualitative_failure_examples.md"),
         ("REPRODUCE.md", "scripts/make_reviewer_checklist.py"),
@@ -2639,7 +2751,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("REPRODUCE.md", "scripts/audit_plan_coverage.py"),
         ("REPRODUCE.md", "docs/plan_coverage_audit.md"),
         ("REPRODUCE.md", "core scope has `17` covered, `2` partial, and `0` open items"),
-        ("REPRODUCE.md", "stretch scope has `3` covered, `2` partial, and `0` open items"),
+        ("REPRODUCE.md", "stretch scope has `4` covered, `1` partial, and `0` open items"),
         ("REPRODUCE.md", "partial_observability_api50_mirror_failures_coded.csv"),
         ("REPRODUCE.md", "scripts/make_artifact_guide.py"),
         ("REPRODUCE.md", "scripts/analyze_api_listener_leave_one_out.py"),
@@ -2671,6 +2783,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("README.md", "docs/listener_confidence_audit.md"),
         ("README.md", "docs/failure_taxonomy_audit.md"),
         ("README.md", "docs/interaction_memory_rules.md"),
+        ("README.md", "docs/interaction_memory_prompt_rerun.md"),
         ("README.md", "docs/qualitative_failure_examples.md"),
         ("README.md", "docs/reviewer_checklist.md"),
         ("README.md", "docs/plan_coverage_audit.md"),

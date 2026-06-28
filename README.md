@@ -17,8 +17,8 @@ conda run -n cross_play python scripts/analyze_api_token_accounting.py \
   --json-out results/api_token_accounting.json
 ```
 
-The current report is `docs/api_token_accounting.md`: `7,113` cached responses
-have complete usage metadata and contain `2,052,279` total tokens. Dollar cost
+The current report is `docs/api_token_accounting.md`: `7,171` cached responses
+have complete usage metadata and contain `2,080,070` total tokens. Dollar cost
 is not estimated from cached files; use the provider dashboard for final
 billing.
 
@@ -430,6 +430,26 @@ The current report is `docs/interaction_memory_rules.md`: the `152` coded
 failure rows collapse into two active rules, and cached population or
 consensus+info repairs satisfy the derived cue in `1.000` of failure scenes.
 
+## Interaction-memory prompt rerun
+
+This bounded GPT-5.5 prompt rerun asks the speaker to use the distilled
+interaction-memory rules on sampled mirror-failure items from the prepared
+human-validation packet.
+
+```bash
+conda run -n cross_play python scripts/run_interaction_memory_rerun.py \
+  --max-items 15 --temperature omit \
+  --records-out results/interaction_memory_prompt_rerun_records.jsonl \
+  --messages-out results/interaction_memory_prompt_rerun_messages.jsonl \
+  --summary-out results/interaction_memory_prompt_rerun_summary.json \
+  --markdown-out docs/interaction_memory_prompt_rerun.md
+```
+
+The current report is `docs/interaction_memory_prompt_rerun.md`: on 15
+human-packet mirror-failure items, the interaction-memory prompt reaches
+`1.000` held-out success versus mirror self-play `0.422`, matching
+population-play at `1.000`.
+
 ## Cache-only qualitative failure examples
 
 The qualitative appendix selects representative cached scenes where
@@ -474,7 +494,7 @@ conda run -n cross_play python scripts/audit_plan_coverage.py \
 ```
 
 The current report is `docs/plan_coverage_audit.md`: core scope has `17`
-covered, `2` partial, and `0` open items; stretch scope has `3` covered, `2`
+covered, `2` partial, and `0` open items; stretch scope has `4` covered, `1`
 partial, and `0` open items.
 
 ## Artifact guide
