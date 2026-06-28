@@ -57,6 +57,7 @@ def main() -> None:
     check_local_benchmark600(checks)
     check_local_stronger_plan(checks)
     check_partial_api_extension(checks)
+    check_cross_model_listener_audit(checks)
     check_api_listener_leave_one_out(checks)
     check_selection_regret(checks)
     check_candidate_pool(checks)
@@ -407,7 +408,7 @@ def check_integrity_audit(checks: list[dict[str, Any]]) -> None:
         checks,
         "integrity_audit.n_checks",
         report.get("n_checks", -1),
-        158,
+        194,
         decimals=0,
         source=path,
     )
@@ -445,18 +446,24 @@ def check_integrity_audit(checks: list[dict[str, Any]]) -> None:
         ("gpt-4.1-nano", "gpt-4.1-nano-2025-04-14") in model_versions,
         source=path,
     )
+    add_bool_check(
+        checks,
+        "integrity_audit.has_exact_gpt55_version",
+        ("gpt-5.5", "gpt-5.5-2026-04-23") in model_versions,
+        source=path,
+    )
 
 
 def check_api_token_accounting(checks: list[dict[str, Any]]) -> None:
     path = "results/api_token_accounting.json"
     report = json.loads(Path(path).read_text(encoding="utf-8"))
     totals = report["totals"]
-    add_numeric_check(checks, "api_token_accounting.n_cache_files", report["n_cache_files"], 3520, decimals=0, source=path)
-    add_numeric_check(checks, "api_token_accounting.n_readable", report["n_readable"], 3520, decimals=0, source=path)
+    add_numeric_check(checks, "api_token_accounting.n_cache_files", report["n_cache_files"], 4982, decimals=0, source=path)
+    add_numeric_check(checks, "api_token_accounting.n_readable", report["n_readable"], 4982, decimals=0, source=path)
     add_numeric_check(checks, "api_token_accounting.n_missing_usage", report["n_missing_usage"], 0, decimals=0, source=path)
-    add_numeric_check(checks, "api_token_accounting.input_tokens", totals["input_tokens"], 940088, decimals=0, source=path)
-    add_numeric_check(checks, "api_token_accounting.output_tokens", totals["output_tokens"], 87829, decimals=0, source=path)
-    add_numeric_check(checks, "api_token_accounting.total_tokens", totals["total_tokens"], 1027917, decimals=0, source=path)
+    add_numeric_check(checks, "api_token_accounting.input_tokens", totals["input_tokens"], 1287186, decimals=0, source=path)
+    add_numeric_check(checks, "api_token_accounting.output_tokens", totals["output_tokens"], 122906, decimals=0, source=path)
+    add_numeric_check(checks, "api_token_accounting.total_tokens", totals["total_tokens"], 1410092, decimals=0, source=path)
 
     by_model = {
         (row["requested_model"], row["response_model"]): row
@@ -464,12 +471,16 @@ def check_api_token_accounting(checks: list[dict[str, Any]]) -> None:
     }
     expected_models = {
         ("gpt-4.1-nano", "gpt-4.1-nano-2025-04-14"): {
-            "responses": 750,
-            "total_tokens": 207207,
+            "responses": 1236,
+            "total_tokens": 332257,
         },
         ("gpt-5.4-nano", "gpt-5.4-nano-2026-03-17"): {
             "responses": 2770,
             "total_tokens": 820710,
+        },
+        ("gpt-5.5", "gpt-5.5-2026-04-23"): {
+            "responses": 976,
+            "total_tokens": 257125,
         },
     }
     for key, values in expected_models.items():
@@ -752,6 +763,58 @@ def check_partial_api_extension(checks: list[dict[str, Any]]) -> None:
         decimals=0,
         source=audit_path,
     )
+
+
+def check_cross_model_listener_audit(checks: list[dict[str, Any]]) -> None:
+    path = "results/cross_model_listener_audit.json"
+    report = json.loads(Path(path).read_text(encoding="utf-8"))
+    rows = {
+        (row["setting"], row["listener"]): row
+        for row in report["rows"]
+    }
+    expected = {
+        ("Perspective stress", "gpt-5.4-nano"): {"mirror": 0.813, "population": 1.000, "gap": 0.187},
+        ("Perspective stress", "gpt-4.1-nano"): {"mirror": 0.713, "population": 1.000, "gap": 0.287},
+        ("Perspective stress", "gpt-5.5"): {"mirror": 0.673, "population": 1.000, "gap": 0.327},
+        ("Partial observability", "gpt-5.4-nano"): {"mirror": 0.667, "population": 1.000, "gap": 0.333},
+        ("Partial observability", "gpt-4.1-nano"): {"mirror": 0.660, "population": 1.000, "gap": 0.340},
+        ("Partial observability", "gpt-5.5"): {"mirror": 0.653, "population": 1.000, "gap": 0.347},
+    }
+    add_numeric_check(
+        checks,
+        "cross_model_listener.rows",
+        len(rows),
+        6,
+        decimals=0,
+        source=path,
+    )
+    for key, values in expected.items():
+        row = rows[key]
+        label = ".".join(slug_name(part) for part in key)
+        add_numeric_check(
+            checks,
+            f"cross_model_listener.{label}.mirror",
+            row["mirror"]["success"],
+            values["mirror"],
+            decimals=3,
+            source=path,
+        )
+        add_numeric_check(
+            checks,
+            f"cross_model_listener.{label}.population",
+            row["population"]["success"],
+            values["population"],
+            decimals=3,
+            source=path,
+        )
+        add_numeric_check(
+            checks,
+            f"cross_model_listener.{label}.gap",
+            row["population_minus_mirror"]["diff_a_minus_b"],
+            values["gap"],
+            decimals=3,
+            source=path,
+        )
 
 
 def check_api_listener_leave_one_out(checks: list[dict[str, Any]]) -> None:
@@ -1829,12 +1892,15 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
     snippets = [
         ("paper/main.tex", "consensus+info reaches 0.760"),
         ("paper/main.tex", "consensus+info success of 0.920"),
-        ("paper/main.tex", "candidate-role audit makes this concrete"),
+        ("paper/main.tex", "A candidate-role audit shows"),
         ("paper/main.tex", "coordinate-fallback slot in 1.000 of scenes"),
-        ("paper/main.tex", "short attribute-only slot in 0.000"),
+        ("paper/main.tex", "naive population-play selects a spatially informative message in only 4 of 50"),
         ("paper/main.tex", "gpt-5.4-nano-2026-03-17"),
-        ("paper/main.tex", "generated protocol appendix"),
-        ("paper/main.tex", "reviewer-facing artifact guide"),
+        ("paper/main.tex", "gpt-5.5-2026-04-23"),
+        ("paper/main.tex", "generated prompt and schema documentation"),
+        ("paper/main.tex", "artifact guide mapping paper claims"),
+        ("paper/main.tex", "population-minus-mirror difference is 0.327"),
+        ("paper/main.tex", "\\label{tab:crossmodel}"),
         ("paper/main.tex", "cache-only leave-one-listener-out analysis"),
         ("paper/main.tex", "selection-regret audit makes this decomposition explicit"),
         ("paper/main.tex", "mirror self-play leaves regrets of 0.093, 0.187, 0.287, and 0.333"),
@@ -1843,12 +1909,12 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("paper/main.tex", "population-play selects a robust candidate in 1.000 of scenes"),
         ("paper/main.tex", "robust non-coordinate candidates remain available in 0.920, 0.660, and 1.000"),
         ("paper/main.tex", "A uniform-random candidate baseline rules out the explanation that any candidate would do"),
-        ("paper/main.tex", "random expected success is 0.865, 0.715, 0.657, and 0.753"),
+        ("paper/main.tex", "Random expected success is 0.865, 0.715, 0.657, and 0.753"),
         ("paper/main.tex", "population-play improves over random by 0.135, 0.285, 0.343, and 0.247"),
         ("paper/main.tex", "consensus+info improves over random by 0.100, 0.218, and 0.316"),
         ("paper/main.tex", "prefix-$K$ candidate-budget audit shows why the four-candidate protocol is useful"),
         ("paper/main.tex", "from 0.380 at $K=1$ to 0.660 at $K=3$ and 1.000 at $K=4$"),
-        ("paper/main.tex", "listener-disagreement audit shows the same pattern"),
+        ("paper/main.tex", "A held-out listener-disagreement audit shows"),
         ("paper/main.tex", "split held-out outcomes in 0.080, 0.180, 0.360, and 0.500"),
         ("paper/main.tex", "consensus+info reduces split outcomes from mirror's 0.540 to 0.020"),
         ("paper/main.tex", "listener-confidence audit further shows that self-reported uncertainty is not"),
@@ -1863,7 +1929,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("paper/main.tex", "\\section{Related Work}"),
         ("paper/main.tex", "We generate five scenario families"),
         ("paper/main.tex", "We report three bounded API experiments"),
-        ("paper/main.tex", "The paper contributes: (i) PRAG-CrossPlay"),
+        ("paper/main.tex", "The paper makes three contributions"),
         ("paper/main.tex", "no-API 600-scene balanced local sweep"),
         ("docs/local_stronger_plan_k8.md", "Local Stronger-Plan K=8 Diagnostic"),
         ("docs/local_stronger_plan_k8.md", "No-coordinate oracle success on the initial 1,000 scenes rises from 0.870 at K=4 to 0.995 at K=8."),
@@ -1874,12 +1940,15 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/protocol_and_prompts.md", "Record Schema"),
         ("docs/protocol_and_prompts.md", "a bounded `partial_observability` support run"),
         ("docs/api_token_accounting.md", "API Token Accounting"),
-        ("docs/api_token_accounting.md", "3520 | 3520 | 0 | 940088 | 87829 | 1027917"),
+        ("docs/api_token_accounting.md", "4982 | 4982 | 0 | 1287186 | 122906 | 1410092"),
+        ("docs/cross_model_listener_audit.md", "Cross-Model Held-Out Listener Audit"),
+        ("docs/cross_model_listener_audit.md", "Perspective stress | gpt-5.5 | 0.793 | 0.507 | 0.673 | 1.000 | 1.000"),
+        ("docs/cross_model_listener_audit.md", "Partial observability | gpt-5.5 | 0.740 | 0.453 | 0.653 | 1.000 | 1.000"),
         ("docs/api_token_accounting.md", "`gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770"),
         ("docs/artifact_guide.md", "PRAG-CrossPlay Artifact Guide"),
         ("docs/artifact_guide.md", "Claim-To-Evidence Map"),
         ("docs/artifact_guide.md", "API Token Accounting"),
-        ("docs/artifact_guide.md", "3520 cached responses have complete usage metadata totaling 1027917 tokens"),
+        ("docs/artifact_guide.md", "4982 cached responses have complete usage metadata totaling 1410092 tokens"),
         ("docs/artifact_guide.md", "Local Stronger-Plan K=8 Diagnostic"),
         ("docs/artifact_guide.md", "No-coordinate oracle success on the initial 1,000 scenes rises from 0.870 at K=4 to 0.995 at K=8"),
         ("docs/artifact_guide.md", "No-coordinate oracle success on the 200 partial-observability scenes rises from 0.495 at K=4 to 0.997 at K=8"),
@@ -1924,7 +1993,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/artifact_guide.md", "0 candidate messages reference private landmarks"),
         ("docs/artifact_guide.md", "all 50 full-run mirror failures are underspecified-distractor choices"),
         ("docs/artifact_guide.md", "local_benchmark600 | `data/local_benchmark600_scenes.jsonl` | 600 | 10800"),
-        ("docs/artifact_guide.md", "158/158 integrity checks pass"),
+        ("docs/artifact_guide.md", "194/194 integrity checks pass"),
         ("docs/local_benchmark600_check.md", "Mirror self-play has same-play 1.000 but cross-play 0.631"),
         ("docs/local_benchmark600_check.md", "perspective_shift | 0.000 | 0.158 | 1.000 | 0.842"),
         ("docs/api_listener_leave_one_out.md", "API Listener Leave-One-Out Analysis"),
@@ -1976,7 +2045,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/partial_observability_api50_check.md", "| underspecified_distractor | 50 |"),
         ("docs/partial_observability_api50_check.md", "| underspecified_distractor | 59 |"),
         ("docs/paper_claims_iteration_002.md", "Consensus+info selector: cross-play `0.920`"),
-        ("paper/main.tex", "partial-observability stress check"),
+        ("paper/main.tex", "Partial-observability support check"),
         ("paper/main.tex", "message-length audit rules out a pure verbosity explanation"),
         ("paper/main.tex", "Across 152 listener-level failures, 147 are underspecified"),
         ("paper/main.tex", "no coded failures are"),
@@ -1985,7 +2054,10 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("REPRODUCE.md", "--partial 50"),
         ("REPRODUCE.md", "scripts/analyze_partial_observability_api.py"),
         ("REPRODUCE.md", "scripts/analyze_api_token_accounting.py"),
-        ("REPRODUCE.md", "cached Responses API files contain `1,027,917` total tokens"),
+        ("REPRODUCE.md", "cached Responses API files contain `1,410,092` total tokens"),
+        ("REPRODUCE.md", "scripts/run_selected_listener_audit.py"),
+        ("REPRODUCE.md", "scripts/analyze_cross_model_listener_audit.py"),
+        ("REPRODUCE.md", "GPT-5.5 mirror self-play is `0.673`"),
         ("REPRODUCE.md", "scripts/analyze_local_benchmark.py"),
         ("REPRODUCE.md", "local_benchmark600_check.json"),
         ("REPRODUCE.md", "scripts/analyze_local_stronger_plan.py"),
@@ -2029,6 +2101,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("REPRODUCE.md", "scripts/verify_paper_claims.py"),
         ("README.md", "paper/colm2026_submission.pdf"),
         ("README.md", "docs/api_token_accounting.md"),
+        ("README.md", "docs/cross_model_listener_audit.md"),
         ("README.md", "docs/local_benchmark600_check.md"),
         ("README.md", "docs/local_stronger_plan_k8.md"),
         ("README.md", "docs/artifact_guide.md"),
@@ -2050,7 +2123,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("paper/colm2026_submission.tex", "\\usepackage[submission]{colm2026_conference}"),
     ]
     for path, snippet in snippets:
-        text = Path(path).read_text(encoding="utf-8")
+        text = read_text_with_inputs(path) if path == "paper/main.tex" else Path(path).read_text(encoding="utf-8")
         add_bool_check(checks, f"text.{path}.{snippet}", contains_snippet(text, snippet), source=path)
 
 
@@ -2064,6 +2137,22 @@ def contains_snippet(text: str, snippet: str) -> bool:
     compact_text = re.sub(r"\s+", " ", text)
     compact_snippet = re.sub(r"\s+", " ", snippet)
     return compact_snippet in compact_text
+
+
+def read_text_with_inputs(path: str | Path) -> str:
+    path = Path(path)
+    text = path.read_text(encoding="utf-8")
+
+    def replace(match: re.Match[str]) -> str:
+        input_path = match.group(1)
+        if not input_path.endswith(".tex"):
+            input_path += ".tex"
+        child = path.parent / input_path
+        if child.exists():
+            return read_text_with_inputs(child)
+        return match.group(0)
+
+    return re.sub(r"\\input\{([^}]+)\}", replace, text)
 
 
 def slug_name(text: str) -> str:

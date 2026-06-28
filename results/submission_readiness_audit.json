@@ -53,6 +53,11 @@
     },
     {
       "detail": "present",
+      "name": "artifact.docs/cross_model_listener_audit.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
       "name": "artifact.docs/local_benchmark600_check.md",
       "status": "PASS"
     },
@@ -159,6 +164,11 @@
     {
       "detail": "present",
       "name": "artifact.results/api_token_accounting.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/cross_model_listener_audit.json",
       "status": "PASS"
     },
     {
@@ -288,6 +298,16 @@
     },
     {
       "detail": "present",
+      "name": "artifact.scripts/run_selected_listener_audit.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/analyze_cross_model_listener_audit.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
       "name": "artifact.scripts/analyze_local_benchmark.py",
       "status": "PASS"
     },
@@ -377,14 +397,14 @@
       "status": "PASS"
     },
     {
-      "detail": "8",
+      "detail": "10",
       "name": "pdf.pages_positive",
       "status": "PASS"
     },
     {
-      "detail": "8 pages; target plan is 4-8 pages",
+      "detail": "10 pages; target plan is 4-8 pages",
       "name": "pdf.pages_within_workshop_range",
-      "status": "PASS"
+      "status": "WARN"
     },
     {
       "detail": "no",
@@ -442,7 +462,7 @@
       "status": "PASS"
     },
     {
-      "detail": "7 table environments",
+      "detail": "5 table environments",
       "name": "paper.tables",
       "status": "PASS"
     },
@@ -452,7 +472,7 @@
       "status": "PASS"
     },
     {
-      "detail": "8 bibliography entries",
+      "detail": "19 bibliography entries",
       "name": "paper.references",
       "status": "PASS"
     },
@@ -474,6 +494,21 @@
     {
       "detail": "present",
       "name": "artifact_guide.api_token_accounting",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.cross_model_held_out_listener_audit",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.population_play_is_1_000_in_all_cross_model_rows",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.gpt_5_5_rows_reuse_cached_speaker_candidates_and_evaluate_se",
       "status": "PASS"
     },
     {
@@ -698,21 +733,21 @@
     },
     {
       "detail": "present",
-      "name": "artifact_guide.158_158_integrity_checks_pass",
+      "name": "artifact_guide.194_194_integrity_checks_pass",
       "status": "PASS"
     },
     {
       "detail": "present",
-      "name": "artifact_guide.3520_cached_responses_have_complete_usage_metadata_totaling_",
+      "name": "artifact_guide.4982_cached_responses_have_complete_usage_metadata_totaling_",
       "status": "PASS"
     },
     {
-      "detail": "796 checks, 0 failed",
+      "detail": "828 checks, 0 failed",
       "name": "claims_verifier.no_failed_checks",
       "status": "PASS"
     },
     {
-      "detail": "158 checks, 0 failed",
+      "detail": "194 checks, 0 failed",
       "name": "integrity_audit.no_failed_checks",
       "status": "PASS"
     },
@@ -737,14 +772,14 @@
       "status": "PASS"
     },
     {
-      "detail": "8",
+      "detail": "12",
       "name": "colm_pdf.pages_positive",
       "status": "PASS"
     },
     {
-      "detail": "8 pages; target submission range is 4-9 pages",
+      "detail": "12 pages; target submission range is 4-9 pages",
       "name": "colm_pdf.pages_within_submission_range",
-      "status": "PASS"
+      "status": "WARN"
     },
     {
       "detail": "no",
@@ -773,8 +808,8 @@
     }
   ],
   "n_actions": 0,
-  "n_checks": 154,
+  "n_checks": 161,
   "n_failed": 0,
-  "n_warn": 0,
+  "n_warn": 2,
   "warnings": []
 }

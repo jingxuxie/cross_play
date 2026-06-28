@@ -13,6 +13,7 @@ It is generated from the current JSON/JSONL artifacts and is intended as a revie
 | COLM submission PDF | `paper/colm2026_submission.pdf` |
 | Protocol and prompts | `docs/protocol_and_prompts.md` |
 | API token accounting | `docs/api_token_accounting.md` |
+| Cross-model held-out listener audit | `docs/cross_model_listener_audit.md` |
 | 600-scene local sanity check | `docs/local_benchmark600_check.md` |
 | Local stronger-plan K=8 diagnostic | `docs/local_stronger_plan_k8.md` |
 | Local stronger-plan scene file | `data/local_stronger_plan1200_scenes.jsonl` |
@@ -35,6 +36,7 @@ It is generated from the current JSON/JSONL artifacts and is intended as a revie
 | Integrity audit | `scripts/audit_benchmark_integrity.py` |
 | Readiness audit | `scripts/audit_submission_readiness.py` |
 | API token accounting script | `scripts/analyze_api_token_accounting.py` |
+| Cross-model listener audit script | `scripts/analyze_cross_model_listener_audit.py` |
 | Local benchmark analysis script | `scripts/analyze_local_benchmark.py` |
 | Local stronger-plan diagnostic script | `scripts/analyze_local_stronger_plan.py` |
 | API listener leave-one-out script | `scripts/analyze_api_listener_leave_one_out.py` |
@@ -68,17 +70,18 @@ It is generated from the current JSON/JSONL artifacts and is intended as a revie
 |---|---|---:|---:|---:|---:|---:|
 | local_benchmark600 | `data/local_benchmark600_scenes.jsonl` | 600 | 10800 | 0 | 0 | 0 |
 | mixed_50 | `data/dev_scenes.jsonl` | 50 | 2550 | 50 | 50 | 50 |
-| perspective_stress_50 | `data/perspective_stress50_scenes.jsonl` | 50 | 4050 | 50 | 100 | 50 |
-| partial_observability_api50 | `data/partial_observability_local50_scenes.jsonl` | 50 | 2550 | 50 | 50 | 50 |
+| perspective_stress_50 | `data/perspective_stress50_scenes.jsonl` | 50 | 4800 | 50 | 150 | 50 |
+| partial_observability_api50 | `data/partial_observability_local50_scenes.jsonl` | 50 | 4050 | 50 | 150 | 50 |
 
 ## Cached Response Models
 
-Cache files: 3520.
+Cache files: 4982.
 
 | Requested model | Response model | Cached responses |
 |---|---|---:|
-| `gpt-4.1-nano` | `gpt-4.1-nano-2025-04-14` | 750 |
+| `gpt-4.1-nano` | `gpt-4.1-nano-2025-04-14` | 1236 |
 | `gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770 |
+| `gpt-5.5` | `gpt-5.5-2026-04-23` | 976 |
 
 ## API Token Accounting
 
@@ -86,12 +89,13 @@ This cache-only budget audit summarizes stored Responses API usage metadata. It 
 
 | Cache files | Readable | Missing usage | Input tokens | Output tokens | Total tokens | Source |
 |---:|---:|---:|---:|---:|---:|---|
-| 3520 | 3520 | 0 | 940088 | 87829 | 1027917 | `results/api_token_accounting.json` |
+| 4982 | 4982 | 0 | 1287186 | 122906 | 1410092 | `results/api_token_accounting.json` |
 
 | Requested model | Response model | Responses | Input tokens | Output tokens | Total tokens |
 |---|---|---:|---:|---:|---:|
-| `gpt-4.1-nano` | `gpt-4.1-nano-2025-04-14` | 750 | 188238 | 18969 | 207207 |
+| `gpt-4.1-nano` | `gpt-4.1-nano-2025-04-14` | 1236 | 301032 | 31225 | 332257 |
 | `gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770 | 751850 | 68860 | 820710 |
+| `gpt-5.5` | `gpt-5.5-2026-04-23` | 976 | 234304 | 22821 | 257125 |
 
 ## Headline Full-Candidate Results
 
@@ -101,6 +105,21 @@ This cache-only budget audit summarizes stored Responses API usage metadata. It 
 | perspective_stress_50 | 0.813 | 1.000 | 0.187 | 1.000 | 1.000 | 0.187 [0.100, 0.287] | `results/perspective_stress50_hybrid_summary.json` |
 | perspective_stress_50_alt_model | 0.713 | 1.000 | 0.287 | 1.000 | 1.000 | 0.287 [0.193, 0.380] | `results/perspective_stress50_gpt41nano_summary.json` |
 | partial_observability_api50 | 0.667 | 1.000 | 0.333 | 1.000 | 1.000 | 0.333 [0.240, 0.427] | `results/partial_observability_api50_summary.json` |
+
+## Cross-Model Held-Out Listener Audit
+
+Population-play is 1.000 in all cross-model rows, while mirror self-play drops under every held-out listener family and remains weak under GPT-5.5.
+
+| Setting | Held-out listener | Direct | Mirror | Population | Oracle | Pop-minus-mirror 95% CI | Source |
+|---|---|---:|---:|---:|---:|---|---|
+| Perspective stress | gpt-5.4-nano | 0.713 | 0.813 | 1.000 | 1.000 | 0.187 [0.100, 0.287] | `results/perspective_stress50_hybrid_summary.json` |
+| Perspective stress | gpt-4.1-nano | 0.553 | 0.713 | 1.000 | 1.000 | 0.287 [0.193, 0.380] | `results/perspective_stress50_gpt41nano_summary.json` |
+| Perspective stress | gpt-5.5 | 0.793 | 0.673 | 1.000 | 1.000 | 0.327 [0.233, 0.420] | `results/gpt55_perspective_selected_summary.json` |
+| Partial observability | gpt-5.4-nano | 0.740 | 0.667 | 1.000 | 1.000 | 0.333 [0.240, 0.427] | `results/partial_observability_api50_summary.json` |
+| Partial observability | gpt-4.1-nano | 0.700 | 0.660 | 1.000 | 1.000 | 0.340 [0.247, 0.433] | `results/gpt41_partial_observability_selected_summary.json` |
+| Partial observability | gpt-5.5 | 0.740 | 0.653 | 1.000 | 1.000 | 0.347 [0.253, 0.440] | `results/gpt55_partial_observability_selected_summary.json` |
+
+GPT-5.5 rows reuse cached speaker candidates and evaluate selected messages only; because population-play reaches 1.000, the same candidate pool's oracle ceiling is also 1.000.
 
 ## No-Coordinate Ablations
 
@@ -414,6 +433,7 @@ Stretch scope: 0 covered, 4 partial, 1 open.
 | Claim | Evidence files | Anchor |
 |---|---|---|
 | Same-play can overstate held-out communicative success. | `results/paper_claims_verification.md; results/*_population_vs_mirror_paired.md` | mirror same-play is 1.000 while cross-play is lower in mixed, perspective, alternate-model, and partial-observability runs |
+| The mirror self-play gap persists under GPT-5.5 and across held-out listener families. | `docs/cross_model_listener_audit.md; results/cross_model_listener_audit.json; paper/tables/cross_model_listener_audit.tex` | population-minus-mirror gaps are 0.187, 0.287, and 0.327 on perspective stress and 0.333, 0.340, and 0.347 on partial observability |
 | Population-play closes the observed full-candidate cross-play gaps. | `paper/tables/mixed50.tex; paper/tables/perspective_stress50.tex; paper/tables/perspective_altmodel50.tex; results/partial_observability_api50_summary.json` | population cross-play is 1.000 in all full-candidate paper-facing runs |
 | The strongest full-candidate result depends on explicit listener-invariant fallbacks. | `paper/tables/perspective_stress50_gpt41nano_no_coord.tex; paper/tables/selection_mechanisms_stress_no_coord.tex` | no-coordinate stress population drops to 0.420 while consensus+info reaches 0.760 |
 | Partial-observability failures are under-informativeness failures, not private-landmark leakage. | `docs/partial_observability_api50_check.md; results/partial_observability_api50_check.json; results/partial_observability_api50_mirror_failures_coded.csv` | 0 candidate messages reference private landmarks; all 50 full-run mirror failures are underspecified-distractor choices |
@@ -432,17 +452,17 @@ Stretch scope: 0 covered, 4 partial, 1 open.
 | The artifact package explicitly distinguishes completed core requirements from stretch gaps. | `docs/plan_coverage_audit.md; results/plan_coverage_audit.json` | core scope has 17 covered, 2 partial, 0 open items; stretch scope has 4 partial items and keeps human validation open |
 | The released generator supports a benchmark-scale local sanity sweep. | `docs/local_benchmark600_check.md; results/local_benchmark600_check.json` | 600 local scenes balanced across four initial scenario families; mirror same-play is 1.000 but cross-play is 0.631 |
 | The local artifact supports the stronger-plan 1,000+200 scale and K=8 diagnostic. | `docs/local_stronger_plan_k8.md; results/local_stronger_plan_k8.json` | no-coordinate oracle over 1,200 local scenes rises from 0.808 at K=4 to 0.995 at K=8 |
-| The cached benchmark artifacts are internally consistent. | `results/benchmark_integrity_audit.md` | 158/158 integrity checks pass |
-| API usage is bounded and cache-replayable. | `docs/api_token_accounting.md; results/api_token_accounting.json` | 3520 cached responses have complete usage metadata totaling 1027917 tokens |
+| The cached benchmark artifacts are internally consistent. | `results/benchmark_integrity_audit.md` | 194/194 integrity checks pass |
+| API usage is bounded and cache-replayable. | `docs/api_token_accounting.md; results/api_token_accounting.json` | 4982 cached responses have complete usage metadata totaling 1410092 tokens |
 
 ## Quality Gates
 
 | Gate | Checks | Failed | Warnings | Open actions | Source |
 |---|---:|---:|---:|---:|---|
-| benchmark integrity | 158 | 0 | 0 | 0 | `results/benchmark_integrity_audit.json` |
-| paper claims | 796 | 0 | 0 | 0 | `results/paper_claims_verification.json` |
+| benchmark integrity | 194 | 0 | 0 | 0 | `results/benchmark_integrity_audit.json` |
+| paper claims | 828 | 0 | 0 | 0 | `results/paper_claims_verification.json` |
 | reviewer checklist | 19 | 0 | 0 | 0 | `results/reviewer_checklist.json` |
-| submission readiness | 154 | 0 | 0 | 0 | `results/submission_readiness_audit.json` |
+| submission readiness | 161 | 0 | 2 | 0 | `results/submission_readiness_audit.json` |
 
 ## Refresh Commands
 

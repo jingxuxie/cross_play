@@ -22,7 +22,7 @@ conda run -n cross_play python scripts/analyze_api_token_accounting.py \
   --json-out results/api_token_accounting.json
 ```
 
-Current result: `3,520` cached Responses API files contain `1,027,917` total
+Current result: `4,982` cached Responses API files contain `1,410,092` total
 tokens, with `0` missing usage records.
 
 ## Local sanity pilot
@@ -316,6 +316,64 @@ Current alternate-model result:
 - mirror self-play: cross-play `0.713`, same-play `1.000`;
 - population-play: cross-play `1.000`, same-play `1.000`;
 - paired population-minus-mirror difference: `0.287`, 95% CI `[0.193, 0.380]`.
+
+## Cross-model selected-message listener audit
+
+This follow-up reuses cached speaker candidates and selected messages, then
+evaluates those messages with additional held-out listener families. The
+`gpt-5.5` rows are selected-message audits, not new speaker calls.
+
+```bash
+conda run -n cross_play python scripts/run_selected_listener_audit.py \
+  --scene-file data/perspective_stress50_scenes.jsonl \
+  --candidates results/perspective_stress50_hybrid_candidates.jsonl \
+  --model gpt-5.5 \
+  --records-out results/gpt55_perspective_selected_records.jsonl \
+  --summary-out results/gpt55_perspective_selected_summary.json \
+  --markdown-out docs/gpt55_perspective_selected_audit.md \
+  --paired-json-out results/gpt55_perspective_selected_population_vs_mirror_paired.json \
+  --paired-markdown-out results/gpt55_perspective_selected_population_vs_mirror_paired.md \
+  --audit-out results/gpt55_perspective_selected_audit.jsonl \
+  --include-existing-oracle-message \
+  --existing-candidate-records results/perspective_stress50_gpt41nano_records.jsonl \
+  --checkpoint-every 1
+
+conda run -n cross_play python scripts/run_selected_listener_audit.py \
+  --scene-file data/partial_observability_local50_scenes.jsonl \
+  --candidates results/partial_observability_api50_candidates.jsonl \
+  --model gpt-4.1-nano \
+  --temperature 0.0 \
+  --reasoning-effort omit \
+  --records-out results/gpt41_partial_observability_selected_records.jsonl \
+  --summary-out results/gpt41_partial_observability_selected_summary.json \
+  --markdown-out docs/gpt41_partial_observability_selected_audit.md \
+  --paired-json-out results/gpt41_partial_observability_selected_population_vs_mirror_paired.json \
+  --paired-markdown-out results/gpt41_partial_observability_selected_population_vs_mirror_paired.md \
+  --audit-out results/gpt41_partial_observability_selected_audit.jsonl \
+  --include-existing-oracle-message \
+  --existing-candidate-records results/partial_observability_api50_records.jsonl \
+  --checkpoint-every 1
+
+conda run -n cross_play python scripts/run_selected_listener_audit.py \
+  --scene-file data/partial_observability_local50_scenes.jsonl \
+  --candidates results/partial_observability_api50_candidates.jsonl \
+  --model gpt-5.5 \
+  --records-out results/gpt55_partial_observability_selected_records.jsonl \
+  --summary-out results/gpt55_partial_observability_selected_summary.json \
+  --markdown-out docs/gpt55_partial_observability_selected_audit.md \
+  --paired-json-out results/gpt55_partial_observability_selected_population_vs_mirror_paired.json \
+  --paired-markdown-out results/gpt55_partial_observability_selected_population_vs_mirror_paired.md \
+  --audit-out results/gpt55_partial_observability_selected_audit.jsonl \
+  --include-existing-oracle-message \
+  --existing-candidate-records results/partial_observability_api50_records.jsonl \
+  --checkpoint-every 1
+
+conda run -n cross_play python scripts/analyze_cross_model_listener_audit.py
+```
+
+Current cross-model result: population-play is `1.000` in all six
+setting/listener rows, while GPT-5.5 mirror self-play is `0.673` on
+perspective stress and `0.653` on partial observability.
 
 ## No-exact-coordinate ablation
 

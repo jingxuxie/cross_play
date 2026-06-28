@@ -9,20 +9,21 @@ Dollar cost is intentionally not estimated here because pricing can depend on mo
 
 | Cache files | Readable | Missing usage | Input tokens | Output tokens | Total tokens | Mean tokens/response |
 |---:|---:|---:|---:|---:|---:|---:|
-| 3520 | 3520 | 0 | 940088 | 87829 | 1027917 | 292.0 |
+| 4982 | 4982 | 0 | 1287186 | 122906 | 1410092 | 283.0 |
 
 ## By Model
 
 | Requested model | Response model | Responses | Input tokens | Output tokens | Total tokens | Mean tokens/response |
 |---|---|---:|---:|---:|---:|---:|
-| `gpt-4.1-nano` | `gpt-4.1-nano-2025-04-14` | 750 | 188238 | 18969 | 207207 | 276.3 |
+| `gpt-4.1-nano` | `gpt-4.1-nano-2025-04-14` | 1236 | 301032 | 31225 | 332257 | 268.8 |
 | `gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770 | 751850 | 68860 | 820710 | 296.3 |
+| `gpt-5.5` | `gpt-5.5-2026-04-23` | 976 | 234304 | 22821 | 257125 | 263.4 |
 
 ## By Schema Family
 
 | Family | Responses | Input tokens | Output tokens | Total tokens | Mean tokens/response |
 |---|---:|---:|---:|---:|---:|
-| `listener` | 3362 | 817510 | 78988 | 896498 | 266.7 |
+| `listener` | 4824 | 1164608 | 114065 | 1278673 | 265.1 |
 | `speaker` | 158 | 122578 | 8841 | 131419 | 831.8 |
 
 Interpretation: all paper-facing API usage is recoverable from cached response files. Cache-only audits and table-generation scripts should not spend additional API budget when `data/cached_responses/` is present.

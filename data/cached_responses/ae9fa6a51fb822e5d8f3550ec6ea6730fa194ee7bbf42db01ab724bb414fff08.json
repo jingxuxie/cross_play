@@ -1,0 +1,116 @@
+{
+  "created_at": 1782645902.4795933,
+  "data": {
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1782645902,
+    "created_at": 1782645901,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "id": "resp_02a833059df03e6c006a41048d3244819398a87baec2d4e091",
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 256,
+    "max_tool_calls": null,
+    "metadata": {},
+    "model": "gpt-4.1-nano-2025-04-14",
+    "moderation": null,
+    "object": "response",
+    "output": [
+      {
+        "content": [
+          {
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"choice_id\": \"obj_1\", \"confidence\": 0.9, \"reason_code\": \"attribute\"}",
+            "type": "output_text"
+          }
+        ],
+        "id": "msg_02a833059df03e6c006a41048e01848193948fe983bb369a51",
+        "role": "assistant",
+        "status": "completed",
+        "type": "message"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "in_memory",
+    "reasoning": {
+      "context": null,
+      "effort": null,
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "status": "completed",
+    "store": true,
+    "temperature": 0.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 1.0,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 240,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 25,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 265
+    },
+    "user": null
+  },
+  "request_hash_payload": {
+    "endpoint": "responses",
+    "max_output_tokens": 256,
+    "model": "gpt-4.1-nano",
+    "provider": "openai",
+    "schema_version": "listener-heldout_direct_last-v1",
+    "system": "You are a strict instruction-following LISTENER. Choose the object best supported by the speaker message and listener-visible scene. If several objects fit equally, choose the last matching object in the candidate list, set confidence below 0.5, and use reason_code ambiguous. Return valid JSON only.",
+    "temperature": 0.0,
+    "user": "Speaker orientation: north\nListener orientation: north\n\nListener view:\nScene po_000011. You face north.\nRows increase from top to bottom; columns increase from left to right.\nCandidate objects:\n- obj_4: large orange cone at row 4, column 2\n- obj_2: large yellow cube at row 3, column 4\n- obj_1: large yellow cube at row 3, column 2\n- obj_5: small yellow pyramid at row 5, column 5\n\nSpeaker message:\n\"The large yellow cube on the left side of the scene.\"\n\nChoose one object ID from the listener view.\nReturn exactly this JSON shape: {\"choice_id\": \"obj_...\", \"confidence\": 0.0, \"reason_code\": \"attribute|relation|position|ambiguous|other\"}"
+  },
+  "text": "{\"choice_id\": \"obj_1\", \"confidence\": 0.9, \"reason_code\": \"attribute\"}",
+  "usage": {
+    "input_tokens": 240,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 25,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 265
+  }
+}

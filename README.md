@@ -17,8 +17,8 @@ conda run -n cross_play python scripts/analyze_api_token_accounting.py \
   --json-out results/api_token_accounting.json
 ```
 
-The current report is `docs/api_token_accounting.md`: `3,520` cached responses
-have complete usage metadata and contain `1,027,917` total tokens. Dollar cost
+The current report is `docs/api_token_accounting.md`: `4,982` cached responses
+have complete usage metadata and contain `1,410,092` total tokens. Dollar cost
 is not estimated from cached files; use the provider dashboard for final
 billing.
 
@@ -118,6 +118,24 @@ The compact report is `docs/partial_observability_api50_check.md`. It includes
 the private-landmark audit and coded mirror-failure counts showing that all
 full-run and no-coordinate mirror failures are underspecified-distractor
 choices.
+
+## Cross-model held-out listener audit
+
+The follow-up cross-model audit reuses cached speaker candidates and selected
+messages, then evaluates those messages with `gpt-4.1-nano`, `gpt-5.4-nano`,
+and `gpt-5.5` listener families. The current report is
+`docs/cross_model_listener_audit.md`. Population-play remains at cross-play
+`1.000` in all six setting/listener rows, while mirror self-play ranges from
+`0.653` to `0.813`; the GPT-5.5 population-minus-mirror gaps are `0.327` on
+perspective stress and `0.347` on partial observability.
+
+```bash
+conda run -n cross_play python scripts/analyze_cross_model_listener_audit.py \
+  --json-out results/cross_model_listener_audit.json \
+  --markdown-out docs/cross_model_listener_audit.md \
+  --table-out paper/tables/cross_model_listener_audit.md \
+  --tex-out paper/tables/cross_model_listener_audit.tex
+```
 
 ## Cache-only API listener leave-one-out check
 

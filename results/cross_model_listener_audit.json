@@ -1,0 +1,401 @@
+{
+  "interpretation": "Population-play is 1.000 in all cross-model rows, while mirror self-play drops under every held-out listener family and remains weak under GPT-5.5.",
+  "rows": [
+    {
+      "direct": {
+        "method": "api_direct_first",
+        "success": 0.7133333333333334,
+        "success_ci95": [
+          0.6,
+          0.8133333333333334
+        ]
+      },
+      "listener": "gpt-5.4-nano",
+      "mirror": {
+        "method": "hybrid_local_mirror_api_eval",
+        "success": 0.8133333333333334,
+        "success_ci95": [
+          0.72,
+          0.9
+        ]
+      },
+      "n_scenes": 50,
+      "oracle": {
+        "method": "oracle_upper_bound",
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "oracle_source": "all-candidate eval",
+      "paired_source": "results/perspective_stress50_population_vs_mirror_paired.json",
+      "population": {
+        "method": "hybrid_local_population_api_eval",
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "population_minus_mirror": {
+        "diff_a_minus_b": 0.18666666666666668,
+        "diff_ci95": [
+          0.1,
+          0.2866666666666667
+        ],
+        "mean_a": 1.0,
+        "mean_b": 0.8133333333333334,
+        "method_a": "hybrid_local_population_api_eval",
+        "method_b": "hybrid_local_mirror_api_eval",
+        "n_pairs": 50,
+        "paired_bootstrap_p_two_sided": 0.0,
+        "scenario_type": null
+      },
+      "prior_listener_oracle": null,
+      "setting": "Perspective stress",
+      "shortest": {
+        "method": "api_best_of_k_shortest",
+        "success": 0.42,
+        "success_ci95": [
+          0.29333333333333333,
+          0.54
+        ]
+      },
+      "summary_source": "results/perspective_stress50_hybrid_summary.json"
+    },
+    {
+      "direct": {
+        "method": "api_direct_first",
+        "success": 0.5533333333333333,
+        "success_ci95": [
+          0.44,
+          0.6733333333333333
+        ]
+      },
+      "listener": "gpt-4.1-nano",
+      "mirror": {
+        "method": "hybrid_local_mirror_api_eval",
+        "success": 0.7133333333333334,
+        "success_ci95": [
+          0.6,
+          0.8066666666666666
+        ]
+      },
+      "n_scenes": 50,
+      "oracle": {
+        "method": "oracle_upper_bound",
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "oracle_source": "all-candidate eval",
+      "paired_source": "results/perspective_stress50_gpt41nano_population_vs_mirror_paired.json",
+      "population": {
+        "method": "hybrid_local_population_api_eval",
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "population_minus_mirror": {
+        "diff_a_minus_b": 0.2866666666666667,
+        "diff_ci95": [
+          0.19333333333333336,
+          0.38000000000000006
+        ],
+        "mean_a": 1.0,
+        "mean_b": 0.7133333333333334,
+        "method_a": "hybrid_local_population_api_eval",
+        "method_b": "hybrid_local_mirror_api_eval",
+        "n_pairs": 50,
+        "paired_bootstrap_p_two_sided": 0.0,
+        "scenario_type": null
+      },
+      "prior_listener_oracle": null,
+      "setting": "Perspective stress",
+      "shortest": {
+        "method": "api_best_of_k_shortest",
+        "success": 0.36666666666666664,
+        "success_ci95": [
+          0.26,
+          0.47333333333333333
+        ]
+      },
+      "summary_source": "results/perspective_stress50_gpt41nano_summary.json"
+    },
+    {
+      "direct": {
+        "method": "direct_first",
+        "success": 0.7933333333333333,
+        "success_ci95": [
+          0.7133333333333334,
+          0.8733333333333333
+        ]
+      },
+      "listener": "gpt-5.5",
+      "mirror": {
+        "method": "mirror_selfplay",
+        "success": 0.6733333333333333,
+        "success_ci95": [
+          0.58,
+          0.7733333333333333
+        ]
+      },
+      "n_scenes": 50,
+      "oracle": {
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "oracle_source": "implied by population=1.000",
+      "paired_source": "results/gpt55_perspective_selected_population_vs_mirror_paired.json",
+      "population": {
+        "method": "population_play",
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "population_minus_mirror": {
+        "diff_a_minus_b": 0.3266666666666667,
+        "diff_ci95": [
+          0.23333333333333336,
+          0.42000000000000004
+        ],
+        "mean_a": 1.0,
+        "mean_b": 0.6733333333333333,
+        "method_a": "population_play",
+        "method_b": "mirror_selfplay",
+        "n_pairs": 50,
+        "paired_bootstrap_p_two_sided": 0.0,
+        "scenario_type": null
+      },
+      "prior_listener_oracle": {
+        "method": "prior_listener_oracle",
+        "success": 0.8933333333333333,
+        "success_ci95": [
+          0.8266666666666667,
+          0.9466666666666667
+        ]
+      },
+      "setting": "Perspective stress",
+      "shortest": {
+        "method": "best_of_k_shortest",
+        "success": 0.5066666666666667,
+        "success_ci95": [
+          0.46,
+          0.5533333333333333
+        ]
+      },
+      "summary_source": "results/gpt55_perspective_selected_summary.json"
+    },
+    {
+      "direct": {
+        "method": "api_direct_first",
+        "success": 0.74,
+        "success_ci95": [
+          0.6466666666666666,
+          0.8333333333333334
+        ]
+      },
+      "listener": "gpt-5.4-nano",
+      "mirror": {
+        "method": "hybrid_local_mirror_api_eval",
+        "success": 0.6666666666666666,
+        "success_ci95": [
+          0.5733333333333334,
+          0.76
+        ]
+      },
+      "n_scenes": 50,
+      "oracle": {
+        "method": "oracle_upper_bound",
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "oracle_source": "all-candidate eval",
+      "paired_source": "results/partial_observability_api50_population_vs_mirror_paired.json",
+      "population": {
+        "method": "hybrid_local_population_api_eval",
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "population_minus_mirror": {
+        "diff_a_minus_b": 0.33333333333333337,
+        "diff_ci95": [
+          0.24000000000000002,
+          0.4266666666666667
+        ],
+        "mean_a": 1.0,
+        "mean_b": 0.6666666666666666,
+        "method_a": "hybrid_local_population_api_eval",
+        "method_b": "hybrid_local_mirror_api_eval",
+        "n_pairs": 50,
+        "paired_bootstrap_p_two_sided": 0.0,
+        "scenario_type": null
+      },
+      "prior_listener_oracle": null,
+      "setting": "Partial observability",
+      "shortest": {
+        "method": "api_best_of_k_shortest",
+        "success": 0.31333333333333335,
+        "success_ci95": [
+          0.24666666666666667,
+          0.38
+        ]
+      },
+      "summary_source": "results/partial_observability_api50_summary.json"
+    },
+    {
+      "direct": {
+        "method": "direct_first",
+        "success": 0.7,
+        "success_ci95": [
+          0.6133333333333333,
+          0.7866666666666666
+        ]
+      },
+      "listener": "gpt-4.1-nano",
+      "mirror": {
+        "method": "mirror_selfplay",
+        "success": 0.66,
+        "success_ci95": [
+          0.5733333333333334,
+          0.7533333333333333
+        ]
+      },
+      "n_scenes": 50,
+      "oracle": {
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "oracle_source": "implied by population=1.000",
+      "paired_source": "results/gpt41_partial_observability_selected_population_vs_mirror_paired.json",
+      "population": {
+        "method": "population_play",
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "population_minus_mirror": {
+        "diff_a_minus_b": 0.34,
+        "diff_ci95": [
+          0.2466666666666667,
+          0.4333333333333334
+        ],
+        "mean_a": 1.0,
+        "mean_b": 0.66,
+        "method_a": "population_play",
+        "method_b": "mirror_selfplay",
+        "n_pairs": 50,
+        "paired_bootstrap_p_two_sided": 0.0,
+        "scenario_type": null
+      },
+      "prior_listener_oracle": {
+        "method": "prior_listener_oracle",
+        "success": 0.9466666666666667,
+        "success_ci95": [
+          0.8933333333333333,
+          0.9866666666666667
+        ]
+      },
+      "setting": "Partial observability",
+      "shortest": {
+        "method": "best_of_k_shortest",
+        "success": 0.56,
+        "success_ci95": [
+          0.48,
+          0.6466666666666666
+        ]
+      },
+      "summary_source": "results/gpt41_partial_observability_selected_summary.json"
+    },
+    {
+      "direct": {
+        "method": "direct_first",
+        "success": 0.74,
+        "success_ci95": [
+          0.6533333333333333,
+          0.8266666666666667
+        ]
+      },
+      "listener": "gpt-5.5",
+      "mirror": {
+        "method": "mirror_selfplay",
+        "success": 0.6533333333333333,
+        "success_ci95": [
+          0.56,
+          0.7466666666666667
+        ]
+      },
+      "n_scenes": 50,
+      "oracle": {
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "oracle_source": "implied by population=1.000",
+      "paired_source": "results/gpt55_partial_observability_selected_population_vs_mirror_paired.json",
+      "population": {
+        "method": "population_play",
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "population_minus_mirror": {
+        "diff_a_minus_b": 0.3466666666666667,
+        "diff_ci95": [
+          0.25333333333333335,
+          0.44000000000000006
+        ],
+        "mean_a": 1.0,
+        "mean_b": 0.6533333333333333,
+        "method_a": "population_play",
+        "method_b": "mirror_selfplay",
+        "n_pairs": 50,
+        "paired_bootstrap_p_two_sided": 0.0,
+        "scenario_type": null
+      },
+      "prior_listener_oracle": {
+        "method": "prior_listener_oracle",
+        "success": 0.96,
+        "success_ci95": [
+          0.9066666666666666,
+          1.0
+        ]
+      },
+      "setting": "Partial observability",
+      "shortest": {
+        "method": "best_of_k_shortest",
+        "success": 0.4533333333333333,
+        "success_ci95": [
+          0.4,
+          0.5066666666666667
+        ]
+      },
+      "summary_source": "results/gpt55_partial_observability_selected_summary.json"
+    }
+  ]
+}

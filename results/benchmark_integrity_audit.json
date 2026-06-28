@@ -401,6 +401,46 @@
       "ok": true
     },
     {
+      "detail": "750 rows",
+      "name": "results/gpt55_perspective_selected_records.jsonl.nonempty",
+      "ok": true
+    },
+    {
+      "detail": "all rows mapped to source scene file",
+      "name": "results/gpt55_perspective_selected_records.jsonl.scene_ids_known",
+      "ok": true
+    },
+    {
+      "detail": "all row target IDs match source scenes",
+      "name": "results/gpt55_perspective_selected_records.jsonl.target_ids_match_source",
+      "ok": true
+    },
+    {
+      "detail": "all listener choices are valid candidate object IDs",
+      "name": "results/gpt55_perspective_selected_records.jsonl.choice_ids_valid",
+      "ok": true
+    },
+    {
+      "detail": "all success flags equal choice_id == target_id",
+      "name": "results/gpt55_perspective_selected_records.jsonl.success_flags_consistent",
+      "ok": true
+    },
+    {
+      "detail": "no generated/evaluated message contains obj_* IDs",
+      "name": "results/gpt55_perspective_selected_records.jsonl.messages_no_object_id_leakage",
+      "ok": true
+    },
+    {
+      "detail": "50 scenes per method",
+      "name": "results/gpt55_perspective_selected_records.jsonl.same_scene_set_across_methods",
+      "ok": true
+    },
+    {
+      "detail": "3 rows per scene-method",
+      "name": "results/gpt55_perspective_selected_records.jsonl.balanced_rows_per_scene_method",
+      "ok": true
+    },
+    {
       "detail": "1050 rows",
       "name": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl.nonempty",
       "ok": true
@@ -582,6 +622,26 @@
     },
     {
       "detail": "50 rows",
+      "name": "results/gpt55_perspective_selected_audit.jsonl.nonempty",
+      "ok": true
+    },
+    {
+      "detail": "all rows mapped",
+      "name": "results/gpt55_perspective_selected_audit.jsonl.scene_ids_known",
+      "ok": true
+    },
+    {
+      "detail": "no audit candidate/selection contains obj_* IDs",
+      "name": "results/gpt55_perspective_selected_audit.jsonl.messages_no_object_id_leakage",
+      "ok": true
+    },
+    {
+      "detail": "all local selector choices are valid object IDs",
+      "name": "results/gpt55_perspective_selected_audit.jsonl.local_choice_ids_valid",
+      "ok": true
+    },
+    {
+      "detail": "50 rows",
       "name": "results/perspective_stress50_gpt41nano_no_coord_audit.jsonl.nonempty",
       "ok": true
     },
@@ -638,6 +698,86 @@
     {
       "detail": "3 rows per scene-method",
       "name": "results/partial_observability_api50_records.jsonl.balanced_rows_per_scene_method",
+      "ok": true
+    },
+    {
+      "detail": "750 rows",
+      "name": "results/gpt41_partial_observability_selected_records.jsonl.nonempty",
+      "ok": true
+    },
+    {
+      "detail": "all rows mapped to source scene file",
+      "name": "results/gpt41_partial_observability_selected_records.jsonl.scene_ids_known",
+      "ok": true
+    },
+    {
+      "detail": "all row target IDs match source scenes",
+      "name": "results/gpt41_partial_observability_selected_records.jsonl.target_ids_match_source",
+      "ok": true
+    },
+    {
+      "detail": "all listener choices are valid candidate object IDs",
+      "name": "results/gpt41_partial_observability_selected_records.jsonl.choice_ids_valid",
+      "ok": true
+    },
+    {
+      "detail": "all success flags equal choice_id == target_id",
+      "name": "results/gpt41_partial_observability_selected_records.jsonl.success_flags_consistent",
+      "ok": true
+    },
+    {
+      "detail": "no generated/evaluated message contains obj_* IDs",
+      "name": "results/gpt41_partial_observability_selected_records.jsonl.messages_no_object_id_leakage",
+      "ok": true
+    },
+    {
+      "detail": "50 scenes per method",
+      "name": "results/gpt41_partial_observability_selected_records.jsonl.same_scene_set_across_methods",
+      "ok": true
+    },
+    {
+      "detail": "3 rows per scene-method",
+      "name": "results/gpt41_partial_observability_selected_records.jsonl.balanced_rows_per_scene_method",
+      "ok": true
+    },
+    {
+      "detail": "750 rows",
+      "name": "results/gpt55_partial_observability_selected_records.jsonl.nonempty",
+      "ok": true
+    },
+    {
+      "detail": "all rows mapped to source scene file",
+      "name": "results/gpt55_partial_observability_selected_records.jsonl.scene_ids_known",
+      "ok": true
+    },
+    {
+      "detail": "all row target IDs match source scenes",
+      "name": "results/gpt55_partial_observability_selected_records.jsonl.target_ids_match_source",
+      "ok": true
+    },
+    {
+      "detail": "all listener choices are valid candidate object IDs",
+      "name": "results/gpt55_partial_observability_selected_records.jsonl.choice_ids_valid",
+      "ok": true
+    },
+    {
+      "detail": "all success flags equal choice_id == target_id",
+      "name": "results/gpt55_partial_observability_selected_records.jsonl.success_flags_consistent",
+      "ok": true
+    },
+    {
+      "detail": "no generated/evaluated message contains obj_* IDs",
+      "name": "results/gpt55_partial_observability_selected_records.jsonl.messages_no_object_id_leakage",
+      "ok": true
+    },
+    {
+      "detail": "50 scenes per method",
+      "name": "results/gpt55_partial_observability_selected_records.jsonl.same_scene_set_across_methods",
+      "ok": true
+    },
+    {
+      "detail": "3 rows per scene-method",
+      "name": "results/gpt55_partial_observability_selected_records.jsonl.balanced_rows_per_scene_method",
       "ok": true
     },
     {
@@ -762,6 +902,46 @@
     },
     {
       "detail": "50 rows",
+      "name": "results/gpt41_partial_observability_selected_audit.jsonl.nonempty",
+      "ok": true
+    },
+    {
+      "detail": "all rows mapped",
+      "name": "results/gpt41_partial_observability_selected_audit.jsonl.scene_ids_known",
+      "ok": true
+    },
+    {
+      "detail": "no audit candidate/selection contains obj_* IDs",
+      "name": "results/gpt41_partial_observability_selected_audit.jsonl.messages_no_object_id_leakage",
+      "ok": true
+    },
+    {
+      "detail": "all local selector choices are valid object IDs",
+      "name": "results/gpt41_partial_observability_selected_audit.jsonl.local_choice_ids_valid",
+      "ok": true
+    },
+    {
+      "detail": "50 rows",
+      "name": "results/gpt55_partial_observability_selected_audit.jsonl.nonempty",
+      "ok": true
+    },
+    {
+      "detail": "all rows mapped",
+      "name": "results/gpt55_partial_observability_selected_audit.jsonl.scene_ids_known",
+      "ok": true
+    },
+    {
+      "detail": "no audit candidate/selection contains obj_* IDs",
+      "name": "results/gpt55_partial_observability_selected_audit.jsonl.messages_no_object_id_leakage",
+      "ok": true
+    },
+    {
+      "detail": "all local selector choices are valid object IDs",
+      "name": "results/gpt55_partial_observability_selected_audit.jsonl.local_choice_ids_valid",
+      "ok": true
+    },
+    {
+      "detail": "50 rows",
       "name": "results/partial_observability_api50_no_coord_audit.jsonl.nonempty",
       "ok": true
     },
@@ -781,7 +961,7 @@
       "ok": true
     },
     {
-      "detail": "3520 cache files",
+      "detail": "4982 cache files",
       "name": "data/cached_responses.cache_files_present",
       "ok": true
     },
@@ -791,13 +971,13 @@
       "ok": true
     }
   ],
-  "n_checks": 158,
+  "n_checks": 194,
   "n_failed": 0,
   "summary": {
     "cache": {
       "model_versions": [
         {
-          "n": 750,
+          "n": 1236,
           "requested_model": "gpt-4.1-nano",
           "response_model": "gpt-4.1-nano-2025-04-14"
         },
@@ -805,9 +985,14 @@
           "n": 2770,
           "requested_model": "gpt-5.4-nano",
           "response_model": "gpt-5.4-nano-2026-03-17"
+        },
+        {
+          "n": 976,
+          "requested_model": "gpt-5.5",
+          "response_model": "gpt-5.5-2026-04-23"
         }
       ],
-      "n_cache_files": 3520
+      "n_cache_files": 4982
     },
     "groups": [
       {
@@ -829,20 +1014,20 @@
         "speaker_cache_paths": 50
       },
       {
-        "audit_rows": 100,
+        "audit_rows": 150,
         "candidate_rows": 50,
         "n_scenes": 50,
         "name": "perspective_stress_50",
-        "record_rows": 4050,
+        "record_rows": 4800,
         "scene_file": "data/perspective_stress50_scenes.jsonl",
         "speaker_cache_paths": 50
       },
       {
-        "audit_rows": 50,
+        "audit_rows": 150,
         "candidate_rows": 50,
         "n_scenes": 50,
         "name": "partial_observability_api50",
-        "record_rows": 2550,
+        "record_rows": 4050,
         "scene_file": "data/partial_observability_local50_scenes.jsonl",
         "speaker_cache_paths": 50
       }

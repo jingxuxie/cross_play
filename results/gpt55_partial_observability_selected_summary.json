@@ -1,0 +1,162 @@
+{
+  "by_method": {
+    "best_of_k_shortest": {
+      "crossplay_gap": null,
+      "json_valid_rate": 1.0,
+      "listener_success_stdev": 0.04714045207910318,
+      "mean_tokens": 4.04,
+      "n_records": 150,
+      "n_scenes": 50,
+      "sameplay_success": null,
+      "success": 0.4533333333333333,
+      "success_ci95": [
+        0.4,
+        0.5066666666666667
+      ]
+    },
+    "direct_first": {
+      "crossplay_gap": null,
+      "json_valid_rate": 1.0,
+      "listener_success_stdev": 0.1131370849898476,
+      "mean_tokens": 9.96,
+      "n_records": 150,
+      "n_scenes": 50,
+      "sameplay_success": null,
+      "success": 0.74,
+      "success_ci95": [
+        0.6533333333333333,
+        0.8266666666666667
+      ]
+    },
+    "mirror_selfplay": {
+      "crossplay_gap": null,
+      "json_valid_rate": 1.0,
+      "listener_success_stdev": 0.2451303508113365,
+      "mean_tokens": 6.5,
+      "n_records": 150,
+      "n_scenes": 50,
+      "sameplay_success": null,
+      "success": 0.6533333333333333,
+      "success_ci95": [
+        0.56,
+        0.7466666666666667
+      ]
+    },
+    "population_play": {
+      "crossplay_gap": null,
+      "json_valid_rate": 1.0,
+      "listener_success_stdev": 0.0,
+      "mean_tokens": 9.66,
+      "n_records": 150,
+      "n_scenes": 50,
+      "sameplay_success": null,
+      "success": 1.0,
+      "success_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "prior_listener_oracle": {
+      "crossplay_gap": null,
+      "json_valid_rate": 1.0,
+      "listener_success_stdev": 0.028284271247461926,
+      "mean_tokens": 9.32,
+      "n_records": 150,
+      "n_scenes": 50,
+      "sameplay_success": null,
+      "success": 0.96,
+      "success_ci95": [
+        0.9066666666666666,
+        1.0
+      ]
+    }
+  },
+  "by_scenario_method": {
+    "partial_observability": {
+      "best_of_k_shortest": {
+        "crossplay_gap": null,
+        "json_valid_rate": 1.0,
+        "listener_success_stdev": 0.04714045207910318,
+        "mean_tokens": 4.04,
+        "n_records": 150,
+        "n_scenes": 50,
+        "sameplay_success": null,
+        "success": 0.4533333333333333,
+        "success_ci95": [
+          0.4,
+          0.5066666666666667
+        ]
+      },
+      "direct_first": {
+        "crossplay_gap": null,
+        "json_valid_rate": 1.0,
+        "listener_success_stdev": 0.1131370849898476,
+        "mean_tokens": 9.96,
+        "n_records": 150,
+        "n_scenes": 50,
+        "sameplay_success": null,
+        "success": 0.74,
+        "success_ci95": [
+          0.6533333333333333,
+          0.8266666666666667
+        ]
+      },
+      "mirror_selfplay": {
+        "crossplay_gap": null,
+        "json_valid_rate": 1.0,
+        "listener_success_stdev": 0.2451303508113365,
+        "mean_tokens": 6.5,
+        "n_records": 150,
+        "n_scenes": 50,
+        "sameplay_success": null,
+        "success": 0.6533333333333333,
+        "success_ci95": [
+          0.56,
+          0.7466666666666667
+        ]
+      },
+      "population_play": {
+        "crossplay_gap": null,
+        "json_valid_rate": 1.0,
+        "listener_success_stdev": 0.0,
+        "mean_tokens": 9.66,
+        "n_records": 150,
+        "n_scenes": 50,
+        "sameplay_success": null,
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "prior_listener_oracle": {
+        "crossplay_gap": null,
+        "json_valid_rate": 1.0,
+        "listener_success_stdev": 0.028284271247461926,
+        "mean_tokens": 9.32,
+        "n_records": 150,
+        "n_scenes": 50,
+        "sameplay_success": null,
+        "success": 0.96,
+        "success_ci95": [
+          0.9066666666666666,
+          1.0
+        ]
+      }
+    }
+  },
+  "overall": {
+    "crossplay_gap": null,
+    "json_valid_rate": 1.0,
+    "listener_success_stdev": 0.08673843182554986,
+    "mean_tokens": 7.896,
+    "n_records": 750,
+    "n_scenes": 50,
+    "sameplay_success": null,
+    "success": 0.7613333333333333,
+    "success_ci95": [
+      0.7213333333333334,
+      0.8026666666666666
+    ]
+  }
+}

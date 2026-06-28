@@ -16,8 +16,9 @@ descriptions do not drift from the code.
 
 | Requested model | Response model | Cached responses |
 |---|---|---:|
-| `gpt-4.1-nano` | `gpt-4.1-nano-2025-04-14` | 750 |
+| `gpt-4.1-nano` | `gpt-4.1-nano-2025-04-14` | 1236 |
 | `gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770 |
+| `gpt-5.5` | `gpt-5.5-2026-04-23` | 976 |
 
 ## Task Protocol
 
@@ -315,7 +316,7 @@ Return exactly this JSON shape: {"choice_id": "obj_...", "confidence": 0.0, "rea
 
 ## Paper-Facing Integrity Checks
 
-The current benchmark integrity report passes 145/145 checks.
+The current benchmark integrity report passes 194/194 checks.
 It verifies source-scoped scene coverage, target IDs, listener choice IDs,
 success flags, generated-message object-ID leakage, candidate selection
 membership, local selector choice IDs, speaker cache paths, cache JSON

@@ -1,0 +1,30 @@
+[
+  {
+    "diff_a_minus_b": 0.3466666666666667,
+    "diff_ci95": [
+      0.25333333333333335,
+      0.44000000000000006
+    ],
+    "mean_a": 1.0,
+    "mean_b": 0.6533333333333333,
+    "method_a": "population_play",
+    "method_b": "mirror_selfplay",
+    "n_pairs": 50,
+    "paired_bootstrap_p_two_sided": 0.0,
+    "scenario_type": null
+  },
+  {
+    "diff_a_minus_b": 0.3066666666666667,
+    "diff_ci95": [
+      0.21333333333333335,
+      0.4
+    ],
+    "mean_a": 0.96,
+    "mean_b": 0.6533333333333333,
+    "method_a": "prior_listener_oracle",
+    "method_b": "mirror_selfplay",
+    "n_pairs": 50,
+    "paired_bootstrap_p_two_sided": 0.0,
+    "scenario_type": null
+  }
+]

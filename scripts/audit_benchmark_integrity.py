@@ -46,6 +46,7 @@ GROUPS = [
         "record_files": [
             "results/perspective_stress50_hybrid_records.jsonl",
             "results/perspective_stress50_gpt41nano_records.jsonl",
+            "results/gpt55_perspective_selected_records.jsonl",
             "results/perspective_stress50_gpt41nano_no_coord_records.jsonl",
             "results/perspective_stress50_hybrid_candidate_eval_records.jsonl",
             "results/perspective_stress50_gpt41nano_candidate_eval_records.jsonl",
@@ -55,6 +56,7 @@ GROUPS = [
         ],
         "audit_files": [
             "results/perspective_stress50_gpt41nano_audit.jsonl",
+            "results/gpt55_perspective_selected_audit.jsonl",
             "results/perspective_stress50_gpt41nano_no_coord_audit.jsonl",
         ],
     },
@@ -63,6 +65,8 @@ GROUPS = [
         "scene_file": "data/partial_observability_local50_scenes.jsonl",
         "record_files": [
             "results/partial_observability_api50_records.jsonl",
+            "results/gpt41_partial_observability_selected_records.jsonl",
+            "results/gpt55_partial_observability_selected_records.jsonl",
             "results/partial_observability_api50_candidate_eval_records.jsonl",
             "results/partial_observability_api50_no_coord_records.jsonl",
         ],
@@ -70,6 +74,8 @@ GROUPS = [
             "results/partial_observability_api50_candidates.jsonl",
         ],
         "audit_files": [
+            "results/gpt41_partial_observability_selected_audit.jsonl",
+            "results/gpt55_partial_observability_selected_audit.jsonl",
             "results/partial_observability_api50_no_coord_audit.jsonl",
         ],
     },
@@ -366,6 +372,9 @@ def validate_audit_file(path: str, scene_by_id: dict[str, Any], checks: list[dic
             for message in row.get(field, []) or []:
                 if OBJ_ID_RE.search(str(message)):
                     leaks.append(f"{scene_id}:{field}:{message}")
+        for method, message in (row.get("methods") or {}).items():
+            if OBJ_ID_RE.search(str(message)):
+                leaks.append(f"{scene_id}:methods.{method}:{message}")
         bad_local_choice.extend(invalid_local_choices(row, valid_ids, scene_id))
 
     add_check(checks, f"{path}.scene_ids_known", not bad_scene, ok_or_sample(bad_scene, "all rows mapped"))

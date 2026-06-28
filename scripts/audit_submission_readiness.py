@@ -33,6 +33,7 @@ REQUIRED_ARTIFACTS = [
     "docs/protocol_and_prompts.md",
     "docs/artifact_guide.md",
     "docs/api_token_accounting.md",
+    "docs/cross_model_listener_audit.md",
     "docs/local_benchmark600_check.md",
     "docs/local_stronger_plan_k8.md",
     "docs/api_listener_leave_one_out.md",
@@ -55,6 +56,7 @@ REQUIRED_ARTIFACTS = [
     "results/paper_claims_verification.json",
     "results/benchmark_integrity_audit.json",
     "results/api_token_accounting.json",
+    "results/cross_model_listener_audit.json",
     "results/local_benchmark600_check.json",
     "results/local_benchmark600_summary.json",
     "results/local_benchmark600_records.jsonl",
@@ -80,6 +82,8 @@ REQUIRED_ARTIFACTS = [
     "results/partial_observability_api50_no_coord_mirror_failures_coded.csv",
     "scripts/export_colm_submission.py",
     "scripts/analyze_api_token_accounting.py",
+    "scripts/run_selected_listener_audit.py",
+    "scripts/analyze_cross_model_listener_audit.py",
     "scripts/analyze_local_benchmark.py",
     "scripts/analyze_local_stronger_plan.py",
     "scripts/analyze_partial_observability_api.py",
@@ -114,7 +118,7 @@ def main() -> None:
     warnings: list[dict[str, str]] = []
 
     paper_path = Path(args.paper)
-    paper = paper_path.read_text(encoding="utf-8") if paper_path.exists() else ""
+    paper = read_tex_with_inputs(paper_path) if paper_path.exists() else ""
 
     check_required_artifacts(checks)
     check_pdf(checks, warnings, Path(args.pdf))
@@ -222,6 +226,9 @@ def check_artifact_guide(checks: list[dict[str, Any]]) -> None:
         "## Dataset Cards",
         "## Claim-To-Evidence Map",
         "API Token Accounting",
+        "Cross-Model Held-Out Listener Audit",
+        "Population-play is 1.000 in all cross-model rows",
+        "GPT-5.5 rows reuse cached speaker candidates and evaluate selected messages only",
         "Local Benchmark-Scale Sanity Check",
         "Local Stronger-Plan K=8 Diagnostic",
         "600 local scenes balanced across four initial scenario families",
@@ -266,8 +273,8 @@ def check_artifact_guide(checks: list[dict[str, Any]]) -> None:
         "0 candidate messages reference private landmarks",
         "all 50 full-run mirror failures are underspecified-distractor choices",
         "local_benchmark600 | `data/local_benchmark600_scenes.jsonl` | 600 | 10800",
-        "158/158 integrity checks pass",
-        "3520 cached responses have complete usage metadata totaling 1027917 tokens",
+        "194/194 integrity checks pass",
+        "4982 cached responses have complete usage metadata totaling 1410092 tokens",
     ]
     for snippet in required:
         add_check(
@@ -385,6 +392,25 @@ def check_claim_discipline(checks: list[dict[str, Any]], paper: str) -> None:
             "PASS" if contains_phrase(paper, phrase) else "WARN",
             "present" if contains_phrase(paper, phrase) else "missing",
         )
+
+
+def read_tex_with_inputs(path: Path, seen: set[Path] | None = None) -> str:
+    """Read a TeX file and inline local \input{...} targets for text checks."""
+    seen = set() if seen is None else seen
+    resolved = path.resolve()
+    if resolved in seen or not path.exists():
+        return ""
+    seen.add(resolved)
+    text = path.read_text(encoding="utf-8")
+
+    def replace_input(match: re.Match[str]) -> str:
+        raw = match.group(1)
+        child = (path.parent / raw).with_suffix(".tex")
+        if not child.exists():
+            child = path.parent / raw
+        return read_tex_with_inputs(child, seen)
+
+    return re.sub(r"\\input\{([^}]+)\}", replace_input, text)
 
 
 def slug(text: str) -> str:

@@ -28,13 +28,17 @@ class OpenAIResponsesClient:
         cache_dir: str = "data/cached_responses",
         model: str = "gpt-5.4-nano",
         temperature: float = 0.0,
+        reasoning_effort: str | None = None,
         timeout: int = 60,
+        max_retries: int = 3,
     ) -> None:
         self.api_key_path = Path(api_key_path)
         self.cache_dir = Path(cache_dir)
         self.model = model
         self.temperature = temperature
+        self.reasoning_effort = reasoning_effort
         self.timeout = timeout
+        self.max_retries = max_retries
         self.cache_dir.mkdir(parents=True, exist_ok=True)
 
     def call(
@@ -54,6 +58,8 @@ class OpenAIResponsesClient:
             "max_output_tokens": max_output_tokens,
             "schema_version": schema_version,
         }
+        if self.reasoning_effort is not None:
+            key_payload["reasoning_effort"] = self.reasoning_effort
         cache_path = self.cache_dir / f"{_hash(key_payload)}.json"
         if cache_path.exists():
             cached = json.loads(cache_path.read_text(encoding="utf-8"))
@@ -76,6 +82,8 @@ class OpenAIResponsesClient:
         }
         if self.temperature is not None:
             payload["temperature"] = self.temperature
+        if self.reasoning_effort is not None:
+            payload["reasoning"] = {"effort": self.reasoning_effort}
 
         req = urllib.request.Request(
             "https://api.openai.com/v1/responses",
@@ -86,12 +94,22 @@ class OpenAIResponsesClient:
             },
             method="POST",
         )
-        try:
-            with urllib.request.urlopen(req, timeout=self.timeout) as resp:
-                data = json.loads(resp.read().decode("utf-8"))
-        except urllib.error.HTTPError as exc:
-            body = exc.read().decode("utf-8", errors="replace")
-            raise RuntimeError(f"OpenAI API HTTP {exc.code}: {body}") from exc
+        for attempt in range(self.max_retries + 1):
+            try:
+                with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+                    data = json.loads(resp.read().decode("utf-8"))
+                break
+            except urllib.error.HTTPError as exc:
+                body = exc.read().decode("utf-8", errors="replace")
+                if exc.code in {408, 429, 500, 502, 503, 504} and attempt < self.max_retries:
+                    time.sleep(2**attempt)
+                    continue
+                raise RuntimeError(f"OpenAI API HTTP {exc.code}: {body}") from exc
+            except urllib.error.URLError as exc:
+                if attempt < self.max_retries:
+                    time.sleep(2**attempt)
+                    continue
+                raise RuntimeError(f"OpenAI API connection error: {exc}") from exc
 
         text = _response_text(data)
         cached = {

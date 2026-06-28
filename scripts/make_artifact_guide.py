@@ -46,6 +46,7 @@ def build_report() -> dict[str, Any]:
         "cache": cache_summary(),
         "api_token_accounting": api_token_accounting(),
         "headline_results": headline_results(),
+        "cross_model_listener": cross_model_listener(),
         "no_coord_results": no_coord_results(),
         "local_benchmark": local_benchmark(),
         "local_stronger_plan": local_stronger_plan(),
@@ -171,6 +172,20 @@ def no_coord_results() -> list[dict[str, Any]]:
             None,
         ),
     ]
+
+
+def cross_model_listener() -> dict[str, Any] | None:
+    path = Path("results/cross_model_listener_audit.json")
+    if not path.exists():
+        return None
+    report = read_json(str(path))
+    return {
+        "source": str(path),
+        "markdown": "docs/cross_model_listener_audit.md",
+        "table": "paper/tables/cross_model_listener_audit.tex",
+        "rows": report["rows"],
+        "interpretation": report["interpretation"],
+    }
 
 
 def local_benchmark() -> dict[str, Any] | None:
@@ -612,6 +627,11 @@ def claim_map() -> list[dict[str, str]]:
             "anchor": "mirror same-play is 1.000 while cross-play is lower in mixed, perspective, alternate-model, and partial-observability runs",
         },
         {
+            "claim": "The mirror self-play gap persists under GPT-5.5 and across held-out listener families.",
+            "evidence": "docs/cross_model_listener_audit.md; results/cross_model_listener_audit.json; paper/tables/cross_model_listener_audit.tex",
+            "anchor": "population-minus-mirror gaps are 0.187, 0.287, and 0.327 on perspective stress and 0.333, 0.340, and 0.347 on partial observability",
+        },
+        {
             "claim": "Population-play closes the observed full-candidate cross-play gaps.",
             "evidence": "paper/tables/mixed50.tex; paper/tables/perspective_stress50.tex; paper/tables/perspective_altmodel50.tex; results/partial_observability_api50_summary.json",
             "anchor": "population cross-play is 1.000 in all full-candidate paper-facing runs",
@@ -704,12 +724,12 @@ def claim_map() -> list[dict[str, str]]:
         {
             "claim": "The cached benchmark artifacts are internally consistent.",
             "evidence": "results/benchmark_integrity_audit.md",
-            "anchor": "158/158 integrity checks pass",
+            "anchor": "194/194 integrity checks pass",
         },
         {
             "claim": "API usage is bounded and cache-replayable.",
             "evidence": "docs/api_token_accounting.md; results/api_token_accounting.json",
-            "anchor": "3520 cached responses have complete usage metadata totaling 1027917 tokens",
+            "anchor": "4982 cached responses have complete usage metadata totaling 1410092 tokens",
         },
     ]
 
@@ -722,6 +742,7 @@ def core_files() -> list[tuple[str, str]]:
         ("COLM submission PDF", "paper/colm2026_submission.pdf"),
         ("Protocol and prompts", "docs/protocol_and_prompts.md"),
         ("API token accounting", "docs/api_token_accounting.md"),
+        ("Cross-model held-out listener audit", "docs/cross_model_listener_audit.md"),
         ("600-scene local sanity check", "docs/local_benchmark600_check.md"),
         ("Local stronger-plan K=8 diagnostic", "docs/local_stronger_plan_k8.md"),
         ("Local stronger-plan scene file", "data/local_stronger_plan1200_scenes.jsonl"),
@@ -744,6 +765,7 @@ def core_files() -> list[tuple[str, str]]:
         ("Integrity audit", "scripts/audit_benchmark_integrity.py"),
         ("Readiness audit", "scripts/audit_submission_readiness.py"),
         ("API token accounting script", "scripts/analyze_api_token_accounting.py"),
+        ("Cross-model listener audit script", "scripts/analyze_cross_model_listener_audit.py"),
         ("Local benchmark analysis script", "scripts/analyze_local_benchmark.py"),
         ("Local stronger-plan diagnostic script", "scripts/analyze_local_stronger_plan.py"),
         ("API listener leave-one-out script", "scripts/analyze_api_listener_leave_one_out.py"),
@@ -860,6 +882,43 @@ def render_markdown(report: dict[str, Any]) -> str:
     for row in report["headline_results"]:
         lines.append(
             f"| {row['label']} | {fmt(row['mirror_cross'])} | {fmt(row['mirror_same'])} | {fmt(row['mirror_gap'])} | {fmt(row['population_cross'])} | {fmt(row['oracle_cross'])} | {fmt(row['diff'])} [{fmt(row['ci'][0])}, {fmt(row['ci'][1])}] | `{row['summary_path']}` |"
+        )
+
+    if report["cross_model_listener"]:
+        cross = report["cross_model_listener"]
+        lines.extend(
+            [
+                "",
+                "## Cross-Model Held-Out Listener Audit",
+                "",
+                cross["interpretation"],
+                "",
+                "| Setting | Held-out listener | Direct | Mirror | Population | Oracle | Pop-minus-mirror 95% CI | Source |",
+                "|---|---|---:|---:|---:|---:|---|---|",
+            ]
+        )
+        for row in cross["rows"]:
+            paired = row["population_minus_mirror"]
+            ci = paired["diff_ci95"]
+            lines.append(
+                "| {setting} | {listener} | {direct} | {mirror} | {population} | {oracle} | {diff} [{lo}, {hi}] | `{source}` |".format(
+                    setting=row["setting"],
+                    listener=row["listener"],
+                    direct=fmt(row["direct"]["success"]),
+                    mirror=fmt(row["mirror"]["success"]),
+                    population=fmt(row["population"]["success"]),
+                    oracle=fmt(row["oracle"]["success"]),
+                    diff=fmt(paired["diff_a_minus_b"]),
+                    lo=fmt(ci[0]),
+                    hi=fmt(ci[1]),
+                    source=row["summary_source"],
+                )
+            )
+        lines.extend(
+            [
+                "",
+                "GPT-5.5 rows reuse cached speaker candidates and evaluate selected messages only; because population-play reaches 1.000, the same candidate pool's oracle ceiling is also 1.000.",
+            ]
         )
 
     lines.extend(

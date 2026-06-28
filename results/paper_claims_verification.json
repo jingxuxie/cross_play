@@ -1058,6 +1058,139 @@
       "source": "results/partial_observability_api50_check.json"
     },
     {
+      "actual": "6",
+      "expected": "6",
+      "name": "cross_model_listener.rows",
+      "ok": true,
+      "source": "results/cross_model_listener_audit.json"
+    },
+    {
+      "actual": "0.813",
+      "expected": "0.813",
+      "name": "cross_model_listener.perspective_stress.gpt_5_4_nano.mirror",
+      "ok": true,
+      "source": "results/cross_model_listener_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "cross_model_listener.perspective_stress.gpt_5_4_nano.population",
+      "ok": true,
+      "source": "results/cross_model_listener_audit.json"
+    },
+    {
+      "actual": "0.187",
+      "expected": "0.187",
+      "name": "cross_model_listener.perspective_stress.gpt_5_4_nano.gap",
+      "ok": true,
+      "source": "results/cross_model_listener_audit.json"
+    },
+    {
+      "actual": "0.713",
+      "expected": "0.713",
+      "name": "cross_model_listener.perspective_stress.gpt_4_1_nano.mirror",
+      "ok": true,
+      "source": "results/cross_model_listener_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "cross_model_listener.perspective_stress.gpt_4_1_nano.population",
+      "ok": true,
+      "source": "results/cross_model_listener_audit.json"
+    },
+    {
+      "actual": "0.287",
+      "expected": "0.287",
+      "name": "cross_model_listener.perspective_stress.gpt_4_1_nano.gap",
+      "ok": true,
+      "source": "results/cross_model_listener_audit.json"
+    },
+    {
+      "actual": "0.673",
+      "expected": "0.673",
+      "name": "cross_model_listener.perspective_stress.gpt_5_5.mirror",
+      "ok": true,
+      "source": "results/cross_model_listener_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "cross_model_listener.perspective_stress.gpt_5_5.population",
+      "ok": true,
+      "source": "results/cross_model_listener_audit.json"
+    },
+    {
+      "actual": "0.327",
+      "expected": "0.327",
+      "name": "cross_model_listener.perspective_stress.gpt_5_5.gap",
+      "ok": true,
+      "source": "results/cross_model_listener_audit.json"
+    },
+    {
+      "actual": "0.667",
+      "expected": "0.667",
+      "name": "cross_model_listener.partial_observability.gpt_5_4_nano.mirror",
+      "ok": true,
+      "source": "results/cross_model_listener_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "cross_model_listener.partial_observability.gpt_5_4_nano.population",
+      "ok": true,
+      "source": "results/cross_model_listener_audit.json"
+    },
+    {
+      "actual": "0.333",
+      "expected": "0.333",
+      "name": "cross_model_listener.partial_observability.gpt_5_4_nano.gap",
+      "ok": true,
+      "source": "results/cross_model_listener_audit.json"
+    },
+    {
+      "actual": "0.660",
+      "expected": "0.660",
+      "name": "cross_model_listener.partial_observability.gpt_4_1_nano.mirror",
+      "ok": true,
+      "source": "results/cross_model_listener_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "cross_model_listener.partial_observability.gpt_4_1_nano.population",
+      "ok": true,
+      "source": "results/cross_model_listener_audit.json"
+    },
+    {
+      "actual": "0.340",
+      "expected": "0.340",
+      "name": "cross_model_listener.partial_observability.gpt_4_1_nano.gap",
+      "ok": true,
+      "source": "results/cross_model_listener_audit.json"
+    },
+    {
+      "actual": "0.653",
+      "expected": "0.653",
+      "name": "cross_model_listener.partial_observability.gpt_5_5.mirror",
+      "ok": true,
+      "source": "results/cross_model_listener_audit.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "cross_model_listener.partial_observability.gpt_5_5.population",
+      "ok": true,
+      "source": "results/cross_model_listener_audit.json"
+    },
+    {
+      "actual": "0.347",
+      "expected": "0.347",
+      "name": "cross_model_listener.partial_observability.gpt_5_5.gap",
+      "ok": true,
+      "source": "results/cross_model_listener_audit.json"
+    },
+    {
       "actual": "0.953",
       "expected": "0.953",
       "name": "api_loo.mixed_50.mirror",
@@ -3921,8 +4054,8 @@
       "source": "results/benchmark_integrity_audit.json"
     },
     {
-      "actual": "158",
-      "expected": "158",
+      "actual": "194",
+      "expected": "194",
       "name": "integrity_audit.n_checks",
       "ok": true,
       "source": "results/benchmark_integrity_audit.json"
@@ -3956,15 +4089,22 @@
       "source": "results/benchmark_integrity_audit.json"
     },
     {
-      "actual": "3520",
-      "expected": "3520",
+      "actual": "present",
+      "expected": "present",
+      "name": "integrity_audit.has_exact_gpt55_version",
+      "ok": true,
+      "source": "results/benchmark_integrity_audit.json"
+    },
+    {
+      "actual": "4982",
+      "expected": "4982",
       "name": "api_token_accounting.n_cache_files",
       "ok": true,
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "3520",
-      "expected": "3520",
+      "actual": "4982",
+      "expected": "4982",
       "name": "api_token_accounting.n_readable",
       "ok": true,
       "source": "results/api_token_accounting.json"
@@ -3977,36 +4117,36 @@
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "940088",
-      "expected": "940088",
+      "actual": "1287186",
+      "expected": "1287186",
       "name": "api_token_accounting.input_tokens",
       "ok": true,
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "87829",
-      "expected": "87829",
+      "actual": "122906",
+      "expected": "122906",
       "name": "api_token_accounting.output_tokens",
       "ok": true,
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "1027917",
-      "expected": "1027917",
+      "actual": "1410092",
+      "expected": "1410092",
       "name": "api_token_accounting.total_tokens",
       "ok": true,
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "750",
-      "expected": "750",
+      "actual": "1236",
+      "expected": "1236",
       "name": "api_token_accounting.gpt-4.1-nano.gpt-4.1-nano-2025-04-14.responses",
       "ok": true,
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "207207",
-      "expected": "207207",
+      "actual": "332257",
+      "expected": "332257",
       "name": "api_token_accounting.gpt-4.1-nano.gpt-4.1-nano-2025-04-14.total_tokens",
       "ok": true,
       "source": "results/api_token_accounting.json"
@@ -4022,6 +4162,20 @@
       "actual": "820710",
       "expected": "820710",
       "name": "api_token_accounting.gpt-5.4-nano.gpt-5.4-nano-2026-03-17.total_tokens",
+      "ok": true,
+      "source": "results/api_token_accounting.json"
+    },
+    {
+      "actual": "976",
+      "expected": "976",
+      "name": "api_token_accounting.gpt-5.5.gpt-5.5-2026-04-23.responses",
+      "ok": true,
+      "source": "results/api_token_accounting.json"
+    },
+    {
+      "actual": "257125",
+      "expected": "257125",
+      "name": "api_token_accounting.gpt-5.5.gpt-5.5-2026-04-23.total_tokens",
       "ok": true,
       "source": "results/api_token_accounting.json"
     },
@@ -4042,7 +4196,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.paper/main.tex.candidate-role audit makes this concrete",
+      "name": "text.paper/main.tex.A candidate-role audit shows",
       "ok": true,
       "source": "paper/main.tex"
     },
@@ -4056,7 +4210,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.paper/main.tex.short attribute-only slot in 0.000",
+      "name": "text.paper/main.tex.naive population-play selects a spatially informative message in only 4 of 50",
       "ok": true,
       "source": "paper/main.tex"
     },
@@ -4070,14 +4224,35 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.paper/main.tex.generated protocol appendix",
+      "name": "text.paper/main.tex.gpt-5.5-2026-04-23",
       "ok": true,
       "source": "paper/main.tex"
     },
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.paper/main.tex.reviewer-facing artifact guide",
+      "name": "text.paper/main.tex.generated prompt and schema documentation",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.artifact guide mapping paper claims",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.population-minus-mirror difference is 0.327",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.\\label{tab:crossmodel}",
       "ok": true,
       "source": "paper/main.tex"
     },
@@ -4140,7 +4315,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.paper/main.tex.random expected success is 0.865, 0.715, 0.657, and 0.753",
+      "name": "text.paper/main.tex.Random expected success is 0.865, 0.715, 0.657, and 0.753",
       "ok": true,
       "source": "paper/main.tex"
     },
@@ -4175,7 +4350,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.paper/main.tex.listener-disagreement audit shows the same pattern",
+      "name": "text.paper/main.tex.A held-out listener-disagreement audit shows",
       "ok": true,
       "source": "paper/main.tex"
     },
@@ -4280,7 +4455,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.paper/main.tex.The paper contributes: (i) PRAG-CrossPlay",
+      "name": "text.paper/main.tex.The paper makes three contributions",
       "ok": true,
       "source": "paper/main.tex"
     },
@@ -4357,9 +4532,30 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/api_token_accounting.md.3520 | 3520 | 0 | 940088 | 87829 | 1027917",
+      "name": "text.docs/api_token_accounting.md.4982 | 4982 | 0 | 1287186 | 122906 | 1410092",
       "ok": true,
       "source": "docs/api_token_accounting.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/cross_model_listener_audit.md.Cross-Model Held-Out Listener Audit",
+      "ok": true,
+      "source": "docs/cross_model_listener_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/cross_model_listener_audit.md.Perspective stress | gpt-5.5 | 0.793 | 0.507 | 0.673 | 1.000 | 1.000",
+      "ok": true,
+      "source": "docs/cross_model_listener_audit.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/cross_model_listener_audit.md.Partial observability | gpt-5.5 | 0.740 | 0.453 | 0.653 | 1.000 | 1.000",
+      "ok": true,
+      "source": "docs/cross_model_listener_audit.md"
     },
     {
       "actual": "present",
@@ -4392,7 +4588,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/artifact_guide.md.3520 cached responses have complete usage metadata totaling 1027917 tokens",
+      "name": "text.docs/artifact_guide.md.4982 cached responses have complete usage metadata totaling 1410092 tokens",
       "ok": true,
       "source": "docs/artifact_guide.md"
     },
@@ -4707,7 +4903,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/artifact_guide.md.158/158 integrity checks pass",
+      "name": "text.docs/artifact_guide.md.194/194 integrity checks pass",
       "ok": true,
       "source": "docs/artifact_guide.md"
     },
@@ -5071,7 +5267,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.paper/main.tex.partial-observability stress check",
+      "name": "text.paper/main.tex.Partial-observability support check",
       "ok": true,
       "source": "paper/main.tex"
     },
@@ -5134,7 +5330,28 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.REPRODUCE.md.cached Responses API files contain `1,027,917` total tokens",
+      "name": "text.REPRODUCE.md.cached Responses API files contain `1,410,092` total tokens",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/run_selected_listener_audit.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/analyze_cross_model_listener_audit.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.GPT-5.5 mirror self-play is `0.673`",
       "ok": true,
       "source": "REPRODUCE.md"
     },
@@ -5442,6 +5659,13 @@
     {
       "actual": "present",
       "expected": "present",
+      "name": "text.README.md.docs/cross_model_listener_audit.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
       "name": "text.README.md.docs/local_benchmark600_check.md",
       "ok": true,
       "source": "README.md"
@@ -5573,6 +5797,6 @@
       "source": "paper/colm2026_submission.tex"
     }
   ],
-  "n_checks": 796,
+  "n_checks": 828,
   "n_failed": 0
 }

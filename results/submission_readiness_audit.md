@@ -1,7 +1,7 @@
 # Submission Readiness Audit
 
-Checks: 154/154 non-failing.
-Warnings: 0.
+Checks: 161/161 non-failing.
+Warnings: 2.
 Open actions: 0.
 
 ## Checks
@@ -18,6 +18,7 @@ Open actions: 0.
 | PASS | `artifact.docs/protocol_and_prompts.md` | present |
 | PASS | `artifact.docs/artifact_guide.md` | present |
 | PASS | `artifact.docs/api_token_accounting.md` | present |
+| PASS | `artifact.docs/cross_model_listener_audit.md` | present |
 | PASS | `artifact.docs/local_benchmark600_check.md` | present |
 | PASS | `artifact.docs/local_stronger_plan_k8.md` | present |
 | PASS | `artifact.docs/api_listener_leave_one_out.md` | present |
@@ -40,6 +41,7 @@ Open actions: 0.
 | PASS | `artifact.results/paper_claims_verification.json` | present |
 | PASS | `artifact.results/benchmark_integrity_audit.json` | present |
 | PASS | `artifact.results/api_token_accounting.json` | present |
+| PASS | `artifact.results/cross_model_listener_audit.json` | present |
 | PASS | `artifact.results/local_benchmark600_check.json` | present |
 | PASS | `artifact.results/local_benchmark600_summary.json` | present |
 | PASS | `artifact.results/local_benchmark600_records.jsonl` | present |
@@ -65,6 +67,8 @@ Open actions: 0.
 | PASS | `artifact.results/partial_observability_api50_no_coord_mirror_failures_coded.csv` | present |
 | PASS | `artifact.scripts/export_colm_submission.py` | present |
 | PASS | `artifact.scripts/analyze_api_token_accounting.py` | present |
+| PASS | `artifact.scripts/run_selected_listener_audit.py` | present |
+| PASS | `artifact.scripts/analyze_cross_model_listener_audit.py` | present |
 | PASS | `artifact.scripts/analyze_local_benchmark.py` | present |
 | PASS | `artifact.scripts/analyze_local_stronger_plan.py` | present |
 | PASS | `artifact.scripts/analyze_partial_observability_api.py` | present |
@@ -83,8 +87,8 @@ Open actions: 0.
 | PASS | `artifact.scripts/make_qualitative_examples.py` | present |
 | PASS | `artifact.scripts/make_reviewer_checklist.py` | present |
 | PASS | `artifact.scripts/audit_plan_coverage.py` | present |
-| PASS | `pdf.pages_positive` | 8 |
-| PASS | `pdf.pages_within_workshop_range` | 8 pages; target plan is 4-8 pages |
+| PASS | `pdf.pages_positive` | 10 |
+| WARN | `pdf.pages_within_workshop_range` | 10 pages; target plan is 4-8 pages |
 | PASS | `pdf.not_encrypted` | no |
 | PASS | `paper.has_abstract` | abstract environment |
 | PASS | `paper.section.Introduction` | present |
@@ -96,13 +100,16 @@ Open actions: 0.
 | PASS | `paper.section.Qualitative Analysis` | present |
 | PASS | `paper.section.Limitations` | present |
 | PASS | `paper.section.Conclusion` | present |
-| PASS | `paper.tables` | 7 table environments |
+| PASS | `paper.tables` | 5 table environments |
 | PASS | `paper.figures` | 1 figure environments |
-| PASS | `paper.references` | 8 bibliography entries |
+| PASS | `paper.references` | 19 bibliography entries |
 | PASS | `artifact_guide.prag_crossplay_artifact_guide` | present |
 | PASS | `artifact_guide.dataset_cards` | present |
 | PASS | `artifact_guide.claim_to_evidence_map` | present |
 | PASS | `artifact_guide.api_token_accounting` | present |
+| PASS | `artifact_guide.cross_model_held_out_listener_audit` | present |
+| PASS | `artifact_guide.population_play_is_1_000_in_all_cross_model_rows` | present |
+| PASS | `artifact_guide.gpt_5_5_rows_reuse_cached_speaker_candidates_and_evaluate_se` | present |
 | PASS | `artifact_guide.local_benchmark_scale_sanity_check` | present |
 | PASS | `artifact_guide.local_stronger_plan_k_8_diagnostic` | present |
 | PASS | `artifact_guide.600_local_scenes_balanced_across_four_initial_scenario_famil` | present |
@@ -147,16 +154,16 @@ Open actions: 0.
 | PASS | `artifact_guide.0_candidate_messages_reference_private_landmarks` | present |
 | PASS | `artifact_guide.all_50_full_run_mirror_failures_are_underspecified_distracto` | present |
 | PASS | `artifact_guide.local_benchmark600_data_local_benchmark600_scenes_jsonl_600_` | present |
-| PASS | `artifact_guide.158_158_integrity_checks_pass` | present |
-| PASS | `artifact_guide.3520_cached_responses_have_complete_usage_metadata_totaling_` | present |
-| PASS | `claims_verifier.no_failed_checks` | 796 checks, 0 failed |
-| PASS | `integrity_audit.no_failed_checks` | 158 checks, 0 failed |
+| PASS | `artifact_guide.194_194_integrity_checks_pass` | present |
+| PASS | `artifact_guide.4982_cached_responses_have_complete_usage_metadata_totaling_` | present |
+| PASS | `claims_verifier.no_failed_checks` | 828 checks, 0 failed |
+| PASS | `integrity_audit.no_failed_checks` | 194 checks, 0 failed |
 | PASS | `template.final_venue_template` | paper/colm2026_submission.pdf uses COLM submission style |
 | PASS | `colm_source.uses_submission_template` | COLM submission package |
 | PASS | `colm_source.has_line_numbers` | line numbers enabled for submission mode |
 | PASS | `colm_source.uses_colm_bibliography_style` | COLM bibliography style |
-| PASS | `colm_pdf.pages_positive` | 8 |
-| PASS | `colm_pdf.pages_within_submission_range` | 8 pages; target submission range is 4-9 pages |
+| PASS | `colm_pdf.pages_positive` | 12 |
+| WARN | `colm_pdf.pages_within_submission_range` | 12 pages; target submission range is 4-9 pages |
 | PASS | `colm_pdf.not_encrypted` | no |
 | PASS | `claims.limitation.the_current_experiments_are_intentionally_small_and_diagnost` | present |
 | PASS | `claims.limitation.the_held_out_listeners_are_api_language_models_not_humans` | present |

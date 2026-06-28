@@ -1,10 +1,10 @@
 \section{Experiments}
 
 \paragraph{Runs.}
-We report three bounded API experiments. The mixed pilot contains 50 scenes from the four initial scenario families. The perspective-stress replication contains 50 fresh perspective-shift scenes. The partial-observability support run contains 50 private-landmark scenes. In all runs, the speaker model generates candidates, local selectors choose final messages, and held-out API listeners evaluate those messages. We use paired bootstrap intervals over scenes for method differences.
+We report three bounded API experiments plus a selected-message cross-model audit. The mixed pilot contains 50 scenes from the four initial scenario families. The perspective-stress replication contains 50 fresh perspective-shift scenes. The partial-observability support run contains 50 private-landmark scenes. In all runs, the speaker model generates candidates, local selectors choose final messages, and held-out API listeners evaluate those messages. The cross-model audit reuses the same speaker candidates and selected messages, then evaluates them with \texttt{gpt-4.1-nano}, \texttt{gpt-5.4-nano}, and \texttt{gpt-5.5} held-out listener prompts. We use paired bootstrap intervals over scenes for method differences.
 
 \paragraph{Model versions and reproducibility.}
-The cache records exact response model versions: \texttt{gpt-5.4-nano-2026-03-17} for the main API runs and \texttt{gpt-4.1-nano-2025-04-14} for the alternate-model audit. The repository includes generated prompt and schema documentation, a token-accounting report over 3,520 cached responses, an integrity audit that checks generated messages and listener choices, and an artifact guide mapping paper claims to source scenes, cached result files, tables, and verifier outputs. As a benchmark-scale artifact sanity check, the release also includes a no-API 600-scene balanced local sweep: mirror self-play has 1.000 same-play but 0.631 cross-play success, while population-play, template, and oracle candidate each reach 1.000.
+The cache records exact response model versions: \texttt{gpt-5.4-nano-2026-03-17} for the main API runs, \texttt{gpt-4.1-nano-2025-04-14} for the alternate-model audits, and \texttt{gpt-5.5-2026-04-23} for the frontier-listener follow-up. The repository includes generated prompt and schema documentation, a token-accounting report over 4,982 cached responses, an integrity audit that checks generated messages and listener choices, and an artifact guide mapping paper claims to source scenes, cached result files, tables, and verifier outputs. As a benchmark-scale artifact sanity check, the release also includes a no-API 600-scene balanced local sweep: mirror self-play has 1.000 same-play but 0.631 cross-play success, while population-play, template, and oracle candidate each reach 1.000.
 
 \paragraph{What is being tested?}
 The experiments do not test whether parameter updates on a language model improve pragmatic reasoning. Instead, they test a smaller but common mechanism: using interaction-derived success to select among possible messages. This mechanism appears in reranking, rejection sampling, self-refinement, and data filtering. If selection against one partner can inflate apparent success in a controlled reference game, then cross-play is a useful diagnostic before moving to more expensive training or richer social environments.
@@ -21,30 +21,16 @@ Table~\ref{tab:mixed} shows that mirror self-play obtains 1.000 same-play succes
 \label{tab:mixed}
 \end{table}
 
-Table~\ref{tab:scenario} localizes the effect. Unique-attribute and distractor-contrast scenes are at ceiling. Relational-reference scenes show a smaller mirror gap. Perspective-shift scenes are the hard case: direct messages and shortest messages often under-specify the target, and mirror self-play selects messages that work for its fixed partner but fail under held-out listeners. This scenario-level result is important because it rules out a uniform degradation story. The self-play gap appears where listener perspective and ambiguity matter.
-
-\begin{table}[H]
-\centering
-\input{tables/mixed50_by_scenario}
-\caption{Mixed pilot by scenario type. The main degradation appears in perspective-shift scenes; unique-attribute and distractor-contrast scenes are near ceiling.}
-\label{tab:scenario}
-\end{table}
+Scenario-level results localize the effect. Unique-attribute and distractor-contrast scenes are at ceiling, relational-reference scenes show a smaller mirror gap, and perspective-shift scenes are the hard case: direct messages and shortest messages often under-specify the target, and mirror self-play selects messages that work for its fixed partner but fail under held-out listeners. This rules out a uniform degradation story; the self-play gap appears where listener perspective and ambiguity matter.
 
 \paragraph{Finding 2: the gap replicates under fresh perspective-shift scenes.}
-Table~\ref{tab:stress} confirms the pattern in 50 new perspective-shift scenes. Mirror self-play again achieves 1.000 same-play success but only 0.813 cross-play success. Population-play reaches 1.000 cross-play success, matching the oracle candidate upper bound. The paired population-minus-mirror difference is 0.187 with a 95\% bootstrap interval of [0.100, 0.287], as shown in Table~\ref{tab:paired}. The direct baseline is also substantially weaker than population-play, showing that the gain is not simply due to the API speaker already producing a robust first candidate.
+Table~\ref{tab:stress} confirms the pattern in 50 new perspective-shift scenes. Mirror self-play again achieves 1.000 same-play success but only 0.813 cross-play success. Population-play reaches 1.000 cross-play success, matching the oracle candidate upper bound. The paired population-minus-mirror difference is 0.187 with a 95\% bootstrap interval of [0.100, 0.287]. The direct baseline is also substantially weaker than population-play, showing that the gain is not simply due to the API speaker already producing a robust first candidate.
 
 \begin{table}[H]
 \centering
 \input{tables/perspective_stress50}
 \caption{Perspective-stress replication on 50 new scenes. Population-play matches the oracle candidate upper bound, while mirror self-play retains a substantial cross-play gap.}
 \label{tab:stress}
-\end{table}
-
-\begin{table}[H]
-\centering
-\input{tables/perspective_stress50_paired}
-\caption{Paired bootstrap comparison of population-play versus mirror self-play on the perspective-stress replication.}
-\label{tab:paired}
 \end{table}
 
 \paragraph{Finding 3: the effect persists under an alternate held-out model family.}
@@ -55,6 +41,16 @@ Table~\ref{tab:altmodel} evaluates the same perspective-stress candidate sets wi
 \input{tables/perspective_altmodel50}
 \caption{Held-out listener model audit on the same 50 perspective-stress scenes and same API-generated candidates. The partner-overfitting gap persists when held-out listeners use \texttt{gpt-4.1-nano} instead of \texttt{gpt-5.4-nano}.}
 \label{tab:altmodel}
+\end{table}
+
+Table~\ref{tab:crossmodel} summarizes the broader cross-model audit. The same selected messages are evaluated under three held-out listener families on perspective stress and partial observability. The mirror self-play gap is not repaired by \texttt{gpt-5.5}; in fact, the population-minus-mirror difference is 0.327 on perspective stress and 0.347 on partial observability. Population-play reaches 1.000 in every row. For the selected-message \texttt{gpt-5.5} rows, this also establishes an oracle ceiling of 1.000 without a new all-candidate listener sweep, because the population-selected message is one of the candidates and already succeeds for every held-out listener.
+
+\begin{table}[H]
+\centering
+\small
+\input{tables/cross_model_listener_audit}
+\caption{Cross-model held-out listener audit. GPT-5.5 rows reuse the existing speaker candidates and selected messages; the oracle is 1.000 because population-play already selects an all-listener-successful candidate in every scene.}
+\label{tab:crossmodel}
 \end{table}
 
 \paragraph{Finding 4: coordinate fallbacks are useful, but selector quality matters without them.}
