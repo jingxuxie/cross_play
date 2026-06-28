@@ -58,6 +58,7 @@ def main() -> None:
     check_local_stronger_plan(checks)
     check_partial_api_extension(checks)
     check_cross_model_listener_audit(checks)
+    check_cross_model_failure_overlap(checks)
     check_api_listener_leave_one_out(checks)
     check_selection_regret(checks)
     check_candidate_pool(checks)
@@ -816,6 +817,86 @@ def check_cross_model_listener_audit(checks: list[dict[str, Any]]) -> None:
             decimals=3,
             source=path,
         )
+
+
+def check_cross_model_failure_overlap(checks: list[dict[str, Any]]) -> None:
+    path = "results/cross_model_failure_overlap.json"
+    report = json.loads(Path(path).read_text(encoding="utf-8"))
+    findings = report["key_findings"]
+    expected_findings = {
+        "perspective_gpt55_mirror_success": 0.673,
+        "perspective_gpt55_mirror_failure_scenes": 25,
+        "perspective_gpt55_mirror_failure_symbolic_rate": 1.000,
+        "perspective_gpt55_population_failure_scenes": 0,
+        "perspective_gpt41_gpt55_mirror_failure_overlap": 20,
+        "perspective_gpt41_gpt55_overlap_over_gpt41": 0.909,
+        "perspective_all_listener_mirror_failure_scenes": 10,
+        "perspective_any_listener_mirror_failure_scenes": 30,
+        "partial_gpt55_mirror_success": 0.653,
+        "partial_gpt55_mirror_failure_scenes": 26,
+        "partial_gpt55_mirror_failure_symbolic_rate": 1.000,
+        "partial_gpt55_population_failure_scenes": 0,
+        "partial_gpt41_gpt55_mirror_failure_overlap": 26,
+        "partial_gpt41_gpt55_overlap_over_gpt41": 1.000,
+        "partial_all_listener_mirror_failure_scenes": 25,
+        "partial_any_listener_mirror_failure_scenes": 26,
+    }
+    integer_keys = {
+        "perspective_gpt55_mirror_failure_scenes",
+        "perspective_gpt55_population_failure_scenes",
+        "perspective_gpt41_gpt55_mirror_failure_overlap",
+        "perspective_all_listener_mirror_failure_scenes",
+        "perspective_any_listener_mirror_failure_scenes",
+        "partial_gpt55_mirror_failure_scenes",
+        "partial_gpt55_population_failure_scenes",
+        "partial_gpt41_gpt55_mirror_failure_overlap",
+        "partial_all_listener_mirror_failure_scenes",
+        "partial_any_listener_mirror_failure_scenes",
+    }
+    for key, expected in expected_findings.items():
+        add_numeric_check(
+            checks,
+            f"cross_model_failure_overlap.{key}",
+            findings[key],
+            expected,
+            decimals=0 if key in integer_keys else 3,
+            source=path,
+        )
+    overlap_rows = {row["setting"]: row for row in report["overlap"]}
+    expected_overlap = {
+        "perspective_stress": {
+            "gpt-4.1-nano": 22,
+            "gpt-5.4-nano": 14,
+            "gpt-5.5": 25,
+            "all": 10,
+            "any": 30,
+        },
+        "partial_observability": {
+            "gpt-4.1-nano": 26,
+            "gpt-5.4-nano": 25,
+            "gpt-5.5": 26,
+            "all": 25,
+            "any": 26,
+        },
+    }
+    for setting, values in expected_overlap.items():
+        row = overlap_rows[setting]
+        for listener, expected in values.items():
+            actual = (
+                row["all_listener_failure_scenes"]
+                if listener == "all"
+                else row["any_listener_failure_scenes"]
+                if listener == "any"
+                else row["mirror_failures"][listener]
+            )
+            add_numeric_check(
+                checks,
+                f"cross_model_failure_overlap.{setting}.{listener}",
+                actual,
+                expected,
+                decimals=0,
+                source=path,
+            )
 
 
 def check_api_listener_leave_one_out(checks: list[dict[str, Any]]) -> None:
@@ -1990,11 +2071,18 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/cross_model_listener_audit.md", "Cross-Model Held-Out Listener Audit"),
         ("docs/cross_model_listener_audit.md", "Perspective stress | gpt-5.5 | 0.793 | 0.507 | 0.673 | 1.000 | 1.000"),
         ("docs/cross_model_listener_audit.md", "Partial observability | gpt-5.5 | 0.740 | 0.453 | 0.653 | 1.000 | 1.000"),
+        ("docs/cross_model_failure_overlap.md", "Cross-Model Failure Overlap Audit"),
+        ("docs/cross_model_failure_overlap.md", "20 of the 22 GPT-4.1 mirror-failure scenes also fail under GPT-5.5"),
+        ("docs/cross_model_failure_overlap.md", "26 of the 26 GPT-4.1 mirror-failure scenes also fail under GPT-5.5"),
+        ("docs/cross_model_failure_overlap.md", "Population-play has 0 GPT-5.5 scene-level failures"),
         ("docs/api_token_accounting.md", "`gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770"),
         ("docs/artifact_guide.md", "PRAG-CrossPlay Artifact Guide"),
         ("docs/artifact_guide.md", "Claim-To-Evidence Map"),
         ("docs/artifact_guide.md", "API Token Accounting"),
         ("docs/artifact_guide.md", "4982 cached responses have complete usage metadata totaling 1410092 tokens"),
+        ("docs/artifact_guide.md", "Cross-Model Failure Overlap Audit"),
+        ("docs/artifact_guide.md", "20 of 22 GPT-4.1 mirror-failure scenes also fail under GPT-5.5"),
+        ("docs/artifact_guide.md", "All GPT-5.5 mirror-failure scenes are symbolic-verifier positives"),
         ("docs/artifact_guide.md", "Local Stronger-Plan K=8 Diagnostic"),
         ("docs/artifact_guide.md", "No-coordinate oracle success on the initial 1,000 scenes rises from 0.870 at K=4 to 0.995 at K=8"),
         ("docs/artifact_guide.md", "No-coordinate oracle success on the 200 partial-observability scenes rises from 0.495 at K=4 to 0.997 at K=8"),
@@ -2099,6 +2187,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/paper_claims_iteration_002.md", "Consensus+info selector: cross-play `0.920`"),
         ("paper/main.tex", "Partial-observability support check"),
         ("paper/main.tex", "message-length audit rules out a pure verbosity explanation"),
+        ("paper/main.tex", "A scene-level overlap audit shows that 20 of 22 alternate-model perspective mirror-failure scenes"),
         ("paper/main.tex", "Across 152 listener-level failures, 147 are underspecified"),
         ("paper/main.tex", "no coded failures are"),
         ("paper/main.tex", "mirror self-play obtains 0.667 cross-play success"),
@@ -2110,6 +2199,9 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("REPRODUCE.md", "scripts/run_selected_listener_audit.py"),
         ("REPRODUCE.md", "scripts/analyze_cross_model_listener_audit.py"),
         ("REPRODUCE.md", "GPT-5.5 mirror self-play is `0.673`"),
+        ("REPRODUCE.md", "scripts/analyze_cross_model_failure_overlap.py"),
+        ("REPRODUCE.md", "`20` of `22` GPT-4.1 mirror-failure scenes also fail"),
+        ("REPRODUCE.md", "`26` of `26` GPT-4.1 mirror-failure scenes also fail"),
         ("REPRODUCE.md", "scripts/analyze_local_benchmark.py"),
         ("REPRODUCE.md", "local_benchmark600_check.json"),
         ("REPRODUCE.md", "scripts/analyze_local_stronger_plan.py"),
@@ -2156,6 +2248,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("README.md", "paper/colm2026_submission.pdf"),
         ("README.md", "docs/api_token_accounting.md"),
         ("README.md", "docs/cross_model_listener_audit.md"),
+        ("README.md", "docs/cross_model_failure_overlap.md"),
         ("README.md", "docs/rule_based_ambiguity_verifier.md"),
         ("README.md", "docs/local_benchmark600_check.md"),
         ("README.md", "docs/local_stronger_plan_k8.md"),

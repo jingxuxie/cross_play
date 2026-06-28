@@ -1,0 +1,765 @@
+{
+  "description": "Scene-level failure overlap across GPT-5.4-nano, GPT-4.1-nano, and GPT-5.5 held-out listeners. A scene is a failure when at least one of the three listener prompt variants fails for the selected message.",
+  "key_findings": {
+    "partial_all_listener_mirror_failure_scenes": 25,
+    "partial_any_listener_mirror_failure_scenes": 26,
+    "partial_gpt41_gpt55_mirror_failure_overlap": 26,
+    "partial_gpt41_gpt55_overlap_over_gpt41": 1.0,
+    "partial_gpt55_mirror_failure_scenes": 26,
+    "partial_gpt55_mirror_failure_symbolic_rate": 1.0,
+    "partial_gpt55_mirror_success": 0.6533333333333333,
+    "partial_gpt55_population_failure_scenes": 0,
+    "perspective_all_listener_mirror_failure_scenes": 10,
+    "perspective_any_listener_mirror_failure_scenes": 30,
+    "perspective_gpt41_gpt55_mirror_failure_overlap": 20,
+    "perspective_gpt41_gpt55_overlap_over_gpt41": 0.9090909090909091,
+    "perspective_gpt55_mirror_failure_scenes": 25,
+    "perspective_gpt55_mirror_failure_symbolic_rate": 1.0,
+    "perspective_gpt55_mirror_success": 0.6733333333333333,
+    "perspective_gpt55_population_failure_scenes": 0
+  },
+  "overlap": [
+    {
+      "all_listener_failure_scene_ids": [
+        "po_000000",
+        "po_000004",
+        "po_000005",
+        "po_000006",
+        "po_000008",
+        "po_000013",
+        "po_000014",
+        "po_000015",
+        "po_000018",
+        "po_000019",
+        "po_000021",
+        "po_000023",
+        "po_000025",
+        "po_000026",
+        "po_000027",
+        "po_000030",
+        "po_000031",
+        "po_000032",
+        "po_000034",
+        "po_000035",
+        "po_000037",
+        "po_000039",
+        "po_000040",
+        "po_000044",
+        "po_000045"
+      ],
+      "all_listener_failure_scenes": 25,
+      "any_listener_failure_scene_ids": [
+        "po_000000",
+        "po_000004",
+        "po_000005",
+        "po_000006",
+        "po_000008",
+        "po_000013",
+        "po_000014",
+        "po_000015",
+        "po_000018",
+        "po_000019",
+        "po_000021",
+        "po_000023",
+        "po_000025",
+        "po_000026",
+        "po_000027",
+        "po_000030",
+        "po_000031",
+        "po_000032",
+        "po_000034",
+        "po_000035",
+        "po_000037",
+        "po_000039",
+        "po_000040",
+        "po_000042",
+        "po_000044",
+        "po_000045"
+      ],
+      "any_listener_failure_scenes": 26,
+      "listeners": [
+        "gpt-4.1-nano",
+        "gpt-5.4-nano",
+        "gpt-5.5"
+      ],
+      "mirror_failures": {
+        "gpt-4.1-nano": 26,
+        "gpt-5.4-nano": 25,
+        "gpt-5.5": 26
+      },
+      "pairwise": [
+        {
+          "intersection": 25,
+          "intersection_over_left": 0.9615384615384616,
+          "intersection_over_right": 1.0,
+          "left": "gpt-4.1-nano",
+          "left_failures": 26,
+          "left_only": 1,
+          "right": "gpt-5.4-nano",
+          "right_failures": 25,
+          "right_only": 0,
+          "union": 26
+        },
+        {
+          "intersection": 26,
+          "intersection_over_left": 1.0,
+          "intersection_over_right": 1.0,
+          "left": "gpt-4.1-nano",
+          "left_failures": 26,
+          "left_only": 0,
+          "right": "gpt-5.5",
+          "right_failures": 26,
+          "right_only": 0,
+          "union": 26
+        },
+        {
+          "intersection": 25,
+          "intersection_over_left": 1.0,
+          "intersection_over_right": 0.9615384615384616,
+          "left": "gpt-5.4-nano",
+          "left_failures": 25,
+          "left_only": 0,
+          "right": "gpt-5.5",
+          "right_failures": 26,
+          "right_only": 1,
+          "union": 26
+        }
+      ],
+      "setting": "partial_observability"
+    },
+    {
+      "all_listener_failure_scene_ids": [
+        "ps_000000",
+        "ps_000012",
+        "ps_000023",
+        "ps_000030",
+        "ps_000031",
+        "ps_000032",
+        "ps_000033",
+        "ps_000034",
+        "ps_000039",
+        "ps_000045"
+      ],
+      "all_listener_failure_scenes": 10,
+      "any_listener_failure_scene_ids": [
+        "ps_000000",
+        "ps_000002",
+        "ps_000003",
+        "ps_000004",
+        "ps_000005",
+        "ps_000006",
+        "ps_000008",
+        "ps_000009",
+        "ps_000010",
+        "ps_000011",
+        "ps_000012",
+        "ps_000013",
+        "ps_000017",
+        "ps_000018",
+        "ps_000019",
+        "ps_000020",
+        "ps_000021",
+        "ps_000023",
+        "ps_000025",
+        "ps_000028",
+        "ps_000030",
+        "ps_000031",
+        "ps_000032",
+        "ps_000033",
+        "ps_000034",
+        "ps_000035",
+        "ps_000038",
+        "ps_000039",
+        "ps_000045",
+        "ps_000048"
+      ],
+      "any_listener_failure_scenes": 30,
+      "listeners": [
+        "gpt-4.1-nano",
+        "gpt-5.4-nano",
+        "gpt-5.5"
+      ],
+      "mirror_failures": {
+        "gpt-4.1-nano": 22,
+        "gpt-5.4-nano": 14,
+        "gpt-5.5": 25
+      },
+      "pairwise": [
+        {
+          "intersection": 10,
+          "intersection_over_left": 0.45454545454545453,
+          "intersection_over_right": 0.7142857142857143,
+          "left": "gpt-4.1-nano",
+          "left_failures": 22,
+          "left_only": 12,
+          "right": "gpt-5.4-nano",
+          "right_failures": 14,
+          "right_only": 4,
+          "union": 26
+        },
+        {
+          "intersection": 20,
+          "intersection_over_left": 0.9090909090909091,
+          "intersection_over_right": 0.8,
+          "left": "gpt-4.1-nano",
+          "left_failures": 22,
+          "left_only": 2,
+          "right": "gpt-5.5",
+          "right_failures": 25,
+          "right_only": 5,
+          "union": 27
+        },
+        {
+          "intersection": 11,
+          "intersection_over_left": 0.7857142857142857,
+          "intersection_over_right": 0.44,
+          "left": "gpt-5.4-nano",
+          "left_failures": 14,
+          "left_only": 3,
+          "right": "gpt-5.5",
+          "right_failures": 25,
+          "right_only": 14,
+          "union": 28
+        }
+      ],
+      "setting": "perspective_stress"
+    }
+  ],
+  "runs": [
+    {
+      "listener": "gpt-5.4-nano",
+      "methods": [
+        {
+          "failure_label_counts": {
+            "attribute_underspecified": 7,
+            "frame_sensitive_relation": 13
+          },
+          "failure_scene_ids": [
+            "ps_000000",
+            "ps_000001",
+            "ps_000002",
+            "ps_000003",
+            "ps_000010",
+            "ps_000014",
+            "ps_000015",
+            "ps_000016",
+            "ps_000021",
+            "ps_000023",
+            "ps_000026",
+            "ps_000032",
+            "ps_000033",
+            "ps_000038",
+            "ps_000041",
+            "ps_000042",
+            "ps_000043",
+            "ps_000045",
+            "ps_000046",
+            "ps_000048"
+          ],
+          "failure_scenes": 20,
+          "failure_symbolic_rate": 1.0,
+          "method": "direct",
+          "n_scenes": 50,
+          "success": 0.7133333333333334,
+          "symbolic_rate": 1.0
+        },
+        {
+          "failure_label_counts": {
+            "attribute_underspecified": 10,
+            "frame_sensitive_relation": 4
+          },
+          "failure_scene_ids": [
+            "ps_000000",
+            "ps_000002",
+            "ps_000006",
+            "ps_000012",
+            "ps_000023",
+            "ps_000028",
+            "ps_000030",
+            "ps_000031",
+            "ps_000032",
+            "ps_000033",
+            "ps_000034",
+            "ps_000038",
+            "ps_000039",
+            "ps_000045"
+          ],
+          "failure_scenes": 14,
+          "failure_symbolic_rate": 1.0,
+          "method": "mirror",
+          "n_scenes": 50,
+          "success": 0.8133333333333334,
+          "symbolic_rate": 0.66
+        },
+        {
+          "failure_label_counts": {},
+          "failure_scene_ids": [],
+          "failure_scenes": 0,
+          "failure_symbolic_rate": null,
+          "method": "population",
+          "n_scenes": 50,
+          "success": 1.0,
+          "symbolic_rate": 0.0
+        }
+      ],
+      "records": "results/perspective_stress50_hybrid_records.jsonl",
+      "setting": "perspective_stress"
+    },
+    {
+      "listener": "gpt-4.1-nano",
+      "methods": [
+        {
+          "failure_label_counts": {
+            "attribute_underspecified": 11,
+            "frame_sensitive_relation": 20
+          },
+          "failure_scene_ids": [
+            "ps_000000",
+            "ps_000001",
+            "ps_000002",
+            "ps_000003",
+            "ps_000004",
+            "ps_000005",
+            "ps_000006",
+            "ps_000008",
+            "ps_000009",
+            "ps_000011",
+            "ps_000013",
+            "ps_000016",
+            "ps_000018",
+            "ps_000019",
+            "ps_000021",
+            "ps_000023",
+            "ps_000026",
+            "ps_000029",
+            "ps_000030",
+            "ps_000032",
+            "ps_000033",
+            "ps_000034",
+            "ps_000035",
+            "ps_000037",
+            "ps_000041",
+            "ps_000043",
+            "ps_000045",
+            "ps_000046",
+            "ps_000047",
+            "ps_000048",
+            "ps_000049"
+          ],
+          "failure_scenes": 31,
+          "failure_symbolic_rate": 1.0,
+          "method": "direct",
+          "n_scenes": 50,
+          "success": 0.5533333333333333,
+          "symbolic_rate": 1.0
+        },
+        {
+          "failure_label_counts": {
+            "attribute_underspecified": 19,
+            "frame_sensitive_relation": 3
+          },
+          "failure_scene_ids": [
+            "ps_000000",
+            "ps_000003",
+            "ps_000004",
+            "ps_000005",
+            "ps_000008",
+            "ps_000009",
+            "ps_000011",
+            "ps_000012",
+            "ps_000013",
+            "ps_000018",
+            "ps_000019",
+            "ps_000021",
+            "ps_000023",
+            "ps_000030",
+            "ps_000031",
+            "ps_000032",
+            "ps_000033",
+            "ps_000034",
+            "ps_000035",
+            "ps_000039",
+            "ps_000045",
+            "ps_000048"
+          ],
+          "failure_scenes": 22,
+          "failure_symbolic_rate": 1.0,
+          "method": "mirror",
+          "n_scenes": 50,
+          "success": 0.7133333333333334,
+          "symbolic_rate": 0.66
+        },
+        {
+          "failure_label_counts": {},
+          "failure_scene_ids": [],
+          "failure_scenes": 0,
+          "failure_symbolic_rate": null,
+          "method": "population",
+          "n_scenes": 50,
+          "success": 1.0,
+          "symbolic_rate": 0.0
+        }
+      ],
+      "records": "results/perspective_stress50_gpt41nano_records.jsonl",
+      "setting": "perspective_stress"
+    },
+    {
+      "listener": "gpt-5.5",
+      "methods": [
+        {
+          "failure_label_counts": {
+            "attribute_underspecified": 12,
+            "frame_sensitive_relation": 7
+          },
+          "failure_scene_ids": [
+            "ps_000000",
+            "ps_000002",
+            "ps_000006",
+            "ps_000008",
+            "ps_000009",
+            "ps_000010",
+            "ps_000016",
+            "ps_000018",
+            "ps_000019",
+            "ps_000021",
+            "ps_000023",
+            "ps_000026",
+            "ps_000033",
+            "ps_000035",
+            "ps_000037",
+            "ps_000038",
+            "ps_000043",
+            "ps_000045",
+            "ps_000048"
+          ],
+          "failure_scenes": 19,
+          "failure_symbolic_rate": 1.0,
+          "method": "direct",
+          "n_scenes": 50,
+          "success": 0.7933333333333333,
+          "symbolic_rate": 1.0
+        },
+        {
+          "failure_label_counts": {
+            "attribute_underspecified": 24,
+            "frame_sensitive_relation": 1
+          },
+          "failure_scene_ids": [
+            "ps_000000",
+            "ps_000002",
+            "ps_000004",
+            "ps_000005",
+            "ps_000008",
+            "ps_000009",
+            "ps_000010",
+            "ps_000012",
+            "ps_000013",
+            "ps_000017",
+            "ps_000018",
+            "ps_000019",
+            "ps_000020",
+            "ps_000021",
+            "ps_000023",
+            "ps_000025",
+            "ps_000030",
+            "ps_000031",
+            "ps_000032",
+            "ps_000033",
+            "ps_000034",
+            "ps_000035",
+            "ps_000039",
+            "ps_000045",
+            "ps_000048"
+          ],
+          "failure_scenes": 25,
+          "failure_symbolic_rate": 1.0,
+          "method": "mirror",
+          "n_scenes": 50,
+          "success": 0.6733333333333333,
+          "symbolic_rate": 0.66
+        },
+        {
+          "failure_label_counts": {},
+          "failure_scene_ids": [],
+          "failure_scenes": 0,
+          "failure_symbolic_rate": null,
+          "method": "population",
+          "n_scenes": 50,
+          "success": 1.0,
+          "symbolic_rate": 0.0
+        }
+      ],
+      "records": "results/gpt55_perspective_selected_records.jsonl",
+      "setting": "perspective_stress"
+    },
+    {
+      "listener": "gpt-5.4-nano",
+      "methods": [
+        {
+          "failure_label_counts": {
+            "attribute_underspecified": 19
+          },
+          "failure_scene_ids": [
+            "po_000001",
+            "po_000004",
+            "po_000010",
+            "po_000014",
+            "po_000015",
+            "po_000019",
+            "po_000021",
+            "po_000023",
+            "po_000025",
+            "po_000026",
+            "po_000027",
+            "po_000029",
+            "po_000030",
+            "po_000031",
+            "po_000040",
+            "po_000044",
+            "po_000045",
+            "po_000048",
+            "po_000049"
+          ],
+          "failure_scenes": 19,
+          "failure_symbolic_rate": 1.0,
+          "method": "direct",
+          "n_scenes": 50,
+          "success": 0.74,
+          "symbolic_rate": 1.0
+        },
+        {
+          "failure_label_counts": {
+            "attribute_underspecified": 25
+          },
+          "failure_scene_ids": [
+            "po_000000",
+            "po_000004",
+            "po_000005",
+            "po_000006",
+            "po_000008",
+            "po_000013",
+            "po_000014",
+            "po_000015",
+            "po_000018",
+            "po_000019",
+            "po_000021",
+            "po_000023",
+            "po_000025",
+            "po_000026",
+            "po_000027",
+            "po_000030",
+            "po_000031",
+            "po_000032",
+            "po_000034",
+            "po_000035",
+            "po_000037",
+            "po_000039",
+            "po_000040",
+            "po_000044",
+            "po_000045"
+          ],
+          "failure_scenes": 25,
+          "failure_symbolic_rate": 1.0,
+          "method": "mirror",
+          "n_scenes": 50,
+          "success": 0.6666666666666666,
+          "symbolic_rate": 0.52
+        },
+        {
+          "failure_label_counts": {},
+          "failure_scene_ids": [],
+          "failure_scenes": 0,
+          "failure_symbolic_rate": null,
+          "method": "population",
+          "n_scenes": 50,
+          "success": 1.0,
+          "symbolic_rate": 0.0
+        }
+      ],
+      "records": "results/partial_observability_api50_records.jsonl",
+      "setting": "partial_observability"
+    },
+    {
+      "listener": "gpt-4.1-nano",
+      "methods": [
+        {
+          "failure_label_counts": {
+            "attribute_underspecified": 23
+          },
+          "failure_scene_ids": [
+            "po_000000",
+            "po_000001",
+            "po_000002",
+            "po_000004",
+            "po_000005",
+            "po_000006",
+            "po_000008",
+            "po_000014",
+            "po_000015",
+            "po_000019",
+            "po_000021",
+            "po_000023",
+            "po_000025",
+            "po_000026",
+            "po_000027",
+            "po_000030",
+            "po_000031",
+            "po_000032",
+            "po_000035",
+            "po_000037",
+            "po_000040",
+            "po_000044",
+            "po_000045"
+          ],
+          "failure_scenes": 23,
+          "failure_symbolic_rate": 1.0,
+          "method": "direct",
+          "n_scenes": 50,
+          "success": 0.7,
+          "symbolic_rate": 1.0
+        },
+        {
+          "failure_label_counts": {
+            "attribute_underspecified": 26
+          },
+          "failure_scene_ids": [
+            "po_000000",
+            "po_000004",
+            "po_000005",
+            "po_000006",
+            "po_000008",
+            "po_000013",
+            "po_000014",
+            "po_000015",
+            "po_000018",
+            "po_000019",
+            "po_000021",
+            "po_000023",
+            "po_000025",
+            "po_000026",
+            "po_000027",
+            "po_000030",
+            "po_000031",
+            "po_000032",
+            "po_000034",
+            "po_000035",
+            "po_000037",
+            "po_000039",
+            "po_000040",
+            "po_000042",
+            "po_000044",
+            "po_000045"
+          ],
+          "failure_scenes": 26,
+          "failure_symbolic_rate": 1.0,
+          "method": "mirror",
+          "n_scenes": 50,
+          "success": 0.66,
+          "symbolic_rate": 0.52
+        },
+        {
+          "failure_label_counts": {},
+          "failure_scene_ids": [],
+          "failure_scenes": 0,
+          "failure_symbolic_rate": null,
+          "method": "population",
+          "n_scenes": 50,
+          "success": 1.0,
+          "symbolic_rate": 0.0
+        }
+      ],
+      "records": "results/gpt41_partial_observability_selected_records.jsonl",
+      "setting": "partial_observability"
+    },
+    {
+      "listener": "gpt-5.5",
+      "methods": [
+        {
+          "failure_label_counts": {
+            "attribute_underspecified": 21
+          },
+          "failure_scene_ids": [
+            "po_000001",
+            "po_000004",
+            "po_000008",
+            "po_000010",
+            "po_000014",
+            "po_000015",
+            "po_000019",
+            "po_000021",
+            "po_000023",
+            "po_000025",
+            "po_000026",
+            "po_000027",
+            "po_000029",
+            "po_000030",
+            "po_000031",
+            "po_000032",
+            "po_000040",
+            "po_000044",
+            "po_000045",
+            "po_000048",
+            "po_000049"
+          ],
+          "failure_scenes": 21,
+          "failure_symbolic_rate": 1.0,
+          "method": "direct",
+          "n_scenes": 50,
+          "success": 0.74,
+          "symbolic_rate": 1.0
+        },
+        {
+          "failure_label_counts": {
+            "attribute_underspecified": 26
+          },
+          "failure_scene_ids": [
+            "po_000000",
+            "po_000004",
+            "po_000005",
+            "po_000006",
+            "po_000008",
+            "po_000013",
+            "po_000014",
+            "po_000015",
+            "po_000018",
+            "po_000019",
+            "po_000021",
+            "po_000023",
+            "po_000025",
+            "po_000026",
+            "po_000027",
+            "po_000030",
+            "po_000031",
+            "po_000032",
+            "po_000034",
+            "po_000035",
+            "po_000037",
+            "po_000039",
+            "po_000040",
+            "po_000042",
+            "po_000044",
+            "po_000045"
+          ],
+          "failure_scenes": 26,
+          "failure_symbolic_rate": 1.0,
+          "method": "mirror",
+          "n_scenes": 50,
+          "success": 0.6533333333333333,
+          "symbolic_rate": 0.52
+        },
+        {
+          "failure_label_counts": {},
+          "failure_scene_ids": [],
+          "failure_scenes": 0,
+          "failure_symbolic_rate": null,
+          "method": "population",
+          "n_scenes": 50,
+          "success": 1.0,
+          "symbolic_rate": 0.0
+        }
+      ],
+      "records": "results/gpt55_partial_observability_selected_records.jsonl",
+      "setting": "partial_observability"
+    }
+  ]
+}

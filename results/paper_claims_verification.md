@@ -1,6 +1,6 @@
 # Paper Claims Verification
 
-Checks passed: 852/852.
+Checks passed: 890/890.
 
 | Status | Check | Actual | Expected | Source |
 |---|---|---:|---:|---|
@@ -174,6 +174,32 @@ Checks passed: 852/852.
 | PASS | `cross_model_listener.partial_observability.gpt_5_5.mirror` | 0.653 | 0.653 | `results/cross_model_listener_audit.json` |
 | PASS | `cross_model_listener.partial_observability.gpt_5_5.population` | 1.000 | 1.000 | `results/cross_model_listener_audit.json` |
 | PASS | `cross_model_listener.partial_observability.gpt_5_5.gap` | 0.347 | 0.347 | `results/cross_model_listener_audit.json` |
+| PASS | `cross_model_failure_overlap.perspective_gpt55_mirror_success` | 0.673 | 0.673 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.perspective_gpt55_mirror_failure_scenes` | 25 | 25 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.perspective_gpt55_mirror_failure_symbolic_rate` | 1.000 | 1.000 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.perspective_gpt55_population_failure_scenes` | 0 | 0 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.perspective_gpt41_gpt55_mirror_failure_overlap` | 20 | 20 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.perspective_gpt41_gpt55_overlap_over_gpt41` | 0.909 | 0.909 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.perspective_all_listener_mirror_failure_scenes` | 10 | 10 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.perspective_any_listener_mirror_failure_scenes` | 30 | 30 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.partial_gpt55_mirror_success` | 0.653 | 0.653 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.partial_gpt55_mirror_failure_scenes` | 26 | 26 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.partial_gpt55_mirror_failure_symbolic_rate` | 1.000 | 1.000 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.partial_gpt55_population_failure_scenes` | 0 | 0 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.partial_gpt41_gpt55_mirror_failure_overlap` | 26 | 26 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.partial_gpt41_gpt55_overlap_over_gpt41` | 1.000 | 1.000 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.partial_all_listener_mirror_failure_scenes` | 25 | 25 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.partial_any_listener_mirror_failure_scenes` | 26 | 26 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.perspective_stress.gpt-4.1-nano` | 22 | 22 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.perspective_stress.gpt-5.4-nano` | 14 | 14 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.perspective_stress.gpt-5.5` | 25 | 25 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.perspective_stress.all` | 10 | 10 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.perspective_stress.any` | 30 | 30 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.partial_observability.gpt-4.1-nano` | 26 | 26 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.partial_observability.gpt-5.4-nano` | 25 | 25 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.partial_observability.gpt-5.5` | 26 | 26 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.partial_observability.all` | 25 | 25 | `results/cross_model_failure_overlap.json` |
+| PASS | `cross_model_failure_overlap.partial_observability.any` | 26 | 26 | `results/cross_model_failure_overlap.json` |
 | PASS | `api_loo.mixed_50.mirror` | 0.953 | 0.953 | `results/api_listener_leave_one_out.json` |
 | PASS | `api_loo.mixed_50.population` | 0.973 | 0.973 | `results/api_listener_leave_one_out.json` |
 | PASS | `api_loo.mixed_50.oracle` | 1.000 | 1.000 | `results/api_listener_leave_one_out.json` |
@@ -670,11 +696,18 @@ Checks passed: 852/852.
 | PASS | `text.docs/cross_model_listener_audit.md.Cross-Model Held-Out Listener Audit` | present | present | `docs/cross_model_listener_audit.md` |
 | PASS | `text.docs/cross_model_listener_audit.md.Perspective stress | gpt-5.5 | 0.793 | 0.507 | 0.673 | 1.000 | 1.000` | present | present | `docs/cross_model_listener_audit.md` |
 | PASS | `text.docs/cross_model_listener_audit.md.Partial observability | gpt-5.5 | 0.740 | 0.453 | 0.653 | 1.000 | 1.000` | present | present | `docs/cross_model_listener_audit.md` |
+| PASS | `text.docs/cross_model_failure_overlap.md.Cross-Model Failure Overlap Audit` | present | present | `docs/cross_model_failure_overlap.md` |
+| PASS | `text.docs/cross_model_failure_overlap.md.20 of the 22 GPT-4.1 mirror-failure scenes also fail under GPT-5.5` | present | present | `docs/cross_model_failure_overlap.md` |
+| PASS | `text.docs/cross_model_failure_overlap.md.26 of the 26 GPT-4.1 mirror-failure scenes also fail under GPT-5.5` | present | present | `docs/cross_model_failure_overlap.md` |
+| PASS | `text.docs/cross_model_failure_overlap.md.Population-play has 0 GPT-5.5 scene-level failures` | present | present | `docs/cross_model_failure_overlap.md` |
 | PASS | `text.docs/api_token_accounting.md.`gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770` | present | present | `docs/api_token_accounting.md` |
 | PASS | `text.docs/artifact_guide.md.PRAG-CrossPlay Artifact Guide` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Claim-To-Evidence Map` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.API Token Accounting` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.4982 cached responses have complete usage metadata totaling 1410092 tokens` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.Cross-Model Failure Overlap Audit` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.20 of 22 GPT-4.1 mirror-failure scenes also fail under GPT-5.5` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.All GPT-5.5 mirror-failure scenes are symbolic-verifier positives` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Local Stronger-Plan K=8 Diagnostic` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.No-coordinate oracle success on the initial 1,000 scenes rises from 0.870 at K=4 to 0.995 at K=8` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.No-coordinate oracle success on the 200 partial-observability scenes rises from 0.495 at K=4 to 0.997 at K=8` | present | present | `docs/artifact_guide.md` |
@@ -779,6 +812,7 @@ Checks passed: 852/852.
 | PASS | `text.docs/paper_claims_iteration_002.md.Consensus+info selector: cross-play `0.920`` | present | present | `docs/paper_claims_iteration_002.md` |
 | PASS | `text.paper/main.tex.Partial-observability support check` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.message-length audit rules out a pure verbosity explanation` | present | present | `paper/main.tex` |
+| PASS | `text.paper/main.tex.A scene-level overlap audit shows that 20 of 22 alternate-model perspective mirror-failure scenes` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.Across 152 listener-level failures, 147 are underspecified` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.no coded failures are` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.mirror self-play obtains 0.667 cross-play success` | present | present | `paper/main.tex` |
@@ -790,6 +824,9 @@ Checks passed: 852/852.
 | PASS | `text.REPRODUCE.md.scripts/run_selected_listener_audit.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/analyze_cross_model_listener_audit.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.GPT-5.5 mirror self-play is `0.673`` | present | present | `REPRODUCE.md` |
+| PASS | `text.REPRODUCE.md.scripts/analyze_cross_model_failure_overlap.py` | present | present | `REPRODUCE.md` |
+| PASS | `text.REPRODUCE.md.`20` of `22` GPT-4.1 mirror-failure scenes also fail` | present | present | `REPRODUCE.md` |
+| PASS | `text.REPRODUCE.md.`26` of `26` GPT-4.1 mirror-failure scenes also fail` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/analyze_local_benchmark.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.local_benchmark600_check.json` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/analyze_local_stronger_plan.py` | present | present | `REPRODUCE.md` |
@@ -836,6 +873,7 @@ Checks passed: 852/852.
 | PASS | `text.README.md.paper/colm2026_submission.pdf` | present | present | `README.md` |
 | PASS | `text.README.md.docs/api_token_accounting.md` | present | present | `README.md` |
 | PASS | `text.README.md.docs/cross_model_listener_audit.md` | present | present | `README.md` |
+| PASS | `text.README.md.docs/cross_model_failure_overlap.md` | present | present | `README.md` |
 | PASS | `text.README.md.docs/rule_based_ambiguity_verifier.md` | present | present | `README.md` |
 | PASS | `text.README.md.docs/local_benchmark600_check.md` | present | present | `README.md` |
 | PASS | `text.README.md.docs/local_stronger_plan_k8.md` | present | present | `README.md` |

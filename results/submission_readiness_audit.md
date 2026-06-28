@@ -1,6 +1,6 @@
 # Submission Readiness Audit
 
-Checks: 168/168 non-failing.
+Checks: 176/176 non-failing.
 Warnings: 0.
 Open actions: 0.
 
@@ -19,6 +19,7 @@ Open actions: 0.
 | PASS | `artifact.docs/artifact_guide.md` | present |
 | PASS | `artifact.docs/api_token_accounting.md` | present |
 | PASS | `artifact.docs/cross_model_listener_audit.md` | present |
+| PASS | `artifact.docs/cross_model_failure_overlap.md` | present |
 | PASS | `artifact.docs/local_benchmark600_check.md` | present |
 | PASS | `artifact.docs/local_stronger_plan_k8.md` | present |
 | PASS | `artifact.docs/api_listener_leave_one_out.md` | present |
@@ -43,6 +44,8 @@ Open actions: 0.
 | PASS | `artifact.results/benchmark_integrity_audit.json` | present |
 | PASS | `artifact.results/api_token_accounting.json` | present |
 | PASS | `artifact.results/cross_model_listener_audit.json` | present |
+| PASS | `artifact.results/cross_model_failure_overlap.json` | present |
+| PASS | `artifact.results/cross_model_failure_overlap_units.jsonl` | present |
 | PASS | `artifact.results/local_benchmark600_check.json` | present |
 | PASS | `artifact.results/local_benchmark600_summary.json` | present |
 | PASS | `artifact.results/local_benchmark600_records.jsonl` | present |
@@ -72,6 +75,7 @@ Open actions: 0.
 | PASS | `artifact.scripts/analyze_api_token_accounting.py` | present |
 | PASS | `artifact.scripts/run_selected_listener_audit.py` | present |
 | PASS | `artifact.scripts/analyze_cross_model_listener_audit.py` | present |
+| PASS | `artifact.scripts/analyze_cross_model_failure_overlap.py` | present |
 | PASS | `artifact.scripts/analyze_local_benchmark.py` | present |
 | PASS | `artifact.scripts/analyze_local_stronger_plan.py` | present |
 | PASS | `artifact.scripts/analyze_partial_observability_api.py` | present |
@@ -112,8 +116,12 @@ Open actions: 0.
 | PASS | `artifact_guide.claim_to_evidence_map` | present |
 | PASS | `artifact_guide.api_token_accounting` | present |
 | PASS | `artifact_guide.cross_model_held_out_listener_audit` | present |
+| PASS | `artifact_guide.cross_model_failure_overlap_audit` | present |
 | PASS | `artifact_guide.population_play_is_1_000_in_all_cross_model_rows` | present |
 | PASS | `artifact_guide.gpt_5_5_rows_reuse_cached_speaker_candidates_and_evaluate_se` | present |
+| PASS | `artifact_guide.20_of_22_gpt_4_1_mirror_failure_scenes_also_fail_under_gpt_5` | present |
+| PASS | `artifact_guide.26_of_26_do` | present |
+| PASS | `artifact_guide.all_gpt_5_5_mirror_failure_scenes_are_symbolic_verifier_posi` | present |
 | PASS | `artifact_guide.local_benchmark_scale_sanity_check` | present |
 | PASS | `artifact_guide.local_stronger_plan_k_8_diagnostic` | present |
 | PASS | `artifact_guide.600_local_scenes_balanced_across_four_initial_scenario_famil` | present |
@@ -163,7 +171,7 @@ Open actions: 0.
 | PASS | `artifact_guide.local_benchmark600_data_local_benchmark600_scenes_jsonl_600_` | present |
 | PASS | `artifact_guide.194_194_integrity_checks_pass` | present |
 | PASS | `artifact_guide.4982_cached_responses_have_complete_usage_metadata_totaling_` | present |
-| PASS | `claims_verifier.no_failed_checks` | 852 checks, 0 failed |
+| PASS | `claims_verifier.no_failed_checks` | 890 checks, 0 failed |
 | PASS | `integrity_audit.no_failed_checks` | 194 checks, 0 failed |
 | PASS | `template.final_venue_template` | paper/colm2026_submission.pdf uses COLM submission style |
 | PASS | `colm_source.uses_submission_template` | COLM submission package |

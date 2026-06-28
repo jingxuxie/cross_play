@@ -375,6 +375,28 @@ Current cross-model result: population-play is `1.000` in all six
 setting/listener rows, while GPT-5.5 mirror self-play is `0.673` on
 perspective stress and `0.653` on partial observability.
 
+## Cross-model failure overlap audit
+
+This cache-only companion audit checks whether GPT-5.5 fixes the same
+mirror-selected messages that fail under earlier held-out listener families. It
+also attaches rule-based ambiguity labels to the failed scene-level messages.
+
+```bash
+conda run -n cross_play python scripts/analyze_cross_model_failure_overlap.py \
+  --json-out results/cross_model_failure_overlap.json \
+  --markdown-out docs/cross_model_failure_overlap.md \
+  --units-out results/cross_model_failure_overlap_units.jsonl
+```
+
+Current result:
+
+- in perspective stress, `20` of `22` GPT-4.1 mirror-failure scenes also fail
+  under GPT-5.5;
+- in partial observability, `26` of `26` GPT-4.1 mirror-failure scenes also fail
+  under GPT-5.5;
+- all GPT-5.5 mirror-failure scenes are symbolic-verifier positives, and
+  GPT-5.5 population-play has zero scene-level failures in both settings.
+
 ## No-exact-coordinate ablation
 
 This cache-only ablation reuses the alternate-model all-candidate records. It

@@ -14,6 +14,7 @@ It is generated from the current JSON/JSONL artifacts and is intended as a revie
 | Protocol and prompts | `docs/protocol_and_prompts.md` |
 | API token accounting | `docs/api_token_accounting.md` |
 | Cross-model held-out listener audit | `docs/cross_model_listener_audit.md` |
+| Cross-model failure overlap audit | `docs/cross_model_failure_overlap.md` |
 | 600-scene local sanity check | `docs/local_benchmark600_check.md` |
 | Local stronger-plan K=8 diagnostic | `docs/local_stronger_plan_k8.md` |
 | Local stronger-plan scene file | `data/local_stronger_plan1200_scenes.jsonl` |
@@ -38,6 +39,7 @@ It is generated from the current JSON/JSONL artifacts and is intended as a revie
 | Readiness audit | `scripts/audit_submission_readiness.py` |
 | API token accounting script | `scripts/analyze_api_token_accounting.py` |
 | Cross-model listener audit script | `scripts/analyze_cross_model_listener_audit.py` |
+| Cross-model failure overlap script | `scripts/analyze_cross_model_failure_overlap.py` |
 | Local benchmark analysis script | `scripts/analyze_local_benchmark.py` |
 | Local stronger-plan diagnostic script | `scripts/analyze_local_stronger_plan.py` |
 | API listener leave-one-out script | `scripts/analyze_api_listener_leave_one_out.py` |
@@ -122,6 +124,17 @@ Population-play is 1.000 in all cross-model rows, while mirror self-play drops u
 | Partial observability | gpt-5.5 | 0.740 | 0.653 | 1.000 | 1.000 | 0.347 [0.253, 0.440] | `results/gpt55_partial_observability_selected_summary.json` |
 
 GPT-5.5 rows reuse cached speaker candidates and evaluate selected messages only; because population-play reaches 1.000, the same candidate pool's oracle ceiling is also 1.000.
+
+## Cross-Model Failure Overlap Audit
+
+This cache-only audit checks whether GPT-5.5 repairs the same selected mirror messages that fail under earlier held-out listener families.
+In perspective stress, 20 of 22 GPT-4.1 mirror-failure scenes also fail under GPT-5.5; in partial observability, 26 of 26 do.
+All GPT-5.5 mirror-failure scenes are symbolic-verifier positives in both settings, and GPT-5.5 population-play has 0 perspective-stress failures and 0 partial-observability failures.
+
+| Setting | Listener failures | All-listener failures | Any-listener failures | Source |
+|---|---|---:|---:|---|
+| partial_observability | gpt-4.1-nano: 26, gpt-5.4-nano: 25, gpt-5.5: 26 | 25 | 26 | `results/cross_model_failure_overlap.json` |
+| perspective_stress | gpt-4.1-nano: 22, gpt-5.4-nano: 14, gpt-5.5: 25 | 10 | 30 | `results/cross_model_failure_overlap.json` |
 
 ## No-Coordinate Ablations
 
@@ -448,7 +461,7 @@ Stretch scope: 2 covered, 3 partial, 0 open.
 | Claim | Evidence files | Anchor |
 |---|---|---|
 | Same-play can overstate held-out communicative success. | `results/paper_claims_verification.md; results/*_population_vs_mirror_paired.md` | mirror same-play is 1.000 while cross-play is lower in mixed, perspective, alternate-model, and partial-observability runs |
-| The mirror self-play gap persists under GPT-5.5 and across held-out listener families. | `docs/cross_model_listener_audit.md; results/cross_model_listener_audit.json; paper/tables/cross_model_listener_audit.tex` | population-minus-mirror gaps are 0.187, 0.287, and 0.327 on perspective stress and 0.333, 0.340, and 0.347 on partial observability |
+| The mirror self-play gap persists under GPT-5.5 and across held-out listener families. | `docs/cross_model_listener_audit.md; docs/cross_model_failure_overlap.md; results/cross_model_listener_audit.json; results/cross_model_failure_overlap.json; paper/tables/cross_model_listener_audit.tex` | population-minus-mirror gaps are 0.187, 0.287, and 0.327 on perspective stress and 0.333, 0.340, and 0.347 on partial observability; 20 of 22 GPT-4.1 perspective mirror-failure scenes and 26 of 26 partial-observability scenes also fail under GPT-5.5 |
 | Population-play closes the observed full-candidate cross-play gaps. | `paper/tables/mixed50.tex; paper/tables/perspective_stress50.tex; paper/tables/perspective_altmodel50.tex; results/partial_observability_api50_summary.json` | population cross-play is 1.000 in all full-candidate paper-facing runs |
 | The strongest full-candidate result depends on explicit listener-invariant fallbacks. | `paper/tables/perspective_stress50_gpt41nano_no_coord.tex; paper/tables/selection_mechanisms_stress_no_coord.tex` | no-coordinate stress population drops to 0.420 while consensus+info reaches 0.760 |
 | Partial-observability failures are under-informativeness failures, not private-landmark leakage. | `docs/partial_observability_api50_check.md; results/partial_observability_api50_check.json; results/partial_observability_api50_mirror_failures_coded.csv` | 0 candidate messages reference private landmarks; all 50 full-run mirror failures are underspecified-distractor choices |
@@ -476,9 +489,9 @@ Stretch scope: 2 covered, 3 partial, 0 open.
 | Gate | Checks | Failed | Warnings | Open actions | Source |
 |---|---:|---:|---:|---:|---|
 | benchmark integrity | 194 | 0 | 0 | 0 | `results/benchmark_integrity_audit.json` |
-| paper claims | 828 | 0 | 0 | 0 | `results/paper_claims_verification.json` |
+| paper claims | 852 | 0 | 0 | 0 | `results/paper_claims_verification.json` |
 | reviewer checklist | 19 | 0 | 0 | 0 | `results/reviewer_checklist.json` |
-| submission readiness | 161 | 0 | 0 | 0 | `results/submission_readiness_audit.json` |
+| submission readiness | 168 | 0 | 0 | 0 | `results/submission_readiness_audit.json` |
 
 ## Refresh Commands
 
@@ -511,6 +524,11 @@ conda run -n cross_play python scripts/analyze_local_stronger_plan.py \
   --scene-out data/local_stronger_plan1200_scenes.jsonl \
   --markdown-out docs/local_stronger_plan_k8.md \
   --json-out results/local_stronger_plan_k8.json
+
+conda run -n cross_play python scripts/analyze_cross_model_failure_overlap.py \
+  --json-out results/cross_model_failure_overlap.json \
+  --markdown-out docs/cross_model_failure_overlap.md \
+  --units-out results/cross_model_failure_overlap_units.jsonl
 
 conda run -n cross_play python scripts/analyze_api_listener_leave_one_out.py \
   --records mixed_50=results/hybrid_api_pilot50_allcand_candidate_eval_records.jsonl \

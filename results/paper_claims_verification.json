@@ -1191,6 +1191,188 @@
       "source": "results/cross_model_listener_audit.json"
     },
     {
+      "actual": "0.673",
+      "expected": "0.673",
+      "name": "cross_model_failure_overlap.perspective_gpt55_mirror_success",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "25",
+      "expected": "25",
+      "name": "cross_model_failure_overlap.perspective_gpt55_mirror_failure_scenes",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "cross_model_failure_overlap.perspective_gpt55_mirror_failure_symbolic_rate",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "cross_model_failure_overlap.perspective_gpt55_population_failure_scenes",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "20",
+      "expected": "20",
+      "name": "cross_model_failure_overlap.perspective_gpt41_gpt55_mirror_failure_overlap",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "0.909",
+      "expected": "0.909",
+      "name": "cross_model_failure_overlap.perspective_gpt41_gpt55_overlap_over_gpt41",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "10",
+      "expected": "10",
+      "name": "cross_model_failure_overlap.perspective_all_listener_mirror_failure_scenes",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "30",
+      "expected": "30",
+      "name": "cross_model_failure_overlap.perspective_any_listener_mirror_failure_scenes",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "0.653",
+      "expected": "0.653",
+      "name": "cross_model_failure_overlap.partial_gpt55_mirror_success",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "26",
+      "expected": "26",
+      "name": "cross_model_failure_overlap.partial_gpt55_mirror_failure_scenes",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "cross_model_failure_overlap.partial_gpt55_mirror_failure_symbolic_rate",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "cross_model_failure_overlap.partial_gpt55_population_failure_scenes",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "26",
+      "expected": "26",
+      "name": "cross_model_failure_overlap.partial_gpt41_gpt55_mirror_failure_overlap",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "cross_model_failure_overlap.partial_gpt41_gpt55_overlap_over_gpt41",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "25",
+      "expected": "25",
+      "name": "cross_model_failure_overlap.partial_all_listener_mirror_failure_scenes",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "26",
+      "expected": "26",
+      "name": "cross_model_failure_overlap.partial_any_listener_mirror_failure_scenes",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "22",
+      "expected": "22",
+      "name": "cross_model_failure_overlap.perspective_stress.gpt-4.1-nano",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "14",
+      "expected": "14",
+      "name": "cross_model_failure_overlap.perspective_stress.gpt-5.4-nano",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "25",
+      "expected": "25",
+      "name": "cross_model_failure_overlap.perspective_stress.gpt-5.5",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "10",
+      "expected": "10",
+      "name": "cross_model_failure_overlap.perspective_stress.all",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "30",
+      "expected": "30",
+      "name": "cross_model_failure_overlap.perspective_stress.any",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "26",
+      "expected": "26",
+      "name": "cross_model_failure_overlap.partial_observability.gpt-4.1-nano",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "25",
+      "expected": "25",
+      "name": "cross_model_failure_overlap.partial_observability.gpt-5.4-nano",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "26",
+      "expected": "26",
+      "name": "cross_model_failure_overlap.partial_observability.gpt-5.5",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "25",
+      "expected": "25",
+      "name": "cross_model_failure_overlap.partial_observability.all",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
+      "actual": "26",
+      "expected": "26",
+      "name": "cross_model_failure_overlap.partial_observability.any",
+      "ok": true,
+      "source": "results/cross_model_failure_overlap.json"
+    },
+    {
       "actual": "0.953",
       "expected": "0.953",
       "name": "api_loo.mixed_50.mirror",
@@ -4665,6 +4847,34 @@
     {
       "actual": "present",
       "expected": "present",
+      "name": "text.docs/cross_model_failure_overlap.md.Cross-Model Failure Overlap Audit",
+      "ok": true,
+      "source": "docs/cross_model_failure_overlap.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/cross_model_failure_overlap.md.20 of the 22 GPT-4.1 mirror-failure scenes also fail under GPT-5.5",
+      "ok": true,
+      "source": "docs/cross_model_failure_overlap.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/cross_model_failure_overlap.md.26 of the 26 GPT-4.1 mirror-failure scenes also fail under GPT-5.5",
+      "ok": true,
+      "source": "docs/cross_model_failure_overlap.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/cross_model_failure_overlap.md.Population-play has 0 GPT-5.5 scene-level failures",
+      "ok": true,
+      "source": "docs/cross_model_failure_overlap.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
       "name": "text.docs/api_token_accounting.md.`gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770",
       "ok": true,
       "source": "docs/api_token_accounting.md"
@@ -4694,6 +4904,27 @@
       "actual": "present",
       "expected": "present",
       "name": "text.docs/artifact_guide.md.4982 cached responses have complete usage metadata totaling 1410092 tokens",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.Cross-Model Failure Overlap Audit",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.20 of 22 GPT-4.1 mirror-failure scenes also fail under GPT-5.5",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.All GPT-5.5 mirror-failure scenes are symbolic-verifier positives",
       "ok": true,
       "source": "docs/artifact_guide.md"
     },
@@ -5428,6 +5659,13 @@
     {
       "actual": "present",
       "expected": "present",
+      "name": "text.paper/main.tex.A scene-level overlap audit shows that 20 of 22 alternate-model perspective mirror-failure scenes",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
       "name": "text.paper/main.tex.Across 152 listener-level failures, 147 are underspecified",
       "ok": true,
       "source": "paper/main.tex"
@@ -5499,6 +5737,27 @@
       "actual": "present",
       "expected": "present",
       "name": "text.REPRODUCE.md.GPT-5.5 mirror self-play is `0.673`",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/analyze_cross_model_failure_overlap.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.`20` of `22` GPT-4.1 mirror-failure scenes also fail",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.`26` of `26` GPT-4.1 mirror-failure scenes also fail",
       "ok": true,
       "source": "REPRODUCE.md"
     },
@@ -5827,6 +6086,13 @@
     {
       "actual": "present",
       "expected": "present",
+      "name": "text.README.md.docs/cross_model_failure_overlap.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
       "name": "text.README.md.docs/rule_based_ambiguity_verifier.md",
       "ok": true,
       "source": "README.md"
@@ -5965,6 +6231,6 @@
       "source": "paper/colm2026_submission.tex"
     }
   ],
-  "n_checks": 852,
+  "n_checks": 890,
   "n_failed": 0
 }

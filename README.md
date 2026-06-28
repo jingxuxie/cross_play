@@ -137,6 +137,24 @@ conda run -n cross_play python scripts/analyze_cross_model_listener_audit.py \
   --tex-out paper/tables/cross_model_listener_audit.tex
 ```
 
+## Cross-model failure overlap audit
+
+The failure-overlap audit is a cache-only companion to the cross-model table. It
+checks whether GPT-5.5 repairs the same mirror-selected messages that fail under
+earlier held-out listener families. The current report is
+`docs/cross_model_failure_overlap.md`: in perspective stress, `20` of `22`
+GPT-4.1 mirror-failure scenes also fail under GPT-5.5; in partial observability,
+`26` of `26` do. All GPT-5.5 mirror-failure scenes are symbolic-verifier
+positives, while GPT-5.5 population-play has zero scene-level failures in both
+settings.
+
+```bash
+conda run -n cross_play python scripts/analyze_cross_model_failure_overlap.py \
+  --json-out results/cross_model_failure_overlap.json \
+  --markdown-out docs/cross_model_failure_overlap.md \
+  --units-out results/cross_model_failure_overlap_units.jsonl
+```
+
 ## Cache-only API listener leave-one-out check
 
 The all-candidate API evaluation caches can also be reused for a post-hoc
@@ -463,6 +481,7 @@ consensus+info selector recovers much of the no-coordinate oracle. See
 `results/submission_readiness_audit.md`, `docs/paper_claims_iteration_002.md`,
 `docs/artifact_guide.md`,
 `docs/api_listener_leave_one_out.md`,
+`docs/cross_model_failure_overlap.md`,
 `docs/selection_regret_audit.md`,
 `docs/candidate_pool_audit.md`,
 `docs/candidate_budget_audit.md`,

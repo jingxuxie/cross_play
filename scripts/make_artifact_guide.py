@@ -47,6 +47,7 @@ def build_report() -> dict[str, Any]:
         "api_token_accounting": api_token_accounting(),
         "headline_results": headline_results(),
         "cross_model_listener": cross_model_listener(),
+        "cross_model_failure_overlap": cross_model_failure_overlap(),
         "no_coord_results": no_coord_results(),
         "local_benchmark": local_benchmark(),
         "local_stronger_plan": local_stronger_plan(),
@@ -186,6 +187,21 @@ def cross_model_listener() -> dict[str, Any] | None:
         "table": "paper/tables/cross_model_listener_audit.tex",
         "rows": report["rows"],
         "interpretation": report["interpretation"],
+    }
+
+
+def cross_model_failure_overlap() -> dict[str, Any] | None:
+    path = Path("results/cross_model_failure_overlap.json")
+    if not path.exists():
+        return None
+    report = read_json(str(path))
+    return {
+        "source": str(path),
+        "markdown": "docs/cross_model_failure_overlap.md",
+        "units": "results/cross_model_failure_overlap_units.jsonl",
+        "runs": report["runs"],
+        "overlap": report["overlap"],
+        "key_findings": report["key_findings"],
     }
 
 
@@ -643,8 +659,8 @@ def claim_map() -> list[dict[str, str]]:
         },
         {
             "claim": "The mirror self-play gap persists under GPT-5.5 and across held-out listener families.",
-            "evidence": "docs/cross_model_listener_audit.md; results/cross_model_listener_audit.json; paper/tables/cross_model_listener_audit.tex",
-            "anchor": "population-minus-mirror gaps are 0.187, 0.287, and 0.327 on perspective stress and 0.333, 0.340, and 0.347 on partial observability",
+            "evidence": "docs/cross_model_listener_audit.md; docs/cross_model_failure_overlap.md; results/cross_model_listener_audit.json; results/cross_model_failure_overlap.json; paper/tables/cross_model_listener_audit.tex",
+            "anchor": "population-minus-mirror gaps are 0.187, 0.287, and 0.327 on perspective stress and 0.333, 0.340, and 0.347 on partial observability; 20 of 22 GPT-4.1 perspective mirror-failure scenes and 26 of 26 partial-observability scenes also fail under GPT-5.5",
         },
         {
             "claim": "Population-play closes the observed full-candidate cross-play gaps.",
@@ -763,6 +779,7 @@ def core_files() -> list[tuple[str, str]]:
         ("Protocol and prompts", "docs/protocol_and_prompts.md"),
         ("API token accounting", "docs/api_token_accounting.md"),
         ("Cross-model held-out listener audit", "docs/cross_model_listener_audit.md"),
+        ("Cross-model failure overlap audit", "docs/cross_model_failure_overlap.md"),
         ("600-scene local sanity check", "docs/local_benchmark600_check.md"),
         ("Local stronger-plan K=8 diagnostic", "docs/local_stronger_plan_k8.md"),
         ("Local stronger-plan scene file", "data/local_stronger_plan1200_scenes.jsonl"),
@@ -787,6 +804,7 @@ def core_files() -> list[tuple[str, str]]:
         ("Readiness audit", "scripts/audit_submission_readiness.py"),
         ("API token accounting script", "scripts/analyze_api_token_accounting.py"),
         ("Cross-model listener audit script", "scripts/analyze_cross_model_listener_audit.py"),
+        ("Cross-model failure overlap script", "scripts/analyze_cross_model_failure_overlap.py"),
         ("Local benchmark analysis script", "scripts/analyze_local_benchmark.py"),
         ("Local stronger-plan diagnostic script", "scripts/analyze_local_stronger_plan.py"),
         ("API listener leave-one-out script", "scripts/analyze_api_listener_leave_one_out.py"),
@@ -942,6 +960,31 @@ def render_markdown(report: dict[str, Any]) -> str:
                 "GPT-5.5 rows reuse cached speaker candidates and evaluate selected messages only; because population-play reaches 1.000, the same candidate pool's oracle ceiling is also 1.000.",
             ]
         )
+
+    if report["cross_model_failure_overlap"]:
+        overlap = report["cross_model_failure_overlap"]
+        findings = overlap["key_findings"]
+        lines.extend(
+            [
+                "",
+                "## Cross-Model Failure Overlap Audit",
+                "",
+                "This cache-only audit checks whether GPT-5.5 repairs the same selected mirror messages that fail under earlier held-out listener families.",
+                f"In perspective stress, {findings['perspective_gpt41_gpt55_mirror_failure_overlap']} of 22 GPT-4.1 mirror-failure scenes also fail under GPT-5.5; in partial observability, {findings['partial_gpt41_gpt55_mirror_failure_overlap']} of 26 do.",
+                f"All GPT-5.5 mirror-failure scenes are symbolic-verifier positives in both settings, and GPT-5.5 population-play has {findings['perspective_gpt55_population_failure_scenes']} perspective-stress failures and {findings['partial_gpt55_population_failure_scenes']} partial-observability failures.",
+                "",
+                "| Setting | Listener failures | All-listener failures | Any-listener failures | Source |",
+                "|---|---|---:|---:|---|",
+            ]
+        )
+        for row in overlap["overlap"]:
+            counts = ", ".join(
+                f"{listener}: {count}"
+                for listener, count in row["mirror_failures"].items()
+            )
+            lines.append(
+                f"| {row['setting']} | {counts} | {row['all_listener_failure_scenes']} | {row['any_listener_failure_scenes']} | `{overlap['source']}` |"
+            )
 
     lines.extend(
         [
@@ -1431,6 +1474,11 @@ def render_markdown(report: dict[str, Any]) -> str:
             "  --scene-out data/local_stronger_plan1200_scenes.jsonl \\",
             "  --markdown-out docs/local_stronger_plan_k8.md \\",
             "  --json-out results/local_stronger_plan_k8.json",
+            "",
+            "conda run -n cross_play python scripts/analyze_cross_model_failure_overlap.py \\",
+            "  --json-out results/cross_model_failure_overlap.json \\",
+            "  --markdown-out docs/cross_model_failure_overlap.md \\",
+            "  --units-out results/cross_model_failure_overlap_units.jsonl",
             "",
             "conda run -n cross_play python scripts/analyze_api_listener_leave_one_out.py \\",
             "  --records mixed_50=results/hybrid_api_pilot50_allcand_candidate_eval_records.jsonl \\",

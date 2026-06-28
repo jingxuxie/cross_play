@@ -58,6 +58,11 @@
     },
     {
       "detail": "present",
+      "name": "artifact.docs/cross_model_failure_overlap.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
       "name": "artifact.docs/local_benchmark600_check.md",
       "status": "PASS"
     },
@@ -174,6 +179,16 @@
     {
       "detail": "present",
       "name": "artifact.results/cross_model_listener_audit.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/cross_model_failure_overlap.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/cross_model_failure_overlap_units.jsonl",
       "status": "PASS"
     },
     {
@@ -319,6 +334,11 @@
     {
       "detail": "present",
       "name": "artifact.scripts/analyze_cross_model_listener_audit.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/analyze_cross_model_failure_overlap.py",
       "status": "PASS"
     },
     {
@@ -523,12 +543,32 @@
     },
     {
       "detail": "present",
+      "name": "artifact_guide.cross_model_failure_overlap_audit",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
       "name": "artifact_guide.population_play_is_1_000_in_all_cross_model_rows",
       "status": "PASS"
     },
     {
       "detail": "present",
       "name": "artifact_guide.gpt_5_5_rows_reuse_cached_speaker_candidates_and_evaluate_se",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.20_of_22_gpt_4_1_mirror_failure_scenes_also_fail_under_gpt_5",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.26_of_26_do",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.all_gpt_5_5_mirror_failure_scenes_are_symbolic_verifier_posi",
       "status": "PASS"
     },
     {
@@ -777,7 +817,7 @@
       "status": "PASS"
     },
     {
-      "detail": "852 checks, 0 failed",
+      "detail": "890 checks, 0 failed",
       "name": "claims_verifier.no_failed_checks",
       "status": "PASS"
     },
@@ -843,7 +883,7 @@
     }
   ],
   "n_actions": 0,
-  "n_checks": 168,
+  "n_checks": 176,
   "n_failed": 0,
   "n_warn": 0,
   "warnings": []
