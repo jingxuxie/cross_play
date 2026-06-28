@@ -1,6 +1,6 @@
 # Submission Readiness Audit
 
-Checks: 161/161 non-failing.
+Checks: 168/168 non-failing.
 Warnings: 0.
 Open actions: 0.
 
@@ -31,6 +31,7 @@ Open actions: 0.
 | PASS | `artifact.docs/listener_disagreement_audit.md` | present |
 | PASS | `artifact.docs/listener_confidence_audit.md` | present |
 | PASS | `artifact.docs/failure_taxonomy_audit.md` | present |
+| PASS | `artifact.docs/rule_based_ambiguity_verifier.md` | present |
 | PASS | `artifact.docs/interaction_memory_rules.md` | present |
 | PASS | `artifact.docs/qualitative_failure_examples.md` | present |
 | PASS | `artifact.docs/reviewer_checklist.md` | present |
@@ -58,6 +59,8 @@ Open actions: 0.
 | PASS | `artifact.results/listener_disagreement_audit.json` | present |
 | PASS | `artifact.results/listener_confidence_audit.json` | present |
 | PASS | `artifact.results/failure_taxonomy_audit.json` | present |
+| PASS | `artifact.results/rule_based_ambiguity_verifier.json` | present |
+| PASS | `artifact.results/rule_based_ambiguity_verifier_units.jsonl` | present |
 | PASS | `artifact.results/interaction_memory_rules.json` | present |
 | PASS | `artifact.results/qualitative_failure_examples.json` | present |
 | PASS | `artifact.results/reviewer_checklist.json` | present |
@@ -83,6 +86,7 @@ Open actions: 0.
 | PASS | `artifact.scripts/analyze_listener_disagreement.py` | present |
 | PASS | `artifact.scripts/analyze_listener_confidence_audit.py` | present |
 | PASS | `artifact.scripts/analyze_failure_taxonomy.py` | present |
+| PASS | `artifact.scripts/analyze_rule_based_ambiguity.py` | present |
 | PASS | `artifact.scripts/analyze_interaction_memory_rules.py` | present |
 | PASS | `artifact.scripts/make_qualitative_examples.py` | present |
 | PASS | `artifact.scripts/make_reviewer_checklist.py` | present |
@@ -126,6 +130,7 @@ Open actions: 0.
 | PASS | `artifact_guide.listener_disagreement_audit` | present |
 | PASS | `artifact_guide.listener_confidence_audit` | present |
 | PASS | `artifact_guide.failure_taxonomy_audit` | present |
+| PASS | `artifact_guide.rule_based_ambiguity_verifier` | present |
 | PASS | `artifact_guide.interaction_memory_rule_audit` | present |
 | PASS | `artifact_guide.qualitative_failure_examples` | present |
 | PASS | `artifact_guide.reviewer_checklist` | present |
@@ -141,14 +146,16 @@ Open actions: 0.
 | PASS | `artifact_guide.mirror_split_outcome_rates_are_0_080_0_180_0_360_and_0_500` | present |
 | PASS | `artifact_guide.alternate_model_perspective_ambiguity_flags_are_0_000_while_` | present |
 | PASS | `artifact_guide.147_of_152_coded_listener_level_mirror_failures_are_underspe` | present |
+| PASS | `artifact_guide.combined_coded_failure_set_has_symbolic_ambiguity_recall_1_0` | present |
+| PASS | `artifact_guide.perspective_mirror_failure_scenes_flagged` | present |
 | PASS | `artifact_guide.coded_failure_rows_152_unique_failure_scenes_76` | present |
 | PASS | `artifact_guide.repair_cue_satisfies_derived_rule_in_1_000_of_failure_scenes` | present |
 | PASS | `artifact_guide.four_cache_only_examples_show_mirror_selected_messages_faili` | present |
 | PASS | `artifact_guide.section_32_reviewer_checklist_passes_all_19_core_validity_re` | present |
 | PASS | `artifact_guide.items_passed_19_19` | present |
 | PASS | `artifact_guide.core_scope_17_covered_2_partial_0_open` | present |
-| PASS | `artifact_guide.stretch_scope_1_covered_3_partial_1_open` | present |
-| PASS | `artifact_guide.stretch_scope_has_1_covered_3_partial_1_open_and_keeps_human` | present |
+| PASS | `artifact_guide.stretch_scope_2_covered_3_partial_0_open` | present |
+| PASS | `artifact_guide.stretch_scope_has_2_covered_3_partial_0_open_after_adding_in` | present |
 | PASS | `artifact_guide.partial_observability_api50` | present |
 | PASS | `artifact_guide.cache_only_api_listener_leave_one_out_improves_population_ov` | present |
 | PASS | `artifact_guide.0_candidate_messages_reference_private_landmarks` | present |
@@ -156,7 +163,7 @@ Open actions: 0.
 | PASS | `artifact_guide.local_benchmark600_data_local_benchmark600_scenes_jsonl_600_` | present |
 | PASS | `artifact_guide.194_194_integrity_checks_pass` | present |
 | PASS | `artifact_guide.4982_cached_responses_have_complete_usage_metadata_totaling_` | present |
-| PASS | `claims_verifier.no_failed_checks` | 828 checks, 0 failed |
+| PASS | `claims_verifier.no_failed_checks` | 852 checks, 0 failed |
 | PASS | `integrity_audit.no_failed_checks` | 194 checks, 0 failed |
 | PASS | `template.final_venue_template` | paper/colm2026_submission.pdf uses COLM submission style |
 | PASS | `colm_source.uses_submission_template` | COLM submission package |

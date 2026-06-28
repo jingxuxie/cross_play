@@ -681,6 +681,26 @@ Current result:
 - there are `0` other coded categories in the combined paper-facing failure
   sets.
 
+## Rule-based ambiguity verifier
+
+This non-LLM verifier parses selected messages for target attributes, exact
+row/column mentions, and perspective-sensitive left/right cues. It makes no API
+calls and checks whether the coded mirror failures are predictable from the
+listener-visible scene alone.
+
+```bash
+conda run -n cross_play python scripts/analyze_rule_based_ambiguity.py \
+  --markdown-out docs/rule_based_ambiguity_verifier.md \
+  --json-out results/rule_based_ambiguity_verifier.json \
+  --units-out results/rule_based_ambiguity_verifier_units.jsonl
+```
+
+Current result:
+
+- on the `152` coded mirror-failure rows, symbolic ambiguity recall is `1.000`;
+- attribute-under-specification recall is `1.000`;
+- frame-sensitive recall is `1.000`.
+
 ## Cache-only interaction-memory rule audit
 
 This audit derives a compact future speaker-rule list from the coded
@@ -758,7 +778,7 @@ Expected output:
 - `docs/plan_coverage_audit.md`;
 - `results/plan_coverage_audit.json`;
 - core scope has `17` covered, `2` partial, and `0` open items;
-- stretch scope has `1` covered, `3` partial, and `1` open item.
+- stretch scope has `2` covered, `3` partial, and `0` open items.
 
 ## Protocol appendix
 

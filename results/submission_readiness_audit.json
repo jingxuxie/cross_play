@@ -118,6 +118,11 @@
     },
     {
       "detail": "present",
+      "name": "artifact.docs/rule_based_ambiguity_verifier.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
       "name": "artifact.docs/interaction_memory_rules.md",
       "status": "PASS"
     },
@@ -253,6 +258,16 @@
     },
     {
       "detail": "present",
+      "name": "artifact.results/rule_based_ambiguity_verifier.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/rule_based_ambiguity_verifier_units.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
       "name": "artifact.results/interaction_memory_rules.json",
       "status": "PASS"
     },
@@ -374,6 +389,11 @@
     {
       "detail": "present",
       "name": "artifact.scripts/analyze_failure_taxonomy.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/analyze_rule_based_ambiguity.py",
       "status": "PASS"
     },
     {
@@ -593,6 +613,11 @@
     },
     {
       "detail": "present",
+      "name": "artifact_guide.rule_based_ambiguity_verifier",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
       "name": "artifact_guide.interaction_memory_rule_audit",
       "status": "PASS"
     },
@@ -668,6 +693,16 @@
     },
     {
       "detail": "present",
+      "name": "artifact_guide.combined_coded_failure_set_has_symbolic_ambiguity_recall_1_0",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.perspective_mirror_failure_scenes_flagged",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
       "name": "artifact_guide.coded_failure_rows_152_unique_failure_scenes_76",
       "status": "PASS"
     },
@@ -698,12 +733,12 @@
     },
     {
       "detail": "present",
-      "name": "artifact_guide.stretch_scope_1_covered_3_partial_1_open",
+      "name": "artifact_guide.stretch_scope_2_covered_3_partial_0_open",
       "status": "PASS"
     },
     {
       "detail": "present",
-      "name": "artifact_guide.stretch_scope_has_1_covered_3_partial_1_open_and_keeps_human",
+      "name": "artifact_guide.stretch_scope_has_2_covered_3_partial_0_open_after_adding_in",
       "status": "PASS"
     },
     {
@@ -742,7 +777,7 @@
       "status": "PASS"
     },
     {
-      "detail": "828 checks, 0 failed",
+      "detail": "852 checks, 0 failed",
       "name": "claims_verifier.no_failed_checks",
       "status": "PASS"
     },
@@ -808,7 +843,7 @@
     }
   ],
   "n_actions": 0,
-  "n_checks": 161,
+  "n_checks": 168,
   "n_failed": 0,
   "n_warn": 0,
   "warnings": []

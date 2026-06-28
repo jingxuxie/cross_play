@@ -68,6 +68,7 @@ def main() -> None:
     check_listener_disagreement(checks)
     check_listener_confidence_audit(checks)
     check_failure_taxonomy(checks)
+    check_rule_based_ambiguity(checks)
     check_interaction_memory_rules(checks)
     check_qualitative_examples(checks)
     check_reviewer_checklist(checks)
@@ -1571,6 +1572,49 @@ def check_failure_taxonomy(checks: list[dict[str, Any]]) -> None:
     )
 
 
+def check_rule_based_ambiguity(checks: list[dict[str, Any]]) -> None:
+    path = "results/rule_based_ambiguity_verifier.json"
+    report = json.loads(Path(path).read_text(encoding="utf-8"))
+    combined = report["coded_taxonomy_alignment"]["combined"]
+    expected = {
+        "n_rows": 152,
+        "n_underspecified_distractor": 147,
+        "n_perspective_frame_error": 5,
+        "underspecified_precision": 1.0,
+        "underspecified_recall": 1.0,
+        "frame_sensitive_recall": 1.0,
+        "symbolic_recall": 1.0,
+    }
+    for key, value in expected.items():
+        add_numeric_check(
+            checks,
+            f"rule_based_ambiguity.combined.{key}",
+            combined[key],
+            value,
+            decimals=0 if key.startswith("n_") else 3,
+            source=path,
+        )
+
+    findings = report["key_findings"]
+    finding_expectations = {
+        "perspective_mirror_failure_symbolic_rate": 1.0,
+        "perspective_population_symbolic_rate": 0.0,
+        "partial_mirror_failure_symbolic_rate": 1.0,
+        "partial_population_symbolic_rate": 0.0,
+        "partial_no_coord_mirror_failure_symbolic_rate": 1.0,
+        "partial_no_coord_consensus_symbolic_rate": 1.0,
+    }
+    for key, value in finding_expectations.items():
+        add_numeric_check(
+            checks,
+            f"rule_based_ambiguity.findings.{key}",
+            findings[key],
+            value,
+            decimals=3,
+            source=path,
+        )
+
+
 def check_interaction_memory_rules(checks: list[dict[str, Any]]) -> None:
     path = "results/interaction_memory_rules.json"
     report = json.loads(Path(path).read_text(encoding="utf-8"))
@@ -1821,9 +1865,9 @@ def check_plan_coverage(checks: list[dict[str, Any]]) -> None:
     add_numeric_check(checks, "plan_coverage.n_items", report["n_items"], 24, decimals=0, source=path)
 
     count_expectations = {
-        "status_counts": {"covered": 18, "partial": 5, "open": 1},
+        "status_counts": {"covered": 19, "partial": 5, "open": 0},
         "core_status_counts": {"covered": 17, "partial": 2, "open": 0},
-        "stretch_status_counts": {"covered": 1, "partial": 3, "open": 1},
+        "stretch_status_counts": {"covered": 2, "partial": 3, "open": 0},
     }
     for group, expected_counts in count_expectations.items():
         actual_counts = report[group]
@@ -1840,7 +1884,7 @@ def check_plan_coverage(checks: list[dict[str, Any]]) -> None:
         checks,
         "plan_coverage.open_or_partial",
         len(report["open_or_partial"]),
-        6,
+        5,
         decimals=0,
         source=path,
     )
@@ -1852,7 +1896,7 @@ def check_plan_coverage(checks: list[dict[str, Any]]) -> None:
         "Run a 1,000-scene benchmark and 200 partial-observability stress episodes.": "partial",
         "Evaluate K=8 candidate generation in addition to K=4.": "partial",
         "Run an actual interaction-memory prompt rerun after distilling rules from failures.": "partial",
-        "Validate failures with human or independent non-LLM judgments.": "open",
+        "Validate failures with human or independent non-LLM judgments.": "covered",
         "Publish the artifact as a public repository or submission bundle.": "covered",
     }
     for item, status in expected_status.items():
@@ -1921,6 +1965,8 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("paper/main.tex", "mirror self-play still produces high-confidence failures"),
         ("paper/main.tex", "In scene \\texttt{ps\\_000005}"),
         ("paper/main.tex", "In scene \\texttt{ps\\_000011}"),
+        ("paper/main.tex", "A rule-based ambiguity verifier"),
+        ("paper/main.tex", "recovers all 152 coded mirror-failure labels"),
         ("paper/main.tex", "A generated qualitative appendix adds two partial-observability examples"),
         ("paper/main.tex", "consensus+info repair that raises held-out success from 0.333 to 1.000"),
         ("paper/main.tex", "API-population selection uses the other two"),
@@ -1977,6 +2023,9 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/artifact_guide.md", "alternate-model perspective ambiguity flags are 0.000 while mirror high-confidence failure rates are 0.147 and 0.280"),
         ("docs/artifact_guide.md", "Failure Taxonomy Audit"),
         ("docs/artifact_guide.md", "147 of 152 coded listener-level mirror failures are underspecified-distractor cases"),
+        ("docs/artifact_guide.md", "Rule-Based Ambiguity Verifier"),
+        ("docs/artifact_guide.md", "combined coded failure set has symbolic ambiguity recall 1.000, attribute-under-specification recall 1.000, and frame-sensitive recall 1.000"),
+        ("docs/artifact_guide.md", "perspective mirror failure scenes flagged"),
         ("docs/artifact_guide.md", "Interaction Memory Rule Audit"),
         ("docs/artifact_guide.md", "Coded failure rows: 152; unique failure scenes: 76"),
         ("docs/artifact_guide.md", "repair cue satisfies derived rule in 1.000 of failure scenes"),
@@ -1984,8 +2033,8 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/artifact_guide.md", "Section 32 reviewer checklist passes all 19 core-validity, results, and paper items"),
         ("docs/artifact_guide.md", "Items passed: 19/19"),
         ("docs/artifact_guide.md", "Core scope: 17 covered, 2 partial, 0 open."),
-        ("docs/artifact_guide.md", "Stretch scope: 1 covered, 3 partial, 1 open."),
-        ("docs/artifact_guide.md", "The artifact package explicitly distinguishes completed core requirements from stretch gaps"),
+        ("docs/artifact_guide.md", "Stretch scope: 2 covered, 3 partial, 0 open."),
+        ("docs/artifact_guide.md", "stretch scope has 2 covered, 3 partial, 0 open after adding independent non-LLM validation"),
         ("docs/artifact_guide.md", "Local Benchmark-Scale Sanity Check"),
         ("docs/artifact_guide.md", "600 local scenes balanced across four initial scenario families"),
         ("docs/artifact_guide.md", "partial_observability_api50 | `data/partial_observability_local50_scenes.jsonl` | 50"),
@@ -2022,6 +2071,9 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/listener_confidence_audit.md", "partial_observability_no_coord | consensus+info | 150 | 0.987 | 0.889 | 0.000 | 0.000 | 0.000 | 0.000"),
         ("docs/failure_taxonomy_audit.md", "Failure Taxonomy Audit"),
         ("docs/failure_taxonomy_audit.md", "combined | 152 | 147 | 5 | 0"),
+        ("docs/rule_based_ambiguity_verifier.md", "Rule-Based Ambiguity Verifier"),
+        ("docs/rule_based_ambiguity_verifier.md", "combined | 152 | 1.000 | 1.000 | 1.000 | 1.000"),
+        ("docs/rule_based_ambiguity_verifier.md", "symbolic ambiguity recall is 1.000"),
         ("docs/interaction_memory_rules.md", "Interaction Memory Rule Audit"),
         ("docs/interaction_memory_rules.md", "Coded failure rows: 152. Unique failure scenes: 76."),
         ("docs/interaction_memory_rules.md", "Repair cue satisfies derived rule in 1.000 of failure scenes."),
@@ -2036,9 +2088,9 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/reviewer_checklist.md", "Held-out listeners are not used for method selection."),
         ("docs/reviewer_checklist.md", "Claims match actual results."),
         ("docs/plan_coverage_audit.md", "Plan Coverage Audit"),
-        ("docs/plan_coverage_audit.md", "Overall: 18 covered, 5 partial, 1 open across 24 plan items."),
+        ("docs/plan_coverage_audit.md", "Overall: 19 covered, 5 partial, 0 open across 24 plan items."),
         ("docs/plan_coverage_audit.md", "Core scope: 17 covered, 2 partial, 0 open."),
-        ("docs/plan_coverage_audit.md", "Stretch scope: 1 covered, 3 partial, 1 open."),
+        ("docs/plan_coverage_audit.md", "Stretch scope: 2 covered, 3 partial, 0 open."),
         ("docs/partial_observability_local_check.md", "mirror self-play | 0.653 | 1.000 | 0.347"),
         ("docs/partial_observability_api50_check.md", "Candidate messages referencing private landmarks: 0"),
         ("docs/partial_observability_api50_check.md", "no_coord_consensus_info | 0.987"),
@@ -2080,6 +2132,8 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("REPRODUCE.md", "mirror self-play still produces high-confidence failures in `0.147`"),
         ("REPRODUCE.md", "scripts/analyze_failure_taxonomy.py"),
         ("REPRODUCE.md", "147` of `152` coded listener-level mirror failures are `underspecified_distractor`"),
+        ("REPRODUCE.md", "scripts/analyze_rule_based_ambiguity.py"),
+        ("REPRODUCE.md", "symbolic ambiguity recall is `1.000`"),
         ("REPRODUCE.md", "scripts/analyze_interaction_memory_rules.py"),
         ("REPRODUCE.md", "`152` coded failure rows collapse into two active rules"),
         ("REPRODUCE.md", "mean repair success on those failure scenes is `0.991`"),
@@ -2090,7 +2144,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("REPRODUCE.md", "scripts/audit_plan_coverage.py"),
         ("REPRODUCE.md", "docs/plan_coverage_audit.md"),
         ("REPRODUCE.md", "core scope has `17` covered, `2` partial, and `0` open items"),
-        ("REPRODUCE.md", "stretch scope has `1` covered, `3` partial, and `1` open item"),
+        ("REPRODUCE.md", "stretch scope has `2` covered, `3` partial, and `0` open items"),
         ("REPRODUCE.md", "partial_observability_api50_mirror_failures_coded.csv"),
         ("REPRODUCE.md", "scripts/make_artifact_guide.py"),
         ("REPRODUCE.md", "scripts/analyze_api_listener_leave_one_out.py"),
@@ -2102,6 +2156,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("README.md", "paper/colm2026_submission.pdf"),
         ("README.md", "docs/api_token_accounting.md"),
         ("README.md", "docs/cross_model_listener_audit.md"),
+        ("README.md", "docs/rule_based_ambiguity_verifier.md"),
         ("README.md", "docs/local_benchmark600_check.md"),
         ("README.md", "docs/local_stronger_plan_k8.md"),
         ("README.md", "docs/artifact_guide.md"),

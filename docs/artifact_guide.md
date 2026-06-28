@@ -27,6 +27,7 @@ It is generated from the current JSON/JSONL artifacts and is intended as a revie
 | Listener disagreement audit | `docs/listener_disagreement_audit.md` |
 | Listener confidence audit | `docs/listener_confidence_audit.md` |
 | Failure taxonomy audit | `docs/failure_taxonomy_audit.md` |
+| Rule-based ambiguity verifier | `docs/rule_based_ambiguity_verifier.md` |
 | Interaction memory rules | `docs/interaction_memory_rules.md` |
 | Qualitative failure examples | `docs/qualitative_failure_examples.md` |
 | Reviewer checklist | `docs/reviewer_checklist.md` |
@@ -49,6 +50,7 @@ It is generated from the current JSON/JSONL artifacts and is intended as a revie
 | Listener disagreement audit script | `scripts/analyze_listener_disagreement.py` |
 | Listener confidence audit script | `scripts/analyze_listener_confidence_audit.py` |
 | Failure taxonomy script | `scripts/analyze_failure_taxonomy.py` |
+| Rule-based ambiguity verifier script | `scripts/analyze_rule_based_ambiguity.py` |
 | Interaction memory rule script | `scripts/analyze_interaction_memory_rules.py` |
 | Qualitative examples script | `scripts/make_qualitative_examples.py` |
 | Reviewer checklist script | `scripts/make_reviewer_checklist.py` |
@@ -375,6 +377,21 @@ This cache-only audit combines the rubric-coded listener-level mirror failures u
 |---|---:|---:|---:|---:|---|
 | combined | 152 | 147 | 5 | 0 | `results/failure_taxonomy_audit.json` |
 
+## Rule-Based Ambiguity Verifier
+
+This cache-only non-LLM verifier parses target attributes, row/column mentions, and perspective-sensitive left/right cues.
+
+| Coded rows | Under-spec recall | Frame recall | Symbolic recall | Under-spec precision | Source |
+|---:|---:|---:|---:|---:|---|
+| 152 | 1.000 | 1.000 | 1.000 | 1.000 | `results/rule_based_ambiguity_verifier.json` |
+
+| Check | Rate |
+|---|---:|
+| perspective mirror failure scenes flagged | 1.000 |
+| perspective population messages flagged | 0.000 |
+| partial-observability mirror failure scenes flagged | 1.000 |
+| partial-observability population messages flagged | 0.000 |
+
 ## Interaction Memory Rule Audit
 
 This replay-only audit derives future speaker-prompt rules from the coded mirror failures and checks whether cached repairs instantiate the relevant cue.
@@ -414,9 +431,9 @@ Items passed: 19/19.
 ## Plan Coverage Audit
 
 This generated audit maps the original workshop plan to the current artifacts and separates claimed core coverage from partial or open stretch items.
-Overall: 18 covered, 5 partial, 1 open across 24 plan items.
+Overall: 19 covered, 5 partial, 0 open across 24 plan items.
 Core scope: 17 covered, 2 partial, 0 open.
-Stretch scope: 1 covered, 3 partial, 1 open.
+Stretch scope: 2 covered, 3 partial, 0 open.
 
 | Status | Scope | Plan item | Detail | Source |
 |---|---|---|---|---|
@@ -425,7 +442,6 @@ Stretch scope: 1 covered, 3 partial, 1 open.
 | partial | stretch | Run a 1,000-scene benchmark and 200 partial-observability stress episodes. | A no-API local diagnostic now runs the stronger 1,000 initial-family plus 200 partial-observability scale, but the paper-facing API listener runs remain bounded 50-scene diagnostics. | `docs/plan_coverage_audit.md` |
 | partial | stretch | Evaluate K=8 candidate generation in addition to K=4. | The local stronger-plan diagnostic evaluates K=8 candidate slots and shows added non-coordinate diversity; cached API speaker artifacts remain K=4. | `docs/plan_coverage_audit.md` |
 | partial | stretch | Run an actual interaction-memory prompt rerun after distilling rules from failures. | A replay-only interaction-memory rule audit is present, but no new memory-prompt generation/evaluation run is claimed. | `docs/plan_coverage_audit.md` |
-| open | stretch | Validate failures with human or independent non-LLM judgments. | The paper explicitly notes that held-out listeners are API LLMs and broader human validation remains future work. | `docs/plan_coverage_audit.md` |
 
 ## Claim-To-Evidence Map
 
@@ -446,9 +462,10 @@ Stretch scope: 1 covered, 3 partial, 1 open.
 | Population-play turns available robust candidates into unanimous held-out listener agreement. | `docs/listener_disagreement_audit.md; results/listener_disagreement_audit.json` | mirror split-outcome rates are 0.080, 0.180, 0.360, and 0.500 across full-candidate runs; population split-outcome rate is 0.000 |
 | Listener self-reported confidence and ambiguity are not substitutes for cross-play. | `docs/listener_confidence_audit.md; results/listener_confidence_audit.json` | alternate-model perspective ambiguity flags are 0.000 while mirror high-confidence failure rates are 0.147 and 0.280 |
 | Representative failures reflect real target-distractor ambiguity or frame sensitivity. | `docs/failure_taxonomy_audit.md; docs/qualitative_failure_examples.md; results/qualitative_failure_examples.json` | 147 of 152 coded listener-level mirror failures are underspecified-distractor cases and 5 are perspective-frame errors |
+| A rule-based non-LLM verifier recovers the coded mirror-failure taxonomy. | `docs/rule_based_ambiguity_verifier.md; results/rule_based_ambiguity_verifier.json; results/rule_based_ambiguity_verifier_units.jsonl` | combined coded failure set has symbolic ambiguity recall 1.000, attribute-under-specification recall 1.000, and frame-sensitive recall 1.000 |
 | The coded failures induce a small interaction-memory rule set. | `docs/interaction_memory_rules.md; results/interaction_memory_rules.json` | 152 coded failure rows collapse into disambiguate-shared-attributes and avoid-frame-sensitive-only rules; cached repairs satisfy the derived cue in 1.000 of failure scenes |
 | The original pre-submission checklist is backed by concrete artifacts. | `docs/reviewer_checklist.md; results/reviewer_checklist.json` | Section 32 reviewer checklist passes all 19 core-validity, results, and paper items |
-| The artifact package explicitly distinguishes completed core requirements from stretch gaps. | `docs/plan_coverage_audit.md; results/plan_coverage_audit.json` | core scope has 17 covered, 2 partial, 0 open items; stretch scope has 1 covered, 3 partial, 1 open and keeps human validation open |
+| The artifact package explicitly distinguishes completed core requirements from stretch gaps. | `docs/plan_coverage_audit.md; results/plan_coverage_audit.json` | core scope has 17 covered, 2 partial, 0 open items; stretch scope has 2 covered, 3 partial, 0 open after adding independent non-LLM validation |
 | The released generator supports a benchmark-scale local sanity sweep. | `docs/local_benchmark600_check.md; results/local_benchmark600_check.json` | 600 local scenes balanced across four initial scenario families; mirror same-play is 1.000 but cross-play is 0.631 |
 | The local artifact supports the stronger-plan 1,000+200 scale and K=8 diagnostic. | `docs/local_stronger_plan_k8.md; results/local_stronger_plan_k8.json` | no-coordinate oracle over 1,200 local scenes rises from 0.808 at K=4 to 0.995 at K=8 |
 | The cached benchmark artifacts are internally consistent. | `results/benchmark_integrity_audit.md` | 194/194 integrity checks pass |
@@ -461,7 +478,7 @@ Stretch scope: 1 covered, 3 partial, 1 open.
 | benchmark integrity | 194 | 0 | 0 | 0 | `results/benchmark_integrity_audit.json` |
 | paper claims | 828 | 0 | 0 | 0 | `results/paper_claims_verification.json` |
 | reviewer checklist | 19 | 0 | 0 | 0 | `results/reviewer_checklist.json` |
-| submission readiness | 161 | 1 | 0 | 0 | `results/submission_readiness_audit.json` |
+| submission readiness | 161 | 0 | 0 | 0 | `results/submission_readiness_audit.json` |
 
 ## Refresh Commands
 
@@ -536,6 +553,11 @@ conda run -n cross_play python scripts/analyze_failure_taxonomy.py \
   --markdown-out docs/failure_taxonomy_audit.md \
   --json-out results/failure_taxonomy_audit.json \
   --tex-out paper/tables/failure_taxonomy_combined.tex
+
+conda run -n cross_play python scripts/analyze_rule_based_ambiguity.py \
+  --markdown-out docs/rule_based_ambiguity_verifier.md \
+  --json-out results/rule_based_ambiguity_verifier.json \
+  --units-out results/rule_based_ambiguity_verifier_units.jsonl
 
 conda run -n cross_play python scripts/analyze_interaction_memory_rules.py \
   --markdown-out docs/interaction_memory_rules.md \

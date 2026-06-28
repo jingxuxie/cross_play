@@ -312,6 +312,22 @@ The current report is `docs/failure_taxonomy_audit.md`: `147` of `152` coded
 listener-level mirror failures are `underspecified_distractor` cases and `5`
 are `perspective_frame_error` cases.
 
+## Rule-based ambiguity verifier
+
+The rule-based verifier is an independent non-LLM check on the coded failure
+taxonomy. It parses selected messages for visible target attributes, exact
+row/column mentions, and perspective-sensitive left/right cues.
+
+```bash
+conda run -n cross_play python scripts/analyze_rule_based_ambiguity.py \
+  --markdown-out docs/rule_based_ambiguity_verifier.md \
+  --json-out results/rule_based_ambiguity_verifier.json \
+  --units-out results/rule_based_ambiguity_verifier_units.jsonl
+```
+
+The current report is `docs/rule_based_ambiguity_verifier.md`: on the `152`
+coded mirror-failure rows, symbolic ambiguity recall is `1.000`.
+
 ## Cache-only interaction-memory rule audit
 
 The interaction-memory rule audit derives a small future speaker-rule list from
@@ -372,8 +388,8 @@ conda run -n cross_play python scripts/audit_plan_coverage.py \
 ```
 
 The current report is `docs/plan_coverage_audit.md`: core scope has `17`
-covered, `2` partial, and `0` open items; stretch scope has `0` covered, `4`
-partial, and `1` open item.
+covered, `2` partial, and `0` open items; stretch scope has `2` covered, `3`
+partial, and `0` open items.
 
 ## Artifact guide
 
@@ -453,6 +469,7 @@ consensus+info selector recovers much of the no-coordinate oracle. See
 `docs/local_stronger_plan_k8.md`,
 `docs/random_candidate_baseline.md`,
 `docs/listener_disagreement_audit.md`,
+`docs/rule_based_ambiguity_verifier.md`,
 `docs/qualitative_failure_examples.md`,
 `docs/reviewer_checklist.md`,
 `docs/plan_coverage_audit.md`,

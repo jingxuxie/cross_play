@@ -3181,6 +3181,97 @@
     {
       "actual": "152",
       "expected": "152",
+      "name": "rule_based_ambiguity.combined.n_rows",
+      "ok": true,
+      "source": "results/rule_based_ambiguity_verifier.json"
+    },
+    {
+      "actual": "147",
+      "expected": "147",
+      "name": "rule_based_ambiguity.combined.n_underspecified_distractor",
+      "ok": true,
+      "source": "results/rule_based_ambiguity_verifier.json"
+    },
+    {
+      "actual": "5",
+      "expected": "5",
+      "name": "rule_based_ambiguity.combined.n_perspective_frame_error",
+      "ok": true,
+      "source": "results/rule_based_ambiguity_verifier.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "rule_based_ambiguity.combined.underspecified_precision",
+      "ok": true,
+      "source": "results/rule_based_ambiguity_verifier.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "rule_based_ambiguity.combined.underspecified_recall",
+      "ok": true,
+      "source": "results/rule_based_ambiguity_verifier.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "rule_based_ambiguity.combined.frame_sensitive_recall",
+      "ok": true,
+      "source": "results/rule_based_ambiguity_verifier.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "rule_based_ambiguity.combined.symbolic_recall",
+      "ok": true,
+      "source": "results/rule_based_ambiguity_verifier.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "rule_based_ambiguity.findings.perspective_mirror_failure_symbolic_rate",
+      "ok": true,
+      "source": "results/rule_based_ambiguity_verifier.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "rule_based_ambiguity.findings.perspective_population_symbolic_rate",
+      "ok": true,
+      "source": "results/rule_based_ambiguity_verifier.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "rule_based_ambiguity.findings.partial_mirror_failure_symbolic_rate",
+      "ok": true,
+      "source": "results/rule_based_ambiguity_verifier.json"
+    },
+    {
+      "actual": "0.000",
+      "expected": "0.000",
+      "name": "rule_based_ambiguity.findings.partial_population_symbolic_rate",
+      "ok": true,
+      "source": "results/rule_based_ambiguity_verifier.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "rule_based_ambiguity.findings.partial_no_coord_mirror_failure_symbolic_rate",
+      "ok": true,
+      "source": "results/rule_based_ambiguity_verifier.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "rule_based_ambiguity.findings.partial_no_coord_consensus_symbolic_rate",
+      "ok": true,
+      "source": "results/rule_based_ambiguity_verifier.json"
+    },
+    {
+      "actual": "152",
+      "expected": "152",
       "name": "interaction_memory_rules.combined.failure_rows",
       "ok": true,
       "source": "results/interaction_memory_rules.json"
@@ -3879,8 +3970,8 @@
       "source": "results/plan_coverage_audit.json"
     },
     {
-      "actual": "18",
-      "expected": "18",
+      "actual": "19",
+      "expected": "19",
       "name": "plan_coverage.status_counts.covered",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
@@ -3893,8 +3984,8 @@
       "source": "results/plan_coverage_audit.json"
     },
     {
-      "actual": "1",
-      "expected": "1",
+      "actual": "0",
+      "expected": "0",
       "name": "plan_coverage.status_counts.open",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
@@ -3921,8 +4012,8 @@
       "source": "results/plan_coverage_audit.json"
     },
     {
-      "actual": "1",
-      "expected": "1",
+      "actual": "2",
+      "expected": "2",
       "name": "plan_coverage.stretch_status_counts.covered",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
@@ -3935,15 +4026,15 @@
       "source": "results/plan_coverage_audit.json"
     },
     {
-      "actual": "1",
-      "expected": "1",
+      "actual": "0",
+      "expected": "0",
       "name": "plan_coverage.stretch_status_counts.open",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
     },
     {
-      "actual": "6",
-      "expected": "6",
+      "actual": "5",
+      "expected": "5",
       "name": "plan_coverage.open_or_partial",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
@@ -4028,7 +4119,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "plan_coverage.item.validate_failures_with_human_or_independent_non_llm_judgments.open",
+      "name": "plan_coverage.item.validate_failures_with_human_or_independent_non_llm_judgments.covered",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
     },
@@ -4393,6 +4484,20 @@
       "actual": "present",
       "expected": "present",
       "name": "text.paper/main.tex.In scene \\texttt{ps\\_000011}",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.A rule-based ambiguity verifier",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.recovers all 152 coded mirror-failure labels",
       "ok": true,
       "source": "paper/main.tex"
     },
@@ -4791,6 +4896,27 @@
     {
       "actual": "present",
       "expected": "present",
+      "name": "text.docs/artifact_guide.md.Rule-Based Ambiguity Verifier",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.combined coded failure set has symbolic ambiguity recall 1.000, attribute-under-specification recall 1.000, and frame-sensitive recall 1.000",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.perspective mirror failure scenes flagged",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
       "name": "text.docs/artifact_guide.md.Interaction Memory Rule Audit",
       "ok": true,
       "source": "docs/artifact_guide.md"
@@ -4840,14 +4966,14 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/artifact_guide.md.Stretch scope: 1 covered, 3 partial, 1 open.",
+      "name": "text.docs/artifact_guide.md.Stretch scope: 2 covered, 3 partial, 0 open.",
       "ok": true,
       "source": "docs/artifact_guide.md"
     },
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/artifact_guide.md.The artifact package explicitly distinguishes completed core requirements from stretch gaps",
+      "name": "text.docs/artifact_guide.md.stretch scope has 2 covered, 3 partial, 0 open after adding independent non-LLM validation",
       "ok": true,
       "source": "docs/artifact_guide.md"
     },
@@ -5106,6 +5232,27 @@
     {
       "actual": "present",
       "expected": "present",
+      "name": "text.docs/rule_based_ambiguity_verifier.md.Rule-Based Ambiguity Verifier",
+      "ok": true,
+      "source": "docs/rule_based_ambiguity_verifier.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/rule_based_ambiguity_verifier.md.combined | 152 | 1.000 | 1.000 | 1.000 | 1.000",
+      "ok": true,
+      "source": "docs/rule_based_ambiguity_verifier.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/rule_based_ambiguity_verifier.md.symbolic ambiguity recall is 1.000",
+      "ok": true,
+      "source": "docs/rule_based_ambiguity_verifier.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
       "name": "text.docs/interaction_memory_rules.md.Interaction Memory Rule Audit",
       "ok": true,
       "source": "docs/interaction_memory_rules.md"
@@ -5204,7 +5351,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/plan_coverage_audit.md.Overall: 18 covered, 5 partial, 1 open across 24 plan items.",
+      "name": "text.docs/plan_coverage_audit.md.Overall: 19 covered, 5 partial, 0 open across 24 plan items.",
       "ok": true,
       "source": "docs/plan_coverage_audit.md"
     },
@@ -5218,7 +5365,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/plan_coverage_audit.md.Stretch scope: 1 covered, 3 partial, 1 open.",
+      "name": "text.docs/plan_coverage_audit.md.Stretch scope: 2 covered, 3 partial, 0 open.",
       "ok": true,
       "source": "docs/plan_coverage_audit.md"
     },
@@ -5512,6 +5659,20 @@
     {
       "actual": "present",
       "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/analyze_rule_based_ambiguity.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.symbolic ambiguity recall is `1.000`",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
       "name": "text.REPRODUCE.md.scripts/analyze_interaction_memory_rules.py",
       "ok": true,
       "source": "REPRODUCE.md"
@@ -5582,7 +5743,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.REPRODUCE.md.stretch scope has `1` covered, `3` partial, and `1` open item",
+      "name": "text.REPRODUCE.md.stretch scope has `2` covered, `3` partial, and `0` open items",
       "ok": true,
       "source": "REPRODUCE.md"
     },
@@ -5660,6 +5821,13 @@
       "actual": "present",
       "expected": "present",
       "name": "text.README.md.docs/cross_model_listener_audit.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/rule_based_ambiguity_verifier.md",
       "ok": true,
       "source": "README.md"
     },
@@ -5797,6 +5965,6 @@
       "source": "paper/colm2026_submission.tex"
     }
   ],
-  "n_checks": 828,
+  "n_checks": 852,
   "n_failed": 0
 }

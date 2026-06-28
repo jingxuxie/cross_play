@@ -1,0 +1,801 @@
+{
+  "coded_taxonomy_alignment": {
+    "combined": {
+      "attribute_underspecified_predictions": 147,
+      "frame_sensitive_recall": 1.0,
+      "label": "combined",
+      "n_perspective_frame_error": 5,
+      "n_rows": 152,
+      "n_underspecified_distractor": 147,
+      "source": "results/perspective_stress50_gpt41nano_mirror_failures_coded.csv;results/partial_observability_api50_mirror_failures_coded.csv;results/partial_observability_api50_no_coord_mirror_failures_coded.csv",
+      "symbolic_ambiguity_predictions": 152,
+      "symbolic_precision": 1.0,
+      "symbolic_recall": 1.0,
+      "underspecified_precision": 1.0,
+      "underspecified_recall": 1.0,
+      "verifier_label_counts": {
+        "attribute_underspecified": 147,
+        "frame_sensitive_relation": 5
+      }
+    },
+    "failure_sets": [
+      {
+        "attribute_underspecified_predictions": 38,
+        "frame_sensitive_recall": 1.0,
+        "label": "perspective_alt_model_mirror",
+        "n_perspective_frame_error": 5,
+        "n_rows": 43,
+        "n_underspecified_distractor": 38,
+        "source": "results/perspective_stress50_gpt41nano_mirror_failures_coded.csv",
+        "symbolic_ambiguity_predictions": 43,
+        "symbolic_precision": 1.0,
+        "symbolic_recall": 1.0,
+        "underspecified_precision": 1.0,
+        "underspecified_recall": 1.0,
+        "verifier_label_counts": {
+          "attribute_underspecified": 38,
+          "frame_sensitive_relation": 5
+        }
+      },
+      {
+        "attribute_underspecified_predictions": 50,
+        "frame_sensitive_recall": null,
+        "label": "partial_observability_mirror",
+        "n_perspective_frame_error": 0,
+        "n_rows": 50,
+        "n_underspecified_distractor": 50,
+        "source": "results/partial_observability_api50_mirror_failures_coded.csv",
+        "symbolic_ambiguity_predictions": 50,
+        "symbolic_precision": 1.0,
+        "symbolic_recall": 1.0,
+        "underspecified_precision": 1.0,
+        "underspecified_recall": 1.0,
+        "verifier_label_counts": {
+          "attribute_underspecified": 50
+        }
+      },
+      {
+        "attribute_underspecified_predictions": 59,
+        "frame_sensitive_recall": null,
+        "label": "partial_observability_no_coord_mirror",
+        "n_perspective_frame_error": 0,
+        "n_rows": 59,
+        "n_underspecified_distractor": 59,
+        "source": "results/partial_observability_api50_no_coord_mirror_failures_coded.csv",
+        "symbolic_ambiguity_predictions": 59,
+        "symbolic_precision": 1.0,
+        "symbolic_recall": 1.0,
+        "underspecified_precision": 1.0,
+        "underspecified_recall": 1.0,
+        "verifier_label_counts": {
+          "attribute_underspecified": 59
+        }
+      }
+    ]
+  },
+  "description": "Cache-only symbolic verifier over selected messages. It parses target color/size/shape mentions, exact row/column mentions, and left/right frame-sensitive cues.",
+  "key_findings": {
+    "coded_frame_sensitive_recall": 1.0,
+    "coded_symbolic_recall": 1.0,
+    "coded_underspecified_recall": 1.0,
+    "partial_mirror_failure_symbolic_rate": 1.0,
+    "partial_no_coord_consensus_symbolic_rate": 1.0,
+    "partial_no_coord_mirror_failure_symbolic_rate": 1.0,
+    "partial_population_symbolic_rate": 0.0,
+    "perspective_mirror_failure_symbolic_rate": 1.0,
+    "perspective_population_symbolic_rate": 0.0
+  },
+  "runs": [
+    {
+      "label": "mixed_50_full",
+      "methods": [
+        {
+          "attribute_underspecified_rate": 0.36,
+          "failure_attribute_underspecified_rate": 0.7272727272727273,
+          "failure_frame_sensitive_rate": 0.2727272727272727,
+          "failure_scenes": 11,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.14,
+          "label_counts": {
+            "attribute_underspecified": 18,
+            "attribute_unique": 25,
+            "frame_sensitive_relation": 7
+          },
+          "mean_success": 0.84,
+          "method_label": "direct",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.5
+        },
+        {
+          "attribute_underspecified_rate": 0.26,
+          "failure_attribute_underspecified_rate": 0.5714285714285714,
+          "failure_frame_sensitive_rate": 0.42857142857142855,
+          "failure_scenes": 7,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.06,
+          "label_counts": {
+            "attribute_underspecified": 13,
+            "attribute_unique": 25,
+            "coordinate_specific": 7,
+            "frame_sensitive_relation": 3,
+            "unparsed_or_relational": 2
+          },
+          "mean_success": 0.9066666666666666,
+          "method_label": "mirror",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.32
+        },
+        {
+          "attribute_underspecified_rate": 0.2,
+          "failure_attribute_underspecified_rate": null,
+          "failure_frame_sensitive_rate": null,
+          "failure_scenes": 0,
+          "failure_symbolic_ambiguity_rate": null,
+          "frame_sensitive_rate": 0.04,
+          "label_counts": {
+            "attribute_underspecified": 10,
+            "attribute_unique": 25,
+            "coordinate_specific": 11,
+            "frame_sensitive_relation": 2,
+            "unparsed_or_relational": 2
+          },
+          "mean_success": 1.0,
+          "method_label": "oracle",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.24
+        },
+        {
+          "attribute_underspecified_rate": 0.08,
+          "failure_attribute_underspecified_rate": null,
+          "failure_frame_sensitive_rate": null,
+          "failure_scenes": 0,
+          "failure_symbolic_ambiguity_rate": null,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "attribute_underspecified": 4,
+            "attribute_unique": 25,
+            "coordinate_specific": 21
+          },
+          "mean_success": 1.0,
+          "method_label": "population",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.08
+        },
+        {
+          "attribute_underspecified_rate": 0.44,
+          "failure_attribute_underspecified_rate": 1.0,
+          "failure_frame_sensitive_rate": 0.0,
+          "failure_scenes": 15,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "attribute_underspecified": 22,
+            "attribute_unique": 25,
+            "coordinate_specific": 1,
+            "unparsed_or_relational": 2
+          },
+          "mean_success": 0.74,
+          "method_label": "shortest",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.44
+        }
+      ],
+      "n_units": 250,
+      "records": "results/hybrid_api_pilot50_allcand_records.jsonl"
+    },
+    {
+      "label": "perspective_gpt54_full",
+      "methods": [
+        {
+          "attribute_underspecified_rate": 0.24,
+          "failure_attribute_underspecified_rate": 0.35,
+          "failure_frame_sensitive_rate": 0.65,
+          "failure_scenes": 20,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.76,
+          "label_counts": {
+            "attribute_underspecified": 12,
+            "frame_sensitive_relation": 38
+          },
+          "mean_success": 0.7133333333333334,
+          "method_label": "direct",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 1.0
+        },
+        {
+          "attribute_underspecified_rate": 0.48,
+          "failure_attribute_underspecified_rate": 0.7142857142857143,
+          "failure_frame_sensitive_rate": 0.2857142857142857,
+          "failure_scenes": 14,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.18,
+          "label_counts": {
+            "attribute_underspecified": 24,
+            "coordinate_specific": 17,
+            "frame_sensitive_relation": 9
+          },
+          "mean_success": 0.8133333333333334,
+          "method_label": "mirror",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.66
+        },
+        {
+          "attribute_underspecified_rate": 0.3,
+          "failure_attribute_underspecified_rate": null,
+          "failure_frame_sensitive_rate": null,
+          "failure_scenes": 0,
+          "failure_symbolic_ambiguity_rate": null,
+          "frame_sensitive_rate": 0.22,
+          "label_counts": {
+            "attribute_underspecified": 15,
+            "coordinate_specific": 24,
+            "frame_sensitive_relation": 11
+          },
+          "mean_success": 1.0,
+          "method_label": "oracle",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.52
+        },
+        {
+          "attribute_underspecified_rate": 0.0,
+          "failure_attribute_underspecified_rate": null,
+          "failure_frame_sensitive_rate": null,
+          "failure_scenes": 0,
+          "failure_symbolic_ambiguity_rate": null,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "coordinate_specific": 50
+          },
+          "mean_success": 1.0,
+          "method_label": "population",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.0
+        },
+        {
+          "attribute_underspecified_rate": 1.0,
+          "failure_attribute_underspecified_rate": 1.0,
+          "failure_frame_sensitive_rate": 0.0,
+          "failure_scenes": 35,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "attribute_underspecified": 50
+          },
+          "mean_success": 0.42,
+          "method_label": "shortest",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 1.0
+        }
+      ],
+      "n_units": 250,
+      "records": "results/perspective_stress50_hybrid_records.jsonl"
+    },
+    {
+      "label": "perspective_gpt41_full",
+      "methods": [
+        {
+          "attribute_underspecified_rate": 0.24,
+          "failure_attribute_underspecified_rate": 0.3548387096774194,
+          "failure_frame_sensitive_rate": 0.6451612903225806,
+          "failure_scenes": 31,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.76,
+          "label_counts": {
+            "attribute_underspecified": 12,
+            "frame_sensitive_relation": 38
+          },
+          "mean_success": 0.5533333333333333,
+          "method_label": "direct",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 1.0
+        },
+        {
+          "attribute_underspecified_rate": 0.48,
+          "failure_attribute_underspecified_rate": 0.8636363636363636,
+          "failure_frame_sensitive_rate": 0.13636363636363635,
+          "failure_scenes": 22,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.18,
+          "label_counts": {
+            "attribute_underspecified": 24,
+            "coordinate_specific": 17,
+            "frame_sensitive_relation": 9
+          },
+          "mean_success": 0.7133333333333334,
+          "method_label": "mirror",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.66
+        },
+        {
+          "attribute_underspecified_rate": 0.18,
+          "failure_attribute_underspecified_rate": null,
+          "failure_frame_sensitive_rate": null,
+          "failure_scenes": 0,
+          "failure_symbolic_ambiguity_rate": null,
+          "frame_sensitive_rate": 0.16,
+          "label_counts": {
+            "attribute_underspecified": 9,
+            "coordinate_specific": 33,
+            "frame_sensitive_relation": 8
+          },
+          "mean_success": 1.0,
+          "method_label": "oracle",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.34
+        },
+        {
+          "attribute_underspecified_rate": 0.0,
+          "failure_attribute_underspecified_rate": null,
+          "failure_frame_sensitive_rate": null,
+          "failure_scenes": 0,
+          "failure_symbolic_ambiguity_rate": null,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "coordinate_specific": 50
+          },
+          "mean_success": 1.0,
+          "method_label": "population",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.0
+        },
+        {
+          "attribute_underspecified_rate": 1.0,
+          "failure_attribute_underspecified_rate": 1.0,
+          "failure_frame_sensitive_rate": 0.0,
+          "failure_scenes": 41,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "attribute_underspecified": 50
+          },
+          "mean_success": 0.36666666666666664,
+          "method_label": "shortest",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 1.0
+        }
+      ],
+      "n_units": 250,
+      "records": "results/perspective_stress50_gpt41nano_records.jsonl"
+    },
+    {
+      "label": "partial_observability_full",
+      "methods": [
+        {
+          "attribute_underspecified_rate": 1.0,
+          "failure_attribute_underspecified_rate": 1.0,
+          "failure_frame_sensitive_rate": 0.0,
+          "failure_scenes": 19,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "attribute_underspecified": 50
+          },
+          "mean_success": 0.74,
+          "method_label": "direct",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 1.0
+        },
+        {
+          "attribute_underspecified_rate": 0.52,
+          "failure_attribute_underspecified_rate": 1.0,
+          "failure_frame_sensitive_rate": 0.0,
+          "failure_scenes": 25,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "attribute_underspecified": 26,
+            "coordinate_specific": 24
+          },
+          "mean_success": 0.6666666666666666,
+          "method_label": "mirror",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.52
+        },
+        {
+          "attribute_underspecified_rate": 0.3,
+          "failure_attribute_underspecified_rate": null,
+          "failure_frame_sensitive_rate": null,
+          "failure_scenes": 0,
+          "failure_symbolic_ambiguity_rate": null,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "attribute_underspecified": 15,
+            "coordinate_specific": 35
+          },
+          "mean_success": 1.0,
+          "method_label": "oracle",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.3
+        },
+        {
+          "attribute_underspecified_rate": 0.0,
+          "failure_attribute_underspecified_rate": null,
+          "failure_frame_sensitive_rate": null,
+          "failure_scenes": 0,
+          "failure_symbolic_ambiguity_rate": null,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "coordinate_specific": 50
+          },
+          "mean_success": 1.0,
+          "method_label": "population",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.0
+        },
+        {
+          "attribute_underspecified_rate": 1.0,
+          "failure_attribute_underspecified_rate": 1.0,
+          "failure_frame_sensitive_rate": 0.0,
+          "failure_scenes": 49,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "attribute_underspecified": 50
+          },
+          "mean_success": 0.3133333333333333,
+          "method_label": "shortest",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 1.0
+        }
+      ],
+      "n_units": 250,
+      "records": "results/partial_observability_api50_records.jsonl"
+    },
+    {
+      "label": "mixed_50_no_coord",
+      "methods": [
+        {
+          "attribute_underspecified_rate": 0.3,
+          "failure_attribute_underspecified_rate": 0.3333333333333333,
+          "failure_frame_sensitive_rate": 0.6666666666666666,
+          "failure_scenes": 6,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.2,
+          "label_counts": {
+            "attribute_underspecified": 15,
+            "attribute_unique": 25,
+            "frame_sensitive_relation": 10
+          },
+          "mean_success": 0.92,
+          "method_label": "consensus+info",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.5
+        },
+        {
+          "attribute_underspecified_rate": 0.36,
+          "failure_attribute_underspecified_rate": 0.7272727272727273,
+          "failure_frame_sensitive_rate": 0.2727272727272727,
+          "failure_scenes": 11,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.14,
+          "label_counts": {
+            "attribute_underspecified": 18,
+            "attribute_unique": 25,
+            "frame_sensitive_relation": 7
+          },
+          "mean_success": 0.84,
+          "method_label": "direct",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.5
+        },
+        {
+          "attribute_underspecified_rate": 0.36,
+          "failure_attribute_underspecified_rate": 0.5,
+          "failure_frame_sensitive_rate": 0.5,
+          "failure_scenes": 8,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.2,
+          "label_counts": {
+            "attribute_underspecified": 18,
+            "attribute_unique": 22,
+            "frame_sensitive_relation": 10
+          },
+          "mean_success": 0.9,
+          "method_label": "info prior",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.56
+        },
+        {
+          "attribute_underspecified_rate": 0.38,
+          "failure_attribute_underspecified_rate": 0.7142857142857143,
+          "failure_frame_sensitive_rate": 0.2857142857142857,
+          "failure_scenes": 14,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.08,
+          "label_counts": {
+            "attribute_underspecified": 19,
+            "attribute_unique": 25,
+            "frame_sensitive_relation": 4,
+            "unparsed_or_relational": 2
+          },
+          "mean_success": 0.7866666666666666,
+          "method_label": "mirror",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.46
+        },
+        {
+          "attribute_underspecified_rate": 0.34,
+          "failure_attribute_underspecified_rate": 0.25,
+          "failure_frame_sensitive_rate": 0.75,
+          "failure_scenes": 4,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.12,
+          "label_counts": {
+            "attribute_underspecified": 17,
+            "attribute_unique": 25,
+            "frame_sensitive_relation": 6,
+            "unparsed_or_relational": 2
+          },
+          "mean_success": 0.96,
+          "method_label": "oracle",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.46
+        },
+        {
+          "attribute_underspecified_rate": 0.46,
+          "failure_attribute_underspecified_rate": 1.0,
+          "failure_frame_sensitive_rate": 0.0,
+          "failure_scenes": 13,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "attribute_underspecified": 23,
+            "attribute_unique": 25,
+            "unparsed_or_relational": 2
+          },
+          "mean_success": 0.7733333333333333,
+          "method_label": "population",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.46
+        },
+        {
+          "attribute_underspecified_rate": 0.46,
+          "failure_attribute_underspecified_rate": 1.0,
+          "failure_frame_sensitive_rate": 0.0,
+          "failure_scenes": 15,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "attribute_underspecified": 23,
+            "attribute_unique": 25,
+            "unparsed_or_relational": 2
+          },
+          "mean_success": 0.74,
+          "method_label": "shortest",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 0.46
+        }
+      ],
+      "n_units": 350,
+      "records": "results/hybrid_api_pilot50_no_coord_records.jsonl"
+    },
+    {
+      "label": "perspective_gpt41_no_coord",
+      "methods": [
+        {
+          "attribute_underspecified_rate": 0.0,
+          "failure_attribute_underspecified_rate": 0.0,
+          "failure_frame_sensitive_rate": 1.0,
+          "failure_scenes": 19,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 1.0,
+          "label_counts": {
+            "frame_sensitive_relation": 50
+          },
+          "mean_success": 0.76,
+          "method_label": "consensus+info",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 1.0
+        },
+        {
+          "attribute_underspecified_rate": 0.24,
+          "failure_attribute_underspecified_rate": 0.3548387096774194,
+          "failure_frame_sensitive_rate": 0.6451612903225806,
+          "failure_scenes": 31,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.76,
+          "label_counts": {
+            "attribute_underspecified": 12,
+            "frame_sensitive_relation": 38
+          },
+          "mean_success": 0.5533333333333333,
+          "method_label": "direct",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 1.0
+        },
+        {
+          "attribute_underspecified_rate": 0.0,
+          "failure_attribute_underspecified_rate": 0.0,
+          "failure_frame_sensitive_rate": 1.0,
+          "failure_scenes": 19,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 1.0,
+          "label_counts": {
+            "frame_sensitive_relation": 50
+          },
+          "mean_success": 0.76,
+          "method_label": "info prior",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 1.0
+        },
+        {
+          "attribute_underspecified_rate": 0.48,
+          "failure_attribute_underspecified_rate": 0.59375,
+          "failure_frame_sensitive_rate": 0.40625,
+          "failure_scenes": 32,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.52,
+          "label_counts": {
+            "attribute_underspecified": 24,
+            "frame_sensitive_relation": 26
+          },
+          "mean_success": 0.58,
+          "method_label": "mirror",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 1.0
+        },
+        {
+          "attribute_underspecified_rate": 0.36,
+          "failure_attribute_underspecified_rate": 0.5294117647058824,
+          "failure_frame_sensitive_rate": 0.47058823529411764,
+          "failure_scenes": 17,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.64,
+          "label_counts": {
+            "attribute_underspecified": 18,
+            "frame_sensitive_relation": 32
+          },
+          "mean_success": 0.7933333333333333,
+          "method_label": "oracle",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 1.0
+        },
+        {
+          "attribute_underspecified_rate": 0.92,
+          "failure_attribute_underspecified_rate": 0.9487179487179487,
+          "failure_frame_sensitive_rate": 0.05128205128205128,
+          "failure_scenes": 39,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.08,
+          "label_counts": {
+            "attribute_underspecified": 46,
+            "frame_sensitive_relation": 4
+          },
+          "mean_success": 0.42,
+          "method_label": "population",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 1.0
+        },
+        {
+          "attribute_underspecified_rate": 1.0,
+          "failure_attribute_underspecified_rate": 1.0,
+          "failure_frame_sensitive_rate": 0.0,
+          "failure_scenes": 41,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "attribute_underspecified": 50
+          },
+          "mean_success": 0.36666666666666664,
+          "method_label": "shortest",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 1.0
+        }
+      ],
+      "n_units": 350,
+      "records": "results/perspective_stress50_gpt41nano_no_coord_records.jsonl"
+    },
+    {
+      "label": "partial_observability_no_coord",
+      "methods": [
+        {
+          "attribute_underspecified_rate": 1.0,
+          "failure_attribute_underspecified_rate": 1.0,
+          "failure_frame_sensitive_rate": 0.0,
+          "failure_scenes": 1,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "attribute_underspecified": 50
+          },
+          "mean_success": 0.9866666666666667,
+          "method_label": "consensus+info",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 1.0
+        },
+        {
+          "attribute_underspecified_rate": 1.0,
+          "failure_attribute_underspecified_rate": 1.0,
+          "failure_frame_sensitive_rate": 0.0,
+          "failure_scenes": 19,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "attribute_underspecified": 50
+          },
+          "mean_success": 0.74,
+          "method_label": "direct",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 1.0
+        },
+        {
+          "attribute_underspecified_rate": 1.0,
+          "failure_attribute_underspecified_rate": 1.0,
+          "failure_frame_sensitive_rate": 0.0,
+          "failure_scenes": 2,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "attribute_underspecified": 50
+          },
+          "mean_success": 0.9733333333333334,
+          "method_label": "info prior",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 1.0
+        },
+        {
+          "attribute_underspecified_rate": 1.0,
+          "failure_attribute_underspecified_rate": 1.0,
+          "failure_frame_sensitive_rate": 0.0,
+          "failure_scenes": 29,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "attribute_underspecified": 50
+          },
+          "mean_success": 0.6066666666666667,
+          "method_label": "mirror",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 1.0
+        },
+        {
+          "attribute_underspecified_rate": 1.0,
+          "failure_attribute_underspecified_rate": null,
+          "failure_frame_sensitive_rate": null,
+          "failure_scenes": 0,
+          "failure_symbolic_ambiguity_rate": null,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "attribute_underspecified": 50
+          },
+          "mean_success": 1.0,
+          "method_label": "oracle",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 1.0
+        },
+        {
+          "attribute_underspecified_rate": 1.0,
+          "failure_attribute_underspecified_rate": 1.0,
+          "failure_frame_sensitive_rate": 0.0,
+          "failure_scenes": 20,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "attribute_underspecified": 50
+          },
+          "mean_success": 0.7266666666666667,
+          "method_label": "population",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 1.0
+        },
+        {
+          "attribute_underspecified_rate": 1.0,
+          "failure_attribute_underspecified_rate": 1.0,
+          "failure_frame_sensitive_rate": 0.0,
+          "failure_scenes": 49,
+          "failure_symbolic_ambiguity_rate": 1.0,
+          "frame_sensitive_rate": 0.0,
+          "label_counts": {
+            "attribute_underspecified": 50
+          },
+          "mean_success": 0.3133333333333333,
+          "method_label": "shortest",
+          "n_scenes": 50,
+          "symbolic_ambiguity_rate": 1.0
+        }
+      ],
+      "n_units": 350,
+      "records": "results/partial_observability_api50_no_coord_records.jsonl"
+    }
+  ]
+}

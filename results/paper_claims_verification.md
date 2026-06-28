@@ -1,6 +1,6 @@
 # Paper Claims Verification
 
-Checks passed: 828/828.
+Checks passed: 852/852.
 
 | Status | Check | Actual | Expected | Source |
 |---|---|---:|---:|---|
@@ -458,6 +458,19 @@ Checks passed: 828/828.
 | PASS | `failure_taxonomy.combined.underspecified` | 147 | 147 | `results/failure_taxonomy_audit.json` |
 | PASS | `failure_taxonomy.combined.perspective` | 5 | 5 | `results/failure_taxonomy_audit.json` |
 | PASS | `failure_taxonomy.combined.other` | 0 | 0 | `results/failure_taxonomy_audit.json` |
+| PASS | `rule_based_ambiguity.combined.n_rows` | 152 | 152 | `results/rule_based_ambiguity_verifier.json` |
+| PASS | `rule_based_ambiguity.combined.n_underspecified_distractor` | 147 | 147 | `results/rule_based_ambiguity_verifier.json` |
+| PASS | `rule_based_ambiguity.combined.n_perspective_frame_error` | 5 | 5 | `results/rule_based_ambiguity_verifier.json` |
+| PASS | `rule_based_ambiguity.combined.underspecified_precision` | 1.000 | 1.000 | `results/rule_based_ambiguity_verifier.json` |
+| PASS | `rule_based_ambiguity.combined.underspecified_recall` | 1.000 | 1.000 | `results/rule_based_ambiguity_verifier.json` |
+| PASS | `rule_based_ambiguity.combined.frame_sensitive_recall` | 1.000 | 1.000 | `results/rule_based_ambiguity_verifier.json` |
+| PASS | `rule_based_ambiguity.combined.symbolic_recall` | 1.000 | 1.000 | `results/rule_based_ambiguity_verifier.json` |
+| PASS | `rule_based_ambiguity.findings.perspective_mirror_failure_symbolic_rate` | 1.000 | 1.000 | `results/rule_based_ambiguity_verifier.json` |
+| PASS | `rule_based_ambiguity.findings.perspective_population_symbolic_rate` | 0.000 | 0.000 | `results/rule_based_ambiguity_verifier.json` |
+| PASS | `rule_based_ambiguity.findings.partial_mirror_failure_symbolic_rate` | 1.000 | 1.000 | `results/rule_based_ambiguity_verifier.json` |
+| PASS | `rule_based_ambiguity.findings.partial_population_symbolic_rate` | 0.000 | 0.000 | `results/rule_based_ambiguity_verifier.json` |
+| PASS | `rule_based_ambiguity.findings.partial_no_coord_mirror_failure_symbolic_rate` | 1.000 | 1.000 | `results/rule_based_ambiguity_verifier.json` |
+| PASS | `rule_based_ambiguity.findings.partial_no_coord_consensus_symbolic_rate` | 1.000 | 1.000 | `results/rule_based_ambiguity_verifier.json` |
 | PASS | `interaction_memory_rules.combined.failure_rows` | 152 | 152 | `results/interaction_memory_rules.json` |
 | PASS | `interaction_memory_rules.combined.failure_scenes` | 76 | 76 | `results/interaction_memory_rules.json` |
 | PASS | `interaction_memory_rules.combined.mean_repair_success` | 0.991 | 0.991 | `results/interaction_memory_rules.json` |
@@ -558,16 +571,16 @@ Checks passed: 828/828.
 | PASS | `reviewer_checklist.appendix_includes_prompts_and_schemas.section` | present | present | `results/reviewer_checklist.json` |
 | PASS | `reviewer_checklist.appendix_includes_prompts_and_schemas.pass` | present | present | `results/reviewer_checklist.json` |
 | PASS | `plan_coverage.n_items` | 24 | 24 | `results/plan_coverage_audit.json` |
-| PASS | `plan_coverage.status_counts.covered` | 18 | 18 | `results/plan_coverage_audit.json` |
+| PASS | `plan_coverage.status_counts.covered` | 19 | 19 | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.status_counts.partial` | 5 | 5 | `results/plan_coverage_audit.json` |
-| PASS | `plan_coverage.status_counts.open` | 1 | 1 | `results/plan_coverage_audit.json` |
+| PASS | `plan_coverage.status_counts.open` | 0 | 0 | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.core_status_counts.covered` | 17 | 17 | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.core_status_counts.partial` | 2 | 2 | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.core_status_counts.open` | 0 | 0 | `results/plan_coverage_audit.json` |
-| PASS | `plan_coverage.stretch_status_counts.covered` | 1 | 1 | `results/plan_coverage_audit.json` |
+| PASS | `plan_coverage.stretch_status_counts.covered` | 2 | 2 | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.stretch_status_counts.partial` | 3 | 3 | `results/plan_coverage_audit.json` |
-| PASS | `plan_coverage.stretch_status_counts.open` | 1 | 1 | `results/plan_coverage_audit.json` |
-| PASS | `plan_coverage.open_or_partial` | 6 | 6 | `results/plan_coverage_audit.json` |
+| PASS | `plan_coverage.stretch_status_counts.open` | 0 | 0 | `results/plan_coverage_audit.json` |
+| PASS | `plan_coverage.open_or_partial` | 5 | 5 | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.use_development_episodes_for_debugging_prompts_and_tuning_the_generator.present` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.use_development_episodes_for_debugging_prompts_and_tuning_the_generator.partial` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.hand_label_roughly_100_failures_into_interpretable_categories.present` | present | present | `results/plan_coverage_audit.json` |
@@ -579,7 +592,7 @@ Checks passed: 828/828.
 | PASS | `plan_coverage.item.run_an_actual_interaction_memory_prompt_rerun_after_distilling_rules_from_failures.present` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.run_an_actual_interaction_memory_prompt_rerun_after_distilling_rules_from_failures.partial` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.validate_failures_with_human_or_independent_non_llm_judgments.present` | present | present | `results/plan_coverage_audit.json` |
-| PASS | `plan_coverage.item.validate_failures_with_human_or_independent_non_llm_judgments.open` | present | present | `results/plan_coverage_audit.json` |
+| PASS | `plan_coverage.item.validate_failures_with_human_or_independent_non_llm_judgments.covered` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.publish_the_artifact_as_a_public_repository_or_submission_bundle.present` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `plan_coverage.item.publish_the_artifact_as_a_public_repository_or_submission_bundle.covered` | present | present | `results/plan_coverage_audit.json` |
 | PASS | `integrity_audit.n_failed` | 0 | 0 | `results/benchmark_integrity_audit.json` |
@@ -632,6 +645,8 @@ Checks passed: 828/828.
 | PASS | `text.paper/main.tex.mirror self-play still produces high-confidence failures` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.In scene \texttt{ps\_000005}` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.In scene \texttt{ps\_000011}` | present | present | `paper/main.tex` |
+| PASS | `text.paper/main.tex.A rule-based ambiguity verifier` | present | present | `paper/main.tex` |
+| PASS | `text.paper/main.tex.recovers all 152 coded mirror-failure labels` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.A generated qualitative appendix adds two partial-observability examples` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.consensus+info repair that raises held-out success from 0.333 to 1.000` | present | present | `paper/main.tex` |
 | PASS | `text.paper/main.tex.API-population selection uses the other two` | present | present | `paper/main.tex` |
@@ -688,6 +703,9 @@ Checks passed: 828/828.
 | PASS | `text.docs/artifact_guide.md.alternate-model perspective ambiguity flags are 0.000 while mirror high-confidence failure rates are 0.147 and 0.280` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Failure Taxonomy Audit` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.147 of 152 coded listener-level mirror failures are underspecified-distractor cases` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.Rule-Based Ambiguity Verifier` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.combined coded failure set has symbolic ambiguity recall 1.000, attribute-under-specification recall 1.000, and frame-sensitive recall 1.000` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.perspective mirror failure scenes flagged` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Interaction Memory Rule Audit` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Coded failure rows: 152; unique failure scenes: 76` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.repair cue satisfies derived rule in 1.000 of failure scenes` | present | present | `docs/artifact_guide.md` |
@@ -695,8 +713,8 @@ Checks passed: 828/828.
 | PASS | `text.docs/artifact_guide.md.Section 32 reviewer checklist passes all 19 core-validity, results, and paper items` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Items passed: 19/19` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Core scope: 17 covered, 2 partial, 0 open.` | present | present | `docs/artifact_guide.md` |
-| PASS | `text.docs/artifact_guide.md.Stretch scope: 1 covered, 3 partial, 1 open.` | present | present | `docs/artifact_guide.md` |
-| PASS | `text.docs/artifact_guide.md.The artifact package explicitly distinguishes completed core requirements from stretch gaps` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.Stretch scope: 2 covered, 3 partial, 0 open.` | present | present | `docs/artifact_guide.md` |
+| PASS | `text.docs/artifact_guide.md.stretch scope has 2 covered, 3 partial, 0 open after adding independent non-LLM validation` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.Local Benchmark-Scale Sanity Check` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.600 local scenes balanced across four initial scenario families` | present | present | `docs/artifact_guide.md` |
 | PASS | `text.docs/artifact_guide.md.partial_observability_api50 | `data/partial_observability_local50_scenes.jsonl` | 50` | present | present | `docs/artifact_guide.md` |
@@ -733,6 +751,9 @@ Checks passed: 828/828.
 | PASS | `text.docs/listener_confidence_audit.md.partial_observability_no_coord | consensus+info | 150 | 0.987 | 0.889 | 0.000 | 0.000 | 0.000 | 0.000` | present | present | `docs/listener_confidence_audit.md` |
 | PASS | `text.docs/failure_taxonomy_audit.md.Failure Taxonomy Audit` | present | present | `docs/failure_taxonomy_audit.md` |
 | PASS | `text.docs/failure_taxonomy_audit.md.combined | 152 | 147 | 5 | 0` | present | present | `docs/failure_taxonomy_audit.md` |
+| PASS | `text.docs/rule_based_ambiguity_verifier.md.Rule-Based Ambiguity Verifier` | present | present | `docs/rule_based_ambiguity_verifier.md` |
+| PASS | `text.docs/rule_based_ambiguity_verifier.md.combined | 152 | 1.000 | 1.000 | 1.000 | 1.000` | present | present | `docs/rule_based_ambiguity_verifier.md` |
+| PASS | `text.docs/rule_based_ambiguity_verifier.md.symbolic ambiguity recall is 1.000` | present | present | `docs/rule_based_ambiguity_verifier.md` |
 | PASS | `text.docs/interaction_memory_rules.md.Interaction Memory Rule Audit` | present | present | `docs/interaction_memory_rules.md` |
 | PASS | `text.docs/interaction_memory_rules.md.Coded failure rows: 152. Unique failure scenes: 76.` | present | present | `docs/interaction_memory_rules.md` |
 | PASS | `text.docs/interaction_memory_rules.md.Repair cue satisfies derived rule in 1.000 of failure scenes.` | present | present | `docs/interaction_memory_rules.md` |
@@ -747,9 +768,9 @@ Checks passed: 828/828.
 | PASS | `text.docs/reviewer_checklist.md.Held-out listeners are not used for method selection.` | present | present | `docs/reviewer_checklist.md` |
 | PASS | `text.docs/reviewer_checklist.md.Claims match actual results.` | present | present | `docs/reviewer_checklist.md` |
 | PASS | `text.docs/plan_coverage_audit.md.Plan Coverage Audit` | present | present | `docs/plan_coverage_audit.md` |
-| PASS | `text.docs/plan_coverage_audit.md.Overall: 18 covered, 5 partial, 1 open across 24 plan items.` | present | present | `docs/plan_coverage_audit.md` |
+| PASS | `text.docs/plan_coverage_audit.md.Overall: 19 covered, 5 partial, 0 open across 24 plan items.` | present | present | `docs/plan_coverage_audit.md` |
 | PASS | `text.docs/plan_coverage_audit.md.Core scope: 17 covered, 2 partial, 0 open.` | present | present | `docs/plan_coverage_audit.md` |
-| PASS | `text.docs/plan_coverage_audit.md.Stretch scope: 1 covered, 3 partial, 1 open.` | present | present | `docs/plan_coverage_audit.md` |
+| PASS | `text.docs/plan_coverage_audit.md.Stretch scope: 2 covered, 3 partial, 0 open.` | present | present | `docs/plan_coverage_audit.md` |
 | PASS | `text.docs/partial_observability_local_check.md.mirror self-play | 0.653 | 1.000 | 0.347` | present | present | `docs/partial_observability_local_check.md` |
 | PASS | `text.docs/partial_observability_api50_check.md.Candidate messages referencing private landmarks: 0` | present | present | `docs/partial_observability_api50_check.md` |
 | PASS | `text.docs/partial_observability_api50_check.md.no_coord_consensus_info | 0.987` | present | present | `docs/partial_observability_api50_check.md` |
@@ -791,6 +812,8 @@ Checks passed: 828/828.
 | PASS | `text.REPRODUCE.md.mirror self-play still produces high-confidence failures in `0.147`` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/analyze_failure_taxonomy.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.147` of `152` coded listener-level mirror failures are `underspecified_distractor`` | present | present | `REPRODUCE.md` |
+| PASS | `text.REPRODUCE.md.scripts/analyze_rule_based_ambiguity.py` | present | present | `REPRODUCE.md` |
+| PASS | `text.REPRODUCE.md.symbolic ambiguity recall is `1.000`` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/analyze_interaction_memory_rules.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.`152` coded failure rows collapse into two active rules` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.mean repair success on those failure scenes is `0.991`` | present | present | `REPRODUCE.md` |
@@ -801,7 +824,7 @@ Checks passed: 828/828.
 | PASS | `text.REPRODUCE.md.scripts/audit_plan_coverage.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.docs/plan_coverage_audit.md` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.core scope has `17` covered, `2` partial, and `0` open items` | present | present | `REPRODUCE.md` |
-| PASS | `text.REPRODUCE.md.stretch scope has `1` covered, `3` partial, and `1` open item` | present | present | `REPRODUCE.md` |
+| PASS | `text.REPRODUCE.md.stretch scope has `2` covered, `3` partial, and `0` open items` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.partial_observability_api50_mirror_failures_coded.csv` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/make_artifact_guide.py` | present | present | `REPRODUCE.md` |
 | PASS | `text.REPRODUCE.md.scripts/analyze_api_listener_leave_one_out.py` | present | present | `REPRODUCE.md` |
@@ -813,6 +836,7 @@ Checks passed: 828/828.
 | PASS | `text.README.md.paper/colm2026_submission.pdf` | present | present | `README.md` |
 | PASS | `text.README.md.docs/api_token_accounting.md` | present | present | `README.md` |
 | PASS | `text.README.md.docs/cross_model_listener_audit.md` | present | present | `README.md` |
+| PASS | `text.README.md.docs/rule_based_ambiguity_verifier.md` | present | present | `README.md` |
 | PASS | `text.README.md.docs/local_benchmark600_check.md` | present | present | `README.md` |
 | PASS | `text.README.md.docs/local_stronger_plan_k8.md` | present | present | `README.md` |
 | PASS | `text.README.md.docs/artifact_guide.md` | present | present | `README.md` |

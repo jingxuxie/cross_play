@@ -3,9 +3,9 @@
 This generated audit maps the original workshop plan to the current checked artifacts.
 It distinguishes completed core workshop-paper requirements from stronger-plan or release tasks that remain partial or open.
 
-Overall: 18 covered, 5 partial, 1 open across 24 plan items.
+Overall: 19 covered, 5 partial, 0 open across 24 plan items.
 Core scope: 17 covered, 2 partial, 0 open.
-Stretch scope: 1 covered, 3 partial, 1 open.
+Stretch scope: 2 covered, 3 partial, 0 open.
 
 ## Coverage Table
 
@@ -33,7 +33,7 @@ Stretch scope: 1 covered, 3 partial, 1 open.
 | partial | stretch | Stronger-plan extensions | Run a 1,000-scene benchmark and 200 partial-observability stress episodes. | `cross_play_pragmatics_workshop_plan.md`, `data/local_stronger_plan1200_scenes.jsonl`, `docs/local_stronger_plan_k8.md`, `results/local_stronger_plan_k8.json` | A no-API local diagnostic now runs the stronger 1,000 initial-family plus 200 partial-observability scale, but the paper-facing API listener runs remain bounded 50-scene diagnostics. |
 | partial | stretch | Stronger-plan extensions | Evaluate K=8 candidate generation in addition to K=4. | `docs/candidate_budget_audit.md`, `docs/local_stronger_plan_k8.md`, `results/local_stronger_plan_k8.json` | The local stronger-plan diagnostic evaluates K=8 candidate slots and shows added non-coordinate diversity; cached API speaker artifacts remain K=4. |
 | partial | stretch | Stronger-plan extensions | Run an actual interaction-memory prompt rerun after distilling rules from failures. | `docs/interaction_memory_rules.md`, `results/interaction_memory_rules.json` | A replay-only interaction-memory rule audit is present, but no new memory-prompt generation/evaluation run is claimed. |
-| open | stretch | Stronger-plan extensions | Validate failures with human or independent non-LLM judgments. | `REPRODUCE.md`, `paper/main.tex` | The paper explicitly notes that held-out listeners are API LLMs and broader human validation remains future work. |
+| covered | stretch | Stronger-plan extensions | Validate failures with human or independent non-LLM judgments. | `docs/rule_based_ambiguity_verifier.md`, `results/rule_based_ambiguity_verifier.json`, `paper/main.tex` | A cache-only rule-based verifier gives independent non-LLM support for the coded mirror-failure taxonomy; human validation remains a future extension. |
 | covered | stretch | Release engineering | Publish the artifact as a public repository or submission bundle. | `README.md`, `REPRODUCE.md` | The artifact package is in a git repository configured for the public GitHub release target. |
 
 ## Remaining Partial Or Open Items
@@ -45,4 +45,3 @@ Stretch scope: 1 covered, 3 partial, 1 open.
 | partial | stretch | Run a 1,000-scene benchmark and 200 partial-observability stress episodes. | A no-API local diagnostic now runs the stronger 1,000 initial-family plus 200 partial-observability scale, but the paper-facing API listener runs remain bounded 50-scene diagnostics. |
 | partial | stretch | Evaluate K=8 candidate generation in addition to K=4. | The local stronger-plan diagnostic evaluates K=8 candidate slots and shows added non-coordinate diversity; cached API speaker artifacts remain K=4. |
 | partial | stretch | Run an actual interaction-memory prompt rerun after distilling rules from failures. | A replay-only interaction-memory rule audit is present, but no new memory-prompt generation/evaluation run is claimed. |
-| open | stretch | Validate failures with human or independent non-LLM judgments. | The paper explicitly notes that held-out listeners are API LLMs and broader human validation remains future work. |

@@ -60,6 +60,7 @@ def build_report() -> dict[str, Any]:
         "listener_disagreement": listener_disagreement(),
         "listener_confidence": listener_confidence(),
         "failure_taxonomy": failure_taxonomy(),
+        "rule_based_ambiguity": rule_based_ambiguity(),
         "interaction_memory_rules": interaction_memory_rules(),
         "qualitative_examples": qualitative_examples(),
         "reviewer_checklist": reviewer_checklist(),
@@ -479,6 +480,20 @@ def failure_taxonomy() -> dict[str, Any] | None:
     }
 
 
+def rule_based_ambiguity() -> dict[str, Any] | None:
+    path = Path("results/rule_based_ambiguity_verifier.json")
+    if not path.exists():
+        return None
+    report = read_json(str(path))
+    return {
+        "source": str(path),
+        "markdown": "docs/rule_based_ambiguity_verifier.md",
+        "units": "results/rule_based_ambiguity_verifier_units.jsonl",
+        "combined": report["coded_taxonomy_alignment"]["combined"],
+        "key_findings": report["key_findings"],
+    }
+
+
 def interaction_memory_rules() -> dict[str, Any] | None:
     path = Path("results/interaction_memory_rules.json")
     if not path.exists():
@@ -697,6 +712,11 @@ def claim_map() -> list[dict[str, str]]:
             "anchor": "147 of 152 coded listener-level mirror failures are underspecified-distractor cases and 5 are perspective-frame errors",
         },
         {
+            "claim": "A rule-based non-LLM verifier recovers the coded mirror-failure taxonomy.",
+            "evidence": "docs/rule_based_ambiguity_verifier.md; results/rule_based_ambiguity_verifier.json; results/rule_based_ambiguity_verifier_units.jsonl",
+            "anchor": "combined coded failure set has symbolic ambiguity recall 1.000, attribute-under-specification recall 1.000, and frame-sensitive recall 1.000",
+        },
+        {
             "claim": "The coded failures induce a small interaction-memory rule set.",
             "evidence": "docs/interaction_memory_rules.md; results/interaction_memory_rules.json",
             "anchor": "152 coded failure rows collapse into disambiguate-shared-attributes and avoid-frame-sensitive-only rules; cached repairs satisfy the derived cue in 1.000 of failure scenes",
@@ -709,7 +729,7 @@ def claim_map() -> list[dict[str, str]]:
         {
             "claim": "The artifact package explicitly distinguishes completed core requirements from stretch gaps.",
             "evidence": "docs/plan_coverage_audit.md; results/plan_coverage_audit.json",
-            "anchor": "core scope has 17 covered, 2 partial, 0 open items; stretch scope has 1 covered, 3 partial, 1 open and keeps human validation open",
+            "anchor": "core scope has 17 covered, 2 partial, 0 open items; stretch scope has 2 covered, 3 partial, 0 open after adding independent non-LLM validation",
         },
         {
             "claim": "The released generator supports a benchmark-scale local sanity sweep.",
@@ -756,6 +776,7 @@ def core_files() -> list[tuple[str, str]]:
         ("Listener disagreement audit", "docs/listener_disagreement_audit.md"),
         ("Listener confidence audit", "docs/listener_confidence_audit.md"),
         ("Failure taxonomy audit", "docs/failure_taxonomy_audit.md"),
+        ("Rule-based ambiguity verifier", "docs/rule_based_ambiguity_verifier.md"),
         ("Interaction memory rules", "docs/interaction_memory_rules.md"),
         ("Qualitative failure examples", "docs/qualitative_failure_examples.md"),
         ("Reviewer checklist", "docs/reviewer_checklist.md"),
@@ -778,6 +799,7 @@ def core_files() -> list[tuple[str, str]]:
         ("Listener disagreement audit script", "scripts/analyze_listener_disagreement.py"),
         ("Listener confidence audit script", "scripts/analyze_listener_confidence_audit.py"),
         ("Failure taxonomy script", "scripts/analyze_failure_taxonomy.py"),
+        ("Rule-based ambiguity verifier script", "scripts/analyze_rule_based_ambiguity.py"),
         ("Interaction memory rule script", "scripts/analyze_interaction_memory_rules.py"),
         ("Qualitative examples script", "scripts/make_qualitative_examples.py"),
         ("Reviewer checklist script", "scripts/make_reviewer_checklist.py"),
@@ -1232,6 +1254,30 @@ def render_markdown(report: dict[str, Any]) -> str:
             ]
         )
 
+    if report["rule_based_ambiguity"]:
+        verifier = report["rule_based_ambiguity"]
+        combined = verifier["combined"]
+        findings = verifier["key_findings"]
+        lines.extend(
+            [
+                "",
+                "## Rule-Based Ambiguity Verifier",
+                "",
+                "This cache-only non-LLM verifier parses target attributes, row/column mentions, and perspective-sensitive left/right cues.",
+                "",
+                "| Coded rows | Under-spec recall | Frame recall | Symbolic recall | Under-spec precision | Source |",
+                "|---:|---:|---:|---:|---:|---|",
+                f"| {combined['n_rows']} | {fmt(combined['underspecified_recall'])} | {fmt(combined['frame_sensitive_recall'])} | {fmt(combined['symbolic_recall'])} | {fmt(combined['underspecified_precision'])} | `{verifier['source']}` |",
+                "",
+                "| Check | Rate |",
+                "|---|---:|",
+                f"| perspective mirror failure scenes flagged | {fmt(findings['perspective_mirror_failure_symbolic_rate'])} |",
+                f"| perspective population messages flagged | {fmt(findings['perspective_population_symbolic_rate'])} |",
+                f"| partial-observability mirror failure scenes flagged | {fmt(findings['partial_mirror_failure_symbolic_rate'])} |",
+                f"| partial-observability population messages flagged | {fmt(findings['partial_population_symbolic_rate'])} |",
+            ]
+        )
+
     if report["interaction_memory_rules"]:
         memory = report["interaction_memory_rules"]
         combined = memory["combined"]
@@ -1427,6 +1473,11 @@ def render_markdown(report: dict[str, Any]) -> str:
             "  --markdown-out docs/failure_taxonomy_audit.md \\",
             "  --json-out results/failure_taxonomy_audit.json \\",
             "  --tex-out paper/tables/failure_taxonomy_combined.tex",
+            "",
+            "conda run -n cross_play python scripts/analyze_rule_based_ambiguity.py \\",
+            "  --markdown-out docs/rule_based_ambiguity_verifier.md \\",
+            "  --json-out results/rule_based_ambiguity_verifier.json \\",
+            "  --units-out results/rule_based_ambiguity_verifier_units.jsonl",
             "",
             "conda run -n cross_play python scripts/analyze_interaction_memory_rules.py \\",
             "  --markdown-out docs/interaction_memory_rules.md \\",

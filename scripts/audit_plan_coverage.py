@@ -425,9 +425,19 @@ def plan_items() -> list[PlanItem]:
             "Stronger-plan extensions",
             "stretch",
             "Validate failures with human or independent non-LLM judgments.",
-            ["REPRODUCE.md", "paper/main.tex"],
-            lambda: (
-                "open",
+            [
+                "docs/rule_based_ambiguity_verifier.md",
+                "results/rule_based_ambiguity_verifier.json",
+                "paper/main.tex",
+            ],
+            lambda: covered_if(
+                ctx.json("results/rule_based_ambiguity_verifier.json")
+                .get("coded_taxonomy_alignment", {})
+                .get("combined", {})
+                .get("symbolic_recall")
+                == 1.0
+                and ctx.contains_paper("rule-based ambiguity verifier"),
+                "A cache-only rule-based verifier gives independent non-LLM support for the coded mirror-failure taxonomy; human validation remains a future extension.",
                 "The paper explicitly notes that held-out listeners are API LLMs and broader human validation remains future work.",
             ),
         ),

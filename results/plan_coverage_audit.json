@@ -269,15 +269,16 @@
       "status": "partial"
     },
     {
-      "detail": "The paper explicitly notes that held-out listeners are API LLMs and broader human validation remains future work.",
+      "detail": "A cache-only rule-based verifier gives independent non-LLM support for the coded mirror-failure taxonomy; human validation remains a future extension.",
       "evidence": [
-        "REPRODUCE.md",
+        "docs/rule_based_ambiguity_verifier.md",
+        "results/rule_based_ambiguity_verifier.json",
         "paper/main.tex"
       ],
       "plan_item": "Validate failures with human or independent non-LLM judgments.",
       "scope": "stretch",
       "section": "Stronger-plan extensions",
-      "status": "open"
+      "status": "covered"
     },
     {
       "detail": "The artifact package is in a git repository configured for the public GitHub release target.",
@@ -352,23 +353,12 @@
       "scope": "stretch",
       "section": "Stronger-plan extensions",
       "status": "partial"
-    },
-    {
-      "detail": "The paper explicitly notes that held-out listeners are API LLMs and broader human validation remains future work.",
-      "evidence": [
-        "REPRODUCE.md",
-        "paper/main.tex"
-      ],
-      "plan_item": "Validate failures with human or independent non-LLM judgments.",
-      "scope": "stretch",
-      "section": "Stronger-plan extensions",
-      "status": "open"
     }
   ],
   "source_plan": "cross_play_pragmatics_workshop_plan.md",
   "status_counts": {
-    "covered": 18,
-    "open": 1,
+    "covered": 19,
+    "open": 0,
     "partial": 5
   },
   "status_definitions": {
@@ -377,8 +367,8 @@
     "partial": "Current artifacts address the item only at smaller scale, narrower scope, or as diagnostic support."
   },
   "stretch_status_counts": {
-    "covered": 1,
-    "open": 1,
+    "covered": 2,
+    "open": 0,
     "partial": 3
   }
 }
