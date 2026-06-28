@@ -49,6 +49,7 @@ def build_report() -> dict[str, Any]:
         "cross_model_listener": cross_model_listener(),
         "cross_model_failure_overlap": cross_model_failure_overlap(),
         "gpt55_speaker_smoke": gpt55_speaker_smoke(),
+        "gpt55_no_coord_k8": gpt55_no_coord_k8(),
         "gpt55_followup_plan_status": gpt55_followup_plan_status(),
         "human_validation_packet": human_validation_packet(),
         "no_coord_results": no_coord_results(),
@@ -250,6 +251,22 @@ def gpt55_speaker_smoke() -> dict[str, Any] | None:
         "uncached_speaker_calls": gpt55["speaker_usage"]["uncached_speaker_calls"],
         "speaker_total_tokens": gpt55["speaker_usage"]["total_tokens"],
         "progress_extension": progress_payload,
+    }
+
+
+def gpt55_no_coord_k8() -> dict[str, Any] | None:
+    path = Path("results/gpt55_no_coord_k8_comparison.json")
+    if not path.exists():
+        return None
+    report = read_json(str(path))
+    return {
+        "source": str(path),
+        "markdown": "docs/gpt55_no_coord_k8_report.md",
+        "script": "scripts/analyze_gpt55_no_coord_k8.py",
+        "conditions": report["conditions"],
+        "method_deltas": report["method_deltas"],
+        "key_observations": report["key_observations"],
+        "claim_boundary": report["claim_boundary"],
     }
 
 
@@ -751,7 +768,12 @@ def claim_map() -> list[dict[str, str]]:
         {
             "claim": "The GPT-5.5 follow-up evidence is explicitly bounded by covered, partial, and future rows.",
             "evidence": "docs/gpt55_followup_plan_status.md; results/gpt55_followup_plan_status.json",
-            "anchor": "follow-up plan status is 4 covered, 2 partial, and 0 future, with no missing evidence paths",
+            "anchor": "follow-up plan status is 5 covered, 1 partial, and 0 future, with no missing evidence paths",
+        },
+        {
+            "claim": "The API K=8 no-coordinate run shows robust non-coordinate expressions are available, while selector design remains the bottleneck.",
+            "evidence": "docs/gpt55_no_coord_k8_report.md; results/gpt55_no_coord_k8_comparison.json; results/gpt55_no_coord_k8_perspective50_no_coord_summary.json",
+            "anchor": "K=8 keeps 400 non-coordinate candidates, excludes 0 exact-coordinate candidates, reaches oracle 1.000 and population-play 0.993, while consensus+info drops to 0.900",
         },
         {
             "claim": "The human-validation extension is protocol-ready but has no collected human labels yet.",
@@ -841,7 +863,7 @@ def claim_map() -> list[dict[str, str]]:
         {
             "claim": "The artifact package explicitly distinguishes completed core requirements from stretch gaps.",
             "evidence": "docs/plan_coverage_audit.md; results/plan_coverage_audit.json",
-            "anchor": "core scope has 17 covered, 2 partial, 0 open items; stretch scope has 2 covered, 3 partial, 0 open after adding independent non-LLM validation",
+            "anchor": "core scope has 17 covered, 2 partial, 0 open items; stretch scope has 3 covered, 2 partial, 0 open after adding the API K=8 no-coordinate audit",
         },
         {
             "claim": "The released generator supports a benchmark-scale local sanity sweep.",
@@ -856,12 +878,12 @@ def claim_map() -> list[dict[str, str]]:
         {
             "claim": "The cached benchmark artifacts are internally consistent.",
             "evidence": "results/benchmark_integrity_audit.md",
-            "anchor": "242/242 integrity checks pass",
+            "anchor": "290/290 integrity checks pass",
         },
         {
             "claim": "API usage is bounded and cache-replayable.",
             "evidence": "docs/api_token_accounting.md; results/api_token_accounting.json",
-            "anchor": "5866 cached responses have complete usage metadata totaling 1680454 tokens",
+            "anchor": "7113 cached responses have complete usage metadata totaling 2052279 tokens",
         },
     ]
 
@@ -883,6 +905,11 @@ def core_files() -> list[tuple[str, str]]:
         ("GPT-5.5 speaker 50-scene records", "results/gpt55_speaker_perspective50_records.jsonl"),
         ("GPT-5.5 speaker 50-scene candidates", "results/gpt55_speaker_perspective50_candidates.jsonl"),
         ("GPT-5.5 speaker 50-scene candidate eval", "results/gpt55_speaker_perspective50_candidate_eval_records.jsonl"),
+        ("GPT-5.5 K=8 no-coordinate report", "docs/gpt55_no_coord_k8_report.md"),
+        ("GPT-5.5 K=8 no-coordinate comparison", "results/gpt55_no_coord_k8_comparison.json"),
+        ("GPT-5.5 K=8 no-coordinate candidates", "results/gpt55_no_coord_k8_perspective50_candidates.jsonl"),
+        ("GPT-5.5 K=8 no-coordinate candidate eval", "results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl"),
+        ("GPT-5.5 K=8 no-coordinate summary", "results/gpt55_no_coord_k8_perspective50_no_coord_summary.json"),
         ("GPT-5.5 follow-up plan status", "docs/gpt55_followup_plan_status.md"),
         ("Human validation packet", "docs/human_validation_packet.md"),
         ("Human validation participant items", "data/human_validation_items.jsonl"),
@@ -913,6 +940,7 @@ def core_files() -> list[tuple[str, str]]:
         ("Cross-model listener audit script", "scripts/analyze_cross_model_listener_audit.py"),
         ("Cross-model failure overlap script", "scripts/analyze_cross_model_failure_overlap.py"),
         ("GPT-5.5 speaker smoke script", "scripts/analyze_gpt55_speaker_smoke.py"),
+        ("GPT-5.5 K=8 no-coordinate script", "scripts/analyze_gpt55_no_coord_k8.py"),
         ("GPT-5.5 follow-up status script", "scripts/audit_gpt55_followup_plan.py"),
         ("Human validation packet script", "scripts/make_human_validation_packet.py"),
         ("Local benchmark analysis script", "scripts/analyze_local_benchmark.py"),
@@ -1154,6 +1182,49 @@ def render_markdown(report: dict[str, Any]) -> str:
                     "This extension is the current paper-facing speaker-generation evidence when it covers all 50 perspective-stress scenes.",
                 ]
             )
+
+    if report["gpt55_no_coord_k8"]:
+        k8 = report["gpt55_no_coord_k8"]
+        obs = k8["key_observations"]
+        lines.extend(
+            [
+                "",
+                "## GPT-5.5 K=8 No-Coordinate Audit",
+                "",
+                "This Experiment 4 audit compares a K=4 filtered baseline against a dedicated GPT-5.5 K=8 speaker prompt that forbids exact row/column references.",
+                f"K=4 keeps {obs['k4_kept_candidates']} non-coordinate candidates and excludes {obs['k4_excluded_candidates']}; K=8 keeps {obs['k8_kept_candidates']} non-coordinate candidates and excludes {obs['k8_excluded_candidates']}.",
+                f"The K=8 prompt produces {obs['k8_coordinate_violations']} exact-coordinate candidates across 50 perspective-stress scenes.",
+                f"K=8 population-play improves from {fmt(obs['k4_population'])} to {fmt(obs['k8_population'])}, while oracle remains {fmt(obs['k8_oracle'])} and shortest reaches {fmt(obs['k8_shortest'])}.",
+                f"Consensus+info is not monotonic: it falls from {fmt(obs['k4_consensus_info'])} to {fmt(obs['k8_consensus_info'])}, so the paper should not claim it is the best GPT-5.5 K=8 no-coordinate selector.",
+                "",
+                "| Method | K=4 filtered | K=8 no-coordinate | Delta | Source |",
+                "|---|---:|---:|---:|---|",
+            ]
+        )
+        for row in k8["method_deltas"]:
+            lines.append(
+                f"| {row['label']} | {fmt(row['k4_success'])} | {fmt(row['k8_success'])} | {fmt(row['delta'])} | `{k8['source']}` |"
+            )
+        lines.extend(
+            [
+                "",
+                "Candidate budget:",
+                "",
+                "| Condition | K | Candidates/scene | Robust candidates/scene | Robust-scene rate | Oracle |",
+                "|---|---:|---:|---:|---:|---:|",
+            ]
+        )
+        for condition in k8["conditions"]:
+            for row in condition["candidate_budget"]:
+                lines.append(
+                    f"| {condition['label']} | {row['k']} | {fmt(row['mean_candidates'])} | {fmt(row['mean_robust_candidates'])} | {fmt(row['robust_scene_rate'])} | {fmt(row['oracle_success'])} |"
+                )
+        lines.extend(
+            [
+                "",
+                "Claim boundary: " + " ".join(k8["claim_boundary"]),
+            ]
+        )
 
     if report["gpt55_followup_plan_status"]:
         status = report["gpt55_followup_plan_status"]

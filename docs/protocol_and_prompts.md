@@ -18,7 +18,7 @@ descriptions do not drift from the code.
 |---|---|---:|
 | `gpt-4.1-nano` | `gpt-4.1-nano-2025-04-14` | 1236 |
 | `gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770 |
-| `gpt-5.5` | `gpt-5.5-2026-04-23` | 976 |
+| `gpt-5.5` | `gpt-5.5-2026-04-23` | 3107 |
 
 ## Task Protocol
 
@@ -177,6 +177,93 @@ Each message should be at most 25 words.
 Return exactly this JSON shape: {"utterances": ["...", "..."]}
 ```
 
+## No-Coordinate Speaker Prompt
+
+This K=8 prompt mode is used by the GPT-5.5 Experiment 4 no-coordinate candidate-generation audit. It forbids exact row/column references and asks for diverse listener-visible alternatives.
+
+### System
+
+```text
+You are the SPEAKER in a situated reference game. Write short natural-language messages that help a listener identify the target object. Use only listener-visible information, never mention the hidden target ID, and never use exact row or column coordinates. Return valid JSON only.
+```
+
+### User
+
+```text
+Scene:
+{
+  "listener_orientation": "east",
+  "listener_view_text": "Scene ps_000005. You face east.\nRows increase from top to bottom; columns increase from left to right.\nCandidate objects:\n- obj_1: small green sphere at row 4, column 1\n- obj_5: large red cube at row 2, column 3\n- obj_4: large purple cylinder at row 5, column 5\n- obj_2: small green sphere at row 1, column 4\n- obj_3: large red cylinder at row 4, column 2",
+  "objects": [
+    {
+      "color": "green",
+      "column": 1,
+      "id": "obj_1",
+      "row": 4,
+      "shape": "sphere",
+      "size": "small",
+      "visible_to_listener": true
+    },
+    {
+      "color": "red",
+      "column": 3,
+      "id": "obj_5",
+      "row": 2,
+      "shape": "cube",
+      "size": "large",
+      "visible_to_listener": true
+    },
+    {
+      "color": "purple",
+      "column": 5,
+      "id": "obj_4",
+      "row": 5,
+      "shape": "cylinder",
+      "size": "large",
+      "visible_to_listener": true
+    },
+    {
+      "color": "green",
+      "column": 4,
+      "id": "obj_2",
+      "row": 1,
+      "shape": "sphere",
+      "size": "small",
+      "visible_to_listener": true
+    },
+    {
+      "color": "red",
+      "column": 2,
+      "id": "obj_3",
+      "row": 4,
+      "shape": "cylinder",
+      "size": "large",
+      "visible_to_listener": true
+    }
+  ],
+  "scenario_type": "perspective_shift",
+  "scene_id": "ps_000005",
+  "speaker_orientation": "north",
+  "speaker_view_text": "Scene ps_000005 (perspective_shift).\nYou face north; the listener faces east.\nRows increase from top to bottom; columns increase from left to right.\nVisible objects:\n- obj_1: small green sphere at row 4, column 1\n- obj_5: large red cube at row 2, column 3\n- obj_4: large purple cylinder at row 5, column 5\n- obj_2: small green sphere at row 1, column 4\n- obj_3: large red cylinder at row 4, column 2"
+}
+
+Target object ID visible only to you: obj_1
+Target object non-coordinate attributes visible to you: {"color": "green", "shape": "sphere", "size": "small"}
+
+Generate exactly 8 different non-coordinate messages. Do not write phrases like "row 4", "column 1", "fourth row", or "first column". Do not mention object IDs.
+Use diverse strategies in this order when possible:
+1. A contrastive attribute description.
+2. A landmark-relative description using listener-visible objects.
+3. An ordinal description such as topmost, bottommost, leftmost, or rightmost.
+4. A negative contrast such as not the one near another object.
+5. A listener-frame-safe spatial description.
+6. A concise fallback without coordinates.
+7. A second relational description with a different landmark.
+8. A second contrastive or ordinal description.
+Each message should be at most 25 words.
+Return exactly this JSON shape: {"utterances": ["...", "..."]}
+```
+
 ## Held-Out Listener Prompts
 
 ### `heldout_direct_last` System
@@ -316,7 +403,7 @@ Return exactly this JSON shape: {"choice_id": "obj_...", "confidence": 0.0, "rea
 
 ## Paper-Facing Integrity Checks
 
-The current benchmark integrity report passes 242/242 checks.
+The current benchmark integrity report passes 290/290 checks.
 It verifies source-scoped scene coverage, target IDs, listener choice IDs,
 success flags, generated-message object-ID leakage, candidate selection
 membership, local selector choice IDs, speaker cache paths, cache JSON

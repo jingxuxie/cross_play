@@ -58,6 +58,17 @@ def main() -> None:
     parser.add_argument("--k", type=int, default=4)
     parser.add_argument("--model", default="gpt-5.4-nano")
     parser.add_argument(
+        "--speaker-prompt",
+        choices=["standard", "no_coordinates"],
+        default="standard",
+    )
+    parser.add_argument(
+        "--speaker-max-output-tokens",
+        type=int,
+        default=None,
+        help="Override speaker response cap; defaults to 220 for K<=4 and 700 otherwise.",
+    )
+    parser.add_argument(
         "--temperature",
         type=parse_temperature,
         default=0.0,
@@ -97,13 +108,23 @@ def main() -> None:
     records: list[dict[str, Any]] = []
     all_candidate_records: list[dict[str, Any]] = []
     candidate_rows: list[dict[str, Any]] = []
+    speaker_max_output_tokens = (
+        args.speaker_max_output_tokens
+        if args.speaker_max_output_tokens is not None
+        else (220 if args.k <= 4 else 700)
+    )
+    speaker_schema_version = (
+        "speaker-v2-target-attrs"
+        if args.speaker_prompt == "standard"
+        else f"speaker-{args.speaker_prompt}-v1-target-attrs"
+    )
     for scene_index, scene in enumerate(scenes, start=1):
-        system, user = speaker_prompt(scene, args.k)
+        system, user = speaker_prompt(scene, args.k, mode=args.speaker_prompt)
         payload, speaker_result = client.call_json(
             system,
             user,
-            max_output_tokens=220,
-            schema_version="speaker-v2-target-attrs",
+            max_output_tokens=speaker_max_output_tokens,
+            schema_version=speaker_schema_version,
         )
         candidates = [str(x).strip() for x in payload.get("utterances", []) if str(x).strip()]
         candidates = candidates[: args.k] or [template_message(scene)]
@@ -144,6 +165,8 @@ def main() -> None:
                 "target_id": scene.target_id,
                 "target": scene.target().__dict__,
                 "candidates": candidates,
+                "speaker_prompt": args.speaker_prompt,
+                "speaker_schema_version": speaker_schema_version,
                 "speaker_raw": speaker_result.text,
                 "speaker_cached": speaker_result.cached,
                 "speaker_usage": speaker_result.usage,

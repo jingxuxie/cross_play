@@ -1,0 +1,381 @@
+{
+  "claim_boundary": [
+    "Safe: GPT-5.5 can generate robust non-coordinate referring expressions on all 50 perspective-stress scenes.",
+    "Safe: increasing to K=8 improves population and mirror selection, but the heuristic consensus+info selector is not monotonic.",
+    "Do not claim: consensus+info is the best no-coordinate selector for GPT-5.5 K=8; shortest and population are stronger in this run."
+  ],
+  "conditions": [
+    {
+      "candidate_budget": [
+        {
+          "k": 1,
+          "mean_candidates": 1,
+          "mean_robust_candidates": 0.98,
+          "oracle_success": 0.9933333333333333,
+          "robust_scene_rate": 0.98
+        },
+        {
+          "k": 2,
+          "mean_candidates": 2,
+          "mean_robust_candidates": 1.54,
+          "oracle_success": 1.0,
+          "robust_scene_rate": 1.0
+        },
+        {
+          "k": 4,
+          "mean_candidates": 2.96,
+          "mean_robust_candidates": 2.5,
+          "oracle_success": 1.0,
+          "robust_scene_rate": 1.0
+        }
+      ],
+      "candidate_filter": {
+        "excluded_candidates": 52,
+        "kept_candidates": 148,
+        "name": "no_exact_coordinates",
+        "skipped_scenes": 0,
+        "total_candidates": 200,
+        "total_scenes": 50
+      },
+      "candidate_records_path": "results/gpt55_speaker_perspective50_candidate_eval_records.jsonl",
+      "candidates_path": "results/gpt55_speaker_perspective50_candidates.jsonl",
+      "coordinate_audit": {
+        "candidate_count_histogram": {
+          "4": 50
+        },
+        "coordinate_violation_by_index": {
+          "2": 2,
+          "3": 50
+        },
+        "coordinate_violation_count": 52,
+        "examples": [
+          {
+            "candidate_index": 3,
+            "message": "Pick the small green sphere at row 4, column 1.",
+            "scene_id": "ps_000005"
+          },
+          {
+            "candidate_index": 3,
+            "message": "Pick the small blue sphere at row 4, column 1.",
+            "scene_id": "ps_000023"
+          },
+          {
+            "candidate_index": 3,
+            "message": "Small green sphere at row 4, column 1.",
+            "scene_id": "ps_000031"
+          },
+          {
+            "candidate_index": 3,
+            "message": "The small blue cube at row 4, column 1.",
+            "scene_id": "ps_000022"
+          },
+          {
+            "candidate_index": 3,
+            "message": "The large red sphere at row 4, column 1.",
+            "scene_id": "ps_000027"
+          }
+        ],
+        "n_scenes": 50
+      },
+      "label": "gpt55_k4_filtered",
+      "method_rows": [
+        {
+          "crossplay_gap": null,
+          "label": "Direct first",
+          "mean_tokens": 12.84,
+          "method": "no_coord_direct_first",
+          "sameplay_success": null,
+          "success": 0.9933333333333333,
+          "success_ci95": [
+            0.98,
+            1.0
+          ]
+        },
+        {
+          "crossplay_gap": null,
+          "label": "Shortest",
+          "mean_tokens": 7.08,
+          "method": "no_coord_best_of_k_shortest",
+          "sameplay_success": null,
+          "success": 0.7866666666666666,
+          "success_ci95": [
+            0.7133333333333334,
+            0.8533333333333334
+          ]
+        },
+        {
+          "crossplay_gap": 0.1333333333333333,
+          "label": "Mirror",
+          "mean_tokens": 8.68,
+          "method": "no_coord_mirror",
+          "sameplay_success": 0.98,
+          "success": 0.8466666666666667,
+          "success_ci95": [
+            0.7733333333333333,
+            0.9133333333333333
+          ]
+        },
+        {
+          "crossplay_gap": -0.2600000000000001,
+          "label": "Population",
+          "mean_tokens": 8.52,
+          "method": "no_coord_population",
+          "sameplay_success": 0.5733333333333333,
+          "success": 0.8333333333333334,
+          "success_ci95": [
+            0.76,
+            0.9066666666666666
+          ]
+        },
+        {
+          "crossplay_gap": null,
+          "label": "Consensus+info",
+          "mean_tokens": 12.4,
+          "method": "no_coord_consensus_info",
+          "sameplay_success": null,
+          "success": 0.9933333333333333,
+          "success_ci95": [
+            0.98,
+            1.0
+          ]
+        },
+        {
+          "crossplay_gap": null,
+          "label": "Info prior",
+          "mean_tokens": 12.4,
+          "method": "no_coord_informative",
+          "sameplay_success": null,
+          "success": 0.9933333333333333,
+          "success_ci95": [
+            0.98,
+            1.0
+          ]
+        },
+        {
+          "crossplay_gap": null,
+          "label": "Oracle",
+          "mean_tokens": 9.42,
+          "method": "no_coord_oracle",
+          "sameplay_success": null,
+          "success": 1.0,
+          "success_ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "n_scenes": 50,
+      "prefix_k": 4,
+      "summary_path": "results/gpt55_speaker_perspective50_no_coord_summary.json"
+    },
+    {
+      "candidate_budget": [
+        {
+          "k": 1,
+          "mean_candidates": 1,
+          "mean_robust_candidates": 0.96,
+          "oracle_success": 0.9733333333333334,
+          "robust_scene_rate": 0.96
+        },
+        {
+          "k": 2,
+          "mean_candidates": 2,
+          "mean_robust_candidates": 1.96,
+          "oracle_success": 1.0,
+          "robust_scene_rate": 1.0
+        },
+        {
+          "k": 4,
+          "mean_candidates": 4,
+          "mean_robust_candidates": 3.78,
+          "oracle_success": 1.0,
+          "robust_scene_rate": 1.0
+        },
+        {
+          "k": 8,
+          "mean_candidates": 8,
+          "mean_robust_candidates": 7.42,
+          "oracle_success": 1.0,
+          "robust_scene_rate": 1.0
+        }
+      ],
+      "candidate_filter": {
+        "excluded_candidates": 0,
+        "kept_candidates": 400,
+        "name": "no_exact_coordinates",
+        "skipped_scenes": 0,
+        "total_candidates": 400,
+        "total_scenes": 50
+      },
+      "candidate_records_path": "results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl",
+      "candidates_path": "results/gpt55_no_coord_k8_perspective50_candidates.jsonl",
+      "coordinate_audit": {
+        "candidate_count_histogram": {
+          "8": 50
+        },
+        "coordinate_violation_by_index": {},
+        "coordinate_violation_count": 0,
+        "examples": [],
+        "n_scenes": 50
+      },
+      "label": "gpt55_k8_no_coordinate_prompt",
+      "method_rows": [
+        {
+          "crossplay_gap": null,
+          "label": "Direct first",
+          "mean_tokens": 11.74,
+          "method": "no_coord_direct_first",
+          "sameplay_success": null,
+          "success": 0.9733333333333334,
+          "success_ci95": [
+            0.9266666666666666,
+            1.0
+          ]
+        },
+        {
+          "crossplay_gap": null,
+          "label": "Shortest",
+          "mean_tokens": 4.62,
+          "method": "no_coord_best_of_k_shortest",
+          "sameplay_success": null,
+          "success": 1.0,
+          "success_ci95": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "crossplay_gap": 0.046666666666666634,
+          "label": "Mirror",
+          "mean_tokens": 4.98,
+          "method": "no_coord_mirror",
+          "sameplay_success": 1.0,
+          "success": 0.9533333333333334,
+          "success_ci95": [
+            0.9066666666666666,
+            0.9866666666666667
+          ]
+        },
+        {
+          "crossplay_gap": -0.43333333333333335,
+          "label": "Population",
+          "mean_tokens": 6.5,
+          "method": "no_coord_population",
+          "sameplay_success": 0.5599999999999999,
+          "success": 0.9933333333333333,
+          "success_ci95": [
+            0.9733333333333334,
+            1.0
+          ]
+        },
+        {
+          "crossplay_gap": null,
+          "label": "Consensus+info",
+          "mean_tokens": 12.86,
+          "method": "no_coord_consensus_info",
+          "sameplay_success": null,
+          "success": 0.9,
+          "success_ci95": [
+            0.82,
+            0.9666666666666667
+          ]
+        },
+        {
+          "crossplay_gap": null,
+          "label": "Info prior",
+          "mean_tokens": 12.86,
+          "method": "no_coord_informative",
+          "sameplay_success": null,
+          "success": 0.9,
+          "success_ci95": [
+            0.82,
+            0.9666666666666667
+          ]
+        },
+        {
+          "crossplay_gap": null,
+          "label": "Oracle",
+          "mean_tokens": 4.62,
+          "method": "no_coord_oracle",
+          "sameplay_success": null,
+          "success": 1.0,
+          "success_ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "n_scenes": 50,
+      "prefix_k": 8,
+      "summary_path": "results/gpt55_no_coord_k8_perspective50_no_coord_summary.json"
+    }
+  ],
+  "description": "GPT-5.5 no-coordinate candidate generation comparison for Experiment 4. K=4 filters the standard GPT-5.5 speaker candidates; K=8 uses the dedicated no-coordinate prompt and GPT-5.5 held-out listeners.",
+  "key_observations": {
+    "k4_consensus_info": 0.9933333333333333,
+    "k4_coordinate_violations": 52,
+    "k4_excluded_candidates": 52,
+    "k4_kept_candidates": 148,
+    "k4_oracle": 1.0,
+    "k4_population": 0.8333333333333334,
+    "k8_consensus_info": 0.9,
+    "k8_coordinate_violations": 0,
+    "k8_direct_first": 0.9733333333333334,
+    "k8_excluded_candidates": 0,
+    "k8_kept_candidates": 400,
+    "k8_oracle": 1.0,
+    "k8_population": 0.9933333333333333,
+    "k8_shortest": 1.0
+  },
+  "method_deltas": [
+    {
+      "delta": -0.019999999999999907,
+      "k4_success": 0.9933333333333333,
+      "k8_success": 0.9733333333333334,
+      "label": "Direct first",
+      "method": "no_coord_direct_first"
+    },
+    {
+      "delta": 0.21333333333333337,
+      "k4_success": 0.7866666666666666,
+      "k8_success": 1.0,
+      "label": "Shortest",
+      "method": "no_coord_best_of_k_shortest"
+    },
+    {
+      "delta": 0.10666666666666669,
+      "k4_success": 0.8466666666666667,
+      "k8_success": 0.9533333333333334,
+      "label": "Mirror",
+      "method": "no_coord_mirror"
+    },
+    {
+      "delta": 0.15999999999999992,
+      "k4_success": 0.8333333333333334,
+      "k8_success": 0.9933333333333333,
+      "label": "Population",
+      "method": "no_coord_population"
+    },
+    {
+      "delta": -0.09333333333333327,
+      "k4_success": 0.9933333333333333,
+      "k8_success": 0.9,
+      "label": "Consensus+info",
+      "method": "no_coord_consensus_info"
+    },
+    {
+      "delta": -0.09333333333333327,
+      "k4_success": 0.9933333333333333,
+      "k8_success": 0.9,
+      "label": "Info prior",
+      "method": "no_coord_informative"
+    },
+    {
+      "delta": 0.0,
+      "k4_success": 1.0,
+      "k8_success": 1.0,
+      "label": "Oracle",
+      "method": "no_coord_oracle"
+    }
+  ]
+}

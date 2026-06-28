@@ -54,16 +54,23 @@ GROUPS = [
             "results/gpt55_speaker_perspective20_candidate_eval_records.jsonl",
             "results/gpt55_speaker_perspective50_records.jsonl",
             "results/gpt55_speaker_perspective50_candidate_eval_records.jsonl",
+            "results/gpt55_speaker_perspective50_no_coord_records.jsonl",
+            "results/gpt55_no_coord_k8_perspective50_records.jsonl",
+            "results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl",
+            "results/gpt55_no_coord_k8_perspective50_no_coord_records.jsonl",
         ],
         "candidate_files": [
             "results/perspective_stress50_hybrid_candidates.jsonl",
             "results/gpt55_speaker_perspective20_candidates.jsonl",
             "results/gpt55_speaker_perspective50_candidates.jsonl",
+            "results/gpt55_no_coord_k8_perspective50_candidates.jsonl",
         ],
         "audit_files": [
             "results/perspective_stress50_gpt41nano_audit.jsonl",
             "results/gpt55_perspective_selected_audit.jsonl",
             "results/perspective_stress50_gpt41nano_no_coord_audit.jsonl",
+            "results/gpt55_speaker_perspective50_no_coord_audit.jsonl",
+            "results/gpt55_no_coord_k8_perspective50_no_coord_audit.jsonl",
         ],
     },
     {

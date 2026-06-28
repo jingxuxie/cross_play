@@ -60,6 +60,7 @@ def main() -> None:
     check_cross_model_listener_audit(checks)
     check_cross_model_failure_overlap(checks)
     check_gpt55_speaker_smoke(checks)
+    check_gpt55_no_coord_k8(checks)
     check_gpt55_followup_plan_status(checks)
     check_human_validation_packet(checks)
     check_api_listener_leave_one_out(checks)
@@ -413,7 +414,7 @@ def check_integrity_audit(checks: list[dict[str, Any]]) -> None:
         checks,
         "integrity_audit.n_checks",
         report.get("n_checks", -1),
-        242,
+        290,
         decimals=0,
         source=path,
     )
@@ -463,12 +464,12 @@ def check_api_token_accounting(checks: list[dict[str, Any]]) -> None:
     path = "results/api_token_accounting.json"
     report = json.loads(Path(path).read_text(encoding="utf-8"))
     totals = report["totals"]
-    add_numeric_check(checks, "api_token_accounting.n_cache_files", report["n_cache_files"], 5866, decimals=0, source=path)
-    add_numeric_check(checks, "api_token_accounting.n_readable", report["n_readable"], 5866, decimals=0, source=path)
+    add_numeric_check(checks, "api_token_accounting.n_cache_files", report["n_cache_files"], 7113, decimals=0, source=path)
+    add_numeric_check(checks, "api_token_accounting.n_readable", report["n_readable"], 7113, decimals=0, source=path)
     add_numeric_check(checks, "api_token_accounting.n_missing_usage", report["n_missing_usage"], 0, decimals=0, source=path)
-    add_numeric_check(checks, "api_token_accounting.input_tokens", totals["input_tokens"], 1535340, decimals=0, source=path)
-    add_numeric_check(checks, "api_token_accounting.output_tokens", totals["output_tokens"], 145114, decimals=0, source=path)
-    add_numeric_check(checks, "api_token_accounting.total_tokens", totals["total_tokens"], 1680454, decimals=0, source=path)
+    add_numeric_check(checks, "api_token_accounting.input_tokens", totals["input_tokens"], 1874818, decimals=0, source=path)
+    add_numeric_check(checks, "api_token_accounting.output_tokens", totals["output_tokens"], 177461, decimals=0, source=path)
+    add_numeric_check(checks, "api_token_accounting.total_tokens", totals["total_tokens"], 2052279, decimals=0, source=path)
 
     by_model = {
         (row["requested_model"], row["response_model"]): row
@@ -484,8 +485,8 @@ def check_api_token_accounting(checks: list[dict[str, Any]]) -> None:
             "total_tokens": 820710,
         },
         ("gpt-5.5", "gpt-5.5-2026-04-23"): {
-            "responses": 1860,
-            "total_tokens": 527487,
+            "responses": 3107,
+            "total_tokens": 899312,
         },
     }
     for key, values in expected_models.items():
@@ -1029,13 +1030,149 @@ def check_gpt55_speaker_smoke(checks: list[dict[str, Any]]) -> None:
         )
 
 
+def check_gpt55_no_coord_k8(checks: list[dict[str, Any]]) -> None:
+    path = "results/gpt55_no_coord_k8_comparison.json"
+    report = json.loads(Path(path).read_text(encoding="utf-8"))
+    obs = report["key_observations"]
+    expected_obs = {
+        "k4_kept_candidates": 148,
+        "k4_excluded_candidates": 52,
+        "k4_coordinate_violations": 52,
+        "k4_oracle": 1.000,
+        "k4_population": 0.833,
+        "k4_consensus_info": 0.993,
+        "k8_kept_candidates": 400,
+        "k8_excluded_candidates": 0,
+        "k8_coordinate_violations": 0,
+        "k8_direct_first": 0.973,
+        "k8_shortest": 1.000,
+        "k8_population": 0.993,
+        "k8_consensus_info": 0.900,
+        "k8_oracle": 1.000,
+    }
+    integer_keys = {
+        "k4_kept_candidates",
+        "k4_excluded_candidates",
+        "k4_coordinate_violations",
+        "k8_kept_candidates",
+        "k8_excluded_candidates",
+        "k8_coordinate_violations",
+    }
+    for key, expected in expected_obs.items():
+        add_numeric_check(
+            checks,
+            f"gpt55_no_coord_k8.{key}",
+            obs[key],
+            expected,
+            decimals=0 if key in integer_keys else 3,
+            source=path,
+        )
+
+    conditions = {row["label"]: row for row in report["conditions"]}
+    k8 = conditions["gpt55_k8_no_coordinate_prompt"]
+    add_numeric_check(
+        checks,
+        "gpt55_no_coord_k8.k8_filter.kept",
+        k8["candidate_filter"]["kept_candidates"],
+        400,
+        decimals=0,
+        source=path,
+    )
+    add_numeric_check(
+        checks,
+        "gpt55_no_coord_k8.k8_filter.excluded",
+        k8["candidate_filter"]["excluded_candidates"],
+        0,
+        decimals=0,
+        source=path,
+    )
+    add_numeric_check(
+        checks,
+        "gpt55_no_coord_k8.k8_coordinate_audit.violations",
+        k8["coordinate_audit"]["coordinate_violation_count"],
+        0,
+        decimals=0,
+        source=path,
+    )
+    by_k = {row["k"]: row for row in k8["candidate_budget"]}
+    expected_budget = {
+        1: {"oracle": 0.973, "robust": 0.960, "mean_robust": 0.960},
+        2: {"oracle": 1.000, "robust": 1.000, "mean_robust": 1.960},
+        4: {"oracle": 1.000, "robust": 1.000, "mean_robust": 3.780},
+        8: {"oracle": 1.000, "robust": 1.000, "mean_robust": 7.420},
+    }
+    for k, values in expected_budget.items():
+        row = by_k[k]
+        add_numeric_check(
+            checks,
+            f"gpt55_no_coord_k8.budget.k{k}.oracle",
+            row["oracle_success"],
+            values["oracle"],
+            decimals=3,
+            source=path,
+        )
+        add_numeric_check(
+            checks,
+            f"gpt55_no_coord_k8.budget.k{k}.robust_scene_rate",
+            row["robust_scene_rate"],
+            values["robust"],
+            decimals=3,
+            source=path,
+        )
+        add_numeric_check(
+            checks,
+            f"gpt55_no_coord_k8.budget.k{k}.mean_robust_candidates",
+            row["mean_robust_candidates"],
+            values["mean_robust"],
+            decimals=3,
+            source=path,
+        )
+
+    summary_path = "results/gpt55_no_coord_k8_perspective50_no_coord_summary.json"
+    summary = json.loads(Path(summary_path).read_text(encoding="utf-8"))
+    summary_expected = {
+        "no_coord_direct_first": 0.973,
+        "no_coord_best_of_k_shortest": 1.000,
+        "no_coord_mirror": 0.953,
+        "no_coord_population": 0.993,
+        "no_coord_consensus_info": 0.900,
+        "no_coord_informative": 0.900,
+        "no_coord_oracle": 1.000,
+    }
+    for method, expected in summary_expected.items():
+        add_numeric_check(
+            checks,
+            f"gpt55_no_coord_k8.summary.{method}",
+            summary["by_method"][method]["success"],
+            expected,
+            decimals=3,
+            source=summary_path,
+        )
+    add_numeric_check(
+        checks,
+        "gpt55_no_coord_k8.summary.filter_kept",
+        summary["candidate_filter"]["kept_candidates"],
+        400,
+        decimals=0,
+        source=summary_path,
+    )
+    add_numeric_check(
+        checks,
+        "gpt55_no_coord_k8.summary.filter_excluded",
+        summary["candidate_filter"]["excluded_candidates"],
+        0,
+        decimals=0,
+        source=summary_path,
+    )
+
+
 def check_gpt55_followup_plan_status(checks: list[dict[str, Any]]) -> None:
     path = "results/gpt55_followup_plan_status.json"
     report = json.loads(Path(path).read_text(encoding="utf-8"))
     summary = report["summary"]
     expected = {
-        "covered": 4,
-        "partial": 2,
+        "covered": 5,
+        "partial": 1,
         "future": 0,
         "total": 6,
         "missing_evidence_paths": 0,
@@ -1054,7 +1191,7 @@ def check_gpt55_followup_plan_status(checks: list[dict[str, Any]]) -> None:
         "exp1_gpt55_listener_audit": "covered",
         "exp2_cross_model_matrix": "covered",
         "exp3_gpt55_speaker_generation": "covered",
-        "exp4_k8_no_coordinate_generation": "partial",
+        "exp4_k8_no_coordinate_generation": "covered",
         "exp5_human_validation": "partial",
         "exp6_rule_based_verifier": "covered",
     }
@@ -2162,9 +2299,9 @@ def check_plan_coverage(checks: list[dict[str, Any]]) -> None:
     add_numeric_check(checks, "plan_coverage.n_items", report["n_items"], 24, decimals=0, source=path)
 
     count_expectations = {
-        "status_counts": {"covered": 19, "partial": 5, "open": 0},
+        "status_counts": {"covered": 20, "partial": 4, "open": 0},
         "core_status_counts": {"covered": 17, "partial": 2, "open": 0},
-        "stretch_status_counts": {"covered": 2, "partial": 3, "open": 0},
+        "stretch_status_counts": {"covered": 3, "partial": 2, "open": 0},
     }
     for group, expected_counts in count_expectations.items():
         actual_counts = report[group]
@@ -2181,7 +2318,7 @@ def check_plan_coverage(checks: list[dict[str, Any]]) -> None:
         checks,
         "plan_coverage.open_or_partial",
         len(report["open_or_partial"]),
-        5,
+        4,
         decimals=0,
         source=path,
     )
@@ -2191,7 +2328,7 @@ def check_plan_coverage(checks: list[dict[str, Any]]) -> None:
         "Use development episodes for debugging prompts and tuning the generator.": "partial",
         "Hand-label roughly 100 failures into interpretable categories.": "partial",
         "Run a 1,000-scene benchmark and 200 partial-observability stress episodes.": "partial",
-        "Evaluate K=8 candidate generation in addition to K=4.": "partial",
+        "Evaluate K=8 candidate generation in addition to K=4.": "covered",
         "Run an actual interaction-memory prompt rerun after distilling rules from failures.": "partial",
         "Validate failures with human or independent non-LLM judgments.": "covered",
         "Publish the artifact as a public repository or submission bundle.": "covered",
@@ -2273,7 +2410,11 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("paper/main.tex", "We generate five scenario families"),
         ("paper/main.tex", "We report three bounded API experiments"),
         ("paper/main.tex", "a 50-scene \\texttt{gpt-5.5} speaker-generation audit"),
-        ("paper/main.tex", "token-accounting report over 5,866 cached responses"),
+        ("paper/main.tex", "token-accounting report over 7,113 cached responses"),
+        ("paper/main.tex", "The dedicated API K=8 no-coordinate run changes this interpretation"),
+        ("paper/main.tex", "400 of 400 generated candidates survive the exact-coordinate filter"),
+        ("paper/main.tex", "population-play rises from 0.833 to 0.993"),
+        ("paper/main.tex", "consensus+info drops from 0.993 to 0.900"),
         ("paper/main.tex", "direct first-candidate success to 0.993"),
         ("paper/main.tex", "mirror selection still reaches only 0.853 cross-play success"),
         ("paper/main.tex", "paired population-minus-mirror difference of 0.147"),
@@ -2288,7 +2429,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/protocol_and_prompts.md", "Record Schema"),
         ("docs/protocol_and_prompts.md", "a bounded `partial_observability` support run"),
         ("docs/api_token_accounting.md", "API Token Accounting"),
-        ("docs/api_token_accounting.md", "5866 | 5866 | 0 | 1535340 | 145114 | 1680454"),
+        ("docs/api_token_accounting.md", "7113 | 7113 | 0 | 1874818 | 177461 | 2052279"),
         ("docs/cross_model_listener_audit.md", "Cross-Model Held-Out Listener Audit"),
         ("docs/cross_model_listener_audit.md", "Perspective stress | gpt-5.5 | 0.793 | 0.507 | 0.673 | 1.000 | 1.000"),
         ("docs/cross_model_listener_audit.md", "Partial observability | gpt-5.5 | 0.740 | 0.453 | 0.653 | 1.000 | 1.000"),
@@ -2302,8 +2443,14 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/gpt55_speaker_smoke_report.md", "| 50 | 0.993 | 0.800 | 0.853 | 1.000 | 0.147 | 1.000 | 1.000 |"),
         ("docs/gpt55_speaker_smoke_report.md", "The same-scene table remains a smoke comparison; the extension section is the current paper-facing Experiment 3 speaker result when it has 50 scenes."),
         ("docs/gpt55_followup_plan_status.md", "GPT-5.5 Follow-Up Plan Status"),
-        ("docs/gpt55_followup_plan_status.md", "Covered: 4. Partial: 2. Future: 0. Missing evidence paths: 0."),
-        ("docs/gpt55_followup_plan_status.md", "Not yet safe as paper headline: API K=8 no-coordinate generation or human listener validation."),
+        ("docs/gpt55_followup_plan_status.md", "Covered: 5. Partial: 1. Future: 0. Missing evidence paths: 0."),
+        ("docs/gpt55_followup_plan_status.md", "Safe to claim: the API K=8 no-coordinate run shows robust non-coordinate expressions are available"),
+        ("docs/gpt55_followup_plan_status.md", "Not yet safe as paper headline: human listener validation."),
+        ("docs/gpt55_no_coord_k8_report.md", "GPT-5.5 K=8 No-Coordinate Audit"),
+        ("docs/gpt55_no_coord_k8_report.md", "K=4 filtered baseline keeps 148 candidates and excludes 52 coordinate candidates; K=8 keeps 400 and excludes 0."),
+        ("docs/gpt55_no_coord_k8_report.md", "The dedicated K=8 no-coordinate prompt produced 0 exact-coordinate candidates across 50 scenes."),
+        ("docs/gpt55_no_coord_k8_report.md", "| Population | 0.833 | 0.993 | +0.160 |"),
+        ("docs/gpt55_no_coord_k8_report.md", "| Consensus+info | 0.993 | 0.900 | -0.093 |"),
         ("docs/human_validation_packet.md", "Human Validation Packet"),
         ("docs/human_validation_packet.md", "Items: 20. Condition counts: mirror_success_control=5, partial_mirror_failure=5, perspective_mirror_failure=10."),
         ("docs/human_validation_packet.md", "Participant files exclude condition labels, scene IDs, target IDs, and held-out success rates."),
@@ -2311,7 +2458,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/artifact_guide.md", "PRAG-CrossPlay Artifact Guide"),
         ("docs/artifact_guide.md", "Claim-To-Evidence Map"),
         ("docs/artifact_guide.md", "API Token Accounting"),
-        ("docs/artifact_guide.md", "5866 cached responses have complete usage metadata totaling 1680454 tokens"),
+        ("docs/artifact_guide.md", "7113 cached responses have complete usage metadata totaling 2052279 tokens"),
         ("docs/artifact_guide.md", "Cross-Model Failure Overlap Audit"),
         ("docs/artifact_guide.md", "20 of 22 GPT-4.1 mirror-failure scenes also fail under GPT-5.5"),
         ("docs/artifact_guide.md", "All GPT-5.5 mirror-failure scenes are symbolic-verifier positives"),
@@ -2321,8 +2468,12 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/artifact_guide.md", "50-scene speaker audit"),
         ("docs/artifact_guide.md", "| 50 | 0.993 | 0.800 | 0.853 | 1.000 | 0.147 | 1.000 | 1.000 | 0.980 | 1.000 | 30 | 25478 |"),
         ("docs/artifact_guide.md", "GPT-5.5 Follow-Up Plan Status"),
-        ("docs/artifact_guide.md", "Covered: 4. Partial: 2. Future: 0. Missing evidence paths: 0."),
+        ("docs/artifact_guide.md", "Covered: 5. Partial: 1. Future: 0. Missing evidence paths: 0."),
         ("docs/artifact_guide.md", "The GPT-5.5 follow-up evidence is explicitly bounded by covered, partial, and future rows."),
+        ("docs/artifact_guide.md", "GPT-5.5 K=8 No-Coordinate Audit"),
+        ("docs/artifact_guide.md", "K=8 keeps 400 non-coordinate candidates and excludes 0"),
+        ("docs/artifact_guide.md", "K=8 population-play improves from 0.833 to 0.993"),
+        ("docs/artifact_guide.md", "consensus+info is not monotonic"),
         ("docs/artifact_guide.md", "Human Validation Packet"),
         ("docs/artifact_guide.md", "the prepared packet has 20 participant-safe items"),
         ("docs/artifact_guide.md", "Participant-facing files exclude condition labels, scene IDs, target IDs, and held-out success rates."),
@@ -2364,8 +2515,8 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/artifact_guide.md", "Section 32 reviewer checklist passes all 19 core-validity, results, and paper items"),
         ("docs/artifact_guide.md", "Items passed: 19/19"),
         ("docs/artifact_guide.md", "Core scope: 17 covered, 2 partial, 0 open."),
-        ("docs/artifact_guide.md", "Stretch scope: 2 covered, 3 partial, 0 open."),
-        ("docs/artifact_guide.md", "stretch scope has 2 covered, 3 partial, 0 open after adding independent non-LLM validation"),
+        ("docs/artifact_guide.md", "Stretch scope: 3 covered, 2 partial, 0 open."),
+        ("docs/artifact_guide.md", "stretch scope has 3 covered, 2 partial, 0 open after adding the API K=8 no-coordinate audit"),
         ("docs/artifact_guide.md", "Local Benchmark-Scale Sanity Check"),
         ("docs/artifact_guide.md", "600 local scenes balanced across four initial scenario families"),
         ("docs/artifact_guide.md", "partial_observability_api50 | `data/partial_observability_local50_scenes.jsonl` | 50"),
@@ -2373,7 +2524,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/artifact_guide.md", "0 candidate messages reference private landmarks"),
         ("docs/artifact_guide.md", "all 50 full-run mirror failures are underspecified-distractor choices"),
         ("docs/artifact_guide.md", "local_benchmark600 | `data/local_benchmark600_scenes.jsonl` | 600 | 10800"),
-        ("docs/artifact_guide.md", "242/242 integrity checks pass"),
+        ("docs/artifact_guide.md", "290/290 integrity checks pass"),
         ("docs/local_benchmark600_check.md", "Mirror self-play has same-play 1.000 but cross-play 0.631"),
         ("docs/local_benchmark600_check.md", "perspective_shift | 0.000 | 0.158 | 1.000 | 0.842"),
         ("docs/api_listener_leave_one_out.md", "API Listener Leave-One-Out Analysis"),
@@ -2419,9 +2570,9 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("docs/reviewer_checklist.md", "Held-out listeners are not used for method selection."),
         ("docs/reviewer_checklist.md", "Claims match actual results."),
         ("docs/plan_coverage_audit.md", "Plan Coverage Audit"),
-        ("docs/plan_coverage_audit.md", "Overall: 19 covered, 5 partial, 0 open across 24 plan items."),
+        ("docs/plan_coverage_audit.md", "Overall: 20 covered, 4 partial, 0 open across 24 plan items."),
         ("docs/plan_coverage_audit.md", "Core scope: 17 covered, 2 partial, 0 open."),
-        ("docs/plan_coverage_audit.md", "Stretch scope: 2 covered, 3 partial, 0 open."),
+        ("docs/plan_coverage_audit.md", "Stretch scope: 3 covered, 2 partial, 0 open."),
         ("docs/partial_observability_local_check.md", "mirror self-play | 0.653 | 1.000 | 0.347"),
         ("docs/partial_observability_api50_check.md", "Candidate messages referencing private landmarks: 0"),
         ("docs/partial_observability_api50_check.md", "no_coord_consensus_info | 0.987"),
@@ -2438,7 +2589,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("REPRODUCE.md", "--partial 50"),
         ("REPRODUCE.md", "scripts/analyze_partial_observability_api.py"),
         ("REPRODUCE.md", "scripts/analyze_api_token_accounting.py"),
-        ("REPRODUCE.md", "cached Responses API files contain `1,680,454` total tokens"),
+        ("REPRODUCE.md", "cached Responses API files contain `2,052,279` total tokens"),
         ("REPRODUCE.md", "scripts/run_selected_listener_audit.py"),
         ("REPRODUCE.md", "scripts/analyze_cross_model_listener_audit.py"),
         ("REPRODUCE.md", "GPT-5.5 mirror self-play is `0.673`"),
@@ -2448,7 +2599,10 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("REPRODUCE.md", "scripts/analyze_gpt55_speaker_smoke.py"),
         ("REPRODUCE.md", "50-scene speaker audit has GPT-5.5 direct-first `0.993`, mirror self-play `0.853`"),
         ("REPRODUCE.md", "scripts/audit_gpt55_followup_plan.py"),
-        ("REPRODUCE.md", "follow-up experiments covered, `2` partial, and `0` future"),
+        ("REPRODUCE.md", "follow-up experiments covered, `1` partial, and `0` future"),
+        ("REPRODUCE.md", "scripts/analyze_gpt55_no_coord_k8.py"),
+        ("REPRODUCE.md", "K=8 no-coordinate prompt produced `0` exact-coordinate candidates"),
+        ("REPRODUCE.md", "population-play improves from `0.833` to `0.993`"),
         ("REPRODUCE.md", "scripts/make_human_validation_packet.py"),
         ("REPRODUCE.md", "Participant-facing files omit target IDs, condition labels, scene IDs, and held-out success rates."),
         ("REPRODUCE.md", "scripts/analyze_local_benchmark.py"),
@@ -2485,7 +2639,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("REPRODUCE.md", "scripts/audit_plan_coverage.py"),
         ("REPRODUCE.md", "docs/plan_coverage_audit.md"),
         ("REPRODUCE.md", "core scope has `17` covered, `2` partial, and `0` open items"),
-        ("REPRODUCE.md", "stretch scope has `2` covered, `3` partial, and `0` open items"),
+        ("REPRODUCE.md", "stretch scope has `3` covered, `2` partial, and `0` open items"),
         ("REPRODUCE.md", "partial_observability_api50_mirror_failures_coded.csv"),
         ("REPRODUCE.md", "scripts/make_artifact_guide.py"),
         ("REPRODUCE.md", "scripts/analyze_api_listener_leave_one_out.py"),
@@ -2499,6 +2653,7 @@ def check_required_text(checks: list[dict[str, Any]]) -> None:
         ("README.md", "docs/cross_model_listener_audit.md"),
         ("README.md", "docs/cross_model_failure_overlap.md"),
         ("README.md", "docs/gpt55_speaker_smoke_report.md"),
+        ("README.md", "docs/gpt55_no_coord_k8_report.md"),
         ("README.md", "docs/gpt55_followup_plan_status.md"),
         ("README.md", "docs/human_validation_packet.md"),
         ("README.md", "docs/rule_based_ambiguity_verifier.md"),

@@ -1,6 +1,6 @@
 # Submission Readiness Audit
 
-Checks: 215/215 non-failing.
+Checks: 233/233 non-failing.
 Warnings: 0.
 Open actions: 0.
 
@@ -21,6 +21,7 @@ Open actions: 0.
 | PASS | `artifact.docs/cross_model_listener_audit.md` | present |
 | PASS | `artifact.docs/cross_model_failure_overlap.md` | present |
 | PASS | `artifact.docs/gpt55_speaker_smoke_report.md` | present |
+| PASS | `artifact.docs/gpt55_no_coord_k8_report.md` | present |
 | PASS | `artifact.docs/gpt55_followup_plan_status.md` | present |
 | PASS | `artifact.docs/human_validation_packet.md` | present |
 | PASS | `artifact.docs/human_validation_packet.html` | present |
@@ -67,6 +68,18 @@ Open actions: 0.
 | PASS | `artifact.results/gpt55_speaker_perspective50_summary.json` | present |
 | PASS | `artifact.results/gpt55_speaker_perspective50_candidates.jsonl` | present |
 | PASS | `artifact.results/gpt55_speaker_perspective50_candidate_eval_records.jsonl` | present |
+| PASS | `artifact.results/gpt55_speaker_perspective50_no_coord_records.jsonl` | present |
+| PASS | `artifact.results/gpt55_speaker_perspective50_no_coord_summary.json` | present |
+| PASS | `artifact.results/gpt55_speaker_perspective50_no_coord_audit.jsonl` | present |
+| PASS | `artifact.results/gpt55_no_coord_k8_comparison.json` | present |
+| PASS | `artifact.results/gpt55_no_coord_k8_perspective50_records.jsonl` | present |
+| PASS | `artifact.results/gpt55_no_coord_k8_perspective50_summary.json` | present |
+| PASS | `artifact.results/gpt55_no_coord_k8_perspective50_candidates.jsonl` | present |
+| PASS | `artifact.results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl` | present |
+| PASS | `artifact.results/gpt55_no_coord_k8_perspective50_no_coord_records.jsonl` | present |
+| PASS | `artifact.results/gpt55_no_coord_k8_perspective50_no_coord_summary.json` | present |
+| PASS | `artifact.results/gpt55_no_coord_k8_perspective50_no_coord_audit.jsonl` | present |
+| PASS | `artifact.paper/tables/gpt55_no_coord_k8_perspective50_no_coord.tex` | present |
 | PASS | `artifact.results/gpt55_followup_plan_status.json` | present |
 | PASS | `artifact.results/human_validation_answer_key.json` | present |
 | PASS | `artifact.results/local_benchmark600_check.json` | present |
@@ -102,6 +115,7 @@ Open actions: 0.
 | PASS | `artifact.scripts/analyze_cross_model_listener_audit.py` | present |
 | PASS | `artifact.scripts/analyze_cross_model_failure_overlap.py` | present |
 | PASS | `artifact.scripts/analyze_gpt55_speaker_smoke.py` | present |
+| PASS | `artifact.scripts/analyze_gpt55_no_coord_k8.py` | present |
 | PASS | `artifact.scripts/audit_gpt55_followup_plan.py` | present |
 | PASS | `artifact.scripts/make_human_validation_packet.py` | present |
 | PASS | `artifact.scripts/analyze_local_benchmark.py` | present |
@@ -155,8 +169,12 @@ Open actions: 0.
 | PASS | `artifact_guide.this_section_keeps_the_original_10_scene_same_scene_smoke_co` | present |
 | PASS | `artifact_guide.50_scene_speaker_audit` | present |
 | PASS | `artifact_guide.50_0_993_0_800_0_853_1_000_0_147_1_000_1_000` | present |
+| PASS | `artifact_guide.gpt_5_5_k_8_no_coordinate_audit` | present |
+| PASS | `artifact_guide.k_8_keeps_400_non_coordinate_candidates_and_excludes_0` | present |
+| PASS | `artifact_guide.k_8_population_play_improves_from_0_833_to_0_993` | present |
+| PASS | `artifact_guide.consensus_info_is_not_monotonic` | present |
 | PASS | `artifact_guide.gpt_5_5_follow_up_plan_status` | present |
-| PASS | `artifact_guide.covered_4_partial_2_future_0_missing_evidence_paths_0` | present |
+| PASS | `artifact_guide.covered_5_partial_1_future_0_missing_evidence_paths_0` | present |
 | PASS | `artifact_guide.the_gpt_5_5_follow_up_evidence_is_explicitly_bounded_by_cove` | present |
 | PASS | `artifact_guide.human_validation_packet` | present |
 | PASS | `artifact_guide.mirror_success_control_5_partial_mirror_failure_5_perspectiv` | present |
@@ -201,17 +219,17 @@ Open actions: 0.
 | PASS | `artifact_guide.section_32_reviewer_checklist_passes_all_19_core_validity_re` | present |
 | PASS | `artifact_guide.items_passed_19_19` | present |
 | PASS | `artifact_guide.core_scope_17_covered_2_partial_0_open` | present |
-| PASS | `artifact_guide.stretch_scope_2_covered_3_partial_0_open` | present |
-| PASS | `artifact_guide.stretch_scope_has_2_covered_3_partial_0_open_after_adding_in` | present |
+| PASS | `artifact_guide.stretch_scope_3_covered_2_partial_0_open` | present |
+| PASS | `artifact_guide.stretch_scope_has_3_covered_2_partial_0_open_after_adding_th` | present |
 | PASS | `artifact_guide.partial_observability_api50` | present |
 | PASS | `artifact_guide.cache_only_api_listener_leave_one_out_improves_population_ov` | present |
 | PASS | `artifact_guide.0_candidate_messages_reference_private_landmarks` | present |
 | PASS | `artifact_guide.all_50_full_run_mirror_failures_are_underspecified_distracto` | present |
 | PASS | `artifact_guide.local_benchmark600_data_local_benchmark600_scenes_jsonl_600_` | present |
-| PASS | `artifact_guide.242_242_integrity_checks_pass` | present |
-| PASS | `artifact_guide.5866_cached_responses_have_complete_usage_metadata_totaling_` | present |
-| PASS | `claims_verifier.no_failed_checks` | 971 checks, 0 failed |
-| PASS | `integrity_audit.no_failed_checks` | 242 checks, 0 failed |
+| PASS | `artifact_guide.290_290_integrity_checks_pass` | present |
+| PASS | `artifact_guide.7113_cached_responses_have_complete_usage_metadata_totaling_` | present |
+| PASS | `claims_verifier.no_failed_checks` | 1027 checks, 0 failed |
+| PASS | `integrity_audit.no_failed_checks` | 290 checks, 0 failed |
 | PASS | `template.final_venue_template` | paper/colm2026_submission.pdf uses COLM submission style |
 | PASS | `colm_source.uses_submission_template` | COLM submission package |
 | PASS | `colm_source.has_line_numbers` | line numbers enabled for submission mode |
@@ -221,5 +239,5 @@ Open actions: 0.
 | PASS | `colm_pdf.not_encrypted` | no |
 | PASS | `claims.limitation.the_current_experiments_are_intentionally_small_and_diagnost` | present |
 | PASS | `claims.limitation.the_held_out_listeners_are_api_language_models_not_humans` | present |
-| PASS | `claims.limitation.the_strongest_population_play_result_relies_on_exact_coordin` | present |
+| PASS | `claims.limitation.the_strongest_ceiling_results_use_exact_coordinate_fallbacks` | present |
 | PASS | `claims.limitation.broader_claims_require_larger_balanced_runs` | present |

@@ -1,0 +1,119 @@
+{
+  "created_at": 1782686863.9491248,
+  "data": {
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1782686863,
+    "created_at": 1782686861,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "id": "resp_02c851319fcb45fd006a41a48db3a48196bf04cb0ffe73d0e6",
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 700,
+    "max_tool_calls": null,
+    "metadata": {},
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "object": "response",
+    "output": [
+      {
+        "content": [
+          {
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"utterances\":[\"The target is the small blue sphere, not any of the large cubes.\",\"Choose the small blue sphere closest to the red cube.\",\"Pick the leftmost small blue sphere.\",\"It is the blue sphere not up near the green cube.\",\"From your view, select the nearer-left blue sphere, low in the scene.\",\"The lower small blue sphere.\",\"Choose the blue sphere near the red cube rather than the purple cube.\",\"It is the bottommost blue sphere.\"]}",
+            "type": "output_text"
+          }
+        ],
+        "id": "msg_02c851319fcb45fd006a41a48e27d08196af46d93039584252",
+        "phase": "final_answer",
+        "role": "assistant",
+        "status": "completed",
+        "type": "message"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "current_turn",
+      "effort": "none",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "status": "completed",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 848,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 100,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 948
+    },
+    "user": null
+  },
+  "request_hash_payload": {
+    "endpoint": "responses",
+    "max_output_tokens": 700,
+    "model": "gpt-5.5",
+    "provider": "openai",
+    "reasoning_effort": "none",
+    "schema_version": "speaker-no_coordinates-v1-target-attrs",
+    "system": "You are the SPEAKER in a situated reference game. Write short natural-language messages that help a listener identify the target object. Use only listener-visible information, never mention the hidden target ID, and never use exact row or column coordinates. Return valid JSON only.",
+    "temperature": null,
+    "user": "Scene:\n{\n  \"listener_orientation\": \"east\",\n  \"listener_view_text\": \"Scene ps_000033. You face east.\\nRows increase from top to bottom; columns increase from left to right.\\nCandidate objects:\\n- obj_3: large red cube at row 4, column 2\\n- obj_2: small blue sphere at row 1, column 4\\n- obj_5: large green cube at row 2, column 3\\n- obj_1: small blue sphere at row 4, column 1\\n- obj_4: large purple cube at row 5, column 5\",\n  \"objects\": [\n    {\n      \"color\": \"red\",\n      \"column\": 2,\n      \"id\": \"obj_3\",\n      \"row\": 4,\n      \"shape\": \"cube\",\n      \"size\": \"large\",\n      \"visible_to_listener\": true\n    },\n    {\n      \"color\": \"blue\",\n      \"column\": 4,\n      \"id\": \"obj_2\",\n      \"row\": 1,\n      \"shape\": \"sphere\",\n      \"size\": \"small\",\n      \"visible_to_listener\": true\n    },\n    {\n      \"color\": \"green\",\n      \"column\": 3,\n      \"id\": \"obj_5\",\n      \"row\": 2,\n      \"shape\": \"cube\",\n      \"size\": \"large\",\n      \"visible_to_listener\": true\n    },\n    {\n      \"color\": \"blue\",\n      \"column\": 1,\n      \"id\": \"obj_1\",\n      \"row\": 4,\n      \"shape\": \"sphere\",\n      \"size\": \"small\",\n      \"visible_to_listener\": true\n    },\n    {\n      \"color\": \"purple\",\n      \"column\": 5,\n      \"id\": \"obj_4\",\n      \"row\": 5,\n      \"shape\": \"cube\",\n      \"size\": \"large\",\n      \"visible_to_listener\": true\n    }\n  ],\n  \"scenario_type\": \"perspective_shift\",\n  \"scene_id\": \"ps_000033\",\n  \"speaker_orientation\": \"north\",\n  \"speaker_view_text\": \"Scene ps_000033 (perspective_shift).\\nYou face north; the listener faces east.\\nRows increase from top to bottom; columns increase from left to right.\\nVisible objects:\\n- obj_3: large red cube at row 4, column 2\\n- obj_2: small blue sphere at row 1, column 4\\n- obj_5: large green cube at row 2, column 3\\n- obj_1: small blue sphere at row 4, column 1\\n- obj_4: large purple cube at row 5, column 5\"\n}\n\nTarget object ID visible only to you: obj_1\nTarget object non-coordinate attributes visible to you: {\"color\": \"blue\", \"shape\": \"sphere\", \"size\": \"small\"}\n\nGenerate exactly 8 different non-coordinate messages. Do not write phrases like \"row 4\", \"column 1\", \"fourth row\", or \"first column\". Do not mention object IDs.\nUse diverse strategies in this order when possible:\n1. A contrastive attribute description.\n2. A landmark-relative description using listener-visible objects.\n3. An ordinal description such as topmost, bottommost, leftmost, or rightmost.\n4. A negative contrast such as not the one near another object.\n5. A listener-frame-safe spatial description.\n6. A concise fallback without coordinates.\n7. A second relational description with a different landmark.\n8. A second contrastive or ordinal description.\nEach message should be at most 25 words.\nReturn exactly this JSON shape: {\"utterances\": [\"...\", \"...\"]}"
+  },
+  "text": "{\"utterances\":[\"The target is the small blue sphere, not any of the large cubes.\",\"Choose the small blue sphere closest to the red cube.\",\"Pick the leftmost small blue sphere.\",\"It is the blue sphere not up near the green cube.\",\"From your view, select the nearer-left blue sphere, low in the scene.\",\"The lower small blue sphere.\",\"Choose the blue sphere near the red cube rather than the purple cube.\",\"It is the bottommost blue sphere.\"]}",
+  "usage": {
+    "input_tokens": 848,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 100,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 948
+  }
+}

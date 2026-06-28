@@ -71,13 +71,18 @@ def build_report() -> dict[str, Any]:
         item(
             "exp4_k8_no_coordinate_generation",
             "Experiment 4: stronger no-coordinate candidate generation",
-            "partial",
+            "covered",
             [
+                "results/gpt55_no_coord_k8_comparison.json",
+                "docs/gpt55_no_coord_k8_report.md",
+                "results/gpt55_no_coord_k8_perspective50_candidates.jsonl",
+                "results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl",
+                "results/gpt55_no_coord_k8_perspective50_no_coord_summary.json",
+                "results/gpt55_speaker_perspective50_no_coord_summary.json",
                 "results/local_stronger_plan_k8.json",
                 "docs/local_stronger_plan_k8.md",
-                "docs/candidate_budget_audit.md",
             ],
-            "The no-API local K=8 diagnostic supports the candidate-diversity explanation, but the cached API speaker artifacts remain K=4.",
+            "The 50-scene GPT-5.5 K=8 no-coordinate API run produces 400/400 non-coordinate candidates, oracle success 1.000, shortest 1.000, population 0.993, and shows consensus+info is not monotonic because it drops to 0.900.",
         ),
         item(
             "exp5_human_validation",
@@ -111,12 +116,12 @@ def build_report() -> dict[str, Any]:
         "paper_claim_boundary": [
             "Safe to claim: the mirror gap persists under GPT-5.5 held-out listeners, and the cross-model matrix supports the core cross-play argument.",
             "Safe to claim: the 50-scene GPT-5.5 speaker audit shows stronger speakers reduce first-candidate brittleness but do not remove the value of population selection.",
-            "Not yet safe as paper headline: API K=8 no-coordinate generation or human listener validation.",
+            "Safe to claim: the API K=8 no-coordinate run shows robust non-coordinate expressions are available, while selector design remains the bottleneck.",
+            "Not yet safe as paper headline: human listener validation.",
         ],
         "next_best_steps": [
-            "If API budget allows, run API K=8 no-coordinate candidate generation for the perspective-stress scenes.",
+            "Use the K=8 no-coordinate result to revise the limitation section: generation is not the bottleneck under GPT-5.5, but consensus+info needs a better tie-breaker.",
             "Collect three annotations per item from the prepared 20-scene human validation packet before making human-alignment claims.",
-            "Keep the current K=8 no-coordinate evidence framed as local diagnostic support unless an API K=8 run is added.",
         ],
     }
 

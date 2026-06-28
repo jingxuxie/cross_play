@@ -405,10 +405,23 @@ def plan_items() -> list[PlanItem]:
             "Stronger-plan extensions",
             "stretch",
             "Evaluate K=8 candidate generation in addition to K=4.",
-            ["docs/candidate_budget_audit.md", "docs/local_stronger_plan_k8.md", "results/local_stronger_plan_k8.json"],
-            lambda: (
-                "partial",
-                "The local stronger-plan diagnostic evaluates K=8 candidate slots and shows added non-coordinate diversity; cached API speaker artifacts remain K=4.",
+            [
+                "docs/gpt55_no_coord_k8_report.md",
+                "results/gpt55_no_coord_k8_comparison.json",
+                "results/gpt55_no_coord_k8_perspective50_no_coord_summary.json",
+                "docs/local_stronger_plan_k8.md",
+                "results/local_stronger_plan_k8.json",
+            ],
+            lambda: covered_if(
+                ctx.json("results/gpt55_no_coord_k8_comparison.json")
+                .get("key_observations", {})
+                .get("k8_kept_candidates")
+                == 400
+                and ctx.json("results/gpt55_no_coord_k8_comparison.json")
+                .get("key_observations", {})
+                .get("k8_coordinate_violations")
+                == 0,
+                "The API K=8 no-coordinate GPT-5.5 speaker audit evaluates 50 perspective-stress scenes, keeps 400/400 non-coordinate candidates, and shows population-play reaches 0.993 while oracle remains 1.000.",
             ),
         ),
         PlanItem(

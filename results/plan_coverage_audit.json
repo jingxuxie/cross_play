@@ -246,16 +246,18 @@
       "status": "partial"
     },
     {
-      "detail": "The local stronger-plan diagnostic evaluates K=8 candidate slots and shows added non-coordinate diversity; cached API speaker artifacts remain K=4.",
+      "detail": "The API K=8 no-coordinate GPT-5.5 speaker audit evaluates 50 perspective-stress scenes, keeps 400/400 non-coordinate candidates, and shows population-play reaches 0.993 while oracle remains 1.000.",
       "evidence": [
-        "docs/candidate_budget_audit.md",
+        "docs/gpt55_no_coord_k8_report.md",
+        "results/gpt55_no_coord_k8_comparison.json",
+        "results/gpt55_no_coord_k8_perspective50_no_coord_summary.json",
         "docs/local_stronger_plan_k8.md",
         "results/local_stronger_plan_k8.json"
       ],
       "plan_item": "Evaluate K=8 candidate generation in addition to K=4.",
       "scope": "stretch",
       "section": "Stronger-plan extensions",
-      "status": "partial"
+      "status": "covered"
     },
     {
       "detail": "A replay-only interaction-memory rule audit is present, but no new memory-prompt generation/evaluation run is claimed.",
@@ -332,18 +334,6 @@
       "status": "partial"
     },
     {
-      "detail": "The local stronger-plan diagnostic evaluates K=8 candidate slots and shows added non-coordinate diversity; cached API speaker artifacts remain K=4.",
-      "evidence": [
-        "docs/candidate_budget_audit.md",
-        "docs/local_stronger_plan_k8.md",
-        "results/local_stronger_plan_k8.json"
-      ],
-      "plan_item": "Evaluate K=8 candidate generation in addition to K=4.",
-      "scope": "stretch",
-      "section": "Stronger-plan extensions",
-      "status": "partial"
-    },
-    {
       "detail": "A replay-only interaction-memory rule audit is present, but no new memory-prompt generation/evaluation run is claimed.",
       "evidence": [
         "docs/interaction_memory_rules.md",
@@ -357,9 +347,9 @@
   ],
   "source_plan": "cross_play_pragmatics_workshop_plan.md",
   "status_counts": {
-    "covered": 19,
+    "covered": 20,
     "open": 0,
-    "partial": 5
+    "partial": 4
   },
   "status_definitions": {
     "covered": "Current artifacts directly satisfy the plan item.",
@@ -367,8 +357,8 @@
     "partial": "Current artifacts address the item only at smaller scale, narrower scope, or as diagnostic support."
   },
   "stretch_status_counts": {
-    "covered": 2,
+    "covered": 3,
     "open": 0,
-    "partial": 3
+    "partial": 2
   }
 }

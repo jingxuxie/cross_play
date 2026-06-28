@@ -17,8 +17,8 @@ conda run -n cross_play python scripts/analyze_api_token_accounting.py \
   --json-out results/api_token_accounting.json
 ```
 
-The current report is `docs/api_token_accounting.md`: `5,866` cached responses
-have complete usage metadata and contain `1,680,454` total tokens. Dollar cost
+The current report is `docs/api_token_accounting.md`: `7,113` cached responses
+have complete usage metadata and contain `2,052,279` total tokens. Dollar cost
 is not estimated from cached files; use the provider dashboard for final
 billing.
 
@@ -173,13 +173,31 @@ conda run -n cross_play python scripts/analyze_gpt55_speaker_smoke.py \
   --markdown-out docs/gpt55_speaker_smoke_report.md
 ```
 
+## GPT-5.5 K=8 no-coordinate audit
+
+Experiment 4 now has a paper-facing API run in
+`docs/gpt55_no_coord_k8_report.md`. The dedicated GPT-5.5 no-coordinate prompt
+produces `400` candidate messages across the 50 perspective-stress scenes, with
+`0` exact-coordinate violations. Relative to the K=4 filtered baseline,
+population-play improves from `0.833` to `0.993`, mirror improves from `0.847`
+to `0.953`, and the oracle remains `1.000`. Consensus+info drops from `0.993`
+to `0.900`, so the safe claim is that robust non-coordinate expressions are
+available and selector design remains the bottleneck, not that consensus+info
+dominates at K=8.
+
+```bash
+conda run -n cross_play python scripts/analyze_gpt55_no_coord_k8.py \
+  --json-out results/gpt55_no_coord_k8_comparison.json \
+  --markdown-out docs/gpt55_no_coord_k8_report.md
+```
+
 ## GPT-5.5 follow-up plan status
 
 The generated status report `docs/gpt55_followup_plan_status.md` maps
 `additional_experiments_gpt55_plan.md` to the current artifacts. It currently
-marks `4` follow-up experiments covered, `2` partial, and `0` future with no
-missing evidence paths. Use it as a claim-boundary check before promoting the
-API K=8 no-coordinate or human-validation ideas into paper headline claims.
+marks `5` follow-up experiments covered, `1` partial, and `0` future with no
+missing evidence paths. Use it as a claim-boundary check before promoting human
+validation into paper headline claims.
 
 ```bash
 conda run -n cross_play python scripts/audit_gpt55_followup_plan.py \
@@ -456,7 +474,7 @@ conda run -n cross_play python scripts/audit_plan_coverage.py \
 ```
 
 The current report is `docs/plan_coverage_audit.md`: core scope has `17`
-covered, `2` partial, and `0` open items; stretch scope has `2` covered, `3`
+covered, `2` partial, and `0` open items; stretch scope has `3` covered, `2`
 partial, and `0` open items.
 
 ## Artifact guide

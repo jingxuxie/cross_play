@@ -34,6 +34,7 @@ def main() -> None:
     integrity = json.loads(Path(args.integrity).read_text(encoding="utf-8"))
 
     speaker_system, speaker_user = speaker_prompt(scene, k=4)
+    no_coord_speaker_system, no_coord_speaker_user = speaker_prompt(scene, k=8, mode="no_coordinates")
     listener_sections = OrderedDict(
         [
             ("heldout_direct_last", listener_prompt(scene, "It is a small green sphere.", "heldout_direct_last")),
@@ -49,6 +50,8 @@ def main() -> None:
         scene=scene,
         speaker_system=speaker_system,
         speaker_user=speaker_user,
+        no_coord_speaker_system=no_coord_speaker_system,
+        no_coord_speaker_user=no_coord_speaker_user,
         listener_sections=listener_sections,
         record_schema=infer_schema(records),
         candidate_schema=infer_schema(candidates),
@@ -68,6 +71,8 @@ def render_appendix(
     scene: Any,
     speaker_system: str,
     speaker_user: str,
+    no_coord_speaker_system: str,
+    no_coord_speaker_user: str,
     listener_sections: OrderedDict[str, tuple[str, str]],
     record_schema: dict[str, str],
     candidate_schema: dict[str, str],
@@ -139,6 +144,22 @@ def render_appendix(
             "",
             "```text",
             speaker_user,
+            "```",
+            "",
+            "## No-Coordinate Speaker Prompt",
+            "",
+            "This K=8 prompt mode is used by the GPT-5.5 Experiment 4 no-coordinate candidate-generation audit. It forbids exact row/column references and asks for diverse listener-visible alternatives.",
+            "",
+            "### System",
+            "",
+            "```text",
+            no_coord_speaker_system,
+            "```",
+            "",
+            "### User",
+            "",
+            "```text",
+            no_coord_speaker_user,
             "```",
             "",
             "## Held-Out Listener Prompts",

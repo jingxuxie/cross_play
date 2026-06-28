@@ -1,6 +1,6 @@
 # Benchmark Integrity Audit
 
-Checks passed: 242/242.
+Checks passed: 290/290.
 
 ## Artifact Summary
 
@@ -8,7 +8,7 @@ Checks passed: 242/242.
 |---|---:|---:|---:|---:|---:|
 | local_benchmark600 | 600 | 10800 | 0 | 0 | 0 |
 | mixed_50 | 50 | 2550 | 50 | 50 | 50 |
-| perspective_stress_50 | 50 | 6900 | 120 | 150 | 120 |
+| perspective_stress_50 | 50 | 11100 | 170 | 250 | 170 |
 | partial_observability_api50 | 50 | 4050 | 50 | 150 | 50 |
 
 ## Cached Model Versions
@@ -17,7 +17,7 @@ Checks passed: 242/242.
 |---|---|---:|
 | `gpt-4.1-nano` | `gpt-4.1-nano-2025-04-14` | 1236 |
 | `gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770 |
-| `gpt-5.5` | `gpt-5.5-2026-04-23` | 1860 |
+| `gpt-5.5` | `gpt-5.5-2026-04-23` | 3107 |
 
 ## Warnings
 
@@ -171,6 +171,38 @@ Checks passed: 242/242.
 | PASS | `results/gpt55_speaker_perspective50_candidate_eval_records.jsonl.messages_no_object_id_leakage` | no generated/evaluated message contains obj_* IDs |
 | PASS | `results/gpt55_speaker_perspective50_candidate_eval_records.jsonl.same_scene_set_across_methods` | 50 scenes per method |
 | PASS | `results/gpt55_speaker_perspective50_candidate_eval_records.jsonl.balanced_rows_per_scene_method` | 12 rows per scene-method |
+| PASS | `results/gpt55_speaker_perspective50_no_coord_records.jsonl.nonempty` | 1050 rows |
+| PASS | `results/gpt55_speaker_perspective50_no_coord_records.jsonl.scene_ids_known` | all rows mapped to source scene file |
+| PASS | `results/gpt55_speaker_perspective50_no_coord_records.jsonl.target_ids_match_source` | all row target IDs match source scenes |
+| PASS | `results/gpt55_speaker_perspective50_no_coord_records.jsonl.choice_ids_valid` | all listener choices are valid candidate object IDs |
+| PASS | `results/gpt55_speaker_perspective50_no_coord_records.jsonl.success_flags_consistent` | all success flags equal choice_id == target_id |
+| PASS | `results/gpt55_speaker_perspective50_no_coord_records.jsonl.messages_no_object_id_leakage` | no generated/evaluated message contains obj_* IDs |
+| PASS | `results/gpt55_speaker_perspective50_no_coord_records.jsonl.same_scene_set_across_methods` | 50 scenes per method |
+| PASS | `results/gpt55_speaker_perspective50_no_coord_records.jsonl.balanced_rows_per_scene_method` | 3 rows per scene-method |
+| PASS | `results/gpt55_no_coord_k8_perspective50_records.jsonl.nonempty` | 900 rows |
+| PASS | `results/gpt55_no_coord_k8_perspective50_records.jsonl.scene_ids_known` | all rows mapped to source scene file |
+| PASS | `results/gpt55_no_coord_k8_perspective50_records.jsonl.target_ids_match_source` | all row target IDs match source scenes |
+| PASS | `results/gpt55_no_coord_k8_perspective50_records.jsonl.choice_ids_valid` | all listener choices are valid candidate object IDs |
+| PASS | `results/gpt55_no_coord_k8_perspective50_records.jsonl.success_flags_consistent` | all success flags equal choice_id == target_id |
+| PASS | `results/gpt55_no_coord_k8_perspective50_records.jsonl.messages_no_object_id_leakage` | no generated/evaluated message contains obj_* IDs |
+| PASS | `results/gpt55_no_coord_k8_perspective50_records.jsonl.same_scene_set_across_methods` | 50 scenes per method |
+| PASS | `results/gpt55_no_coord_k8_perspective50_records.jsonl.balanced_rows_per_scene_method` | 3 rows per scene-method |
+| PASS | `results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl.nonempty` | 1200 rows |
+| PASS | `results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl.scene_ids_known` | all rows mapped to source scene file |
+| PASS | `results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl.target_ids_match_source` | all row target IDs match source scenes |
+| PASS | `results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl.choice_ids_valid` | all listener choices are valid candidate object IDs |
+| PASS | `results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl.success_flags_consistent` | all success flags equal choice_id == target_id |
+| PASS | `results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl.messages_no_object_id_leakage` | no generated/evaluated message contains obj_* IDs |
+| PASS | `results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl.same_scene_set_across_methods` | 50 scenes per method |
+| PASS | `results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl.balanced_rows_per_scene_method` | 24 rows per scene-method |
+| PASS | `results/gpt55_no_coord_k8_perspective50_no_coord_records.jsonl.nonempty` | 1050 rows |
+| PASS | `results/gpt55_no_coord_k8_perspective50_no_coord_records.jsonl.scene_ids_known` | all rows mapped to source scene file |
+| PASS | `results/gpt55_no_coord_k8_perspective50_no_coord_records.jsonl.target_ids_match_source` | all row target IDs match source scenes |
+| PASS | `results/gpt55_no_coord_k8_perspective50_no_coord_records.jsonl.choice_ids_valid` | all listener choices are valid candidate object IDs |
+| PASS | `results/gpt55_no_coord_k8_perspective50_no_coord_records.jsonl.success_flags_consistent` | all success flags equal choice_id == target_id |
+| PASS | `results/gpt55_no_coord_k8_perspective50_no_coord_records.jsonl.messages_no_object_id_leakage` | no generated/evaluated message contains obj_* IDs |
+| PASS | `results/gpt55_no_coord_k8_perspective50_no_coord_records.jsonl.same_scene_set_across_methods` | 50 scenes per method |
+| PASS | `results/gpt55_no_coord_k8_perspective50_no_coord_records.jsonl.balanced_rows_per_scene_method` | 3 rows per scene-method |
 | PASS | `results/perspective_stress50_hybrid_candidates.jsonl.nonempty` | 50 rows |
 | PASS | `results/perspective_stress50_hybrid_candidates.jsonl.scene_ids_known` | all rows mapped |
 | PASS | `results/perspective_stress50_hybrid_candidates.jsonl.target_ids_match_source` | all targets match |
@@ -195,6 +227,14 @@ Checks passed: 242/242.
 | PASS | `results/gpt55_speaker_perspective50_candidates.jsonl.selections_are_candidates` | mirror/population selections come from candidate lists |
 | PASS | `results/gpt55_speaker_perspective50_candidates.jsonl.local_choice_ids_valid` | all local selector choices are valid object IDs |
 | PASS | `results/gpt55_speaker_perspective50_candidates.jsonl.speaker_cache_paths_exist` | 50 speaker cache paths exist |
+| PASS | `results/gpt55_no_coord_k8_perspective50_candidates.jsonl.nonempty` | 50 rows |
+| PASS | `results/gpt55_no_coord_k8_perspective50_candidates.jsonl.scene_ids_known` | all rows mapped |
+| PASS | `results/gpt55_no_coord_k8_perspective50_candidates.jsonl.target_ids_match_source` | all targets match |
+| PASS | `results/gpt55_no_coord_k8_perspective50_candidates.jsonl.candidate_lists_nonempty` | all rows have candidates |
+| PASS | `results/gpt55_no_coord_k8_perspective50_candidates.jsonl.candidates_no_object_id_leakage` | no candidate contains obj_* IDs |
+| PASS | `results/gpt55_no_coord_k8_perspective50_candidates.jsonl.selections_are_candidates` | mirror/population selections come from candidate lists |
+| PASS | `results/gpt55_no_coord_k8_perspective50_candidates.jsonl.local_choice_ids_valid` | all local selector choices are valid object IDs |
+| PASS | `results/gpt55_no_coord_k8_perspective50_candidates.jsonl.speaker_cache_paths_exist` | 50 speaker cache paths exist |
 | PASS | `results/perspective_stress50_gpt41nano_audit.jsonl.nonempty` | 50 rows |
 | PASS | `results/perspective_stress50_gpt41nano_audit.jsonl.scene_ids_known` | all rows mapped |
 | PASS | `results/perspective_stress50_gpt41nano_audit.jsonl.messages_no_object_id_leakage` | no audit candidate/selection contains obj_* IDs |
@@ -207,6 +247,14 @@ Checks passed: 242/242.
 | PASS | `results/perspective_stress50_gpt41nano_no_coord_audit.jsonl.scene_ids_known` | all rows mapped |
 | PASS | `results/perspective_stress50_gpt41nano_no_coord_audit.jsonl.messages_no_object_id_leakage` | no audit candidate/selection contains obj_* IDs |
 | PASS | `results/perspective_stress50_gpt41nano_no_coord_audit.jsonl.local_choice_ids_valid` | all local selector choices are valid object IDs |
+| PASS | `results/gpt55_speaker_perspective50_no_coord_audit.jsonl.nonempty` | 50 rows |
+| PASS | `results/gpt55_speaker_perspective50_no_coord_audit.jsonl.scene_ids_known` | all rows mapped |
+| PASS | `results/gpt55_speaker_perspective50_no_coord_audit.jsonl.messages_no_object_id_leakage` | no audit candidate/selection contains obj_* IDs |
+| PASS | `results/gpt55_speaker_perspective50_no_coord_audit.jsonl.local_choice_ids_valid` | all local selector choices are valid object IDs |
+| PASS | `results/gpt55_no_coord_k8_perspective50_no_coord_audit.jsonl.nonempty` | 50 rows |
+| PASS | `results/gpt55_no_coord_k8_perspective50_no_coord_audit.jsonl.scene_ids_known` | all rows mapped |
+| PASS | `results/gpt55_no_coord_k8_perspective50_no_coord_audit.jsonl.messages_no_object_id_leakage` | no audit candidate/selection contains obj_* IDs |
+| PASS | `results/gpt55_no_coord_k8_perspective50_no_coord_audit.jsonl.local_choice_ids_valid` | all local selector choices are valid object IDs |
 | PASS | `results/partial_observability_api50_records.jsonl.nonempty` | 900 rows |
 | PASS | `results/partial_observability_api50_records.jsonl.scene_ids_known` | all rows mapped to source scene file |
 | PASS | `results/partial_observability_api50_records.jsonl.target_ids_match_source` | all row target IDs match source scenes |
@@ -267,5 +315,5 @@ Checks passed: 242/242.
 | PASS | `results/partial_observability_api50_no_coord_audit.jsonl.scene_ids_known` | all rows mapped |
 | PASS | `results/partial_observability_api50_no_coord_audit.jsonl.messages_no_object_id_leakage` | no audit candidate/selection contains obj_* IDs |
 | PASS | `results/partial_observability_api50_no_coord_audit.jsonl.local_choice_ids_valid` | all local selector choices are valid object IDs |
-| PASS | `data/cached_responses.cache_files_present` | 5866 cache files |
+| PASS | `data/cached_responses.cache_files_present` | 7113 cache files |
 | PASS | `data/cached_responses.cache_files_readable` | all cache files parse as JSON |

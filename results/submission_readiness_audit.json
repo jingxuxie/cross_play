@@ -68,6 +68,11 @@
     },
     {
       "detail": "present",
+      "name": "artifact.docs/gpt55_no_coord_k8_report.md",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
       "name": "artifact.docs/gpt55_followup_plan_status.md",
       "status": "PASS"
     },
@@ -298,6 +303,66 @@
     },
     {
       "detail": "present",
+      "name": "artifact.results/gpt55_speaker_perspective50_no_coord_records.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_speaker_perspective50_no_coord_summary.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_speaker_perspective50_no_coord_audit.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_no_coord_k8_comparison.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_no_coord_k8_perspective50_records.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_no_coord_k8_perspective50_summary.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_no_coord_k8_perspective50_candidates.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_no_coord_k8_perspective50_no_coord_records.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_no_coord_k8_perspective50_no_coord_summary.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.results/gpt55_no_coord_k8_perspective50_no_coord_audit.jsonl",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.paper/tables/gpt55_no_coord_k8_perspective50_no_coord.tex",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
       "name": "artifact.results/gpt55_followup_plan_status.json",
       "status": "PASS"
     },
@@ -469,6 +534,11 @@
     {
       "detail": "present",
       "name": "artifact.scripts/analyze_gpt55_speaker_smoke.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact.scripts/analyze_gpt55_no_coord_k8.py",
       "status": "PASS"
     },
     {
@@ -738,12 +808,32 @@
     },
     {
       "detail": "present",
+      "name": "artifact_guide.gpt_5_5_k_8_no_coordinate_audit",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.k_8_keeps_400_non_coordinate_candidates_and_excludes_0",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.k_8_population_play_improves_from_0_833_to_0_993",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
+      "name": "artifact_guide.consensus_info_is_not_monotonic",
+      "status": "PASS"
+    },
+    {
+      "detail": "present",
       "name": "artifact_guide.gpt_5_5_follow_up_plan_status",
       "status": "PASS"
     },
     {
       "detail": "present",
-      "name": "artifact_guide.covered_4_partial_2_future_0_missing_evidence_paths_0",
+      "name": "artifact_guide.covered_5_partial_1_future_0_missing_evidence_paths_0",
       "status": "PASS"
     },
     {
@@ -968,12 +1058,12 @@
     },
     {
       "detail": "present",
-      "name": "artifact_guide.stretch_scope_2_covered_3_partial_0_open",
+      "name": "artifact_guide.stretch_scope_3_covered_2_partial_0_open",
       "status": "PASS"
     },
     {
       "detail": "present",
-      "name": "artifact_guide.stretch_scope_has_2_covered_3_partial_0_open_after_adding_in",
+      "name": "artifact_guide.stretch_scope_has_3_covered_2_partial_0_open_after_adding_th",
       "status": "PASS"
     },
     {
@@ -1003,21 +1093,21 @@
     },
     {
       "detail": "present",
-      "name": "artifact_guide.242_242_integrity_checks_pass",
+      "name": "artifact_guide.290_290_integrity_checks_pass",
       "status": "PASS"
     },
     {
       "detail": "present",
-      "name": "artifact_guide.5866_cached_responses_have_complete_usage_metadata_totaling_",
+      "name": "artifact_guide.7113_cached_responses_have_complete_usage_metadata_totaling_",
       "status": "PASS"
     },
     {
-      "detail": "971 checks, 0 failed",
+      "detail": "1027 checks, 0 failed",
       "name": "claims_verifier.no_failed_checks",
       "status": "PASS"
     },
     {
-      "detail": "242 checks, 0 failed",
+      "detail": "290 checks, 0 failed",
       "name": "integrity_audit.no_failed_checks",
       "status": "PASS"
     },
@@ -1068,7 +1158,7 @@
     },
     {
       "detail": "present",
-      "name": "claims.limitation.the_strongest_population_play_result_relies_on_exact_coordin",
+      "name": "claims.limitation.the_strongest_ceiling_results_use_exact_coordinate_fallbacks",
       "status": "PASS"
     },
     {
@@ -1078,7 +1168,7 @@
     }
   ],
   "n_actions": 0,
-  "n_checks": 215,
+  "n_checks": 233,
   "n_failed": 0,
   "n_warn": 0,
   "warnings": []

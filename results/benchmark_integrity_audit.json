@@ -721,6 +721,166 @@
       "ok": true
     },
     {
+      "detail": "1050 rows",
+      "name": "results/gpt55_speaker_perspective50_no_coord_records.jsonl.nonempty",
+      "ok": true
+    },
+    {
+      "detail": "all rows mapped to source scene file",
+      "name": "results/gpt55_speaker_perspective50_no_coord_records.jsonl.scene_ids_known",
+      "ok": true
+    },
+    {
+      "detail": "all row target IDs match source scenes",
+      "name": "results/gpt55_speaker_perspective50_no_coord_records.jsonl.target_ids_match_source",
+      "ok": true
+    },
+    {
+      "detail": "all listener choices are valid candidate object IDs",
+      "name": "results/gpt55_speaker_perspective50_no_coord_records.jsonl.choice_ids_valid",
+      "ok": true
+    },
+    {
+      "detail": "all success flags equal choice_id == target_id",
+      "name": "results/gpt55_speaker_perspective50_no_coord_records.jsonl.success_flags_consistent",
+      "ok": true
+    },
+    {
+      "detail": "no generated/evaluated message contains obj_* IDs",
+      "name": "results/gpt55_speaker_perspective50_no_coord_records.jsonl.messages_no_object_id_leakage",
+      "ok": true
+    },
+    {
+      "detail": "50 scenes per method",
+      "name": "results/gpt55_speaker_perspective50_no_coord_records.jsonl.same_scene_set_across_methods",
+      "ok": true
+    },
+    {
+      "detail": "3 rows per scene-method",
+      "name": "results/gpt55_speaker_perspective50_no_coord_records.jsonl.balanced_rows_per_scene_method",
+      "ok": true
+    },
+    {
+      "detail": "900 rows",
+      "name": "results/gpt55_no_coord_k8_perspective50_records.jsonl.nonempty",
+      "ok": true
+    },
+    {
+      "detail": "all rows mapped to source scene file",
+      "name": "results/gpt55_no_coord_k8_perspective50_records.jsonl.scene_ids_known",
+      "ok": true
+    },
+    {
+      "detail": "all row target IDs match source scenes",
+      "name": "results/gpt55_no_coord_k8_perspective50_records.jsonl.target_ids_match_source",
+      "ok": true
+    },
+    {
+      "detail": "all listener choices are valid candidate object IDs",
+      "name": "results/gpt55_no_coord_k8_perspective50_records.jsonl.choice_ids_valid",
+      "ok": true
+    },
+    {
+      "detail": "all success flags equal choice_id == target_id",
+      "name": "results/gpt55_no_coord_k8_perspective50_records.jsonl.success_flags_consistent",
+      "ok": true
+    },
+    {
+      "detail": "no generated/evaluated message contains obj_* IDs",
+      "name": "results/gpt55_no_coord_k8_perspective50_records.jsonl.messages_no_object_id_leakage",
+      "ok": true
+    },
+    {
+      "detail": "50 scenes per method",
+      "name": "results/gpt55_no_coord_k8_perspective50_records.jsonl.same_scene_set_across_methods",
+      "ok": true
+    },
+    {
+      "detail": "3 rows per scene-method",
+      "name": "results/gpt55_no_coord_k8_perspective50_records.jsonl.balanced_rows_per_scene_method",
+      "ok": true
+    },
+    {
+      "detail": "1200 rows",
+      "name": "results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl.nonempty",
+      "ok": true
+    },
+    {
+      "detail": "all rows mapped to source scene file",
+      "name": "results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl.scene_ids_known",
+      "ok": true
+    },
+    {
+      "detail": "all row target IDs match source scenes",
+      "name": "results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl.target_ids_match_source",
+      "ok": true
+    },
+    {
+      "detail": "all listener choices are valid candidate object IDs",
+      "name": "results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl.choice_ids_valid",
+      "ok": true
+    },
+    {
+      "detail": "all success flags equal choice_id == target_id",
+      "name": "results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl.success_flags_consistent",
+      "ok": true
+    },
+    {
+      "detail": "no generated/evaluated message contains obj_* IDs",
+      "name": "results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl.messages_no_object_id_leakage",
+      "ok": true
+    },
+    {
+      "detail": "50 scenes per method",
+      "name": "results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl.same_scene_set_across_methods",
+      "ok": true
+    },
+    {
+      "detail": "24 rows per scene-method",
+      "name": "results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl.balanced_rows_per_scene_method",
+      "ok": true
+    },
+    {
+      "detail": "1050 rows",
+      "name": "results/gpt55_no_coord_k8_perspective50_no_coord_records.jsonl.nonempty",
+      "ok": true
+    },
+    {
+      "detail": "all rows mapped to source scene file",
+      "name": "results/gpt55_no_coord_k8_perspective50_no_coord_records.jsonl.scene_ids_known",
+      "ok": true
+    },
+    {
+      "detail": "all row target IDs match source scenes",
+      "name": "results/gpt55_no_coord_k8_perspective50_no_coord_records.jsonl.target_ids_match_source",
+      "ok": true
+    },
+    {
+      "detail": "all listener choices are valid candidate object IDs",
+      "name": "results/gpt55_no_coord_k8_perspective50_no_coord_records.jsonl.choice_ids_valid",
+      "ok": true
+    },
+    {
+      "detail": "all success flags equal choice_id == target_id",
+      "name": "results/gpt55_no_coord_k8_perspective50_no_coord_records.jsonl.success_flags_consistent",
+      "ok": true
+    },
+    {
+      "detail": "no generated/evaluated message contains obj_* IDs",
+      "name": "results/gpt55_no_coord_k8_perspective50_no_coord_records.jsonl.messages_no_object_id_leakage",
+      "ok": true
+    },
+    {
+      "detail": "50 scenes per method",
+      "name": "results/gpt55_no_coord_k8_perspective50_no_coord_records.jsonl.same_scene_set_across_methods",
+      "ok": true
+    },
+    {
+      "detail": "3 rows per scene-method",
+      "name": "results/gpt55_no_coord_k8_perspective50_no_coord_records.jsonl.balanced_rows_per_scene_method",
+      "ok": true
+    },
+    {
       "detail": "50 rows",
       "name": "results/perspective_stress50_hybrid_candidates.jsonl.nonempty",
       "ok": true
@@ -842,6 +1002,46 @@
     },
     {
       "detail": "50 rows",
+      "name": "results/gpt55_no_coord_k8_perspective50_candidates.jsonl.nonempty",
+      "ok": true
+    },
+    {
+      "detail": "all rows mapped",
+      "name": "results/gpt55_no_coord_k8_perspective50_candidates.jsonl.scene_ids_known",
+      "ok": true
+    },
+    {
+      "detail": "all targets match",
+      "name": "results/gpt55_no_coord_k8_perspective50_candidates.jsonl.target_ids_match_source",
+      "ok": true
+    },
+    {
+      "detail": "all rows have candidates",
+      "name": "results/gpt55_no_coord_k8_perspective50_candidates.jsonl.candidate_lists_nonempty",
+      "ok": true
+    },
+    {
+      "detail": "no candidate contains obj_* IDs",
+      "name": "results/gpt55_no_coord_k8_perspective50_candidates.jsonl.candidates_no_object_id_leakage",
+      "ok": true
+    },
+    {
+      "detail": "mirror/population selections come from candidate lists",
+      "name": "results/gpt55_no_coord_k8_perspective50_candidates.jsonl.selections_are_candidates",
+      "ok": true
+    },
+    {
+      "detail": "all local selector choices are valid object IDs",
+      "name": "results/gpt55_no_coord_k8_perspective50_candidates.jsonl.local_choice_ids_valid",
+      "ok": true
+    },
+    {
+      "detail": "50 speaker cache paths exist",
+      "name": "results/gpt55_no_coord_k8_perspective50_candidates.jsonl.speaker_cache_paths_exist",
+      "ok": true
+    },
+    {
+      "detail": "50 rows",
       "name": "results/perspective_stress50_gpt41nano_audit.jsonl.nonempty",
       "ok": true
     },
@@ -898,6 +1098,46 @@
     {
       "detail": "all local selector choices are valid object IDs",
       "name": "results/perspective_stress50_gpt41nano_no_coord_audit.jsonl.local_choice_ids_valid",
+      "ok": true
+    },
+    {
+      "detail": "50 rows",
+      "name": "results/gpt55_speaker_perspective50_no_coord_audit.jsonl.nonempty",
+      "ok": true
+    },
+    {
+      "detail": "all rows mapped",
+      "name": "results/gpt55_speaker_perspective50_no_coord_audit.jsonl.scene_ids_known",
+      "ok": true
+    },
+    {
+      "detail": "no audit candidate/selection contains obj_* IDs",
+      "name": "results/gpt55_speaker_perspective50_no_coord_audit.jsonl.messages_no_object_id_leakage",
+      "ok": true
+    },
+    {
+      "detail": "all local selector choices are valid object IDs",
+      "name": "results/gpt55_speaker_perspective50_no_coord_audit.jsonl.local_choice_ids_valid",
+      "ok": true
+    },
+    {
+      "detail": "50 rows",
+      "name": "results/gpt55_no_coord_k8_perspective50_no_coord_audit.jsonl.nonempty",
+      "ok": true
+    },
+    {
+      "detail": "all rows mapped",
+      "name": "results/gpt55_no_coord_k8_perspective50_no_coord_audit.jsonl.scene_ids_known",
+      "ok": true
+    },
+    {
+      "detail": "no audit candidate/selection contains obj_* IDs",
+      "name": "results/gpt55_no_coord_k8_perspective50_no_coord_audit.jsonl.messages_no_object_id_leakage",
+      "ok": true
+    },
+    {
+      "detail": "all local selector choices are valid object IDs",
+      "name": "results/gpt55_no_coord_k8_perspective50_no_coord_audit.jsonl.local_choice_ids_valid",
       "ok": true
     },
     {
@@ -1201,7 +1441,7 @@
       "ok": true
     },
     {
-      "detail": "5866 cache files",
+      "detail": "7113 cache files",
       "name": "data/cached_responses.cache_files_present",
       "ok": true
     },
@@ -1211,7 +1451,7 @@
       "ok": true
     }
   ],
-  "n_checks": 242,
+  "n_checks": 290,
   "n_failed": 0,
   "summary": {
     "cache": {
@@ -1227,12 +1467,12 @@
           "response_model": "gpt-5.4-nano-2026-03-17"
         },
         {
-          "n": 1860,
+          "n": 3107,
           "requested_model": "gpt-5.5",
           "response_model": "gpt-5.5-2026-04-23"
         }
       ],
-      "n_cache_files": 5866
+      "n_cache_files": 7113
     },
     "groups": [
       {
@@ -1254,13 +1494,13 @@
         "speaker_cache_paths": 50
       },
       {
-        "audit_rows": 150,
-        "candidate_rows": 120,
+        "audit_rows": 250,
+        "candidate_rows": 170,
         "n_scenes": 50,
         "name": "perspective_stress_50",
-        "record_rows": 6900,
+        "record_rows": 11100,
         "scene_file": "data/perspective_stress50_scenes.jsonl",
-        "speaker_cache_paths": 120
+        "speaker_cache_paths": 170
       },
       {
         "audit_rows": 150,

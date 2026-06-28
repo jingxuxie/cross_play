@@ -22,7 +22,7 @@ conda run -n cross_play python scripts/analyze_api_token_accounting.py \
   --json-out results/api_token_accounting.json
 ```
 
-Current result: `5,866` cached Responses API files contain `1,680,454` total
+Current result: `7,113` cached Responses API files contain `2,052,279` total
 tokens, with `0` missing usage records.
 
 ## Local sanity pilot
@@ -475,6 +475,59 @@ conda run -n cross_play python scripts/run_hybrid_api_pilot.py \
   --checkpoint-every 1
 ```
 
+## GPT-5.5 K=8 no-coordinate audit
+
+Experiment 4 evaluates whether the no-coordinate limitation persists when the
+speaker gets a dedicated K=8 GPT-5.5 prompt that forbids exact row/column
+references.
+
+The cache-backed raw run is:
+
+```bash
+conda run -n cross_play python scripts/run_hybrid_api_pilot.py \
+  --scene-file data/perspective_stress50_scenes.jsonl \
+  --max-scenes 50 \
+  --k 8 \
+  --model gpt-5.5 \
+  --speaker-prompt no_coordinates \
+  --temperature none \
+  --reasoning-effort none \
+  --records-out results/gpt55_no_coord_k8_perspective50_records.jsonl \
+  --summary-out results/gpt55_no_coord_k8_perspective50_summary.json \
+  --candidates-out results/gpt55_no_coord_k8_perspective50_candidates.jsonl \
+  --all-candidate-records-out results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl \
+  --checkpoint-every 1
+```
+
+The no-coordinate replay and comparison are offline once those records exist:
+
+```bash
+conda run -n cross_play python scripts/run_candidate_filter_ablation.py \
+  --scene-file data/perspective_stress50_scenes.jsonl \
+  --candidates results/gpt55_no_coord_k8_perspective50_candidates.jsonl \
+  --candidate-records results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl \
+  --records-out results/gpt55_no_coord_k8_perspective50_no_coord_records.jsonl \
+  --summary-out results/gpt55_no_coord_k8_perspective50_no_coord_summary.json \
+  --markdown-out results/gpt55_no_coord_k8_perspective50_no_coord_summary.md \
+  --paired-json-out results/gpt55_no_coord_k8_perspective50_no_coord_population_vs_mirror_paired.json \
+  --paired-markdown-out results/gpt55_no_coord_k8_perspective50_no_coord_population_vs_mirror_paired.md \
+  --audit-out results/gpt55_no_coord_k8_perspective50_no_coord_audit.jsonl \
+  --table-out paper/tables/gpt55_no_coord_k8_perspective50_no_coord.md \
+  --tex-out paper/tables/gpt55_no_coord_k8_perspective50_no_coord.tex \
+  --scenario-table-out paper/tables/gpt55_no_coord_k8_perspective50_no_coord_by_scenario.md \
+  --scenario-tex-out paper/tables/gpt55_no_coord_k8_perspective50_no_coord_by_scenario.tex
+
+conda run -n cross_play python scripts/analyze_gpt55_no_coord_k8.py \
+  --json-out results/gpt55_no_coord_k8_comparison.json \
+  --markdown-out docs/gpt55_no_coord_k8_report.md
+```
+
+Current result: the K=8 no-coordinate prompt produced `0`
+exact-coordinate candidates across `400` candidates. Oracle remains `1.000`,
+shortest reaches `1.000`, population-play improves from `0.833` to `0.993`,
+and consensus+info drops from `0.993` to `0.900`, so the safe claim is
+generation availability plus selector-design bottleneck.
+
 ## GPT-5.5 follow-up plan status
 
 This cache/offline audit maps `additional_experiments_gpt55_plan.md` to current
@@ -486,10 +539,10 @@ conda run -n cross_play python scripts/audit_gpt55_followup_plan.py \
   --markdown-out docs/gpt55_followup_plan_status.md
 ```
 
-Current result: `4` follow-up experiments covered, `2` partial, and `0` future,
+Current result: `5` follow-up experiments covered, `1` partial, and `0` future,
 with `0` missing evidence paths. The report treats the 50-scene GPT-5.5 speaker
-audit as covered, while API K=8 no-coordinate generation and human listener
-validation remain incomplete.
+audit and API K=8 no-coordinate generation as covered; human listener validation
+remains incomplete.
 
 ## Human validation packet
 
@@ -912,7 +965,7 @@ Expected output:
 - `docs/plan_coverage_audit.md`;
 - `results/plan_coverage_audit.json`;
 - core scope has `17` covered, `2` partial, and `0` open items;
-- stretch scope has `2` covered, `3` partial, and `0` open items.
+- stretch scope has `3` covered, `2` partial, and `0` open items.
 
 ## Protocol appendix
 

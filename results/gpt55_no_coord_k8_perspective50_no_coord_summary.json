@@ -1,0 +1,226 @@
+{
+  "by_method": {
+    "no_coord_best_of_k_shortest": {
+      "crossplay_gap": null,
+      "json_valid_rate": 1.0,
+      "listener_success_stdev": 0.0,
+      "mean_tokens": 4.62,
+      "n_records": 150,
+      "n_scenes": 50,
+      "sameplay_success": null,
+      "success": 1.0,
+      "success_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "no_coord_consensus_info": {
+      "crossplay_gap": null,
+      "json_valid_rate": 1.0,
+      "listener_success_stdev": 0.04898979485566356,
+      "mean_tokens": 12.86,
+      "n_records": 150,
+      "n_scenes": 50,
+      "sameplay_success": null,
+      "success": 0.9,
+      "success_ci95": [
+        0.82,
+        0.9666666666666667
+      ]
+    },
+    "no_coord_direct_first": {
+      "crossplay_gap": null,
+      "json_valid_rate": 1.0,
+      "listener_success_stdev": 0.009428090415820642,
+      "mean_tokens": 11.74,
+      "n_records": 150,
+      "n_scenes": 50,
+      "sameplay_success": null,
+      "success": 0.9733333333333334,
+      "success_ci95": [
+        0.9266666666666666,
+        1.0
+      ]
+    },
+    "no_coord_informative": {
+      "crossplay_gap": null,
+      "json_valid_rate": 1.0,
+      "listener_success_stdev": 0.04898979485566356,
+      "mean_tokens": 12.86,
+      "n_records": 150,
+      "n_scenes": 50,
+      "sameplay_success": null,
+      "success": 0.9,
+      "success_ci95": [
+        0.82,
+        0.9666666666666667
+      ]
+    },
+    "no_coord_mirror": {
+      "crossplay_gap": 0.046666666666666634,
+      "json_valid_rate": 1.0,
+      "listener_success_stdev": 0.018856180831641284,
+      "mean_tokens": 4.98,
+      "n_records": 150,
+      "n_scenes": 50,
+      "sameplay_success": 1.0,
+      "success": 0.9533333333333334,
+      "success_ci95": [
+        0.9066666666666666,
+        0.9866666666666667
+      ]
+    },
+    "no_coord_oracle": {
+      "crossplay_gap": null,
+      "json_valid_rate": 1.0,
+      "listener_success_stdev": 0.0,
+      "mean_tokens": 4.62,
+      "n_records": 150,
+      "n_scenes": 50,
+      "sameplay_success": null,
+      "success": 1.0,
+      "success_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "no_coord_population": {
+      "crossplay_gap": -0.43333333333333335,
+      "json_valid_rate": 1.0,
+      "listener_success_stdev": 0.009428090415820642,
+      "mean_tokens": 6.5,
+      "n_records": 150,
+      "n_scenes": 50,
+      "sameplay_success": 0.5599999999999999,
+      "success": 0.9933333333333333,
+      "success_ci95": [
+        0.9733333333333334,
+        1.0
+      ]
+    }
+  },
+  "by_scenario_method": {
+    "perspective_shift": {
+      "no_coord_best_of_k_shortest": {
+        "crossplay_gap": null,
+        "json_valid_rate": 1.0,
+        "listener_success_stdev": 0.0,
+        "mean_tokens": 4.62,
+        "n_records": 150,
+        "n_scenes": 50,
+        "sameplay_success": null,
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "no_coord_consensus_info": {
+        "crossplay_gap": null,
+        "json_valid_rate": 1.0,
+        "listener_success_stdev": 0.04898979485566356,
+        "mean_tokens": 12.86,
+        "n_records": 150,
+        "n_scenes": 50,
+        "sameplay_success": null,
+        "success": 0.9,
+        "success_ci95": [
+          0.82,
+          0.9666666666666667
+        ]
+      },
+      "no_coord_direct_first": {
+        "crossplay_gap": null,
+        "json_valid_rate": 1.0,
+        "listener_success_stdev": 0.009428090415820642,
+        "mean_tokens": 11.74,
+        "n_records": 150,
+        "n_scenes": 50,
+        "sameplay_success": null,
+        "success": 0.9733333333333334,
+        "success_ci95": [
+          0.9266666666666666,
+          1.0
+        ]
+      },
+      "no_coord_informative": {
+        "crossplay_gap": null,
+        "json_valid_rate": 1.0,
+        "listener_success_stdev": 0.04898979485566356,
+        "mean_tokens": 12.86,
+        "n_records": 150,
+        "n_scenes": 50,
+        "sameplay_success": null,
+        "success": 0.9,
+        "success_ci95": [
+          0.82,
+          0.9666666666666667
+        ]
+      },
+      "no_coord_mirror": {
+        "crossplay_gap": 0.046666666666666634,
+        "json_valid_rate": 1.0,
+        "listener_success_stdev": 0.018856180831641284,
+        "mean_tokens": 4.98,
+        "n_records": 150,
+        "n_scenes": 50,
+        "sameplay_success": 1.0,
+        "success": 0.9533333333333334,
+        "success_ci95": [
+          0.9066666666666666,
+          0.9866666666666667
+        ]
+      },
+      "no_coord_oracle": {
+        "crossplay_gap": null,
+        "json_valid_rate": 1.0,
+        "listener_success_stdev": 0.0,
+        "mean_tokens": 4.62,
+        "n_records": 150,
+        "n_scenes": 50,
+        "sameplay_success": null,
+        "success": 1.0,
+        "success_ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "no_coord_population": {
+        "crossplay_gap": -0.43333333333333335,
+        "json_valid_rate": 1.0,
+        "listener_success_stdev": 0.009428090415820642,
+        "mean_tokens": 6.5,
+        "n_records": 150,
+        "n_scenes": 50,
+        "sameplay_success": 0.5599999999999999,
+        "success": 0.9933333333333333,
+        "success_ci95": [
+          0.9733333333333334,
+          1.0
+        ]
+      }
+    }
+  },
+  "candidate_filter": {
+    "excluded_candidates": 0,
+    "kept_candidates": 400,
+    "name": "no_exact_coordinates",
+    "skipped_scenes": 0,
+    "total_candidates": 400,
+    "total_scenes": 50
+  },
+  "overall": {
+    "crossplay_gap": -0.17999999999999994,
+    "json_valid_rate": 1.0,
+    "listener_success_stdev": 0.012988744473319831,
+    "mean_tokens": 8.311428571428571,
+    "n_records": 1050,
+    "n_scenes": 50,
+    "sameplay_success": 0.78,
+    "success": 0.96,
+    "success_ci95": [
+      0.9352380952380952,
+      0.979047619047619
+    ]
+  }
+}

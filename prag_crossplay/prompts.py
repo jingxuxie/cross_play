@@ -28,7 +28,15 @@ def scene_payload(scene: Scene) -> dict[str, object]:
     }
 
 
-def speaker_prompt(scene: Scene, k: int) -> tuple[str, str]:
+def speaker_prompt(scene: Scene, k: int, mode: str = "standard") -> tuple[str, str]:
+    if mode == "standard":
+        return standard_speaker_prompt(scene, k)
+    if mode == "no_coordinates":
+        return no_coordinate_speaker_prompt(scene, k)
+    raise ValueError(f"unknown speaker prompt mode: {mode}")
+
+
+def standard_speaker_prompt(scene: Scene, k: int) -> tuple[str, str]:
     target = scene.target()
     target_attrs = {
         "color": target.color,
@@ -53,6 +61,41 @@ def speaker_prompt(scene: Scene, k: int) -> tuple[str, str]:
         "2. A concise attribute-based message.\n"
         "3. A relational or spatial message using listener-visible landmarks when possible.\n"
         "4. A fully explicit fallback that may use row/column coordinates.\n"
+        "Each message should be at most 25 words.\n"
+        'Return exactly this JSON shape: {"utterances": ["...", "..."]}'
+    )
+    return system, user
+
+
+def no_coordinate_speaker_prompt(scene: Scene, k: int) -> tuple[str, str]:
+    target = scene.target()
+    target_attrs = {
+        "color": target.color,
+        "shape": target.shape,
+        "size": target.size,
+    }
+    system = (
+        "You are the SPEAKER in a situated reference game. Write short natural-language "
+        "messages that help a listener identify the target object. Use only listener-visible "
+        "information, never mention the hidden target ID, and never use exact row or column "
+        "coordinates. Return valid JSON only."
+    )
+    user = (
+        "Scene:\n"
+        f"{json.dumps(scene_payload(scene), indent=2, sort_keys=True)}\n\n"
+        f"Target object ID visible only to you: {scene.target_id}\n"
+        f"Target object non-coordinate attributes visible to you: {json.dumps(target_attrs, sort_keys=True)}\n\n"
+        f"Generate exactly {k} different non-coordinate messages. Do not write phrases like "
+        '"row 4", "column 1", "fourth row", or "first column". Do not mention object IDs.\n'
+        "Use diverse strategies in this order when possible:\n"
+        "1. A contrastive attribute description.\n"
+        "2. A landmark-relative description using listener-visible objects.\n"
+        "3. An ordinal description such as topmost, bottommost, leftmost, or rightmost.\n"
+        "4. A negative contrast such as not the one near another object.\n"
+        "5. A listener-frame-safe spatial description.\n"
+        "6. A concise fallback without coordinates.\n"
+        "7. A second relational description with a different landmark.\n"
+        "8. A second contrastive or ordinal description.\n"
         "Each message should be at most 25 words.\n"
         'Return exactly this JSON shape: {"utterances": ["...", "..."]}'
     )

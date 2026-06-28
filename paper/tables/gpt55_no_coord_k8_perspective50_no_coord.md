@@ -1,0 +1,9 @@
+| Method | Cross-play | Same-play | Gap | Mean tokens |
+|---|---:|---:|---:|---:|
+| Direct first | 0.973 | - | - | 11.7 |
+| Best-of-K shortest | 1.000 | - | - | 4.6 |
+| Mirror self-play | 0.953 | 1.000 | 0.047 | 5.0 |
+| Population-play | 0.993 | 0.560 | -0.433 | 6.5 |
+| Consensus+info | 0.900 | - | - | 12.9 |
+| Informativeness prior | 0.900 | - | - | 12.9 |
+| Oracle candidate | 1.000 | - | - | 4.6 |

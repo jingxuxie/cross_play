@@ -1562,15 +1562,281 @@
       "source": "results/gpt55_speaker_smoke.json"
     },
     {
-      "actual": "4",
-      "expected": "4",
+      "actual": "148",
+      "expected": "148",
+      "name": "gpt55_no_coord_k8.k4_kept_candidates",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "52",
+      "expected": "52",
+      "name": "gpt55_no_coord_k8.k4_excluded_candidates",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "52",
+      "expected": "52",
+      "name": "gpt55_no_coord_k8.k4_coordinate_violations",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "gpt55_no_coord_k8.k4_oracle",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "0.833",
+      "expected": "0.833",
+      "name": "gpt55_no_coord_k8.k4_population",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "0.993",
+      "expected": "0.993",
+      "name": "gpt55_no_coord_k8.k4_consensus_info",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "400",
+      "expected": "400",
+      "name": "gpt55_no_coord_k8.k8_kept_candidates",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "gpt55_no_coord_k8.k8_excluded_candidates",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "gpt55_no_coord_k8.k8_coordinate_violations",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "0.973",
+      "expected": "0.973",
+      "name": "gpt55_no_coord_k8.k8_direct_first",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "gpt55_no_coord_k8.k8_shortest",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "0.993",
+      "expected": "0.993",
+      "name": "gpt55_no_coord_k8.k8_population",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "0.900",
+      "expected": "0.900",
+      "name": "gpt55_no_coord_k8.k8_consensus_info",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "gpt55_no_coord_k8.k8_oracle",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "400",
+      "expected": "400",
+      "name": "gpt55_no_coord_k8.k8_filter.kept",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "gpt55_no_coord_k8.k8_filter.excluded",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "gpt55_no_coord_k8.k8_coordinate_audit.violations",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "0.973",
+      "expected": "0.973",
+      "name": "gpt55_no_coord_k8.budget.k1.oracle",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "0.960",
+      "expected": "0.960",
+      "name": "gpt55_no_coord_k8.budget.k1.robust_scene_rate",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "0.960",
+      "expected": "0.960",
+      "name": "gpt55_no_coord_k8.budget.k1.mean_robust_candidates",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "gpt55_no_coord_k8.budget.k2.oracle",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "gpt55_no_coord_k8.budget.k2.robust_scene_rate",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "1.960",
+      "expected": "1.960",
+      "name": "gpt55_no_coord_k8.budget.k2.mean_robust_candidates",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "gpt55_no_coord_k8.budget.k4.oracle",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "gpt55_no_coord_k8.budget.k4.robust_scene_rate",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "3.780",
+      "expected": "3.780",
+      "name": "gpt55_no_coord_k8.budget.k4.mean_robust_candidates",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "gpt55_no_coord_k8.budget.k8.oracle",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "gpt55_no_coord_k8.budget.k8.robust_scene_rate",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "7.420",
+      "expected": "7.420",
+      "name": "gpt55_no_coord_k8.budget.k8.mean_robust_candidates",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_comparison.json"
+    },
+    {
+      "actual": "0.973",
+      "expected": "0.973",
+      "name": "gpt55_no_coord_k8.summary.no_coord_direct_first",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_perspective50_no_coord_summary.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "gpt55_no_coord_k8.summary.no_coord_best_of_k_shortest",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_perspective50_no_coord_summary.json"
+    },
+    {
+      "actual": "0.953",
+      "expected": "0.953",
+      "name": "gpt55_no_coord_k8.summary.no_coord_mirror",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_perspective50_no_coord_summary.json"
+    },
+    {
+      "actual": "0.993",
+      "expected": "0.993",
+      "name": "gpt55_no_coord_k8.summary.no_coord_population",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_perspective50_no_coord_summary.json"
+    },
+    {
+      "actual": "0.900",
+      "expected": "0.900",
+      "name": "gpt55_no_coord_k8.summary.no_coord_consensus_info",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_perspective50_no_coord_summary.json"
+    },
+    {
+      "actual": "0.900",
+      "expected": "0.900",
+      "name": "gpt55_no_coord_k8.summary.no_coord_informative",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_perspective50_no_coord_summary.json"
+    },
+    {
+      "actual": "1.000",
+      "expected": "1.000",
+      "name": "gpt55_no_coord_k8.summary.no_coord_oracle",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_perspective50_no_coord_summary.json"
+    },
+    {
+      "actual": "400",
+      "expected": "400",
+      "name": "gpt55_no_coord_k8.summary.filter_kept",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_perspective50_no_coord_summary.json"
+    },
+    {
+      "actual": "0",
+      "expected": "0",
+      "name": "gpt55_no_coord_k8.summary.filter_excluded",
+      "ok": true,
+      "source": "results/gpt55_no_coord_k8_perspective50_no_coord_summary.json"
+    },
+    {
+      "actual": "5",
+      "expected": "5",
       "name": "gpt55_followup_plan_status.covered",
       "ok": true,
       "source": "results/gpt55_followup_plan_status.json"
     },
     {
-      "actual": "2",
-      "expected": "2",
+      "actual": "1",
+      "expected": "1",
       "name": "gpt55_followup_plan_status.partial",
       "ok": true,
       "source": "results/gpt55_followup_plan_status.json"
@@ -1620,7 +1886,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "gpt55_followup_plan_status.exp4_k8_no_coordinate_generation.partial",
+      "name": "gpt55_followup_plan_status.exp4_k8_no_coordinate_generation.covered",
       "ok": true,
       "source": "results/gpt55_followup_plan_status.json"
     },
@@ -4467,15 +4733,15 @@
       "source": "results/plan_coverage_audit.json"
     },
     {
-      "actual": "19",
-      "expected": "19",
+      "actual": "20",
+      "expected": "20",
       "name": "plan_coverage.status_counts.covered",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
     },
     {
-      "actual": "5",
-      "expected": "5",
+      "actual": "4",
+      "expected": "4",
       "name": "plan_coverage.status_counts.partial",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
@@ -4509,15 +4775,15 @@
       "source": "results/plan_coverage_audit.json"
     },
     {
-      "actual": "2",
-      "expected": "2",
+      "actual": "3",
+      "expected": "3",
       "name": "plan_coverage.stretch_status_counts.covered",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
     },
     {
-      "actual": "3",
-      "expected": "3",
+      "actual": "2",
+      "expected": "2",
       "name": "plan_coverage.stretch_status_counts.partial",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
@@ -4530,8 +4796,8 @@
       "source": "results/plan_coverage_audit.json"
     },
     {
-      "actual": "5",
-      "expected": "5",
+      "actual": "4",
+      "expected": "4",
       "name": "plan_coverage.open_or_partial",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
@@ -4588,7 +4854,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "plan_coverage.item.evaluate_k_8_candidate_generation_in_addition_to_k_4.partial",
+      "name": "plan_coverage.item.evaluate_k_8_candidate_generation_in_addition_to_k_4.covered",
       "ok": true,
       "source": "results/plan_coverage_audit.json"
     },
@@ -4642,8 +4908,8 @@
       "source": "results/benchmark_integrity_audit.json"
     },
     {
-      "actual": "242",
-      "expected": "242",
+      "actual": "290",
+      "expected": "290",
       "name": "integrity_audit.n_checks",
       "ok": true,
       "source": "results/benchmark_integrity_audit.json"
@@ -4684,15 +4950,15 @@
       "source": "results/benchmark_integrity_audit.json"
     },
     {
-      "actual": "5866",
-      "expected": "5866",
+      "actual": "7113",
+      "expected": "7113",
       "name": "api_token_accounting.n_cache_files",
       "ok": true,
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "5866",
-      "expected": "5866",
+      "actual": "7113",
+      "expected": "7113",
       "name": "api_token_accounting.n_readable",
       "ok": true,
       "source": "results/api_token_accounting.json"
@@ -4705,22 +4971,22 @@
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "1535340",
-      "expected": "1535340",
+      "actual": "1874818",
+      "expected": "1874818",
       "name": "api_token_accounting.input_tokens",
       "ok": true,
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "145114",
-      "expected": "145114",
+      "actual": "177461",
+      "expected": "177461",
       "name": "api_token_accounting.output_tokens",
       "ok": true,
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "1680454",
-      "expected": "1680454",
+      "actual": "2052279",
+      "expected": "2052279",
       "name": "api_token_accounting.total_tokens",
       "ok": true,
       "source": "results/api_token_accounting.json"
@@ -4754,15 +5020,15 @@
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "1860",
-      "expected": "1860",
+      "actual": "3107",
+      "expected": "3107",
       "name": "api_token_accounting.gpt-5.5.gpt-5.5-2026-04-23.responses",
       "ok": true,
       "source": "results/api_token_accounting.json"
     },
     {
-      "actual": "527487",
-      "expected": "527487",
+      "actual": "899312",
+      "expected": "899312",
       "name": "api_token_accounting.gpt-5.5.gpt-5.5-2026-04-23.total_tokens",
       "ok": true,
       "source": "results/api_token_accounting.json"
@@ -5064,7 +5330,35 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.paper/main.tex.token-accounting report over 5,866 cached responses",
+      "name": "text.paper/main.tex.token-accounting report over 7,113 cached responses",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.The dedicated API K=8 no-coordinate run changes this interpretation",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.400 of 400 generated candidates survive the exact-coordinate filter",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.population-play rises from 0.833 to 0.993",
+      "ok": true,
+      "source": "paper/main.tex"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.paper/main.tex.consensus+info drops from 0.993 to 0.900",
       "ok": true,
       "source": "paper/main.tex"
     },
@@ -5169,7 +5463,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/api_token_accounting.md.5866 | 5866 | 0 | 1535340 | 145114 | 1680454",
+      "name": "text.docs/api_token_accounting.md.7113 | 7113 | 0 | 1874818 | 177461 | 2052279",
       "ok": true,
       "source": "docs/api_token_accounting.md"
     },
@@ -5267,16 +5561,58 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/gpt55_followup_plan_status.md.Covered: 4. Partial: 2. Future: 0. Missing evidence paths: 0.",
+      "name": "text.docs/gpt55_followup_plan_status.md.Covered: 5. Partial: 1. Future: 0. Missing evidence paths: 0.",
       "ok": true,
       "source": "docs/gpt55_followup_plan_status.md"
     },
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/gpt55_followup_plan_status.md.Not yet safe as paper headline: API K=8 no-coordinate generation or human listener validation.",
+      "name": "text.docs/gpt55_followup_plan_status.md.Safe to claim: the API K=8 no-coordinate run shows robust non-coordinate expressions are available",
       "ok": true,
       "source": "docs/gpt55_followup_plan_status.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/gpt55_followup_plan_status.md.Not yet safe as paper headline: human listener validation.",
+      "ok": true,
+      "source": "docs/gpt55_followup_plan_status.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/gpt55_no_coord_k8_report.md.GPT-5.5 K=8 No-Coordinate Audit",
+      "ok": true,
+      "source": "docs/gpt55_no_coord_k8_report.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/gpt55_no_coord_k8_report.md.K=4 filtered baseline keeps 148 candidates and excludes 52 coordinate candidates; K=8 keeps 400 and excludes 0.",
+      "ok": true,
+      "source": "docs/gpt55_no_coord_k8_report.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/gpt55_no_coord_k8_report.md.The dedicated K=8 no-coordinate prompt produced 0 exact-coordinate candidates across 50 scenes.",
+      "ok": true,
+      "source": "docs/gpt55_no_coord_k8_report.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/gpt55_no_coord_k8_report.md.| Population | 0.833 | 0.993 | +0.160 |",
+      "ok": true,
+      "source": "docs/gpt55_no_coord_k8_report.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/gpt55_no_coord_k8_report.md.| Consensus+info | 0.993 | 0.900 | -0.093 |",
+      "ok": true,
+      "source": "docs/gpt55_no_coord_k8_report.md"
     },
     {
       "actual": "present",
@@ -5330,7 +5666,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/artifact_guide.md.5866 cached responses have complete usage metadata totaling 1680454 tokens",
+      "name": "text.docs/artifact_guide.md.7113 cached responses have complete usage metadata totaling 2052279 tokens",
       "ok": true,
       "source": "docs/artifact_guide.md"
     },
@@ -5400,7 +5736,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/artifact_guide.md.Covered: 4. Partial: 2. Future: 0. Missing evidence paths: 0.",
+      "name": "text.docs/artifact_guide.md.Covered: 5. Partial: 1. Future: 0. Missing evidence paths: 0.",
       "ok": true,
       "source": "docs/artifact_guide.md"
     },
@@ -5408,6 +5744,34 @@
       "actual": "present",
       "expected": "present",
       "name": "text.docs/artifact_guide.md.The GPT-5.5 follow-up evidence is explicitly bounded by covered, partial, and future rows.",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.GPT-5.5 K=8 No-Coordinate Audit",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.K=8 keeps 400 non-coordinate candidates and excludes 0",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.K=8 population-play improves from 0.833 to 0.993",
+      "ok": true,
+      "source": "docs/artifact_guide.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.docs/artifact_guide.md.consensus+info is not monotonic",
       "ok": true,
       "source": "docs/artifact_guide.md"
     },
@@ -5701,14 +6065,14 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/artifact_guide.md.Stretch scope: 2 covered, 3 partial, 0 open.",
+      "name": "text.docs/artifact_guide.md.Stretch scope: 3 covered, 2 partial, 0 open.",
       "ok": true,
       "source": "docs/artifact_guide.md"
     },
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/artifact_guide.md.stretch scope has 2 covered, 3 partial, 0 open after adding independent non-LLM validation",
+      "name": "text.docs/artifact_guide.md.stretch scope has 3 covered, 2 partial, 0 open after adding the API K=8 no-coordinate audit",
       "ok": true,
       "source": "docs/artifact_guide.md"
     },
@@ -5764,7 +6128,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/artifact_guide.md.242/242 integrity checks pass",
+      "name": "text.docs/artifact_guide.md.290/290 integrity checks pass",
       "ok": true,
       "source": "docs/artifact_guide.md"
     },
@@ -6086,7 +6450,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/plan_coverage_audit.md.Overall: 19 covered, 5 partial, 0 open across 24 plan items.",
+      "name": "text.docs/plan_coverage_audit.md.Overall: 20 covered, 4 partial, 0 open across 24 plan items.",
       "ok": true,
       "source": "docs/plan_coverage_audit.md"
     },
@@ -6100,7 +6464,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.docs/plan_coverage_audit.md.Stretch scope: 2 covered, 3 partial, 0 open.",
+      "name": "text.docs/plan_coverage_audit.md.Stretch scope: 3 covered, 2 partial, 0 open.",
       "ok": true,
       "source": "docs/plan_coverage_audit.md"
     },
@@ -6219,7 +6583,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.REPRODUCE.md.cached Responses API files contain `1,680,454` total tokens",
+      "name": "text.REPRODUCE.md.cached Responses API files contain `2,052,279` total tokens",
       "ok": true,
       "source": "REPRODUCE.md"
     },
@@ -6289,7 +6653,28 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.REPRODUCE.md.follow-up experiments covered, `2` partial, and `0` future",
+      "name": "text.REPRODUCE.md.follow-up experiments covered, `1` partial, and `0` future",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.scripts/analyze_gpt55_no_coord_k8.py",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.K=8 no-coordinate prompt produced `0` exact-coordinate candidates",
+      "ok": true,
+      "source": "REPRODUCE.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.REPRODUCE.md.population-play improves from `0.833` to `0.993`",
       "ok": true,
       "source": "REPRODUCE.md"
     },
@@ -6548,7 +6933,7 @@
     {
       "actual": "present",
       "expected": "present",
-      "name": "text.REPRODUCE.md.stretch scope has `2` covered, `3` partial, and `0` open items",
+      "name": "text.REPRODUCE.md.stretch scope has `3` covered, `2` partial, and `0` open items",
       "ok": true,
       "source": "REPRODUCE.md"
     },
@@ -6640,6 +7025,13 @@
       "actual": "present",
       "expected": "present",
       "name": "text.README.md.docs/gpt55_speaker_smoke_report.md",
+      "ok": true,
+      "source": "README.md"
+    },
+    {
+      "actual": "present",
+      "expected": "present",
+      "name": "text.README.md.docs/gpt55_no_coord_k8_report.md",
       "ok": true,
       "source": "README.md"
     },
@@ -6798,6 +7190,6 @@
       "source": "paper/colm2026_submission.tex"
     }
   ],
-  "n_checks": 971,
+  "n_checks": 1027,
   "n_failed": 0
 }

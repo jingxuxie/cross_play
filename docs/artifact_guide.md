@@ -22,6 +22,11 @@ It is generated from the current JSON/JSONL artifacts and is intended as a revie
 | GPT-5.5 speaker 50-scene records | `results/gpt55_speaker_perspective50_records.jsonl` |
 | GPT-5.5 speaker 50-scene candidates | `results/gpt55_speaker_perspective50_candidates.jsonl` |
 | GPT-5.5 speaker 50-scene candidate eval | `results/gpt55_speaker_perspective50_candidate_eval_records.jsonl` |
+| GPT-5.5 K=8 no-coordinate report | `docs/gpt55_no_coord_k8_report.md` |
+| GPT-5.5 K=8 no-coordinate comparison | `results/gpt55_no_coord_k8_comparison.json` |
+| GPT-5.5 K=8 no-coordinate candidates | `results/gpt55_no_coord_k8_perspective50_candidates.jsonl` |
+| GPT-5.5 K=8 no-coordinate candidate eval | `results/gpt55_no_coord_k8_perspective50_candidate_eval_records.jsonl` |
+| GPT-5.5 K=8 no-coordinate summary | `results/gpt55_no_coord_k8_perspective50_no_coord_summary.json` |
 | GPT-5.5 follow-up plan status | `docs/gpt55_followup_plan_status.md` |
 | Human validation packet | `docs/human_validation_packet.md` |
 | Human validation participant items | `data/human_validation_items.jsonl` |
@@ -52,6 +57,7 @@ It is generated from the current JSON/JSONL artifacts and is intended as a revie
 | Cross-model listener audit script | `scripts/analyze_cross_model_listener_audit.py` |
 | Cross-model failure overlap script | `scripts/analyze_cross_model_failure_overlap.py` |
 | GPT-5.5 speaker smoke script | `scripts/analyze_gpt55_speaker_smoke.py` |
+| GPT-5.5 K=8 no-coordinate script | `scripts/analyze_gpt55_no_coord_k8.py` |
 | GPT-5.5 follow-up status script | `scripts/audit_gpt55_followup_plan.py` |
 | Human validation packet script | `scripts/make_human_validation_packet.py` |
 | Local benchmark analysis script | `scripts/analyze_local_benchmark.py` |
@@ -88,18 +94,18 @@ It is generated from the current JSON/JSONL artifacts and is intended as a revie
 |---|---|---:|---:|---:|---:|---:|
 | local_benchmark600 | `data/local_benchmark600_scenes.jsonl` | 600 | 10800 | 0 | 0 | 0 |
 | mixed_50 | `data/dev_scenes.jsonl` | 50 | 2550 | 50 | 50 | 50 |
-| perspective_stress_50 | `data/perspective_stress50_scenes.jsonl` | 50 | 6900 | 120 | 150 | 120 |
+| perspective_stress_50 | `data/perspective_stress50_scenes.jsonl` | 50 | 11100 | 170 | 250 | 170 |
 | partial_observability_api50 | `data/partial_observability_local50_scenes.jsonl` | 50 | 4050 | 50 | 150 | 50 |
 
 ## Cached Response Models
 
-Cache files: 5866.
+Cache files: 7113.
 
 | Requested model | Response model | Cached responses |
 |---|---|---:|
 | `gpt-4.1-nano` | `gpt-4.1-nano-2025-04-14` | 1236 |
 | `gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770 |
-| `gpt-5.5` | `gpt-5.5-2026-04-23` | 1860 |
+| `gpt-5.5` | `gpt-5.5-2026-04-23` | 3107 |
 
 ## API Token Accounting
 
@@ -107,13 +113,13 @@ This cache-only budget audit summarizes stored Responses API usage metadata. It 
 
 | Cache files | Readable | Missing usage | Input tokens | Output tokens | Total tokens | Source |
 |---:|---:|---:|---:|---:|---:|---|
-| 5866 | 5866 | 0 | 1535340 | 145114 | 1680454 | `results/api_token_accounting.json` |
+| 7113 | 7113 | 0 | 1874818 | 177461 | 2052279 | `results/api_token_accounting.json` |
 
 | Requested model | Response model | Responses | Input tokens | Output tokens | Total tokens |
 |---|---|---:|---:|---:|---:|
 | `gpt-4.1-nano` | `gpt-4.1-nano-2025-04-14` | 1236 | 301032 | 31225 | 332257 |
 | `gpt-5.4-nano` | `gpt-5.4-nano-2026-03-17` | 2770 | 751850 | 68860 | 820710 |
-| `gpt-5.5` | `gpt-5.5-2026-04-23` | 1860 | 482458 | 45029 | 527487 |
+| `gpt-5.5` | `gpt-5.5-2026-04-23` | 3107 | 821936 | 77376 | 899312 |
 
 ## Headline Full-Candidate Results
 
@@ -166,21 +172,53 @@ The GPT-5.5 speaker run records 8485 speaker tokens and writes its human-readabl
 | 50 | 0.993 | 0.800 | 0.853 | 1.000 | 0.147 | 1.000 | 1.000 | 0.980 | 1.000 | 30 | 25478 |
 This extension is the current paper-facing speaker-generation evidence when it covers all 50 perspective-stress scenes.
 
+## GPT-5.5 K=8 No-Coordinate Audit
+
+This Experiment 4 audit compares a K=4 filtered baseline against a dedicated GPT-5.5 K=8 speaker prompt that forbids exact row/column references.
+K=4 keeps 148 non-coordinate candidates and excludes 52; K=8 keeps 400 non-coordinate candidates and excludes 0.
+The K=8 prompt produces 0 exact-coordinate candidates across 50 perspective-stress scenes.
+K=8 population-play improves from 0.833 to 0.993, while oracle remains 1.000 and shortest reaches 1.000.
+Consensus+info is not monotonic: it falls from 0.993 to 0.900, so the paper should not claim it is the best GPT-5.5 K=8 no-coordinate selector.
+
+| Method | K=4 filtered | K=8 no-coordinate | Delta | Source |
+|---|---:|---:|---:|---|
+| Direct first | 0.993 | 0.973 | -0.020 | `results/gpt55_no_coord_k8_comparison.json` |
+| Shortest | 0.787 | 1.000 | 0.213 | `results/gpt55_no_coord_k8_comparison.json` |
+| Mirror | 0.847 | 0.953 | 0.107 | `results/gpt55_no_coord_k8_comparison.json` |
+| Population | 0.833 | 0.993 | 0.160 | `results/gpt55_no_coord_k8_comparison.json` |
+| Consensus+info | 0.993 | 0.900 | -0.093 | `results/gpt55_no_coord_k8_comparison.json` |
+| Info prior | 0.993 | 0.900 | -0.093 | `results/gpt55_no_coord_k8_comparison.json` |
+| Oracle | 1.000 | 1.000 | 0.000 | `results/gpt55_no_coord_k8_comparison.json` |
+
+Candidate budget:
+
+| Condition | K | Candidates/scene | Robust candidates/scene | Robust-scene rate | Oracle |
+|---|---:|---:|---:|---:|---:|
+| gpt55_k4_filtered | 1 | 1.000 | 0.980 | 0.980 | 0.993 |
+| gpt55_k4_filtered | 2 | 2.000 | 1.540 | 1.000 | 1.000 |
+| gpt55_k4_filtered | 4 | 2.960 | 2.500 | 1.000 | 1.000 |
+| gpt55_k8_no_coordinate_prompt | 1 | 1.000 | 0.960 | 0.960 | 0.973 |
+| gpt55_k8_no_coordinate_prompt | 2 | 2.000 | 1.960 | 1.000 | 1.000 |
+| gpt55_k8_no_coordinate_prompt | 4 | 4.000 | 3.780 | 1.000 | 1.000 |
+| gpt55_k8_no_coordinate_prompt | 8 | 8.000 | 7.420 | 1.000 | 1.000 |
+
+Claim boundary: Safe: GPT-5.5 can generate robust non-coordinate referring expressions on all 50 perspective-stress scenes. Safe: increasing to K=8 improves population and mirror selection, but the heuristic consensus+info selector is not monotonic. Do not claim: consensus+info is the best no-coordinate selector for GPT-5.5 K=8; shortest and population are stronger in this run.
+
 ## GPT-5.5 Follow-Up Plan Status
 
 This generated claim-boundary audit maps `additional_experiments_gpt55_plan.md` to the current evidence package.
-Covered: 4. Partial: 2. Future: 0. Missing evidence paths: 0.
+Covered: 5. Partial: 1. Future: 0. Missing evidence paths: 0.
 
 | Status | Experiment | Interpretation |
 |---|---|---|
 | covered | Experiment 1: GPT-5.5 held-out listener audit | Fifty-scene perspective-stress and partial-observability selected-message audits include GPT-5.5 listeners, paired population-minus-mirror gaps, and cross-model context. |
 | covered | Experiment 2: cross-model listener matrix | The artifact has gpt-4.1-nano, gpt-5.4-nano, and gpt-5.5 listener-family rows for perspective stress and partial observability, plus failure-overlap diagnostics. |
 | covered | Experiment 3: GPT-5.5 speaker candidate-generation audit | The original same-10-scene smoke shows GPT-5.5 speaker direct-first improves from 0.800 to 1.000 and mirror from 0.667 to 0.867, while population stays 1.000. The full 50-scene perspective-stress speaker audit has direct-first 0.993, mirror 0.853 despite same-play 1.000, population 1.000, and oracle 1.000 under GPT-5.5 held-out listeners. |
-| partial | Experiment 4: stronger no-coordinate candidate generation | The no-API local K=8 diagnostic supports the candidate-diversity explanation, but the cached API speaker artifacts remain K=4. |
+| covered | Experiment 4: stronger no-coordinate candidate generation | The 50-scene GPT-5.5 K=8 no-coordinate API run produces 400/400 non-coordinate candidates, oracle success 1.000, shortest 1.000, population 0.993, and shows consensus+info is not monotonic because it drops to 0.900. |
 | partial | Experiment 5: small human validation | The 20-item participant-safe annotation packet and response template are prepared, but no human annotations are present. The current completed independent support remains the rule-based ambiguity verifier. |
 | covered | Experiment 6: rule-based ambiguity verifier | The rule-based verifier recovers the coded mirror-failure taxonomy with symbolic ambiguity, attribute-under-specification, and frame-sensitive recall all at 1.000. |
 
-Claim boundary: Safe to claim: the mirror gap persists under GPT-5.5 held-out listeners, and the cross-model matrix supports the core cross-play argument. Safe to claim: the 50-scene GPT-5.5 speaker audit shows stronger speakers reduce first-candidate brittleness but do not remove the value of population selection. Not yet safe as paper headline: API K=8 no-coordinate generation or human listener validation.
+Claim boundary: Safe to claim: the mirror gap persists under GPT-5.5 held-out listeners, and the cross-model matrix supports the core cross-play argument. Safe to claim: the 50-scene GPT-5.5 speaker audit shows stronger speakers reduce first-candidate brittleness but do not remove the value of population selection. Safe to claim: the API K=8 no-coordinate run shows robust non-coordinate expressions are available, while selector design remains the bottleneck. Not yet safe as paper headline: human listener validation.
 
 ## Human Validation Packet
 
@@ -500,16 +538,15 @@ Items passed: 19/19.
 ## Plan Coverage Audit
 
 This generated audit maps the original workshop plan to the current artifacts and separates claimed core coverage from partial or open stretch items.
-Overall: 19 covered, 5 partial, 0 open across 24 plan items.
+Overall: 20 covered, 4 partial, 0 open across 24 plan items.
 Core scope: 17 covered, 2 partial, 0 open.
-Stretch scope: 2 covered, 3 partial, 0 open.
+Stretch scope: 3 covered, 2 partial, 0 open.
 
 | Status | Scope | Plan item | Detail | Source |
 |---|---|---|---|---|
 | partial | core | Use development episodes for debugging prompts and tuning the generator. | The project uses a 50-scene dev/API pilot, not the 200 development episodes suggested by the stronger plan. | `docs/plan_coverage_audit.md` |
 | partial | core | Hand-label roughly 100 failures into interpretable categories. | There are 152 author-coded listener-level mirror failures across paper-facing hard cases, but not a balanced 100-failure sample across all major methods. | `docs/plan_coverage_audit.md` |
 | partial | stretch | Run a 1,000-scene benchmark and 200 partial-observability stress episodes. | A no-API local diagnostic now runs the stronger 1,000 initial-family plus 200 partial-observability scale, but the paper-facing API listener runs remain bounded 50-scene diagnostics. | `docs/plan_coverage_audit.md` |
-| partial | stretch | Evaluate K=8 candidate generation in addition to K=4. | The local stronger-plan diagnostic evaluates K=8 candidate slots and shows added non-coordinate diversity; cached API speaker artifacts remain K=4. | `docs/plan_coverage_audit.md` |
 | partial | stretch | Run an actual interaction-memory prompt rerun after distilling rules from failures. | A replay-only interaction-memory rule audit is present, but no new memory-prompt generation/evaluation run is claimed. | `docs/plan_coverage_audit.md` |
 
 ## Claim-To-Evidence Map
@@ -519,7 +556,8 @@ Stretch scope: 2 covered, 3 partial, 0 open.
 | Same-play can overstate held-out communicative success. | `results/paper_claims_verification.md; results/*_population_vs_mirror_paired.md` | mirror same-play is 1.000 while cross-play is lower in mixed, perspective, alternate-model, and partial-observability runs |
 | The mirror self-play gap persists under GPT-5.5 and across held-out listener families. | `docs/cross_model_listener_audit.md; docs/cross_model_failure_overlap.md; results/cross_model_listener_audit.json; results/cross_model_failure_overlap.json; paper/tables/cross_model_listener_audit.tex` | population-minus-mirror gaps are 0.187, 0.287, and 0.327 on perspective stress and 0.333, 0.340, and 0.347 on partial observability; 20 of 22 GPT-4.1 perspective mirror-failure scenes and 26 of 26 partial-observability scenes also fail under GPT-5.5 |
 | A bounded GPT-5.5 speaker smoke improves first-candidate quality but does not make mirror selection the robust selector. | `docs/gpt55_speaker_smoke_report.md; results/gpt55_speaker_smoke.json` | on the same 10 perspective-stress scenes, direct-first rises from 0.800 to 1.000 and mirror rises from 0.667 to 0.867; the 50-scene speaker audit has GPT-5.5 direct-first 0.993, mirror 0.853, and population-play 1.000 |
-| The GPT-5.5 follow-up evidence is explicitly bounded by covered, partial, and future rows. | `docs/gpt55_followup_plan_status.md; results/gpt55_followup_plan_status.json` | follow-up plan status is 4 covered, 2 partial, and 0 future, with no missing evidence paths |
+| The GPT-5.5 follow-up evidence is explicitly bounded by covered, partial, and future rows. | `docs/gpt55_followup_plan_status.md; results/gpt55_followup_plan_status.json` | follow-up plan status is 5 covered, 1 partial, and 0 future, with no missing evidence paths |
+| The API K=8 no-coordinate run shows robust non-coordinate expressions are available, while selector design remains the bottleneck. | `docs/gpt55_no_coord_k8_report.md; results/gpt55_no_coord_k8_comparison.json; results/gpt55_no_coord_k8_perspective50_no_coord_summary.json` | K=8 keeps 400 non-coordinate candidates, excludes 0 exact-coordinate candidates, reaches oracle 1.000 and population-play 0.993, while consensus+info drops to 0.900 |
 | The human-validation extension is protocol-ready but has no collected human labels yet. | `docs/human_validation_packet.md; data/human_validation_items.jsonl; results/human_validation_answer_key.json` | the prepared packet has 20 participant-safe items: 10 perspective mirror failures, 5 partial-observability mirror failures, and 5 mirror-success controls |
 | Population-play closes the observed full-candidate cross-play gaps. | `paper/tables/mixed50.tex; paper/tables/perspective_stress50.tex; paper/tables/perspective_altmodel50.tex; results/partial_observability_api50_summary.json` | population cross-play is 1.000 in all full-candidate paper-facing runs |
 | The strongest full-candidate result depends on explicit listener-invariant fallbacks. | `paper/tables/perspective_stress50_gpt41nano_no_coord.tex; paper/tables/selection_mechanisms_stress_no_coord.tex` | no-coordinate stress population drops to 0.420 while consensus+info reaches 0.760 |
@@ -537,20 +575,20 @@ Stretch scope: 2 covered, 3 partial, 0 open.
 | A rule-based non-LLM verifier recovers the coded mirror-failure taxonomy. | `docs/rule_based_ambiguity_verifier.md; results/rule_based_ambiguity_verifier.json; results/rule_based_ambiguity_verifier_units.jsonl` | combined coded failure set has symbolic ambiguity recall 1.000, attribute-under-specification recall 1.000, and frame-sensitive recall 1.000 |
 | The coded failures induce a small interaction-memory rule set. | `docs/interaction_memory_rules.md; results/interaction_memory_rules.json` | 152 coded failure rows collapse into disambiguate-shared-attributes and avoid-frame-sensitive-only rules; cached repairs satisfy the derived cue in 1.000 of failure scenes |
 | The original pre-submission checklist is backed by concrete artifacts. | `docs/reviewer_checklist.md; results/reviewer_checklist.json` | Section 32 reviewer checklist passes all 19 core-validity, results, and paper items |
-| The artifact package explicitly distinguishes completed core requirements from stretch gaps. | `docs/plan_coverage_audit.md; results/plan_coverage_audit.json` | core scope has 17 covered, 2 partial, 0 open items; stretch scope has 2 covered, 3 partial, 0 open after adding independent non-LLM validation |
+| The artifact package explicitly distinguishes completed core requirements from stretch gaps. | `docs/plan_coverage_audit.md; results/plan_coverage_audit.json` | core scope has 17 covered, 2 partial, 0 open items; stretch scope has 3 covered, 2 partial, 0 open after adding the API K=8 no-coordinate audit |
 | The released generator supports a benchmark-scale local sanity sweep. | `docs/local_benchmark600_check.md; results/local_benchmark600_check.json` | 600 local scenes balanced across four initial scenario families; mirror same-play is 1.000 but cross-play is 0.631 |
 | The local artifact supports the stronger-plan 1,000+200 scale and K=8 diagnostic. | `docs/local_stronger_plan_k8.md; results/local_stronger_plan_k8.json` | no-coordinate oracle over 1,200 local scenes rises from 0.808 at K=4 to 0.995 at K=8 |
-| The cached benchmark artifacts are internally consistent. | `results/benchmark_integrity_audit.md` | 242/242 integrity checks pass |
-| API usage is bounded and cache-replayable. | `docs/api_token_accounting.md; results/api_token_accounting.json` | 5866 cached responses have complete usage metadata totaling 1680454 tokens |
+| The cached benchmark artifacts are internally consistent. | `results/benchmark_integrity_audit.md` | 290/290 integrity checks pass |
+| API usage is bounded and cache-replayable. | `docs/api_token_accounting.md; results/api_token_accounting.json` | 7113 cached responses have complete usage metadata totaling 2052279 tokens |
 
 ## Quality Gates
 
 | Gate | Checks | Failed | Warnings | Open actions | Source |
 |---|---:|---:|---:|---:|---|
-| benchmark integrity | 242 | 0 | 0 | 0 | `results/benchmark_integrity_audit.json` |
-| paper claims | 966 | 0 | 0 | 0 | `results/paper_claims_verification.json` |
+| benchmark integrity | 290 | 0 | 0 | 0 | `results/benchmark_integrity_audit.json` |
+| paper claims | 1027 | 0 | 0 | 0 | `results/paper_claims_verification.json` |
 | reviewer checklist | 19 | 0 | 0 | 0 | `results/reviewer_checklist.json` |
-| submission readiness | 211 | 0 | 0 | 0 | `results/submission_readiness_audit.json` |
+| submission readiness | 233 | 0 | 0 | 0 | `results/submission_readiness_audit.json` |
 
 ## Refresh Commands
 
