@@ -1,0 +1,32 @@
+\section{Qualitative Analysis}
+
+The quantitative pattern is easy to see in individual scenes. In scene \texttt{ps\_000005}, the target is a small green sphere at row 4, column 1, and there is another small green sphere at row 1, column 4. Mirror self-play selects ``It's a small green sphere.'' Its local partner resolves this correctly, but two of the three alternate-model held-out listeners choose the distractor. Population-play selects ``The target is the small green sphere at row 4, column 1,'' which all held-out listeners map to the target. The mirror message is not syntactically wrong; it is pragmatically under-informative for a listener who sees two compatible objects.
+
+In scene \texttt{ps\_000011}, mirror self-play selects ``Find the large yellow cube left of the purple cylinder.'' Under perspective shift, this relation is frame-sensitive: one alternate-model held-out listener chooses the same-shape, same-color distractor. Population-play selects ``Go to row 4, column 1: the large yellow cube,'' which all held-out listeners map to the target. Here the failure is not merely brevity; the problem is that the selected relation depends on an orientation convention that is not shared by all listeners.
+
+These examples suggest two ways in which same-partner success can mislead. First, the training partner may resolve an ambiguous attribute description in the target's favor because of a deterministic tie-breaker. Second, the training partner may share or assume the speaker's spatial frame. Both cases produce perfect same-play success without robust communicative success. Population-play helps when at least one local listener penalizes the ambiguity or when the candidate pool contains a listener-invariant fallback.
+
+Table~\ref{tab:errors} consolidates the rubric-coded mirror failures used in the analysis. Across 152 listener-level failures, 147 are underspecified distractor cases and 5 are perspective-frame errors; no coded failures are wrong-attribute, private-landmark, or listener-misparse cases. A generated qualitative appendix adds two partial-observability examples, including a no-coordinate consensus+info repair that raises held-out success from 0.333 to 1.000 in the selected scene.
+
+\begin{table}[H]
+\centering
+\input{tables/failure_taxonomy_combined}
+\caption{Rubric-coded categories for mirror self-play held-out listener failures across the coded paper-facing failure sets. Each row count is a listener-level failure.}
+\label{tab:errors}
+\end{table}
+
+\section{Discussion}
+
+The experiments support a modest but important conclusion: communicative success is not a sufficient evaluation signal unless the partner distribution is specified. In PRAG-CrossPlay, mirror self-play is not failing because it cannot find any working message. It is failing because a message that works with one partner can be under-specified for another. Population-play improves robustness by making the selector satisfy multiple listener assumptions, but the no-coordinate ablation shows that population diversity must be paired with a selector that values discriminative information.
+
+This has implications for interactive language-agent research. Many agent pipelines include a step that resembles our selection loop: generate alternatives, simulate a user or partner, and keep the response that appears to succeed. If evaluation uses the same partner type, the resulting score may reward private conventions, hidden tie-breakers, or brittle spatial assumptions. Cross-play offers a low-cost diagnostic: hold out partner prompts, model families, or humans, and report the same-play/cross-play gap. A large gap does not necessarily mean the agent is useless; it identifies where the communication protocol has become partner-specific.
+
+The no-coordinate ablation is also instructive. Exact coordinates are useful in our text-rendered grid because they are listener-invariant. In more natural embodied settings, such fallbacks may be unavailable, unnatural, or costly. The relevant lesson is not that agents should always use coordinates, but that robust communication often requires grounding descriptions in information that the listener can reliably observe and interpret. When such descriptions are unavailable or not selected, cross-play exposes the weakness.
+
+\section{Limitations}
+
+The experiments are intentionally small and diagnostic. The selector partners are local deterministic listeners rather than trained LLM agents. This is useful for isolating partner overfitting, but it means the result should be framed as a cross-play diagnostic rather than as evidence about large-scale agent training. The held-out listeners are API language models, not humans. We audit two held-out model families, but both are still language-model listeners and prompt variants rather than independent human partners. The strongest population-play result relies on exact coordinate fallbacks; without those fallbacks, the current local listener population is not sufficient, although consensus+info recovers much of the no-coordinate oracle. The grid scenes are text-rendered, so the benchmark tests situated reference rather than embodied perception. Finally, the strongest evidence is concentrated in two diagnostic families, perspective shift and partial observability; broader claims require larger balanced runs across all scenario types and, ideally, human listener validation.
+
+\section{Conclusion}
+
+Same-partner communicative success is not sufficient evidence of robust pragmatic communication. In PRAG-CrossPlay, mirror self-play can achieve perfect same-play success while failing under held-out listeners, especially when messages are perspective-sensitive or under-specified. Population-play mitigates this failure when listener-invariant fallbacks are available, but the no-coordinate ablation shows that cross-play is also useful for diagnosing and repairing weaknesses in the selector itself. These results support cross-play as a simple, objective evaluation axis for language agents that learn, filter, or select messages through situated interaction.

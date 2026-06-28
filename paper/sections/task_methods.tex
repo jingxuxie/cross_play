@@ -1,0 +1,44 @@
+\section{PRAG-CrossPlay Task}
+
+\paragraph{Episode structure.}
+Each episode consists of a scene $s$, a target object $t$, a speaker message $u$, and a listener choice $\hat{t}$. The scene contains a small set of objects $O=\{o_1,\ldots,o_n\}$. Each object has a color, shape, size, row, column, and object ID. The speaker receives the target ID and the target's visible attributes so that it knows which object to describe. The listener receives the candidate-object list and the speaker message but not the target ID. The speaker is instructed not to mention object IDs and to use only listener-visible information.
+
+This setup is text-rendered rather than image-rendered. Rows and columns are explicit, and some scenes include speaker and listener orientations. The abstraction lets us isolate linguistic and pragmatic reference without confounding the analysis with visual perception or robotics execution. It also makes every episode auditable: a verifier can check message leakage, listener choice validity, and success against the source scene.
+
+\paragraph{Scenario families.}
+We generate five scenario families. \emph{Unique-attribute} scenes contain targets identifiable by simple attributes. \emph{Distractor-contrast} scenes include another object sharing salient properties with the target, so the speaker must mention a contrastive cue. \emph{Relational-reference} scenes require a description relative to a listener-visible landmark. \emph{Perspective-shift} scenes give speaker and listener different orientations, making left/right and other frame-sensitive relations brittle. \emph{Partial-observability} scenes include a private landmark visible to the speaker but hidden from the listener, testing whether messages avoid unavailable evidence. The paper-facing stress tests emphasize perspective shift and partial observability because pilot results showed ceiling effects in the easier families.
+
+\paragraph{Success and cross-play metrics.}
+For a listener $\ell$, a message succeeds when the listener's chosen object equals the target:
+\[
+  \operatorname{succ}(u,s,t,\ell) = \mathbb{1}[\ell(u,s)=t].
+\]
+For each selected message, we report held-out cross-play success averaged over scenes and held-out listener prompts. For self-play methods, we also record same-play success under the simulated listener used for selection. The cross-play gap is
+\[
+  \operatorname{gap} = \text{same-play} - \text{cross-play}.
+\]
+A positive gap indicates that same-partner success overstates robustness. We additionally report oracle candidate success, candidate-pool robustness, selection regret, random-candidate baselines, message length, and listener-disagreement audits. These secondary metrics help distinguish missing-candidate failures from selector failures.
+
+\section{Methods}
+
+\paragraph{Candidate generation.}
+For each scene, an API speaker generates $K=4$ candidate utterances. The prompt asks for four different message roles: (1) a natural first attempt, (2) a concise attribute-based message, (3) a relational or spatial message using listener-visible landmarks when possible, and (4) an explicit fallback that may use row/column coordinates. Each message is limited to at most 25 words. The prompt includes the hidden target ID only so the speaker knows which object to describe; the system instruction forbids mentioning that ID, and a benchmark integrity audit checks for object-ID leakage. All API calls are cached by prompt hash.
+
+This four-candidate design is important for diagnosis. A single generated message would conflate speaker-generation failures with selection failures. With a small candidate set, we can ask whether a robust message was available and whether each selector chose it. The oracle candidate result is therefore an analysis upper bound, not a deployable method.
+
+\paragraph{Held-out listener evaluation.}
+Held-out listeners receive the listener-visible scene, speaker and listener orientations, and one speaker message. They return a JSON object containing a choice ID and auxiliary fields such as confidence or ambiguity flags. We use multiple listener prompts that differ in tie-breaking and response style, such as careful comparison versus strict last-match behavior under ambiguity. A selected message's cross-play score is the average success across held-out listener prompts. Because the returned choice ID is checked against the ground-truth target, the held-out API model is used as a listener rather than as an evaluator assigning subjective quality scores.
+
+\paragraph{Local training listeners.}
+The self-play selectors use deterministic local listeners rather than additional API calls. These local listeners implement different inductive biases: they vary in tie-breaking, how they treat frame-sensitive relations, and how strongly they weight spatial cues. This design keeps the interaction signal cheap and inspectable. It also makes the result conservative in a specific sense: if mirror self-play overfits even to a simple deterministic partner, the same diagnostic may be useful for richer interaction-trained systems.
+
+\paragraph{Baselines and selectors.}
+The \emph{template} baseline describes the target with visible attributes and exact row/column coordinates. This is an upper-simple baseline for scenes where coordinates are listener-invariant. The \emph{direct} baseline uses the first API-generated candidate. \emph{Best-of-$K$ shortest} selects the shortest candidate and controls for the possibility that merely generating multiple candidates improves quality.
+
+\emph{Mirror self-play} scores each candidate with one fixed local listener and selects the shortest candidate that the local listener maps to the target. If no candidate succeeds locally, it falls back to the highest-scoring available candidate according to the same listener. This models a minimal same-partner selection loop: keep the utterance that works with the partner you simulated.
+
+\emph{Population-play} scores each candidate across three heterogeneous local listeners. It selects the candidate maximizing average local success with a small length penalty for ties. The key difference from mirror self-play is not scale, but diversity: a candidate must work across several plausible listener assumptions rather than one partner's tie-breaking rule.
+
+\emph{Informativeness prior} is a text-only selector used in no-exact-coordinate ablations. It prefers candidates containing contrastive or spatial cues such as ``only,'' ``leftmost,'' ``below,'' or ``next to.'' \emph{Consensus+info} first uses local population feedback when a candidate has unanimous local support and otherwise falls back to the informativeness prior. Neither selector uses held-out listener labels.
+
+\emph{Oracle candidate} evaluates every generated candidate with held-out API listeners and selects the one with highest held-out success. It is reported only to decompose failures: if the oracle succeeds while a method fails, the candidate pool contained a robust message and the failure is selection rather than generation.
