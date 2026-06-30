@@ -18,10 +18,212 @@
 \begin{document}
 \maketitle
 
-\input{sections/abstract_intro_related}
-\input{sections/task_methods}
-\input{sections/experiments_results}
-\input{sections/analysis_discussion}
+% Begin inlined sections/abstract_intro_related
+\begin{abstract}
+Interactive language agents are often improved or evaluated with the same simulated partners that provide feedback, selection, or reward. In pragmatic communication, this can conflate generally listener-adapted language with conventions that only work for one partner. We study this issue in PRAG-CrossPlay, a controlled situated reference-game benchmark where an API speaker generates candidate messages and a listener must identify a hidden target object from a text-rendered scene. Success is objective: the listener's chosen object ID is checked against ground truth, without an LLM judge. Mirror self-play selects messages against one fixed simulated listener; population-play selects against a heterogeneous listener population; and both are evaluated with held-out API listeners. Mirror self-play achieves perfect same-partner success but drops under cross-play, especially on perspective-sensitive references. In a 50-scene perspective-stress replication, mirror obtains 1.00 same-play but 0.81 cross-play success, while population-play reaches 1.00; under \texttt{gpt-5.5} held-out listeners, mirror reaches 0.67 on perspective stress and 0.65 on partial observability while population-play remains at 1.00. When \texttt{gpt-5.5} is also the speaker, direct first-candidate success reaches 0.99, but mirror still trails population-play (0.85 versus 1.00). A no-coordinate ablation shows that selector quality matters when explicit listener-invariant fallbacks are removed. The results support cross-play as a diagnostic for distinguishing robust pragmatic messages from partner-specific shortcuts.
+\end{abstract}
+
+\section{Introduction}
+
+Pragmatic communication is partner-dependent: a phrase that is sufficient for one listener can be ambiguous or frame-sensitive for another. This matters for language agents because interaction is increasingly used as both an evaluation setting and a learning signal. A simulated partner can provide feedback, play the role of a user, or supply reward through task success, but if that partner has stable quirks, high interaction reward may reflect adaptation to those quirks rather than robust pragmatic skill.
+
+This concern connects classic pragmatics with multi-agent cross-play. Gricean and collaborative-reference accounts emphasize informative utterance choice and partner-specific reference conventions~\cite{grice1975logic,clark1986referring,brennan1996conceptual}; computational reference-game models formalize speaker choices relative to listener alternatives~\cite{dale1995computational,frank2012predicting,goodman2016pragmatic,andreas2016reasoning}. In multi-agent learning, self-play can produce conventions that work internally but fail under partner shift, motivating zero-shot coordination and cross-play evaluations~\cite{foerster2016learning,lazaridou2017multiagent,carroll2019utility,hu2020otherplay,lucas2022anyplay}. Our goal is to bring this diagnostic to natural-language reference: when communicative success is used as a selection signal, does success transfer to new listeners?
+
+We study this question in PRAG-CrossPlay, a small, controlled situated reference-game benchmark. A speaker sees a text-rendered grid scene, a hidden target object ID, and the target's visible attributes. The listener sees the candidate-object list and the speaker message but not the target ID. The task deliberately abstracts away perception to isolate pragmatic reference, and success is scored by checking whether the listener's chosen object ID matches the ground-truth target.
+
+The key distinction is between \emph{same-play} and \emph{cross-play}. Same-play measures whether a selected message works with the simulated listener used for selection; cross-play measures whether that same message works with held-out listener models and prompts. We compare mirror self-play, which selects the shortest candidate that succeeds with one fixed simulated listener, to population-play, which selects candidates that succeed across a small heterogeneous population of local listeners. This is not a full-scale training procedure; it is an inspectable instance of a broader pattern in which a speaker proposes messages, an interaction partner supplies success feedback, and the system keeps the message that appears to work.
+
+The paper makes three contributions:
+\par\noindent\hangindent=1.2em\hangafter=1\textbullet\ A released benchmark: PRAG-CrossPlay supplies procedural scenes, prompt templates, cached API traces, and verification scripts.
+\par\noindent\hangindent=1.2em\hangafter=1\textbullet\ A cross-play protocol: situated reference success is split into same-partner success and held-out listener success.
+\par\noindent\hangindent=1.2em\hangafter=1\textbullet\ An empirical diagnosis: mirror self-play can overfit a simulated listener, while population-play and no-coordinate ablations expose when fallbacks or selector quality drive transfer.
+
+\section{Related Work}
+
+\paragraph{Pragmatics and reference.}
+Pragmatics, referring expression generation, and Rational Speech Act models all study how speakers choose utterances under assumptions about listener knowledge and distractors~\cite{grice1975logic,dale1995computational,frank2012predicting,goodman2016pragmatic}. Human reference is also interactive: speakers and listeners adapt descriptions and establish partner-specific conceptual pacts~\cite{clark1986referring,brennan1996conceptual}. PRAG-CrossPlay follows this tradition but asks a transfer question: does a message selected by one listener model remain interpretable to other listeners?
+
+\paragraph{Self-play and interactive language-agent evaluation.}
+Emergent-communication and zero-shot-coordination work show that self-play can induce useful conventions but can also overfit to a partner distribution~\cite{foerster2016learning,lazaridou2017multiagent,carroll2019utility,hu2020otherplay,lucas2022anyplay}. Recent social-agent benchmarks such as SOTOPIA and SOTOPIA-$\pi$ evaluate richer role-play and interactive learning, while LLM-as-judge work highlights both the utility and fragility of model-based evaluation~\cite{zhou2023sotopia,wang2024sotopiapi,zheng2023judging}. PRAG-CrossPlay is narrower: it gives a small objective test of one communicative skill and makes partner overfitting directly measurable.
+% End inlined sections/abstract_intro_related
+% Begin inlined sections/task_methods
+\section{PRAG-CrossPlay Task}
+
+\paragraph{Episode structure.}
+Each episode consists of a scene $s$, a target object $t$, a speaker message $u$, and a listener choice $\hat{t}$. The scene contains a small set of objects $O=\{o_1,\ldots,o_n\}$. Each object has a color, shape, size, row, column, and object ID. The speaker receives the target ID and the target's visible attributes so that it knows which object to describe. The listener receives the candidate-object list and the speaker message but not the target ID. The speaker is instructed not to mention object IDs and to use only listener-visible information.
+
+This setup is text-rendered rather than image-rendered. Rows and columns are explicit, and some scenes include speaker and listener orientations. The abstraction lets us isolate linguistic and pragmatic reference without confounding the analysis with visual perception or robotics execution. It also makes every episode auditable: a verifier can check message leakage, listener choice validity, and success against the source scene.
+
+\paragraph{Scenario families.}
+We generate five scenario families. \emph{Unique-attribute} scenes contain targets identifiable by simple attributes. \emph{Distractor-contrast} scenes include another object sharing salient properties with the target, so the speaker must mention a contrastive cue. \emph{Relational-reference} scenes require a description relative to a listener-visible landmark. \emph{Perspective-shift} scenes give speaker and listener different orientations, making left/right and other frame-sensitive relations brittle. \emph{Partial-observability} scenes include a private landmark visible to the speaker but hidden from the listener, testing whether messages avoid unavailable evidence. The paper-facing stress tests emphasize perspective shift and partial observability because pilot results showed ceiling effects in the easier families.
+
+\paragraph{Success and cross-play metrics.}
+For a listener $\ell$, a message succeeds when the listener's chosen object equals the target:
+\[
+  \operatorname{succ}(u,s,t,\ell) = \mathbb{1}[\ell(u,s)=t].
+\]
+For each selected message, we report held-out cross-play success averaged over scenes and held-out listener prompts. For self-play methods, we also record same-play success under the simulated listener used for selection. The cross-play gap is
+\[
+  \operatorname{gap} = \text{same-play} - \text{cross-play}.
+\]
+A positive gap indicates that same-partner success overstates robustness. We additionally report oracle candidate success, candidate-pool robustness, selection regret, random-candidate baselines, message length, and listener-disagreement audits. These secondary metrics help distinguish missing-candidate failures from selector failures.
+
+\section{Methods}
+
+\paragraph{Candidate generation.}
+For each scene, an API speaker generates $K=4$ candidate utterances. The prompt asks for four different message roles: (1) a natural first attempt, (2) a concise attribute-based message, (3) a relational or spatial message using listener-visible landmarks when possible, and (4) an explicit fallback that may use row/column coordinates. Each message is limited to at most 25 words. The prompt includes the hidden target ID only so the speaker knows which object to describe; the system instruction forbids mentioning that ID, and a benchmark integrity audit checks for object-ID leakage. All API calls are cached by prompt hash.
+
+This four-candidate design is important for diagnosis. A single generated message would conflate speaker-generation failures with selection failures. With a small candidate set, we can ask whether a robust message was available and whether each selector chose it. The oracle candidate result is therefore an analysis upper bound, not a deployable method.
+
+\paragraph{Held-out listener evaluation.}
+Held-out listeners receive the listener-visible scene, speaker and listener orientations, and one speaker message. They return a JSON object containing a choice ID and auxiliary fields such as confidence or ambiguity flags. We use multiple listener prompts that differ in tie-breaking and response style, such as careful comparison versus strict last-match behavior under ambiguity. A selected message's cross-play score is the average success across held-out listener prompts. Because the returned choice ID is checked against the ground-truth target, the held-out API model is used as a listener rather than as an evaluator assigning subjective quality scores.
+
+\paragraph{Local training listeners.}
+The self-play selectors use deterministic local listeners rather than additional API calls. These local listeners implement different inductive biases: they vary in tie-breaking, how they treat frame-sensitive relations, and how strongly they weight spatial cues. This design keeps the interaction signal cheap and inspectable. It also makes the result conservative in a specific sense: if mirror self-play overfits even to a simple deterministic partner, the same diagnostic may be useful for richer interaction-trained systems.
+
+\paragraph{Baselines and selectors.}
+The \emph{template} baseline describes the target with visible attributes and exact row/column coordinates. This is an upper-simple baseline for scenes where coordinates are listener-invariant. The \emph{direct} baseline uses the first API-generated candidate. \emph{Best-of-$K$ shortest} selects the shortest candidate and controls for the possibility that merely generating multiple candidates improves quality.
+
+\emph{Mirror self-play} scores each candidate with one fixed local listener and selects the shortest candidate that the local listener maps to the target. If no candidate succeeds locally, it falls back to the highest-scoring available candidate according to the same listener. This models a minimal same-partner selection loop: keep the utterance that works with the partner you simulated.
+
+\emph{Population-play} scores each candidate across three heterogeneous local listeners. It selects the candidate maximizing average local success with a small length penalty for ties. The key difference from mirror self-play is not scale, but diversity: a candidate must work across several plausible listener assumptions rather than one partner's tie-breaking rule.
+
+\emph{Informativeness prior} is a text-only selector used in no-exact-coordinate ablations. It prefers candidates containing contrastive or spatial cues such as ``only,'' ``leftmost,'' ``below,'' or ``next to.'' \emph{Consensus+info} first uses local population feedback when a candidate has unanimous local support and otherwise falls back to the informativeness prior. Neither selector uses held-out listener labels.
+
+\emph{Oracle candidate} evaluates every generated candidate with held-out API listeners and selects the one with highest held-out success. It is reported only to decompose failures: if the oracle succeeds while a method fails, the candidate pool contained a robust message and the failure is selection rather than generation.
+% End inlined sections/task_methods
+% Begin inlined sections/experiments_results
+\section{Experiments}
+
+\paragraph{Runs.}
+We report three bounded API experiments, a 50-scene \texttt{gpt-5.5} speaker-generation audit, and a selected-message cross-model audit. The mixed pilot contains 50 scenes from the four initial scenario families; the perspective-stress replication contains 50 fresh perspective-shift scenes; and the partial-observability support run contains 50 private-landmark scenes. In all runs, the speaker model generates candidates, local selectors choose final messages, and held-out API listeners evaluate those messages. The cross-model audit reuses the same speaker candidates and selected messages, then evaluates them with \texttt{gpt-4.1-nano}, \texttt{gpt-5.4-nano}, and \texttt{gpt-5.5} held-out listener prompts. We use paired scene-level comparisons for method differences.
+
+\paragraph{Model versions and reproducibility.}
+The cache records exact response model versions: \texttt{\footnotesize gpt-5.4-nano-2026-03-17} for the main API runs, \texttt{\footnotesize gpt-4.1-nano-2025-04-14} for the alternate-model audits, and \texttt{\footnotesize gpt-5.5-2026-04-23} for the frontier-listener and speaker follow-up. The repository includes generated prompt and schema documentation, a token-accounting report over 7,171 cached responses, a benchmark integrity audit that checks generated messages and listener choices, and an artifact guide mapping paper claims to source scenes, cached result files, tables, and verifier outputs. As a benchmark-scale artifact sanity check, the release also includes a no-API 600-scene balanced local sweep: mirror self-play has 1.00 same-play but 0.63 cross-play success, while population-play, template, and oracle candidate each reach 1.00.
+
+\paragraph{What is being tested?}
+The experiments do not test whether parameter updates improve pragmatic reasoning. Instead, they test a smaller but common mechanism: using interaction-derived success to select among possible messages. This mechanism appears in reranking, rejection sampling, self-refinement, and data filtering. If selection against one partner can inflate apparent success in a controlled reference game, then cross-play is a useful diagnostic before moving to more expensive training or richer social environments.
+
+\section{Results}
+
+\paragraph{Finding 1: same-play success overstates held-out communicative success.}
+In the mixed pilot, mirror self-play obtains 1.00 same-play success but 0.91 cross-play success; population-play obtains 1.00 cross-play success on the same scenes, with a paired population-minus-mirror difference of 0.09. Scenario-level results localize the effect: unique-attribute and distractor-contrast scenes are at ceiling, relational-reference scenes show a smaller mirror gap, and perspective-shift scenes are the hard case. This rules out a uniform degradation story; the self-play gap appears where listener perspective and ambiguity matter.
+
+\paragraph{Finding 2: the gap replicates and transfers across model families.}
+In 50 fresh perspective-shift scenes, mirror self-play again achieves 1.00 same-play success but only 0.81 cross-play success. Population-play reaches 1.00 cross-play success, matching the oracle candidate upper bound, and the paired population-minus-mirror difference is 0.19. Under an alternate held-out model family, \texttt{gpt-4.1-nano}, direct and shortest baselines become weaker, mirror self-play drops to 0.71 cross-play success, and population-play again reaches 1.00; the paired population-minus-mirror difference is 0.29.
+
+Table~\ref{tab:crossmodel} summarizes the broader cross-model audit. The same selected messages are evaluated under three held-out listener families on perspective stress and partial observability. The mirror self-play gap is not repaired by \texttt{gpt-5.5}; the population-minus-mirror difference is 0.33 on perspective stress and 0.35 on partial observability. Population-play reaches 1.00 in every row. For the selected-message \texttt{gpt-5.5} rows, this also establishes an oracle ceiling of 1.00 without a new all-candidate listener sweep, because the population-selected message is one of the candidates and already succeeds for every held-out listener. A scene-level overlap audit shows that 20 of 22 alternate-model perspective mirror-failure scenes and 26 of 26 partial-observability mirror-failure scenes also fail under \texttt{gpt-5.5}, and all \texttt{gpt-5.5} mirror failures are symbolic-verifier positives.
+
+\begin{table}[H]
+\centering
+\small
+% Begin inlined tables/cross_model_listener_audit
+\begin{tabular}{llrrrrr}
+\toprule
+Setting & Listener & Direct & Mirror & Population & Oracle & Pop.-Mirror \\
+\midrule
+Perspective stress & gpt-5.4-nano & 0.71 & 0.81 & 1.00 & 1.00 & 0.19 \\
+Perspective stress & gpt-4.1-nano & 0.55 & 0.71 & 1.00 & 1.00 & 0.29 \\
+Perspective stress & gpt-5.5 & 0.79 & 0.67 & 1.00 & 1.00 & 0.33 \\
+Partial observability & gpt-5.4-nano & 0.74 & 0.67 & 1.00 & 1.00 & 0.33 \\
+Partial observability & gpt-4.1-nano & 0.70 & 0.66 & 1.00 & 1.00 & 0.34 \\
+Partial observability & gpt-5.5 & 0.74 & 0.65 & 1.00 & 1.00 & 0.35 \\
+\bottomrule
+\end{tabular}
+% End inlined tables/cross_model_listener_audit
+\caption{Cross-model held-out listener audit. GPT-5.5 rows reuse the existing speaker candidates and selected messages; the oracle is 1.00 because population-play already selects an all-listener-successful candidate in every scene.}
+\label{tab:crossmodel}
+\end{table}
+
+We also regenerate all 50 perspective-stress speaker candidate sets with \texttt{gpt-5.5}. Stronger generation improves direct first-candidate success to 0.99 and yields robust candidates by $K=2$ in every scene, but local mirror selection still reaches only 0.85 cross-play success despite 1.00 same-play success. Population-play again reaches 1.00, giving a paired population-minus-mirror difference of 0.15.
+
+\paragraph{Finding 3: coordinate fallbacks are useful, but selector quality matters without them.}
+The strongest population-play result uses candidate sets that include an explicit row/column fallback. Table~\ref{tab:nocoord} asks whether the result is merely a coordinate fallback effect by removing messages that explicitly mention row or column numbers and recomputing selection without new API calls. Robust non-coordinate candidates remain available: the no-coordinate oracle reaches 0.79, and consensus+info reaches 0.76. However, naive population-play falls to 0.42 because the local training listeners often assign equal or low scores to more informative non-coordinate descriptions, causing the length penalty to favor short ambiguous messages. The same cache-only filter on the mixed pilot gives a no-coordinate oracle of 0.96 and consensus+info success of 0.92.
+
+\begin{table}[H]
+\centering
+% Begin inlined tables/perspective_stress50_gpt41nano_no_coord
+\begin{tabular}{lrrrr}
+\toprule
+Method & Cross-play & Same-play & Gap & Tokens \\
+\midrule
+Direct first & 0.55 & - & - & 11.7 \\
+Best-of-K shortest & 0.37 & - & - & 4.6 \\
+Mirror self-play & 0.58 & 1.00 & 0.42 & 8.3 \\
+Population-play & 0.42 & 0.52 & 0.10 & 5.0 \\
+Consensus+info & 0.76 & - & - & 12.5 \\
+Informativeness prior & 0.76 & - & - & 12.5 \\
+Oracle candidate & 0.79 & - & - & 9.4 \\
+\bottomrule
+\end{tabular}
+% End inlined tables/perspective_stress50_gpt41nano_no_coord
+\caption{No-exact-coordinate ablation on the alternate-model audit. We remove candidate messages that explicitly mention row or column numbers, then recompute selection while reusing cached held-out listener evaluations.}
+\label{tab:nocoord}
+\end{table}
+
+A candidate-role audit shows why the ablation behaves this way. In the full perspective-stress and partial-observability runs, population-play selects the coordinate-fallback slot in 1.00 of scenes; in the alternate-model perspective audit, this is 50 coordinate selections versus 17 for mirror self-play. Once exact coordinates are removed, naive population-play selects a spatially informative message in only 4 of 50 perspective-stress scenes and drops to 0.42 cross-play success. Consensus+info falls back to the informativeness prior in all 50 stress scenes, selecting spatially informative messages throughout and reaching 0.76. In the mixed no-coordinate pilot, consensus+info uses local consensus in 32 scenes and the informativeness fallback in 18 scenes.
+
+The dedicated API K=8 no-coordinate run changes this interpretation from a limitation to a sharper diagnostic. A \texttt{gpt-5.5} speaker prompt that forbids exact row/column language produces 400 candidates over the 50 perspective-stress scenes; 400 of 400 generated candidates survive the exact-coordinate filter. The K=8 no-coordinate oracle is 1.00 and the shortest-candidate selector also reaches 1.00, so robust non-coordinate expressions are available. Increasing from the K=4 filtered baseline to K=8 improves mirror from 0.85 to 0.95 and population-play rises from 0.83 to 0.99, but consensus+info drops from 0.99 to 0.90. The safe conclusion is therefore not that one heuristic selector dominates; it is that cross-play exposes when selection, rather than generation, is the remaining bottleneck.
+
+\begin{figure}[H]
+\centering
+% Begin inlined tables/crossplay_gap_bars
+\begin{tabular}{lll}
+\toprule
+Setting & Gap & Same-play minus cross-play \\
+\midrule
+Mixed 50, mirror & 0.09 & \rule{0.93cm}{6pt} \\
+Mixed 50, population & 0.00 &  \\
+Perspective stress, mirror & 0.19 & \rule{1.87cm}{6pt} \\
+Perspective stress, population & 0.00 &  \\
+\bottomrule
+\end{tabular}
+% End inlined tables/crossplay_gap_bars
+\caption{Cross-play gap for mirror and population selection. The gap is same-play success minus held-out cross-play success.}
+\label{fig:gaps}
+\end{figure}
+
+\paragraph{Failure decomposition and alternative explanations.}
+The oracle result is important: in the perspective-stress replication, the API speaker usually generated a robust message, and the failure is selection. A cache-only selection-regret audit makes this decomposition explicit. In the full-candidate API runs, population-play has zero regret in the mixed, perspective-stress, alternate-model, and partial-observability settings, while mirror self-play leaves regrets of 0.09, 0.19, 0.29, and 0.33 respectively. In the no-coordinate ablations, consensus+info reduces regret to 0.04 in the mixed pilot, 0.03 in the perspective-stress audit, and 0.01 in partial observability, showing that most remaining failures are selector failures rather than missing candidates.
+
+An even stricter candidate-pool audit asks whether any candidate succeeds with every held-out listener in a scene. Every full-candidate run has at least one such robust candidate in all 50 scenes, and population-play selects a robust candidate in 1.00 of scenes. Mirror robust-selection rates are 0.86, 0.72, 0.56, and 0.50. After exact coordinates are removed, robust non-coordinate candidates remain available in 0.92, 0.66, and 1.00 of scenes for the mixed, alternate-model perspective, and partial-observability runs, and consensus+info matches the per-scene oracle in 0.94, 0.92, and 0.98 of scenes.
+
+A uniform-random candidate baseline rules out the explanation that any candidate would do. Random expected success is 0.87, 0.72, 0.66, and 0.75 in the four full-candidate runs, so population-play improves over random by 0.14, 0.29, 0.34, and 0.25. In the no-coordinate runs, consensus+info improves over random by 0.10, 0.22, and 0.32. A message-length audit rules out a pure verbosity explanation: population-play messages average 6.82, 10.22, 10.22, and 9.66 tokens, and direct messages are longer than mirror in the perspective and partial-observability runs while remaining less successful.
+
+A prefix-$K$ candidate-budget audit shows why the four-candidate protocol is useful. In the alternate-model perspective audit, robust-scene coverage rises from 0.38 at $K=1$ to 0.66 at $K=3$ and 1.00 at $K=4$; in partial observability, it rises from 0.62 at $K=1$ to 1.00 at $K=3$. A held-out listener-disagreement audit shows that mirror self-play yields split held-out outcomes in 0.08, 0.18, 0.36, and 0.50 of scenes across the full-candidate runs, while population-play has 0.00 split outcomes in all four. In no-coordinate partial observability, consensus+info reduces split outcomes from mirror's 0.54 to 0.02. A listener-confidence audit further shows that self-reported uncertainty is not enough: in the alternate-model perspective runs, ambiguity flags are 0.00 while mirror self-play still produces high-confidence failures.
+
+\paragraph{API-listener leave-one-out mechanism check and Partial-observability support check.}
+To check that the result is not only an artifact of deterministic local selectors, we also run a cache-only leave-one-listener-out analysis over the API all-candidate evaluations. For each scene, one API listener prompt is held out; API-mirror selection uses one different API listener prompt, while API-population selection uses the other two. Population selection improves over API-mirror selection in all four cached runs, with larger gains for the alternate-model perspective audit (0.94 vs. 0.85) and partial observability (0.94 vs. 0.77). Because this analysis reuses the cached API listener pool for post-hoc splits, we treat it as a mechanism check rather than as the main held-out evaluation.
+
+As an additional support check, we run a 50-scene partial-observability stress setting in which the speaker sees a private landmark hidden from the listener. The prompt instructs the speaker to use only listener-visible information. In this setting, mirror self-play obtains 0.67 cross-play success despite 1.00 same-play success, while population-play and the oracle both reach 1.00. After removing exact row/column candidates, robust non-coordinate messages remain available: the no-coordinate oracle is 1.00 and consensus+info reaches 0.99. The candidate audit finds zero explicit private-landmark references, so the failures reflect under-informative messages that fit both the target and distractor rather than object-ID leakage or hidden-landmark leakage. Rubric coding supports this interpretation: all 50 full-run mirror failures and all 59 no-coordinate mirror failures are underspecified-distractor choices.
+% End inlined sections/experiments_results
+% Begin inlined sections/analysis_discussion
+\section{Qualitative Analysis}
+
+The quantitative pattern is easy to see in individual scenes. In scene \texttt{ps\_000005}, the target and a distractor are both small green spheres. Mirror self-play selects ``It's a small green sphere.'' Its local partner resolves this correctly, but two of the three alternate-model held-out listeners choose the distractor. Population-play selects ``The target is the small green sphere at row 4, column 1,'' which all held-out listeners map to the target. The mirror message is syntactically valid but pragmatically under-informative.
+
+In scene \texttt{ps\_000011}, mirror self-play selects ``Find the large yellow cube left of the purple cylinder.'' Under perspective shift, this relation is frame-sensitive: one alternate-model held-out listener chooses the same-shape, same-color distractor. Population-play selects ``Go to row 4, column 1: the large yellow cube,'' which all held-out listeners map to the target. The failure is not merely brevity; it is an unshared orientation convention.
+
+These examples show two ways same-partner success can mislead: the training partner may resolve ambiguity with a target-favoring tie-breaker, or it may share the speaker's spatial frame. Both produce perfect same-play success without robust communicative success.
+
+The rubric-coded mirror failures show a concentrated failure mode. Across 152 listener-level failures, 147 are underspecified distractor cases and 5 are perspective-frame errors; no coded failures are wrong-attribute, private-landmark, or listener-misparse cases. A rule-based ambiguity verifier using visible attributes, row/column mentions, and left/right frame cues recovers all 152 coded mirror-failure labels, giving a non-LLM taxonomy check. A generated qualitative appendix adds two partial-observability examples, including a no-coordinate consensus+info repair that raises held-out success from 0.33 to 1.00 in the selected scene.
+
+\section{Discussion}
+
+The experiments support a modest but important conclusion: communicative success is not a sufficient evaluation signal unless the partner distribution is specified. Mirror self-play often has a working message available, but selects one that is under-specified for another partner. Population-play improves robustness by satisfying multiple listener assumptions, while the no-coordinate ablation shows that population diversity must be paired with a selector that values discriminative information.
+
+This has implications for interactive language-agent research. Pipelines that generate alternatives, simulate a partner, and keep the response that appears to succeed can reward private conventions, hidden tie-breakers, or brittle spatial assumptions if evaluation uses the same partner type. Cross-play offers a low-cost diagnostic: hold out partner prompts, model families, or humans, and report the same-play/cross-play gap.
+
+The no-coordinate ablation is also instructive. Exact coordinates are listener-invariant in our text grid, but may be unavailable or unnatural in embodied settings. The GPT-5.5 K=8 audit shows that robust non-coordinate expressions can be generated reliably here, while selector heuristics are not monotonic: adding more candidates improves population-play but hurts consensus+info. Robust communication requires both listener-visible evidence and selectors that choose genuinely discriminative descriptions.
+
+\section{Limitations}
+
+The current experiments are intentionally small and diagnostic. The selector partners are local deterministic listeners rather than trained LLM agents, so the result should be framed as a cross-play diagnostic rather than as evidence about large-scale agent training. The held-out listeners are API language models, not humans. We audit three held-out model families including \texttt{gpt-5.5}, but they are still language-model listeners and prompt variants rather than independent human partners. The strongest ceiling results use exact coordinate fallbacks, and the K=8 no-coordinate audit is limited to 50 perspective-stress scenes; it supports the generation-versus-selection diagnosis but not a broad claim about natural language grounding. The grid scenes are text-rendered, so the benchmark tests situated reference rather than embodied perception. Finally, the strongest evidence is concentrated in two diagnostic families, perspective shift and partial observability; broader claims require larger balanced runs across all scenario types and, ideally, human listener validation.
+
+\section{Conclusion}
+
+Same-partner communicative success is not sufficient evidence of robust pragmatic communication. Mirror self-play can achieve perfect same-play success while failing under held-out listeners, especially when messages are perspective-sensitive or under-specified. Population-play mitigates this when listener-invariant fallbacks are available, and the no-coordinate ablation shows that cross-play also diagnoses weaknesses in the selector itself. These results support cross-play as a simple evaluation axis for language agents that learn, filter, or select messages through situated interaction.
+% End inlined sections/analysis_discussion
 
 \bibliographystyle{plain}
 \bibliography{references}
